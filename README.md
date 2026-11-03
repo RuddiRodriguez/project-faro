@@ -146,6 +146,9 @@ if the environment was created before this screen was added.
 
 ### Azure demo
 
+[Open the deployed demo](https://faro-ruddigarcia-demo-dhdngebkgvf8bqc2.westus3-01.azurewebsites.net).
+The recorded live Maria test is in `docs/validation/azure_deployment.json`.
+
 `.github/workflows/azure-deploy.yml` deploys the tracked `demo/` files to the
 `faro-ruddigarcia-demo` Linux Web App. It runs on changes to the demo on `main`,
 or manually from GitHub Actions. The Linux requirements use CPU-only PyTorch.

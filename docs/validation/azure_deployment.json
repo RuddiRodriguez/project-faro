@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-03",
+  "url": "https://faro-ruddigarcia-demo-dhdngebkgvf8bqc2.westus3-01.azurewebsites.net",
+  "deployed_commit": "556794e",
+  "deployment_run": "https://github.com/RuddiRodriguez/project-faro/actions/runs/41697933623",
+  "deployment_status": "success",
+  "runtime": "Python 3.15.2, Linux",
+  "api_startup": "All ten APIs are ready",
+  "health_http_status": 200,
+  "live_browser_test": {
+    "user": "maria",
+    "company": "harbor",
+    "question": "How many cranes per terminal do we have?",
+    "answer": "As of 2026-11-03, there are 2 cranes at North terminal and 2 at South terminal, based on the active crane assets listed for harbor_north and harbor_south.",
+    "verification": "verified",
+    "seconds_reported_by_app": 34.7,
+    "reused_saved_work": "none",
+    "model_attempts": {"Signal": 1, "Bridge": 4, "Shield": 1},
+    "all_model_attempts": "success",
+    "downloaded_document": "harbor-assets-permitted.json",
+    "downloaded_document_sha256": "517e8209bfe489b50204316502060311330f4f87e4c7a5b663cac13fcf978e1e",
+    "download_verified": "Four crane assets: two harbor_north and two harbor_south. SHA256 matches the live evidence.",
+    "screenshot": "azure_live_demo.jpg"
+  },
+  "deployment_corrections": [
+    "Created GitHub trust manually with the repository's immutable subject after the Azure Deployment Center check failed.",
+    "Restricted the deployment identity to Website Contributor on this Faro Web App.",
+    "Used the actual extracted application folder at startup.",
+    "Removed the unnecessary PYTHONPATH override that shadowed Python's signal module. Azure preserves editable package paths."
+  ],
+  "key_storage": "Azure application setting. Temporary encrypted GitHub transfer secret removed after successful transfer.",
+  "scope": "One live Maria question and source download; not a full production or multi-user validation."
+}
