@@ -13,7 +13,9 @@ if __name__ == "__main__":
         print("All ten APIs are ready. Open http://localhost:8501", flush=True)
         process = subprocess.Popen(
             [sys.executable, "-m", "streamlit", "run", str(Path(__file__).parent / "web/app.py"),
-             "--server.address=127.0.0.1", "--server.headless=true", "--browser.gatherUsageStats=false"],
+             f"--server.address={os.getenv('FARO_WEB_HOST', '127.0.0.1')}",
+             f"--server.port={os.getenv('FARO_WEB_PORT', '8501')}",
+             "--server.headless=true", "--browser.gatherUsageStats=false"],
             cwd=Path(__file__).resolve().parent,
             env={**os.environ, **{f"FARO_{name.upper()}_URL": url for name, url in urls.items()}})
         try:

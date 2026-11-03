@@ -1,3 +1,5 @@
 # Run from demo/: python -m pip install -r requirements-linux.txt
 # Reuse the service dependencies; do not copy packages from the macOS environment.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu
 -r requirements.txt
