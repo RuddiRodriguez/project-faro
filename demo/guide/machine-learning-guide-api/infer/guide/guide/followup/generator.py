@@ -31,7 +31,7 @@ class Generator:
                 user_messages=json.dumps(generator_input.user_messages, ensure_ascii=False),
                 question_text=json.dumps(generator_input.question_text, ensure_ascii=False),
                 missing_choice=json.dumps(generator_input.missing_choice, ensure_ascii=False),
-                definitions=json.dumps([d.model_dump() for d in generator_input.definitions], ensure_ascii=False),
+                passages=json.dumps([d.model_dump() for d in generator_input.passages], ensure_ascii=False),
             )
 
             user_message = UserMessage(content=user_msg_text.strip())

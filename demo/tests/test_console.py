@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 
-@unittest.skipUnless(os.getenv("FARO_RUN_LIVE_TESTS") == "1", "Starts eleven APIs and calls the configured model")
+@unittest.skipUnless(os.getenv("FARO_RUN_LIVE_TESTS") == "1", "Starts ten APIs and calls the configured model")
 class ConsoleTests(unittest.TestCase):
     def test_followup_and_repeat(self):
         ranking = "Rank North Terminal cranes by highest downtime last month."
@@ -19,7 +19,7 @@ class ConsoleTests(unittest.TestCase):
                 text=True, capture_output=True, timeout=420,
                 env={**os.environ, "FARO_COLLECTION_PATH": folder})
         self.assertEqual(run.returncode, 0, run.stderr)
-        self.assertIn("All eleven APIs are ready.", run.stdout)
+        self.assertIn("All ten APIs are ready.", run.stdout)
         self.assertIn("Result: Ask", run.stdout)
         self.assertEqual(run.stdout.count("Result: verified"), 3, run.stdout)
         first, repeat = run.stdout.split("New conversation.")[-2:]

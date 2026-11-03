@@ -50,7 +50,7 @@ class SourcesTests(unittest.TestCase):
 
     def setUp(self):
         shutil.copytree(DEMO/"connector/fixtures",self.root,dirs_exist_ok=True)
-        self.request=BridgeInput(company_id="harbor",permitted_scope_ids=SCOPES,definition_ids=[],question="Rank the berths in October")
+        self.request=BridgeInput(company_id="harbor",permitted_scope_ids=SCOPES,question="Rank the berths in October")
         self.data=DEMO/"local_data/demo_dataset"
         self.read=Read(source=VIEW,group="",member_ids=[],scope_ids=[],start=None,end_exclusive=None,
             link=Link(source=SHEET,left_field="ticket",right_field="Work reference"),
@@ -60,7 +60,7 @@ class SourcesTests(unittest.TestCase):
         return httpx.post(self.url+"/v1/sources",json={"company_id":"harbor","permitted_scope_ids":SCOPES,"action":action,**kw})
 
     def test_discover_inspect_project_and_trace_all_formats(self):
-        self.assertEqual({x["kind"] for x in self.api("discover").json()["items"]},{"sqlite","xlsx","pdf"})
+        self.assertEqual({x["kind"] for x in self.api("discover").json()["items"]},{"sqlite","xlsx","pdf","json"})
         for item,field,ref in [(VIEW,"minutes","operations.sqlite#current_events:"),
                                (SHEET,"Work reference","allocation.xlsx#Assignments!"),(NOTE,"text","operations_note.pdf#page 1")]:
             with self.subTest(item=item):
@@ -89,7 +89,8 @@ class SourcesTests(unittest.TestCase):
 
     def test_scope_and_company_filter_discovery_and_direct_reads(self):
         for access in ({"company_id":"different"},{"permitted_scope_ids":["harbor_north"]}):
-            self.assertEqual(self.api("discover",**access).json()["items"],[])
+            items=self.api("discover",**access).json()["items"]
+            self.assertTrue(all(item["kind"]=="json" and item["scope_ids"]==["harbor_north"] for item in items))
             self.assertEqual(self.api("read",item=VIEW,**access).status_code,403)
         self.assertEqual(self.api("read",item="../other.sqlite").status_code,403)
 

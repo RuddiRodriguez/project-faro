@@ -21,7 +21,7 @@ MESSAGES = [
 ]
 
 
-@unittest.skipUnless(os.getenv("FARO_RUN_LIVE_TESTS") == "1", "Runs the eleven APIs and live models")
+@unittest.skipUnless(os.getenv("FARO_RUN_LIVE_TESTS") == "1", "Runs the ten APIs and live models")
 class MariaAnalysisTests(unittest.TestCase):
     def test_exact_conversation(self):
         with TemporaryDirectory() as temp:

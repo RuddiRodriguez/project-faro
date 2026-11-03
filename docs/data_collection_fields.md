@@ -114,11 +114,11 @@ Product proposal: SQL. Local demo: Parquet, using the same named columns.
 | response_json.rewrite.token_usage.completion_tokens_details.rejected_prediction_tokens | OpenAI completion-token breakdown on the original model call. |
 | response_json.search.query | Scout: search input from Thread and permitted matches from its company index. |
 | response_json.search.matches | Scout: search input from Thread and permitted matches from its company index. |
-| response_json.search.matches[].document_id | Scout: approved company document; Compass checks the returned match against Library. |
-| response_json.search.matches[].title | Scout: approved company document; Compass checks the returned match against Library. |
-| response_json.search.matches[].text | Scout: approved company document; Compass checks the returned match against Library. |
-| response_json.search.matches[].source | Scout: approved company document; Compass checks the returned match against Library. |
-| response_json.search.matches[].version | Scout: approved company document; Compass checks the returned match against Library. |
+| response_json.search.matches[].document_id | Scout: passage from a permitted connected source, with its location and version. |
+| response_json.search.matches[].title | Scout: passage from a permitted connected source, with its location and version. |
+| response_json.search.matches[].text | Scout: passage from a permitted connected source, with its location and version. |
+| response_json.search.matches[].source | Scout: passage from a permitted connected source, with its location and version. |
+| response_json.search.matches[].version | Scout: passage from a permitted connected source, with its location and version. |
 | response_json.search.matches[].file_reference | Scout: index source reference and relevance score, not proof of correctness. |
 | response_json.search.matches[].score | Scout: index source reference and relevance score, not proof of correctness. |
 | response_json.decision.action | Signal's classification or Bridge's clarification/stop; see decision_source. |
@@ -195,8 +195,8 @@ Product proposal: SQL. Local demo: Parquet, using the same named columns.
 | response_json.answer.status | Operational answers use Shield's decision. Unsupported data requests may be withheld without a ranking. |
 | response_json.answer.text | Voice displays Shield-reviewed findings, a direct limitation, or checked legacy wording. |
 | response_json.answer.mode | Voice displays Shield-reviewed findings, a direct limitation, or checked legacy wording. |
-| response_json.answer.sources | Voice copies Bridge's operational source and Scout's matched Library definition and reference. |
-| response_json.answer.definition | Voice copies Bridge's operational source and Scout's matched Library definition and reference. |
+| response_json.answer.sources | Voice copies Bridge's operational source and Scout's matched source passage and reference. |
+| response_json.answer.definition | Voice copies Bridge's operational source and Scout's matched source passage and reference. |
 | response_json.rewrite.initial_analysis | Service model response: brief factual assessment and decision justification. |
 | response_json.rewrite.reasoning | Service model response: brief factual assessment and decision justification. |
 | response_json.decision.initial_analysis | Service model response: brief factual assessment and decision justification. |

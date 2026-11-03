@@ -84,10 +84,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--test", action="store_true", help="show saved timing and reused work after each turn")
     args = parser.parse_args()
-    print("Starting Faro's eleven local APIs…", flush=True)
+    print("Starting Faro's ten local APIs…", flush=True)
     try:
         with running_services() as urls, httpx.Client(timeout=180, trust_env=False) as client:
-            print("All eleven APIs are ready.", flush=True)
+            print("All ten APIs are ready.", flush=True)
             chat(client, urls, args.test)
     except (EOFError, KeyboardInterrupt):
         print()

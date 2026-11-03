@@ -8,6 +8,4 @@ class SignalInput(BaseModel):
     question: str
     matches: list[SearchMatch]
     connected_sources: list[str] = []
-    supported_tasks: list[str]
-    groups: dict[str, list[str]] = {}
     permitted_scopes: list[str]

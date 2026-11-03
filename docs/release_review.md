@@ -1,5 +1,7 @@
 # Release review — 3 November 2026
 
+The current connected-source update is documented in [Connected-source design update](connected_sources_update.md). The sections below describe the earlier release, including its now-removed prepared-data contract.
+
 ## Work included
 
 - Created one root repository containing the service libraries, APIs, shared API objects, fixtures, tests and proposal artifacts. The previously initialized but uncommitted api_objects Git metadata was preserved outside the project in ../assesment-backups/pre-publish/api_objects.git so its files can be tracked normally.

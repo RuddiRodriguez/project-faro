@@ -1,7 +1,5 @@
-from pydantic import BaseModel
+from api_objects.faro.scout.input.scout_input import ScoutInput
 
 
-class SearcherInput(BaseModel):
-    company_id: str
-    query: str
-    document_ids: list[str]
+class SearcherInput(ScoutInput):
+    pass

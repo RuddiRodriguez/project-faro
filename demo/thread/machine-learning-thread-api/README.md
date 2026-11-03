@@ -50,7 +50,7 @@ curl http://127.0.0.1:8003/v1/rewrite \
 
 ## Current boundary
 
-Thread is implemented as a separate service. Compass now calls Gate, Library and Thread through their APIs and returns Thread’s result in `rewrite`. Thread does not store conversations or check who owns them. Its caller must supply only the relevant user's current conversation. The local demo endpoint is not an authenticated public service.
+Thread is implemented as a separate service. Compass now calls Gate, Connector and Thread through their APIs and returns Thread’s result in `rewrite`. Thread does not store conversations or check who owns them. Its caller must supply only the relevant user's current conversation. The local demo endpoint is not an authenticated public service.
 
 Incomplete, refused or invalid AI output produces a 502 response rather than a fabricated rewritten question.
 

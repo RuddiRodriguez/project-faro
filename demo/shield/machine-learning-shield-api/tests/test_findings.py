@@ -1,5 +1,5 @@
 from pathlib import Path
-from unittest import TestCase
+from tests_support import ConnectedTest
 from unittest.mock import Mock, patch
 from utils.llms.llm_handler import LLMHandler
 from utils.openai_client.exceptions import OpenAiRecoverableError
@@ -13,11 +13,10 @@ from shield.verifier_input import VerifierInput
 DATA = Path(__file__).resolve().parents[3] / "local_data/demo_dataset"
 
 
-class FindingsTests(TestCase):
+class FindingsTests(ConnectedTest):
     def test_replay_then_release_only_reviewed_findings(self):
-        request = Request(company_id="harbor",permitted_scope_ids=["harbor_north"],
-                          definition_ids=["harbor_idle_time_v1"],question="How much idle time?")
-        read = Read(source="activity",scope_ids=[],member_ids=[],group="crane",start=None,
+        request = Request(company_id="harbor",permitted_scope_ids=["harbor_north"],question="How much idle time?")
+        read = Read(source="harbor/activity",scope_ids=[],member_ids=[],group="crane",start=None,
                     end_exclusive=None,expression="df['idle_hours'].sum()")
         evidence = execute(DATA,request,read)
         evidence.catalogue_version=snapshot_id(catalogue(DATA,request))
@@ -34,17 +33,15 @@ class FindingsTests(TestCase):
         self.assertEqual(model.predict.call_count,1)
 
     def test_search_is_not_the_access_boundary(self):
-        request=Request(company_id="harbor",permitted_scope_ids=["harbor_north"],definition_ids=["harbor_idle_time_v1"],question="What is available?")
+        request=Request(company_id="harbor",permitted_scope_ids=["harbor_north"],question="What is available?")
         cat=catalogue(DATA,request)
-        self.assertIn("idle_hours",cat["sources"]["activity"]["fields"])
+        self.assertIn("idle_hours",cat["connected"]["harbor/activity"]["fields"])
         self.assertEqual(set(cat["scopes"]),{"harbor_north"})
-        self.assertTrue(all(a["scope_id"]=="harbor_north" for a in cat["agreements"]))
         self.assertNotIn("harbor_south",str(cat))
 
 
     def test_review_timeout_withholds_after_three_model_calls(self):
-        request = Request(company_id="harbor",permitted_scope_ids=["harbor_north"],
-                          definition_ids=[],question="Which sources are available?")
+        request = Request(company_id="harbor",permitted_scope_ids=["harbor_north"],question="Which sources are available?")
         from api_objects.faro.bridge.output.bridge_output import BridgeOutput
         evidence=BridgeOutput(company_id=request.company_id,question=request.question,status="ready",source="catalogue",
             catalogue_version=snapshot_id(catalogue(DATA,request)), findings=[Finding(text="Inventory is available.",evidence_ids=[0])])

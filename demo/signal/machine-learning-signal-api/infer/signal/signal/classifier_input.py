@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class Definition(BaseModel):
+class Passage(BaseModel):
     title: str
     text: str
     source: str
@@ -9,8 +9,6 @@ class Definition(BaseModel):
 class ClassifierInput(BaseModel):
     unclear_references: list[str] = []
     question: str
-    matches: list[Definition]
+    matches: list[Passage]
     connected_sources: list[str] = []
-    supported_tasks: list[str]
-    groups: dict[str, list[str]] = {}
     permitted_scopes: list[str]

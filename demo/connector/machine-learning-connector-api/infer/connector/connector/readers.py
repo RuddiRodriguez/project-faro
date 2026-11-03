@@ -1,12 +1,13 @@
 """Readers return native fields and original row/page locations. No business rules."""
 from contextlib import closing
 import sqlite3
+import json
 
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from pypdf import PdfReader
 
-LIMIT = 500
+LIMIT = 1000
 
 
 def quote(name):
@@ -80,4 +81,17 @@ class PDF:
         return rows,refs
 
 
-READERS = {".sqlite": SQLite, ".xlsx": Excel, ".pdf": PDF}
+class JSON:
+    def __init__(self, path):
+        self.path = path
+
+    def items(self):
+        return {name: sorted({field for row in rows for field in row})
+                for name, rows in json.loads(self.path.read_text()).items()}
+
+    def read(self, name, fields):
+        rows = json.loads(self.path.read_text())[name]
+        return [{field: row.get(field) for field in fields} for row in rows], [f"{name}:row {i}" for i in range(1,len(rows)+1)]
+
+
+READERS = {".json": JSON, ".sqlite": SQLite, ".xlsx": Excel, ".pdf": PDF}

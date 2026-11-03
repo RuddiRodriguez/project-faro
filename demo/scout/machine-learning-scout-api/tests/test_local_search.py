@@ -1,44 +1,41 @@
 import unittest
+from tempfile import TemporaryDirectory
+from pathlib import Path
 from unittest.mock import patch
-
-from scout.embedder.embedder import E5SmallEmbedder
-
-from knowledge_search.retrieval.inputs.search_input import SearchInput, SearchFilter
-from knowledge_search.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
+from api_objects.faro.connector.output.connector_output import SourceItem
 from scout.local_client import LocalKnowledgeBaseClient
+from knowledge_search.retrieval.inputs.search_input import SearchInput,SearchFilter
+from knowledge_search.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
 
 
 class LocalSearchTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with patch.object(E5SmallEmbedder, "get_embedding", side_effect=AssertionError("Query at startup")), \
-             patch.object(E5SmallEmbedder, "get_passage_embeddings", side_effect=AssertionError("Passage at startup")):
-            cls.client = LocalKnowledgeBaseClient()
+        cls.temp=TemporaryDirectory();cls.addClassCleanup(cls.temp.cleanup)
+        cls.client=LocalKnowledgeBaseClient(index_dir=Path(cls.temp.name))
+        cls.items=[SourceItem(id="report/pages",kind="pdf",location="report.pdf",fields=["page","text"],scope_ids=["north"],version="v1")]
+        cls.docs=[dict(company_id="new_client",document_id="report/pages/0",title="Operations report",text="Crane idle time is recorded in minutes.",version="v1",source="report.pdf#page 1")]
+        cls.key=cls.client.prepare("new_client",cls.items,lambda:cls.docs)
 
-    def test_aws_shape_and_scope_before_ranking(self):
-        result = self.client.retrieve(
-            knowledgeBaseId="harbor", retrievalQuery={"text": "moves per working hour"},
-            retrievalConfiguration={"vectorSearchConfiguration": {
-                "numberOfResults": 1, "filter": {"in": {"key": "AssetId",
-                    "value": ["harbor_idle_time_v1", "pacific_moves_per_hour_v1"]}}}})
-        hit, = result["retrievalResults"]
-        self.assertEqual(hit["metadata"]["AssetId"], "harbor_idle_time_v1")
-        self.assertEqual(hit["content"]["type"], "TEXT")
-        self.assertEqual(hit["location"]["type"], "S3")
-        self.assertIn("s3Location", hit["location"])
+    def retrieve(self,query,ids=None):
+        return self.client.retrieve(knowledgeBaseId=self.key,retrievalQuery={"text":query},retrievalConfiguration={"vectorSearchConfiguration":{
+            "numberOfResults":1,"filter":{"in":{"key":"AssetId","value":ids or ["report/pages/0"]}}}})
 
-    def test_only_question_is_embedded_during_search(self):
-        with patch.object(self.client.embedder, "get_embedding", wraps=self.client.embedder.get_embedding) as calls, \
-             patch.object(self.client.embedder, "get_passage_embeddings", side_effect=AssertionError("Passage at search")):
-            self.client.retrieve(knowledgeBaseId="harbor", retrievalQuery={"text": "Movimientos por hora"},
-                retrievalConfiguration={"vectorSearchConfiguration": {"numberOfResults": 1,
-                    "filter": {"in": {"key": "AssetId", "value": ["harbor_moves_per_hour_v1"]}}}})
-        self.assertEqual(calls.call_count, 1)
-        calls.assert_called_once_with("Movimientos por hora")
+    def test_aws_shape_and_permission_filter(self):
+        hit,=self.retrieve("crane idle time")["retrievalResults"]
+        self.assertEqual(hit["content"]["type"],"TEXT")
+        self.assertEqual(hit["metadata"]["AssetId"],"report/pages/0")
+        self.assertEqual(self.retrieve("cranes",["other_client/private"])["retrievalResults"],[])
 
-    def test_knowledge_search_threshold_discards_real_low_score(self):
-        search = SearchInput(knowledge_base_id="harbor", query="moves per working hour",
-                             minimum_relevance_score=1.0, scope_filterable_keys=["AssetId"],
-                             filters=[SearchFilter(operator="In", key="AssetId",
-                                                   value=["harbor_idle_time_v1"])])
-        self.assertEqual(KnowledgeBaseRetriever(self.client).search(search), [])
+    def test_saved_passages_reused_for_english_and_spanish(self):
+        with patch.object(self.client.embedder,"get_passage_embeddings",side_effect=AssertionError("Rebuilt unchanged index")):
+            self.assertEqual(self.client.prepare("new_client",self.items,lambda:self.fail("Reloaded content")),self.key)
+            for query in ("crane idle time","tiempo inactivo de las grúas"):
+                self.assertTrue(self.retrieve(query)["retrievalResults"])
+        changed=[self.items[0].model_copy(update={"version":"v2"})]
+        self.assertNotEqual(self.client.prepare("new_client",changed,lambda:self.docs),self.key)
+
+    def test_threshold_filters_results(self):
+        search=SearchInput(knowledge_base_id=self.key,query="cranes",minimum_relevance_score=1.0,
+            scope_filterable_keys=["AssetId"],filters=[SearchFilter(operator="In",key="AssetId",value=["report/pages/0"])])
+        self.assertEqual(KnowledgeBaseRetriever(self.client).search(search),[])

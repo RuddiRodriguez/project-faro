@@ -8,7 +8,7 @@ from scout_api.endpoints.search_endpoint import SearcherEndpoint
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="Scout — finds relevant company definitions")
+    app = FastAPI(title="Scout — finds relevant connected source material")
     endpoint = SearcherEndpoint(Searcher(LocalKnowledgeBaseClient()))
 
     @app.post("/v1/search", response_model=ScoutOutput)

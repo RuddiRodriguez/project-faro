@@ -1,5 +1,11 @@
 # Validation — 3 November 2026
 
+## Connected-source update
+
+See [the change and test record](connected_sources_update.md) for the current ten-service flow. The default local run discovered 89 tests: 77 passed and 12 opt-in tests were skipped, with no failed suites. Separately, the three new-client HTTP checks, four-sector console check, and Maria clarification check passed. The records below describe the earlier release and are retained as historical evidence.
+
+## Earlier release
+
 This review distinguishes local code tests from conversations using the configured models. All business records are fictional fixtures.
 
 ## Local checks

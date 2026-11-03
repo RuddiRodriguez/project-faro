@@ -1465,7 +1465,7 @@ endobj
 endobj
 39 0 obj
 <<
-/Length 5764
+/Length 6173
 >>
 stream
 q
@@ -1591,6 +1591,23 @@ q
 0.07451 0.168627 0.262745 rg
 BT
 1 0 0 1 0 35.1 Tm
+/F2+0 10.5 Tf
+15.2 TL
+(The client grants access to the data and asks questions\056 The client does not prepare a glossary or a) Tj
+T*
+(list of allowed question types\056 Faro stores only the connection settings and access permissions) Tj
+T*
+(needed to reach the sources safely\056 It discovers their contents itself\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 62 550.09 cm
+q
+0.07451 0.168627 0.262745 rg
+BT
+1 0 0 1 0 35.1 Tm
 -0.015939 Tw
 /F2+0 10.5 Tf
 15.2 TL
@@ -1605,7 +1622,7 @@ ET
 Q
 Q
 q
-1 0 0 1 62 409.69 cm
+1 0 0 1 62 356.09 cm
 q
 0.929412 0.960784 0.964706 rg
 n
@@ -1759,7 +1776,7 @@ Q
 Q
 Q
 q
-1 0 0 1 56.14 335.09 cm
+1 0 0 1 56.14 281.49 cm
 q
 0.929412 0.960784 0.964706 rg
 n
@@ -3251,7 +3268,7 @@ endobj
 endobj
 68 0 obj
 <<
-/Length 7627
+/Length 7762
 >>
 stream
 q
@@ -3335,28 +3352,28 @@ ET
 Q
 Q
 q
-1 0 0 1 62 696.49 cm
+1 0 0 1 62 681.29 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 0 19.9 Tm
+1 0 0 1 0 35.1 Tm
 /F2+0 10.5 Tf
 15.2 TL
-(The local demo reads SQLite\054 Excel and text PDFs through a separate Connector service\056 Its readers) Tj
+(The local demo reads JSON\054 SQLite\054 Excel and text PDFs through a separate Connector service\056 Its) Tj
 T*
--0.05186 Tw
-(open the files\056 They do not decide which entries count as idle time or which terminal performed better\056) Tj
+(readers open the files\056 They do not decide which entries count as idle time or which terminal) Tj
 T*
-0 Tw
+(performed better\056) Tj
+T*
 ET
 Q
 Q
 q
-1 0 0 1 62 515.49 cm
+1 0 0 1 62 487.29 cm
 q
 0.929412 0.960784 0.964706 rg
 n
-0 173 483 -27 re
+0 186 483 -27 re
 f*
 0 0 0 rg
 BT
@@ -3364,7 +3381,7 @@ BT
 12 TL
 ET
 q
-1 0 0 1 8 153 cm
+1 0 0 1 8 166 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3377,7 +3394,7 @@ ET
 Q
 Q
 q
-1 0 0 1 113 153 cm
+1 0 0 1 113 166 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3390,7 +3407,7 @@ ET
 Q
 Q
 q
-1 0 0 1 293 153 cm
+1 0 0 1 293 166 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3403,7 +3420,7 @@ ET
 Q
 Q
 q
-1 0 0 1 8 113 cm
+1 0 0 1 8 126 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3422,27 +3439,29 @@ q
 q
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 0 16.7 Tm
+1 0 0 1 0 29.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Searches company definitions and lists) Tj
+(Indexes connected field names and) Tj
 T*
-(the permitted tables\054 sheets and PDF\056) Tj
+(PDF passages\073 returns matches and) Tj
+T*
+(permitted sources\056) Tj
 T*
 ET
 Q
 Q
 q
-1 0 0 1 293 113 cm
+1 0 0 1 293 126 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
 1 0 0 1 0 16.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Index newly connected file contents for) Tj
+(Expand content extraction and indexing for) Tj
 T*
-(search at large scale\056) Tj
+(large sources\054 with background refresh\056) Tj
 T*
 ET
 Q
@@ -3549,8 +3568,8 @@ q
 0 0.498039 0.509804 RG
 0.8 w
 n
-0 146 m
-483 146 l
+0 159 m
+483 159 l
 S
 0.85098 0.886275 0.909804 RG
 0.4 w
@@ -3570,11 +3589,11 @@ Q
 Q
 Q
 q
-1 0 0 1 56.14 440.89 cm
+1 0 0 1 56.14 397.49 cm
 q
 0.929412 0.960784 0.964706 rg
 n
-0 74.6 483 -74.6 re
+0 89.8 483 -89.8 re
 f*
 0 0 0 rg
 BT
@@ -3582,7 +3601,7 @@ BT
 12 TL
 ET
 q
-1 0 0 1 12 57.6 cm
+1 0 0 1 12 72.8 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3599,16 +3618,16 @@ q
 q
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 0 35.1 Tm
+1 0 0 1 0 50.3 Tm
 /F2+0 10.5 Tf
 15.2 TL
-(The local demo selects a saved user account\073 production sign\055in is still needed\056 Connected files) Tj
+(The local demo selects a saved user account\073 production sign\055in is still needed\056 SQLite\054 Excel and) Tj
 T*
--0.056763 Tw
-(are granted as a whole\056 Reads stop above 500 rows\056 The expression worker is isolated on macOS\073) Tj
+(PDF access is granted per file\056 JSON records can also be restricted by an access field configured) Tj
 T*
-0 Tw
-(other operating systems need an equivalent worker\056) Tj
+(in Connector\056 Reads stop above 1\054000 rows\056 The expression worker is isolated on macOS\073 other) Tj
+T*
+(operating systems need an equivalent worker\056) Tj
 T*
 ET
 Q
@@ -3619,8 +3638,8 @@ q
 0.85098 0.886275 0.909804 RG
 0.5 w
 n
-0 74.6 m
-483 74.6 l
+0 89.8 m
+483 89.8 l
 S
 n
 0 0 m
@@ -3628,17 +3647,17 @@ n
 S
 n
 0 0 m
-0 74.6 l
+0 89.8 l
 S
 n
 483 0 m
-483 74.6 l
+483 89.8 l
 S
 Q
 Q
 Q
 q
-1 0 0 1 62 413.89 cm
+1 0 0 1 62 370.49 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3651,7 +3670,7 @@ ET
 Q
 Q
 q
-1 0 0 1 62 363.29 cm
+1 0 0 1 62 319.89 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3668,7 +3687,7 @@ ET
 Q
 Q
 q
-1 0 0 1 62 309.69 cm
+1 0 0 1 62 266.29 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -3764,9 +3783,9 @@ BT
 1 0 0 1 0 18 Tm
 /F2+0-0 10 Tf
 14 TL
-(Searches permitted definitions and returns) Tj
+(Searches descriptions and passages taken from) Tj
 T*
-(matching evidence\056) Tj
+(connected sources\056) Tj
 T*
 ET
 Q
@@ -4274,7 +4293,7 @@ endobj
 endobj
 81 0 obj
 <<
-/Length 10183
+/Length 10201
 >>
 stream
 q
@@ -4461,17 +4480,17 @@ h
 B*
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 395.2444 274 Tm
+1 0 0 1 388 274 Tm
 /F3+0 9 Tf
 10.8 TL
-(Library) Tj
+(Connector) Tj
 T*
 ET
 BT
-1 0 0 1 364.4766 259 Tm
+1 0 0 1 365.8125 259 Tm
 /F2+0 8 Tf
 9.6 TL
-(Holds company meanings) Tj
+(Opens permitted sources) Tj
 T*
 ET
 0 0.498039 0.509804 RG
@@ -4886,9 +4905,9 @@ BT
 1 0 0 1 0 16.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Gate checks the person and permitted sites\056 Library supplies company) Tj
+(Gate supplies the person\054 company and permitted sites\056 Connector) Tj
 T*
-(terms and available sources within that access\056) Tj
+(returns the sources those permissions allow\056) Tj
 T*
 ET
 Q
@@ -4901,7 +4920,7 @@ BT
 1 0 0 1 0 3.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Question and approved terms) Tj
+(Question and connected sources) Tj
 T*
 ET
 Q
@@ -4914,11 +4933,11 @@ BT
 1 0 0 1 0 29.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Thread uses relevant replies\073 Scout searches definitions\056 Signal decides) Tj
+(Thread uses relevant replies\073 Scout searches source descriptions and) Tj
 T*
-(whether to continue\056 Guide asks one question if a choice that matters is) Tj
+(passages\056 Signal decides whether to continue\056 Guide asks one question) Tj
 T*
-(missing\056) Tj
+(if a choice that matters is missing\056) Tj
 T*
 ET
 Q
@@ -5501,7 +5520,7 @@ endobj
 endobj
 96 0 obj
 <<
-/Length 6972
+/Length 7191
 >>
 stream
 q
@@ -5611,11 +5630,11 @@ ET
 Q
 Q
 q
-1 0 0 1 62 421.29 cm
+1 0 0 1 62 408.29 cm
 q
 0.929412 0.960784 0.964706 rg
 n
-0 252 483 -27 re
+0 265 483 -27 re
 f*
 0 0 0 rg
 BT
@@ -5623,7 +5642,7 @@ BT
 12 TL
 ET
 q
-1 0 0 1 8 232 cm
+1 0 0 1 8 245 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -5636,7 +5655,7 @@ ET
 Q
 Q
 q
-1 0 0 1 178 232 cm
+1 0 0 1 178 245 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -5649,7 +5668,7 @@ ET
 Q
 Q
 q
-1 0 0 1 8 205 cm
+1 0 0 1 8 218 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -5662,7 +5681,7 @@ ET
 Q
 Q
 q
-1 0 0 1 178 179 cm
+1 0 0 1 178 192 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -5671,15 +5690,15 @@ BT
 13 TL
 (Maria selects her demo account\056 Her account permits North and South) Tj
 T*
-(at Harbor\056 Her words cannot grant access to another company\056 Library) Tj
+(at Harbor\056 Her words cannot grant access to another company\056) Tj
 T*
-(loads the prepared Harbor catalogue\056) Tj
+(Connector lists only the connected sources her account may read\056) Tj
 T*
 ET
 Q
 Q
 q
-1 0 0 1 8 152 cm
+1 0 0 1 8 165 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -5692,7 +5711,7 @@ ET
 Q
 Q
 q
-1 0 0 1 178 126 cm
+1 0 0 1 178 139 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -5709,14 +5728,14 @@ ET
 Q
 Q
 q
-1 0 0 1 8 99 cm
+1 0 0 1 8 112 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
 1 0 0 1 0 3.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Scout \174 find the meaning) Tj
+(Scout \174 find relevant sources) Tj
 T*
 ET
 Q
@@ -5726,14 +5745,18 @@ q
 q
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 0 29.7 Tm
+1 0 0 1 0 42.7 Tm
+-0.128115 Tw
 /F2+0 9.3 Tf
 13 TL
-(Search Harbor\001s approved documents for idle time\056 Return the text and) Tj
+(Search field names and passages from the connected files\056 The October) Tj
 T*
-(source\072 idle time is when a crane is available but not working\056 This is a) Tj
+0 Tw
+(operations note is relevant\072 it explains the activity codes and links) Tj
 T*
-(definition\054 not a ranking\056) Tj
+(between the files\056 Return that passage with its source and version\056 No) Tj
+T*
+(ranking has been produced yet\056) Tj
 T*
 ET
 Q
@@ -5776,18 +5799,18 @@ q
 0 0.498039 0.509804 RG
 0.8 w
 n
-0 225 m
-483 225 l
+0 238 m
+483 238 l
 S
 0.85098 0.886275 0.909804 RG
 0.4 w
 n
-0 172 m
-483 172 l
+0 185 m
+483 185 l
 S
 n
-0 119 m
-483 119 l
+0 132 m
+483 132 l
 S
 n
 0 66 m
@@ -5801,7 +5824,7 @@ Q
 Q
 Q
 q
-1 0 0 1 56.14 346.69 cm
+1 0 0 1 56.14 333.69 cm
 q
 0.929412 0.960784 0.964706 rg
 n
@@ -5867,16 +5890,18 @@ Q
 Q
 Q
 q
-1 0 0 1 62 316.29 cm
+1 0 0 1 62 288.09 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 0 19.9 Tm
+1 0 0 1 0 35.1 Tm
 /F2+0 10.5 Tf
 15.2 TL
-(For a question asked on 1 November 2026 in the client\001s local time\054 \002last month\003 means 1\00431) Tj
+(For a question asked in November 2026\054 \002last month\003 means 1\00431 October\056 Bridge interprets the) Tj
 T*
-(October\056 The date range travels with the request\056) Tj
+(question using the current reference date\056 The demo uses UTC\073 business timezone handling still) Tj
+T*
+(needs to be connected for production\056) Tj
 T*
 ET
 Q
@@ -6005,9 +6030,9 @@ BT
 1 0 0 1 0 18 Tm
 /F2+0-0 10 Tf
 14 TL
-(Searches permitted definitions and returns) Tj
+(Searches descriptions and passages taken from) Tj
 T*
-(matching evidence\056) Tj
+(connected sources\056) Tj
 T*
 ET
 Q
@@ -6480,7 +6505,7 @@ endobj
 endobj
 110 0 obj
 <<
-/Length 5644
+/Length 5659
 >>
 stream
 q
@@ -6575,9 +6600,9 @@ BT
 (Bridge receives the clarified question and the full catalogue of sources Maria may use\056 Scout\001s search) Tj
 T*
 0 Tw
-(results help explain terms\073 they do not restrict Bridge to one document or require every question to be) Tj
+(results point to relevant source material\073 they do not restrict Bridge to one document or require every) Tj
 T*
-(a ranking\056) Tj
+(question to be a ranking\056) Tj
 T*
 ET
 Q
@@ -7379,7 +7404,7 @@ endobj
 endobj
 125 0 obj
 <<
-/Length 5486
+/Length 5491
 >>
 stream
 q
@@ -7476,22 +7501,24 @@ ET
 Q
 Q
 q
-1 0 0 1 62 676.49 cm
+1 0 0 1 62 661.29 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 0 19.9 Tm
+1 0 0 1 0 35.1 Tm
 /F2+0 10.5 Tf
 15.2 TL
-(Scout returns the idle\055time definition and the list of permitted sources\056 Bridge reads the October note\056) Tj
+(Scout returns matching source passages and the list of permitted sources\056 Bridge reads the October) Tj
 T*
-(It learns that database field \002ticket\003 and workbook field \002Work reference\003 identify the same posting\056) Tj
+(note\056 It learns that database field \002ticket\003 and workbook field \002Work reference\003 identify the same) Tj
+T*
+(posting\056) Tj
 T*
 ET
 Q
 Q
 q
-1 0 0 1 62 649.49 cm
+1 0 0 1 62 634.29 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -7504,7 +7531,7 @@ ET
 Q
 Q
 q
-1 0 0 1 62 598.89 cm
+1 0 0 1 62 583.69 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -7521,7 +7548,7 @@ ET
 Q
 Q
 q
-1 0 0 1 62 571.89 cm
+1 0 0 1 62 556.69 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -7534,7 +7561,7 @@ ET
 Q
 Q
 q
-1 0 0 1 62 536.49 cm
+1 0 0 1 62 521.29 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -7549,7 +7576,7 @@ ET
 Q
 Q
 q
-1 0 0 1 56.14 453.89 cm
+1 0 0 1 56.14 438.69 cm
 q
 0.929412 0.960784 0.964706 rg
 n
@@ -8209,7 +8236,7 @@ endobj
 /A <<
 /S /URI
 /Type /Action
-/URI (https\072\057\057github\056com\057RuddiRodriguez\057project\055faro\057blob\057main\057demo\057bridge\057machine\055learning\055bridge\055api\057infer\057bridge\057bridge\057records\056py)
+/URI (https\072\057\057github\056com\057RuddiRodriguez\057project\055faro\057blob\057main\057demo\057shield\057machine\055learning\055shield\055api\057infer\057shield\057shield\057verifier\056py)
 >>
 /Border [ 0 0 0 ]
 /Rect [ 615 574.875 666.5303 587.875 ]
@@ -8219,7 +8246,7 @@ endobj
 endobj
 139 0 obj
 <<
-/Length 6937
+/Length 6910
 >>
 stream
 q
@@ -8774,7 +8801,7 @@ BT
 1 0 0 1 0 4 Tm
 /F3+0-0 10 Tf
 14 TL
-(Faro \174 record checks) Tj
+(Shield \174 current demo) Tj
 T*
 ET
 Q
@@ -8805,9 +8832,9 @@ BT
 1 0 0 1 0 18 Tm
 /F2+0-0 10 Tf
 14 TL
-(Checks revisions\054 deletion markers\054 dates\054) Tj
+(Replays the reads and releases only supported) Tj
 T*
-(coverage and approved measures\056) Tj
+(findings\056) Tj
 T*
 ET
 Q
@@ -9177,7 +9204,7 @@ endobj
 endobj
 152 0 obj
 <<
-/Length 5629
+/Length 5658
 >>
 stream
 q
@@ -9345,11 +9372,11 @@ BT
 1 0 0 1 0 29.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Use the agreed start and end events for dwell time\054 the client\001s local) Tj
+(Use start and end events documented in the source for dwell time\054 the) Tj
 T*
-(week\054 the site and a comparison period\056 If the year or baseline matters) Tj
+(client\001s local week\054 the site and a comparison period\056 If the year or) Tj
 T*
-(and cannot be inferred\054 ask once\056) Tj
+(baseline matters and cannot be inferred\054 ask once\056) Tj
 T*
 ET
 Q
@@ -9377,9 +9404,9 @@ BT
 13 TL
 (Identify reefer containers\054 check the relevant event times and coverage) Tj
 T*
-(in both periods\054 and compare using the agreed measure\056 A longer stay) Tj
+(in both periods\054 and compare using a measure supported by the source\056) Tj
 T*
-(for one container does not prove a general spike\056) Tj
+(A longer stay for one container does not prove a general spike\056) Tj
 T*
 ET
 Q
@@ -10035,7 +10062,7 @@ endobj
 endobj
 166 0 obj
 <<
-/Length 6487
+/Length 6576
 >>
 stream
 q
@@ -10140,11 +10167,11 @@ ET
 Q
 Q
 q
-1 0 0 1 62 408.29 cm
+1 0 0 1 62 395.29 cm
 q
 0.929412 0.960784 0.964706 rg
 n
-0 265 483 -27 re
+0 278 483 -27 re
 f*
 0 0 0 rg
 BT
@@ -10152,7 +10179,7 @@ BT
 12 TL
 ET
 q
-1 0 0 1 8 245 cm
+1 0 0 1 8 258 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -10165,7 +10192,7 @@ ET
 Q
 Q
 q
-1 0 0 1 178 245 cm
+1 0 0 1 178 258 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -10178,7 +10205,7 @@ ET
 Q
 Q
 q
-1 0 0 1 8 218 cm
+1 0 0 1 8 231 cm
 q
 0.07451 0.168627 0.262745 rg
 BT
@@ -10195,16 +10222,16 @@ q
 q
 0.07451 0.168627 0.262745 rg
 BT
-1 0 0 1 0 29.7 Tm
--0.116468 Tw
+1 0 0 1 0 42.7 Tm
 /F2+0 9.3 Tf
 13 TL
-(Build the company\001s search index upfront\056 At question time\054 turn only the) Tj
+(Index the connected source descriptions and PDF passages\056 Reuse the) Tj
 T*
-0 Tw
-(question into a search representation\056 Refresh the index when the) Tj
+(saved index while source versions and access stay the same\056 In this) Tj
 T*
-(approved documents change\056) Tj
+(demo the first search builds it\073 later searches embed only the question\056) Tj
+T*
+(The product should prepare it when data is connected\056) Tj
 T*
 ET
 Q
@@ -10311,8 +10338,8 @@ q
 0 0.498039 0.509804 RG
 0.8 w
 n
-0 238 m
-483 238 l
+0 251 m
+483 251 l
 S
 0.85098 0.886275 0.909804 RG
 0.4 w
@@ -10336,7 +10363,7 @@ Q
 Q
 Q
 q
-1 0 0 1 56.14 333.69 cm
+1 0 0 1 56.14 320.69 cm
 q
 0.929412 0.960784 0.964706 rg
 n
@@ -10481,9 +10508,9 @@ BT
 1 0 0 1 0 18 Tm
 /F2+0-0 10 Tf
 14 TL
-(Searches permitted definitions and returns) Tj
+(Searches descriptions and passages taken from) Tj
 T*
-(matching evidence\056) Tj
+(connected sources\056) Tj
 T*
 ET
 Q
@@ -12795,7 +12822,7 @@ endobj
 endobj
 207 0 obj
 <<
-/Length 5380
+/Length 5390
 >>
 stream
 q
@@ -13012,9 +13039,9 @@ BT
 13 TL
 (Six hospitals have July\004October records covering occupancy\054 visits\054) Tj
 T*
-(waiting time\054 admissions\054 discharges and cancellations\056 A separate) Tj
+(waiting time\054 admissions\054 discharges and cancellations\056 Source gaps) Tj
 T*
-(check confirms that a missing reporting day is not zero\056) Tj
+(remain visible\073 Shield must not treat missing reports as zero\056) Tj
 T*
 ET
 Q
@@ -16786,7 +16813,7 @@ endobj
 endobj
 260 0 obj
 <<
-/Length 6873
+/Length 6877
 >>
 stream
 q
@@ -17293,7 +17320,7 @@ BT
 15.2 TL
 (Gate checks access again\073 Shield rechecks reused evidence\056 A change of company\054 permissions\054) Tj
 T*
-(wording\054 definitions\054 source version or model settings invalidates the relevant saved work\056) Tj
+(wording\054 source contents\054 source version or model settings invalidates the relevant saved work\056) Tj
 T*
 ET
 Q
@@ -17833,7 +17860,7 @@ endobj
 endobj
 274 0 obj
 <<
-/Length 9429
+/Length 9436
 >>
 stream
 q
@@ -18479,13 +18506,13 @@ BT
 1 0 0 1 0 50.3 Tm
 /F2+0 10.5 Tf
 15.2 TL
-(Thread supplies the rewritten question\056 Scout supplies matching definitions and sources\056 Signal) Tj
+(Thread supplies the rewritten question\056 Scout supplies matching source passages and references\056) Tj
 T*
-(classifies the next action\073 Guide asks the follow\055up if needed\056 Bridge supplies reads and evidence\056) Tj
+(Signal classifies the next action\073 Guide asks the follow\055up if needed\056 Bridge supplies reads and) Tj
 T*
-(Shield supplies verified findings or a reason for withholding\056 Voice supplies the answer\056 Compass) Tj
+(evidence\056 Shield supplies verified findings or a reason for withholding\056 Voice supplies the answer\056) Tj
 T*
-(records the turn outcome and cache use\056) Tj
+(Compass records the turn outcome and cache use\056) Tj
 T*
 ET
 Q
@@ -18779,241 +18806,241 @@ xref
 0003164043 00000 n 
 0003164375 00000 n 
 0003164720 00000 n 
-0003170537 00000 n 
-0003170823 00000 n 
-0003170931 00000 n 
-0003172022 00000 n 
-0003172265 00000 n 
-0003202331 00000 n 
-0003203076 00000 n 
-0003204210 00000 n 
-0003204465 00000 n 
-0003232032 00000 n 
-0003232782 00000 n 
-0003233127 00000 n 
-0003233472 00000 n 
-0003233752 00000 n 
-0003240086 00000 n 
-0003240379 00000 n 
-0003240487 00000 n 
-0003241578 00000 n 
-0003241821 00000 n 
-0003271887 00000 n 
-0003272632 00000 n 
-0003273766 00000 n 
-0003274021 00000 n 
-0003301588 00000 n 
-0003302338 00000 n 
-0003302668 00000 n 
-0003303013 00000 n 
-0003303348 00000 n 
-0003303682 00000 n 
-0003311362 00000 n 
-0003311641 00000 n 
-0003311749 00000 n 
-0003312840 00000 n 
-0003313083 00000 n 
-0003343149 00000 n 
-0003343894 00000 n 
-0003345028 00000 n 
-0003345283 00000 n 
-0003372850 00000 n 
-0003373600 00000 n 
-0003373880 00000 n 
-0003374222 00000 n 
-0003384459 00000 n 
-0003384752 00000 n 
-0003384860 00000 n 
-0003385951 00000 n 
-0003386194 00000 n 
-0003416260 00000 n 
-0003417005 00000 n 
-0003418139 00000 n 
-0003418394 00000 n 
-0003445961 00000 n 
-0003446711 00000 n 
-0003447045 00000 n 
-0003447375 00000 n 
-0003447706 00000 n 
-0003448042 00000 n 
-0003455067 00000 n 
-0003455358 00000 n 
-0003455466 00000 n 
-0003456559 00000 n 
-0003456804 00000 n 
-0003486871 00000 n 
-0003487617 00000 n 
-0003488754 00000 n 
-0003489011 00000 n 
-0003516579 00000 n 
-0003517330 00000 n 
-0003517619 00000 n 
-0003517965 00000 n 
-0003518301 00000 n 
-0003523999 00000 n 
-0003524301 00000 n 
-0003524410 00000 n 
-0003525504 00000 n 
-0003525749 00000 n 
-0003555816 00000 n 
-0003556562 00000 n 
-0003557699 00000 n 
-0003557956 00000 n 
-0003585524 00000 n 
-0003586275 00000 n 
-0003586564 00000 n 
-0003586900 00000 n 
-0003587228 00000 n 
-0003587563 00000 n 
-0003593103 00000 n 
-0003593397 00000 n 
-0003593506 00000 n 
-0003594600 00000 n 
-0003594845 00000 n 
-0003624912 00000 n 
-0003625658 00000 n 
-0003626795 00000 n 
-0003627052 00000 n 
-0003654620 00000 n 
-0003655371 00000 n 
-0003655706 00000 n 
-0003656038 00000 n 
-0003656372 00000 n 
-0003663363 00000 n 
-0003663649 00000 n 
-0003663758 00000 n 
-0003664852 00000 n 
-0003665097 00000 n 
-0003695164 00000 n 
-0003695910 00000 n 
-0003697047 00000 n 
-0003697304 00000 n 
-0003724872 00000 n 
-0003725623 00000 n 
-0003725956 00000 n 
-0003726291 00000 n 
-0003731974 00000 n 
-0003732268 00000 n 
-0003732377 00000 n 
-0003733475 00000 n 
-0003733720 00000 n 
-0003763924 00000 n 
-0003764677 00000 n 
-0003765814 00000 n 
-0003766071 00000 n 
-0003793639 00000 n 
-0003794390 00000 n 
-0003794721 00000 n 
-0003795070 00000 n 
-0003795375 00000 n 
-0003801916 00000 n 
-0003802210 00000 n 
-0003802319 00000 n 
-0003803413 00000 n 
-0003803658 00000 n 
-0003833725 00000 n 
-0003834471 00000 n 
-0003835608 00000 n 
-0003835865 00000 n 
-0003863433 00000 n 
-0003864184 00000 n 
-0003864464 00000 n 
-0003864755 00000 n 
-0003865043 00000 n 
-0003871207 00000 n 
-0003871501 00000 n 
-0003871610 00000 n 
-0003872704 00000 n 
-0003872949 00000 n 
-0003903016 00000 n 
-0003903762 00000 n 
-0003904899 00000 n 
-0003905156 00000 n 
-0003932724 00000 n 
-0003933475 00000 n 
-0003933755 00000 n 
-0003934048 00000 n 
-0003934330 00000 n 
-0003941109 00000 n 
-0003941395 00000 n 
-0003941504 00000 n 
-0003942598 00000 n 
-0003942843 00000 n 
-0003972910 00000 n 
-0003973656 00000 n 
-0003974793 00000 n 
-0003975050 00000 n 
-0004002618 00000 n 
-0004003369 00000 n 
-0004003650 00000 n 
-0004003931 00000 n 
-0004009365 00000 n 
-0004009659 00000 n 
-0004009768 00000 n 
-0004010862 00000 n 
-0004011107 00000 n 
-0004041174 00000 n 
-0004041920 00000 n 
-0004043057 00000 n 
-0004043314 00000 n 
-0004070882 00000 n 
-0004071633 00000 n 
-0004071965 00000 n 
-0004072317 00000 n 
-0004072608 00000 n 
-0004077691 00000 n 
-0004077977 00000 n 
-0004078086 00000 n 
-0004079180 00000 n 
-0004079425 00000 n 
-0004109492 00000 n 
-0004110238 00000 n 
-0004111375 00000 n 
-0004111632 00000 n 
-0004139200 00000 n 
-0004139951 00000 n 
-0004140300 00000 n 
-0004140577 00000 n 
-0004147493 00000 n 
-0004147779 00000 n 
-0004147888 00000 n 
-0004148982 00000 n 
-0004149227 00000 n 
-0004179294 00000 n 
-0004180040 00000 n 
-0004181177 00000 n 
-0004181434 00000 n 
-0004209002 00000 n 
-0004209753 00000 n 
-0004210104 00000 n 
-0004210381 00000 n 
-0004220226 00000 n 
-0004220512 00000 n 
-0004220621 00000 n 
-0004221715 00000 n 
-0004221960 00000 n 
-0004252027 00000 n 
-0004252773 00000 n 
-0004253910 00000 n 
-0004254167 00000 n 
-0004281735 00000 n 
-0004282486 00000 n 
-0004282835 00000 n 
-0004283112 00000 n 
-0004290039 00000 n 
-0004290333 00000 n 
-0004290442 00000 n 
-0004291536 00000 n 
-0004291781 00000 n 
-0004321848 00000 n 
-0004322594 00000 n 
-0004323731 00000 n 
-0004323988 00000 n 
-0004351556 00000 n 
-0004352307 00000 n 
-0004352658 00000 n 
-0004352949 00000 n 
-0004353226 00000 n 
+0003170946 00000 n 
+0003171232 00000 n 
+0003171340 00000 n 
+0003172431 00000 n 
+0003172674 00000 n 
+0003202740 00000 n 
+0003203485 00000 n 
+0003204619 00000 n 
+0003204874 00000 n 
+0003232441 00000 n 
+0003233191 00000 n 
+0003233536 00000 n 
+0003233881 00000 n 
+0003234161 00000 n 
+0003240495 00000 n 
+0003240788 00000 n 
+0003240896 00000 n 
+0003241987 00000 n 
+0003242230 00000 n 
+0003272296 00000 n 
+0003273041 00000 n 
+0003274175 00000 n 
+0003274430 00000 n 
+0003301997 00000 n 
+0003302747 00000 n 
+0003303077 00000 n 
+0003303422 00000 n 
+0003303757 00000 n 
+0003304091 00000 n 
+0003311906 00000 n 
+0003312185 00000 n 
+0003312293 00000 n 
+0003313384 00000 n 
+0003313627 00000 n 
+0003343693 00000 n 
+0003344438 00000 n 
+0003345572 00000 n 
+0003345827 00000 n 
+0003373394 00000 n 
+0003374144 00000 n 
+0003374424 00000 n 
+0003374766 00000 n 
+0003385021 00000 n 
+0003385314 00000 n 
+0003385422 00000 n 
+0003386513 00000 n 
+0003386756 00000 n 
+0003416822 00000 n 
+0003417567 00000 n 
+0003418701 00000 n 
+0003418956 00000 n 
+0003446523 00000 n 
+0003447273 00000 n 
+0003447607 00000 n 
+0003447937 00000 n 
+0003448268 00000 n 
+0003448604 00000 n 
+0003455848 00000 n 
+0003456139 00000 n 
+0003456247 00000 n 
+0003457340 00000 n 
+0003457585 00000 n 
+0003487652 00000 n 
+0003488398 00000 n 
+0003489535 00000 n 
+0003489792 00000 n 
+0003517360 00000 n 
+0003518111 00000 n 
+0003518400 00000 n 
+0003518746 00000 n 
+0003519082 00000 n 
+0003524795 00000 n 
+0003525097 00000 n 
+0003525206 00000 n 
+0003526300 00000 n 
+0003526545 00000 n 
+0003556612 00000 n 
+0003557358 00000 n 
+0003558495 00000 n 
+0003558752 00000 n 
+0003586320 00000 n 
+0003587071 00000 n 
+0003587360 00000 n 
+0003587696 00000 n 
+0003588024 00000 n 
+0003588359 00000 n 
+0003593904 00000 n 
+0003594198 00000 n 
+0003594307 00000 n 
+0003595401 00000 n 
+0003595646 00000 n 
+0003625713 00000 n 
+0003626459 00000 n 
+0003627596 00000 n 
+0003627853 00000 n 
+0003655421 00000 n 
+0003656172 00000 n 
+0003656507 00000 n 
+0003656839 00000 n 
+0003657174 00000 n 
+0003664138 00000 n 
+0003664424 00000 n 
+0003664533 00000 n 
+0003665627 00000 n 
+0003665872 00000 n 
+0003695939 00000 n 
+0003696685 00000 n 
+0003697822 00000 n 
+0003698079 00000 n 
+0003725647 00000 n 
+0003726398 00000 n 
+0003726731 00000 n 
+0003727066 00000 n 
+0003732778 00000 n 
+0003733072 00000 n 
+0003733181 00000 n 
+0003734279 00000 n 
+0003734524 00000 n 
+0003764728 00000 n 
+0003765481 00000 n 
+0003766618 00000 n 
+0003766875 00000 n 
+0003794443 00000 n 
+0003795194 00000 n 
+0003795525 00000 n 
+0003795874 00000 n 
+0003796179 00000 n 
+0003802809 00000 n 
+0003803103 00000 n 
+0003803212 00000 n 
+0003804306 00000 n 
+0003804551 00000 n 
+0003834618 00000 n 
+0003835364 00000 n 
+0003836501 00000 n 
+0003836758 00000 n 
+0003864326 00000 n 
+0003865077 00000 n 
+0003865357 00000 n 
+0003865648 00000 n 
+0003865936 00000 n 
+0003872100 00000 n 
+0003872394 00000 n 
+0003872503 00000 n 
+0003873597 00000 n 
+0003873842 00000 n 
+0003903909 00000 n 
+0003904655 00000 n 
+0003905792 00000 n 
+0003906049 00000 n 
+0003933617 00000 n 
+0003934368 00000 n 
+0003934648 00000 n 
+0003934941 00000 n 
+0003935223 00000 n 
+0003942002 00000 n 
+0003942288 00000 n 
+0003942397 00000 n 
+0003943491 00000 n 
+0003943736 00000 n 
+0003973803 00000 n 
+0003974549 00000 n 
+0003975686 00000 n 
+0003975943 00000 n 
+0004003511 00000 n 
+0004004262 00000 n 
+0004004543 00000 n 
+0004004824 00000 n 
+0004010268 00000 n 
+0004010562 00000 n 
+0004010671 00000 n 
+0004011765 00000 n 
+0004012010 00000 n 
+0004042077 00000 n 
+0004042823 00000 n 
+0004043960 00000 n 
+0004044217 00000 n 
+0004071785 00000 n 
+0004072536 00000 n 
+0004072868 00000 n 
+0004073220 00000 n 
+0004073511 00000 n 
+0004078594 00000 n 
+0004078880 00000 n 
+0004078989 00000 n 
+0004080083 00000 n 
+0004080328 00000 n 
+0004110395 00000 n 
+0004111141 00000 n 
+0004112278 00000 n 
+0004112535 00000 n 
+0004140103 00000 n 
+0004140854 00000 n 
+0004141203 00000 n 
+0004141480 00000 n 
+0004148396 00000 n 
+0004148682 00000 n 
+0004148791 00000 n 
+0004149885 00000 n 
+0004150130 00000 n 
+0004180197 00000 n 
+0004180943 00000 n 
+0004182080 00000 n 
+0004182337 00000 n 
+0004209905 00000 n 
+0004210656 00000 n 
+0004211007 00000 n 
+0004211284 00000 n 
+0004221129 00000 n 
+0004221415 00000 n 
+0004221524 00000 n 
+0004222618 00000 n 
+0004222863 00000 n 
+0004252930 00000 n 
+0004253676 00000 n 
+0004254813 00000 n 
+0004255070 00000 n 
+0004282638 00000 n 
+0004283389 00000 n 
+0004283738 00000 n 
+0004284015 00000 n 
+0004290946 00000 n 
+0004291240 00000 n 
+0004291349 00000 n 
+0004292443 00000 n 
+0004292688 00000 n 
+0004322755 00000 n 
+0004323501 00000 n 
+0004324638 00000 n 
+0004324895 00000 n 
+0004352463 00000 n 
+0004353214 00000 n 
+0004353565 00000 n 
+0004353856 00000 n 
+0004354133 00000 n 
 trailer
 <<
 /Size 275
@@ -19021,5 +19048,5 @@ trailer
 /Info 1 0 R
 >>
 startxref
-4362709
+4363623
 %%EOF

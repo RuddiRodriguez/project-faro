@@ -1,6 +1,6 @@
 # Signal — decides what happens next
 
-Compass calls Signal after Scout. It sends the rewritten question, matching approved definitions, permitted terminal names and the company’s supported-tasks text from Library. In the current demo, that text comes from each company’s approved `supported-tasks.md`.
+Compass calls Signal after Scout. It sends the rewritten question, matching source passages, the connected source IDs and Gate's permitted scopes. Signal classifies the next action; it does not use a predefined list of supported tasks.
 
 | Question to Compass | Signal decision |
 |---|---|

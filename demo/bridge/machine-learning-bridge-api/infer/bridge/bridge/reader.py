@@ -32,7 +32,7 @@ class Reader:
         sources = catalogue(self.data_path, request)
         context = dict(company_id=request.company_id, question=request.question)
         reads, observations = [], []
-        for step in range(6):
+        for step in range(7):
             prediction = self.llm_handler.predict(conversation=self._build_conversation(request, sources, observations),
                 structured_output=ReadPrompt.STRUCTURED_OUTPUT, timeout=30, enable_auto_fix_json=False)
             try:
@@ -52,6 +52,8 @@ class Reader:
                                                                data_version=sources["data_version"])
                 return result.model_copy(update={"findings":decision.findings, "supporting":reads[1:],
                                                  "catalogue_version":snapshot_id(sources)})
+            if step == 6:
+                break
             if decision.read is None:
                 observations.append({"error":"No read supplied."})
                 continue

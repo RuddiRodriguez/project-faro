@@ -11,7 +11,7 @@ from compass.data_collection import ConversationInputError, DataCollection
 from compass.orchestrator import Orchestrator
 from compass_api.endpoints.orchestrate_endpoint import OrchestratorEndpoint
 from compass_api.external_services.gate_client import GateClient
-from compass_api.external_services.library_client import LibraryClient
+from compass_api.external_services.connector_client import ConnectorClient
 from compass_api.external_services.thread_client import ThreadClient
 from compass_api.external_services.scout_client import ScoutClient
 from compass_api.external_services.voice_client import VoiceClient
@@ -21,14 +21,14 @@ from compass_api.external_services.guide_client import GuideClient
 from compass_api.external_services.signal_client import SignalClient
 
 
-def create_app(gate_url: str | None = None, library_url: str | None = None,
+def create_app(gate_url: str | None = None, connector_url: str | None = None,
                thread_url: str | None = None, scout_url: str | None = None, signal_url: str | None = None,
                guide_url: str | None = None, bridge_url: str | None = None, shield_url: str | None = None, voice_url: str | None = None) -> FastAPI:
-    app = FastAPI(title="Compass — coordinates Gate, Library, Thread, Scout, Signal, Guide, Bridge, Shield and Voice")
+    app = FastAPI(title="Compass — coordinates Gate, Connector, Thread, Scout, Signal, Guide, Bridge, Shield and Voice")
     orchestrator = Orchestrator(
         collection=DataCollection(os.getenv("FARO_COLLECTION_PATH", Path(__file__).resolve().parents[4] / "local_data/data_collection")),
         gate_client=GateClient(gate_url or os.getenv("FARO_GATE_URL", "http://127.0.0.1:8002")),
-        library_client=LibraryClient(library_url or os.getenv("FARO_LIBRARY_URL", "http://127.0.0.1:8001")),
+        connector_client=ConnectorClient(connector_url or os.getenv("FARO_CONNECTOR_URL", "http://127.0.0.1:8010")),
         thread_client=ThreadClient(thread_url or os.getenv("FARO_THREAD_URL", "http://127.0.0.1:8003")),
         scout_client=ScoutClient(scout_url or os.getenv("FARO_SCOUT_URL", "http://127.0.0.1:8004")),
         voice_client=VoiceClient(voice_url or os.getenv("FARO_VOICE_URL", "http://127.0.0.1:8009")),

@@ -67,7 +67,7 @@ class SectorStressTests(TestCase):
             root=Path(temp)
             with sqlite3.connect(root/"data.sqlite") as db:
                 db.execute("CREATE TABLE data (v INTEGER)")
-                db.executemany("INSERT INTO data VALUES (?)",[(i,) for i in range(501)])
+                db.executemany("INSERT INTO data VALUES (?)",[(i,) for i in range(1001)])
             (root/"connections.json").write_text(json.dumps([dict(company="client",scopes=["scope"],file="data.sqlite")]))
             with self.assertRaisesRegex(ValueError,"no partial"):
                 SourceReader(root).read(ConnectorInput(company_id="client",permitted_scope_ids=["scope"],action="read",item="data/data"))

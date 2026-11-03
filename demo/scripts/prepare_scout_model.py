@@ -1,4 +1,4 @@
-"""Prepare local E5 weights and indexes from a supplied folder or the public checkpoint."""
+"""Prepare local E5 weights from a supplied folder or the public checkpoint."""
 import hashlib
 import shutil
 from pathlib import Path
@@ -9,7 +9,7 @@ from prepare_scout_runtime import share_openmp
 
 if __name__ == "__main__":
     share_openmp()
-    from scout.knowledge_index import MODEL, build_indexes
+    from scout.knowledge_index import MODEL
 
     parser = ArgumentParser()
     parser.add_argument("--weights", type=Path, help="Existing retrieval-compatible multilingual E5 small weights")
@@ -29,4 +29,4 @@ if __name__ == "__main__":
         with dest.open("rb") as file:
             revision.update(hashlib.file_digest(file, "sha256").digest())
     (MODEL / "revision").write_text(revision.hexdigest())
-    build_indexes()
+    print("Weights ready. Scout builds source indexes on first use and reuses them until sources change.")

@@ -25,11 +25,11 @@ def svc(name):
     file=next((ROOT/'demo'/name).glob(f'*/infer/{name}/{name}/{module}.py'))
     return R(name.title()+' | current demo',file,detail)
 rewriter=demo('Thread | question rewriting','thread/machine-learning-thread-api/infer/thread/thread/rewriter.py','Combines relevant replies into one question.')
-search=demo('Scout | knowledge search','scout/machine-learning-scout-api/infer/scout/scout/searcher.py','Searches permitted definitions and returns matching evidence.')
+search=demo('Scout | knowledge search','scout/machine-learning-scout-api/infer/scout/scout/searcher.py','Searches descriptions and passages taken from connected sources.')
 followup=demo('Guide | follow-up','guide/machine-learning-guide-api/infer/guide/guide/generator.py','Asks for the missing choice needed to continue.')
 forwarding=demo('Compass | forwarding','utils/utils/service_call.py','Calls the next service over HTTP.')
 normalization=demo('Connector | source readers','connector/machine-learning-connector-api/infer/connector/connector/readers.py','Reads permitted source formats.')
-records=demo('Faro | record checks','bridge/machine-learning-bridge-api/infer/bridge/bridge/records.py','Checks revisions, deletion markers, dates, coverage and approved measures.')
+records=svc('shield')
 source=demo('Faro | permitted sources','bridge/machine-learning-bridge-api/infer/bridge/bridge/source.py','Builds the catalogue and reads only the permitted operational records.')
 retry=demo('Faro | attempt recording','utils/utils/llms/model_attempts.py','Records each model attempt under the service and turn that made it.')
 schema=demo('Faro | field origins','compass/machine-learning-compass-api/infer/compass/compass/collection_schema.py','Defines each stored column and where its value comes from.')
@@ -51,6 +51,7 @@ add('Project Faro',[
 add('1. The client connects data. Maria asks.',[
  p('Maria asks: <b>“Which berths had the most crane idle hours last month?”</b> She knows the operational question. She should not need to know whether the answer lives on page six of a report or across two tables.'),
  sub('What Faro prepares behind the scenes'),
+ p('The client grants access to the data and asks questions. The client does not prepare a glossary or a list of allowed question types. Faro stores only the connection settings and access permissions needed to reach the sources safely. It discovers their contents itself.'),
  p('Faro lists only the files Maria may see. It can inspect their headings, read their records and point back to the original page, sheet or database result. These three examples show why finding a file and understanding its contents are different steps.'),
  rows('What Faro sees','How it uses the information',[
  ['An October operations report','Index its headings and table locations. A table labelled “idle hours by berth” is a promising place to look; its month, units, coverage and version still need checking.'],
@@ -67,12 +68,12 @@ add('1.1 One product, interchangeable connectors',[
  p('For a supported source, configure its location, credentials and access scope. The connector handles its file layout or query method. A previously unseen format may need a reader built once and reused for other clients. Names and evidence can differ even when the format is the same.'),
  callout('What stays in Faro','Gate checks access; Scout finds candidate sources; Bridge decides what to read; Shield checks whether those facts support the answer. None needs a special rule for Client A’s berths. Faro’s own collection of turns, checks and cache entries stays separate from the client’s source material.')],[readers,factory,forwarding])
 add('1.2 What runs today and what comes next',[
- p('The local demo reads SQLite, Excel and text PDFs through a separate Connector service. Its readers open the files. They do not decide which entries count as idle time or which terminal performed better.'),
+ p('The local demo reads JSON, SQLite, Excel and text PDFs through a separate Connector service. Its readers open the files. They do not decide which entries count as idle time or which terminal performed better.'),
  table(['Service','Working in the demo','Still to build'],[
- ['Scout | find where to look','Searches company definitions and lists the permitted tables, sheets and PDF.','Index newly connected file contents for search at large scale.'],
+ ['Scout | find where to look','Indexes connected field names and PDF passages; returns matches and permitted sources.','Expand content extraction and indexing for large sources, with background refresh.'],
  ['Bridge | get the facts','Reads source notes and records. Can link two tables by matching fields and compare the resulting values.','Support larger sources, scanned reports and relationships that depend on overlapping time intervals.'],
  ['Shield | check the answer','Repeats the reads and checks the proposed findings against their source versions and rows.','Test against real client revisions, access policies and independently reviewed answers.']],[105,180,198]),
- callout('Current boundary','The local demo selects a saved user account; production sign-in is still needed. Connected files are granted as a whole. Reads stop above 500 rows. The expression worker is isolated on macOS; other operating systems need an equivalent worker.'),
+ callout('Current boundary','The local demo selects a saved user account; production sign-in is still needed. SQLite, Excel and PDF access is granted per file. JSON records can also be restricted by an access field configured in Connector. Reads stop above 1,000 rows. The expression worker is isolated on macOS; other operating systems need an equivalent worker.'),
  sub('What stays reusable across clients'),
  p('Clients keep their own formats and meanings. Faro standardizes what accompanies an answer: the measure, scope, dates, source, version and known gaps. A new format may need a reader; it does not need a new conversation or checking service.'),
  p('For changing records, follow the source’s revisions: count a correction once, exclude a record whose latest version marks it deleted, and recheck coverage when late entries arrive. If two versions cannot reliably be matched, do not present an exact total from them.')],[search,readers,joined,svc('shield')])
@@ -80,20 +81,20 @@ add('2. From a question to an answer',[
  p('Maria is an example terminal operator. She sees one screen. Compass coordinates the services below; it keeps her question, replies and evidence together.'),
  ServiceCircle(),
  rows('What comes in','What moves forward',[
- ['Question and signed-in account','Gate checks the person and permitted sites. Library supplies company terms and available sources within that access.'],
- ['Question and approved terms','Thread uses relevant replies; Scout searches definitions. Signal decides whether to continue. Guide asks one question if a choice that matters is missing.'],
+ ['Question and signed-in account','Gate supplies the person, company and permitted sites. Connector returns the sources those permissions allow.'],
+ ['Question and connected sources','Thread uses relevant replies; Scout searches source descriptions and passages. Signal decides whether to continue. Guide asks one question if a choice that matters is missing.'],
  ['Clear request and permitted sources','Connector opens the files for Scout, Bridge and Shield. Bridge reads the data. Shield independently checks the evidence. Voice explains only supported findings. Compass saves the turn.']])],[forwarding,svc('compass')])
 add('2.1 Maria asks about crane idle time',[
  p('Maria asks: <b>“Which berths had the most crane idle hours last month?”</b> The measure is clear. The open question is whether her records actually identify the berth. Being allowed to see two terminals does not establish either answer.'),
  rows('Step','Input → work → output',[
- ['Gate | check access','Maria selects her demo account. Her account permits North and South at Harbor. Her words cannot grant access to another company. Library loads the prepared Harbor catalogue.'],
+ ['Gate | check access','Maria selects her demo account. Her account permits North and South at Harbor. Her words cannot grant access to another company. Connector lists only the connected sources her account may read.'],
  ['Thread | understand replies','On the first turn, keep her question as asked. On later turns, combine her answer with the original request. Never borrow a choice from someone else’s conversation.'],
- ['Scout | find the meaning','Search Harbor’s approved documents for idle time. Return the text and source: idle time is when a crane is available but not working. This is a definition, not a ranking.'],
+ ['Scout | find relevant sources','Search field names and passages from the connected files. The October operations note is relevant: it explains the activity codes and links between the files. Return that passage with its source and version. No ranking has been produced yet.'],
  ['Signal and Guide | clarify','Signal uses the Decision API only to classify the next step. If both total idle hours and idle share are legitimate interpretations, Guide asks which she means. If her wording or the source already settles it, proceed.']]),
  callout('When a follow-up is useful','Maria already said “most crane idle hours,” so skip the follow-up. If she had said only “worst,” Guide could ask “Most total idle hours, or largest idle share?” Thread would keep her reply with the original question.'),
- p('For a question asked on 1 November 2026 in the client’s local time, “last month” means 1–31 October. The date range travels with the request.')],[rewriter,search,followup,svc('signal')])
+ p('For a question asked in November 2026, “last month” means 1–31 October. Bridge interprets the question using the current reference date. The demo uses UTC; business timezone handling still needs to be connected for production.')],[rewriter,search,followup,svc('signal')])
 add('2.2 Read what Maria is allowed to see',[
- p('Bridge receives the clarified question and the full catalogue of sources Maria may use. Scout’s search results help explain terms; they do not restrict Bridge to one document or require every question to be a ranking.'),
+ p('Bridge receives the clarified question and the full catalogue of sources Maria may use. Scout’s search results point to relevant source material; they do not restrict Bridge to one document or require every question to be a ranking.'),
  sub('One client, three sources'),
  rows('Source','What it adds to the answer',[
  ['SQLite database','The current entries give the activity code and minutes for each work reference. The source provides a view that accounts for corrections and withdrawals.'],
@@ -102,7 +103,7 @@ add('2.2 Read what Maria is allowed to see',[
  callout('Why all three matter','A database row gives minutes but no berth. The workbook gives a berth but no minutes. The note tells Faro when it is valid to combine them. Maria supplies none of these instructions herself.')],[fixture,readers,joined])
 add('2.3 Follow one question across three files',[
  sub('1. Find the records'),
- p('Scout returns the idle-time definition and the list of permitted sources. Bridge reads the October note. It learns that database field “ticket” and workbook field “Work reference” identify the same posting.'),
+ p('Scout returns matching source passages and the list of permitted sources. Bridge reads the October note. It learns that database field “ticket” and workbook field “Work reference” identify the same posting.'),
  sub('2. Connect the records'),
  p('Bridge reads the current entries and the assignment sheet. It checks that the references match and that each posting has one berth. It groups the counted minutes by berth, then converts minutes to hours. Each read keeps the original location and file version.'),
  sub('3. Check the result'),
@@ -121,15 +122,15 @@ add('2.4 Check the result before speaking',[
 add('2.5 A different question: why did dwell time spike?',[
  p('Maria asks: <b>“Why did dwell time spike for reefer containers in week 12?”</b> A reefer is a refrigerated container. This question asks Faro to establish both a change and its cause. Those require different evidence.'),
  rows('Question to settle','What would support an answer',[
- ['What is being compared?','Use the agreed start and end events for dwell time, the client’s local week, the site and a comparison period. If the year or baseline matters and cannot be inferred, ask once.'],
- ['Was there a spike?','Identify reefer containers, check the relevant event times and coverage in both periods, and compare using the agreed measure. A longer stay for one container does not prove a general spike.'],
+ ['What is being compared?','Use start and end events documented in the source for dwell time, the client’s local week, the site and a comparison period. If the year or baseline matters and cannot be inferred, ask once.'],
+ ['Was there a spike?','Identify reefer containers, check the relevant event times and coverage in both periods, and compare using a measure supported by the source. A longer stay for one container does not prove a general spike.'],
  ['Why did it happen?','To attribute a cause, require supporting event records tied to the affected containers and dates. A delay that happened at the same time is not proof that it caused the increase.']]),
  callout('What Faro can say with the current Harbor catalogue','“These records cover crane activity, not reefer arrival and departure events. I can’t establish whether dwell time rose in week 12 or why.” Do not substitute crane downtime for container dwell time.'),
  p('With a client that supplies dwell events but no reliable cause records, Faro can report the measured change and explicitly leave the cause unanswered. Faro explains that limit without asking Maria to reconcile files.')],[source,svc('shield')])
 add('3. Keep repeated questions affordable',[
  p('Prepare the source guide once and refresh only what changes. Prefer a current reviewed report when it already answers the question; reading one table can avoid repeated work across raw files. Keep the same permission and evidence checks whichever route is used.'),
  rows('Where the saving comes from','What remains protected',[
- ['Prepare once; search many times','Build the company’s search index upfront. At question time, turn only the question into a search representation. Refresh the index when the approved documents change.'],
+ ['Prepare once; search many times','Index the connected source descriptions and PDF passages. Reuse the saved index while source versions and access stay the same. In this demo the first search builds it; later searches embed only the question. The product should prepare it when data is connected.'],
  ['Reuse checked data','While Maria is away, Luis asks the same question. Compass may use a saved read if the company, permitted scope, question, period and versions still match. Shield checks it again. A correction or changed access invalidates reuse.'],
  ['Reuse model work','Keep successful model results in a separate company cache. Match the actual inputs, settings and permissions, including user scope. A clarification changes the inputs. A cache hit avoids the call; a failed result is not saved as a success.'],
  ['Use only the model work needed','Signal uses a classification call. The shared model settings give different work different reasoning effort. Counts, sums and permission checks do not require a model to guess a number.']]),
@@ -156,7 +157,7 @@ add('4.1 Check the same design in other sectors',[
  rows('Example','What the test established',[
  ['Terminal operations','One question used a database, a workbook and a PDF, returning the supported berth ranking and the files used.'],
  ['Retail','The model answered a total-sales question without a ranking requirement.'],
- ['Hospitals','Six hospitals have July–October records covering occupancy, visits, waiting time, admissions, discharges and cancellations. A separate check confirms that a missing reporting day is not zero.'],
+ ['Hospitals','Six hospitals have July–October records covering occupancy, visits, waiting time, admissions, discharges and cancellations. Source gaps remain visible; Shield must not treat missing reports as zero.'],
  ['Hotels','An inventory count worked without requiring a date range.']]),
  callout('Stress the boundaries','Automated checks also use unfamiliar column names and a new recycling example. They test company isolation, duplicate or missing links, changed records, oversized reads and attempts to access files or the network. These are bounded checks, not a production security audit.')
 ],[R('Faro | live sector results',ROOT/'docs/validation/sector_results.json','Observed console answers and their model explanations.'),demo('Faro | generic stress tests','tests/test_sector_stress.py','Unseen names, company isolation, read limits and execution boundaries.')])
@@ -184,12 +185,12 @@ add("A.2 One row per turn",[
 add("A.3 Two caches, one lookup pattern",[
     p("ai_cache holds successful model results. data_cache holds evidence that passed Shield. A cache entry points back to its originating turn."),
     schema_rows("ai_cache"),
-    callout("Keep the checks","Gate checks access again; Shield rechecks reused evidence. A change of company, permissions, wording, definitions, source version or model settings invalidates the relevant saved work.")
+    callout("Keep the checks","Gate checks access again; Shield rechecks reused evidence. A change of company, permissions, wording, source contents, source version or model settings invalidates the relevant saved work.")
 ],[store,sql],k="DATA COLLECTION | SQL DESIGN AND FIELD ORIGINS")
 add('A.4 Trace an answer and its model calls',[
  p('Faro’s SQL design stores one model_calls row per logical model call. The turn ID links it back to the original question. Two reads are separate calls; a retry is another attempt inside the same call.'),
  schema_rows('model_calls'),sub('Field origins'),schema_rows('field_origins'),
- p('Thread supplies the rewritten question. Scout supplies matching definitions and sources. Signal classifies the next action; Guide asks the follow-up if needed. Bridge supplies reads and evidence. Shield supplies verified findings or a reason for withholding. Voice supplies the answer. Compass records the turn outcome and cache use.'),
+ p('Thread supplies the rewritten question. Scout supplies matching source passages and references. Signal classifies the next action; Guide asks the follow-up if needed. Bridge supplies reads and evidence. Shield supplies verified findings or a reason for withholding. Voice supplies the answer. Compass records the turn outcome and cache use.'),
  callout('How to read the attempt history','A timeout followed by success inside one call means the retry worked. No entry means the service made no model call on a tracked turn. Older turns without tracking are unknown, not zero.')],[schema,retry,sql],k='DATA COLLECTION | SQL DESIGN AND FIELD ORIGINS')
 base.build('terminal_data_proposal.pdf',pages)
 public=OUT/'terminal_data_proposal.pdf'

@@ -28,8 +28,6 @@ class Classifier:
                 input_text=DecisionsPrompt.INPUT_MESSAGE.format(
                     connected_sources=json.dumps(classifier_input.connected_sources),
                     question=json.dumps(classifier_input.question, ensure_ascii=False),
-                    supported_tasks=json.dumps(classifier_input.supported_tasks, ensure_ascii=False),
-                    groups=json.dumps(classifier_input.groups, ensure_ascii=False),
                     permitted_scopes=json.dumps(classifier_input.permitted_scopes, ensure_ascii=False),
                     matches=json.dumps([m.model_dump(include={"title", "text", "source"})
                                         for m in classifier_input.matches], ensure_ascii=False),

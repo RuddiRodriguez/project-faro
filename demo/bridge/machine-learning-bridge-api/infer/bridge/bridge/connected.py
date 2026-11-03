@@ -15,7 +15,7 @@ def execute_connected(request, read, catalogue, run_read):
     snapshots=[]
     def fetch(item_id):
         item=catalogue["connected"].get(item_id)
-        if not item or not set(item["scope_ids"]).issubset(scopes):
+        if not item:
             raise PermissionError("Connected item is not permitted for this scope.")
         result=sources(request.company_id,scopes,"read",item_id)
         current=result.items[0]

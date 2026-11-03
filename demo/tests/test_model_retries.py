@@ -65,6 +65,6 @@ class RetryTests(unittest.TestCase):
                                  decisions_response={"answers":answers})
         with patch.object(self.client, "_decisions_api_predict",side_effect=send) as decision:
             result=Signal(self.client).classify(ClassifierInput(question="Compare the locations",matches=[],
-                    permitted_scopes=["North"],supported_tasks=["Compare locations"]))
+                    permitted_scopes=["North"]))
             self.assertEqual(result.action,"Continue")
             self.assertEqual(decision.call_count,2)

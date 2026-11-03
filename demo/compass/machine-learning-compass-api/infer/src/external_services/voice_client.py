@@ -7,16 +7,11 @@ class VoiceClient:
     def __init__(self, base_url: str):
         self.base_url = base_url.rstrip("/")
 
-    def write_answer(self, question, language, verification, search, information) -> VoiceOutput:
+    def write_answer(self, question, language, verification, search) -> VoiceOutput:
         definition = None
         if verification.status == "verified" and verification.facts.read:
             definition = next((m for m in search.matches if m.document_id == verification.facts.read.source), None)
-        names = []
-        if verification.status == "withheld":
-            candidates = [m for members in information.groups.values() for m in members]
-            candidates.extend(s.name for s in information.scopes)
-            names = [n for n in candidates if n in (verification.reason or "")]
-        request = VoiceInput(question=question, language=language, verification=verification, names=names,
+        request = VoiceInput(question=question, language=language, verification=verification, names=[],
                              measure=definition.title if definition else None,
                              definition=definition.text if definition else None,
                              definition_source=definition.source if definition else None)

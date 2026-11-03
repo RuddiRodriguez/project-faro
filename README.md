@@ -2,7 +2,7 @@
 
 Ask a question about company data, clarify it when necessary, and receive a checked answer with the files used to produce it.
 
-Faro is a working local demo for an AI engineering assessment. The same services run terminal, retail, hospital and hotel examples. A separate connector reads SQLite, Excel and text PDFs. It is not a production identity system or a universal reader for every source.
+Faro is a working local demo for an AI engineering assessment. The same services run terminal, retail, hospital and hotel examples. A separate connector reads JSON, SQLite, Excel and text PDFs. It is not a production identity system or a universal reader for every source.
 
 ## Start the demo
 
@@ -21,13 +21,13 @@ From a checkout:
 
 The tested environment uses Python 3.15.2. Dependencies are pinned in the service packages. The model account must support the configured OpenAI models and Decision API; an arbitrary account is not assumed to have access.
 
-The preparation command downloads the pinned public [multilingual E5 small checkpoint](https://huggingface.co/intfloat/multilingual-e5-small) and builds one company search index. To use existing compatible weights instead:
+The preparation command downloads the pinned public [multilingual E5 small checkpoint](https://huggingface.co/intfloat/multilingual-e5-small) ; Scout builds and saves indexes from connected source descriptions and PDF text on first use. To use existing compatible weights instead:
 
     python scripts/prepare_scout_model.py --weights /path/to/e5/weights
 
 Weights, indexes, credentials, generated document copies and saved conversations stay outside Git. Fixtures are included. All example company information is fictional.
 
-The console starts eleven local APIs and closes them on exit. Log in with a demo account:
+The console starts ten local APIs and closes them on exit. Log in with a demo account:
 
 | User | Data | Example |
 |---|---|---|
@@ -37,14 +37,14 @@ The console starts eleven local APIs and closes them on exit. Log in with a demo
 | riverside_manager | Riverside only | How many outpatient visits did Riverside record in October 2026? |
 | hotel_hq | Three hotels | How many hotels do we have? |
 
-Use /new for a fresh question, /logout to change account, /quit to stop. “Last month” uses the fixture's reference clock, 1 November 2026; it is not the machine's live date. A normal answer is followed only by Document: and Open: links. --test additionally shows timing, attempts and cache use.
+Use /new for a fresh question, /logout to change account, /quit to stop. “Last month” uses the current UTC date. Tests may set FARO_REFERENCE_DATE for a reproducible date. A normal answer is followed only by Document: and Open: links. --test additionally shows timing, attempts and cache use.
 
 ## How it works
 
-1. Compass coordinates the request. Gate checks the selected account and access; Library supplies permitted company information.
-2. Thread combines relevant replies. Scout searches definitions and discovers connected sources.
+1. Compass coordinates the request. Gate checks the selected account and access; Connector lists the permitted sources.
+2. Thread combines relevant replies. Scout searches field names and passages from connected sources.
 3. Signal classifies the next action. Guide asks a clarification only when a user choice is needed.
-4. Bridge reads permitted evidence through the Connector or the prepared JSON reader.
+4. Bridge reads permitted evidence through Connector.
 5. Shield repeats the reads and checks proposed findings. Voice presents the supported answer and document links.
 
 Compass saves every turn in a company-specific data collection. The demo uses Parquet; the proposal describes SQL tables. Successful work is reused only for matching inputs and access. Shield rechecks cached evidence.
@@ -59,7 +59,6 @@ Each service retains separate API and library folders, with shared Pydantic API 
 |---|---|---|
 | Compass | orchestrator.py / Orchestrator | orchestrate |
 | Gate | access_checker.py / AccessChecker | check |
-| Library | information_reader.py / InformationReader | read |
 | Thread | rewriter.py / Rewriter | rewrite |
 | Scout | searcher.py / Searcher | search |
 | Signal | classifier.py / Classifier | classify |
@@ -73,13 +72,13 @@ The search library and shared model utilities are included in the repository. Ol
 
 ## Reuse and limits
 
-Formats and permissions are configured outside the question services. Client meanings come from available documents and fields. No crane, hotel or hospital keyword rules select an analysis. Tests also use recycling and arbitrary field names.
+The client provides data access and asks questions. Connection locations and access settings live in Connector; accounts and permissions live in Gate. Formats and permissions are configured outside the question services. Client meanings come from available documents and fields. No crane, hotel or hospital keyword rules select an analysis. Tests also use recycling and arbitrary field names.
 
 That does **not** mean any client can connect any file and obtain a correct answer:
 
-- The JSON path expects the prepared inventory/daily-record structure. Native connector reads do not require those business fields.
-- Native readers support local SQLite, header-row Excel and text PDFs, at most 500 rows per item. Larger reads stop; they do not silently sample.
-- Connections grant whole-file access. Gate is demo user selection; internal APIs trust the local coordinator. Production authentication and row-level authorization are not implemented.
+- There is no glossary, supported-task list or prepared business model to supply. JSON sources contain named tables of records; their field names remain unchanged.
+- Native readers support local SQLite, header-row Excel and text PDFs, at most 1,000 rows per item. Larger reads stop; they do not silently sample.
+- SQLite, Excel and PDF connections grant whole-file access. JSON connections can restrict rows by a configured access field. Gate is demo user selection; internal APIs trust the local coordinator. Production authentication and source-specific authorization still need implementation.
 - Bridge links two tables using exact keys and requires an unambiguous complete match. Time-overlap joins, scanned PDFs, remote data lakes and MongoDB require additional support.
 - A model may choose a poor read or decline an answerable question. Shield replay and evidence review reduce risk; they do not prove source truth.
 - The sandbox has not undergone a production security audit.

@@ -87,7 +87,7 @@ fields("response_json.rewrite.token_usage","prompt_tokens completion_tokens prom
 fields("response_json.rewrite.token_usage.prompt_tokens_details","audio_tokens cached_tokens cache_write_tokens","OpenAI prompt-token breakdown on the original model call.")
 fields("response_json.rewrite.token_usage.completion_tokens_details","accepted_prediction_tokens audio_tokens reasoning_tokens rejected_prediction_tokens","OpenAI completion-token breakdown on the original model call.")
 fields("response_json.search","query matches","Scout: search input from Thread and permitted matches from its company index.")
-fields("response_json.search.matches[]","document_id title text source version","Scout: approved company document; Compass checks the returned match against Library.")
+fields("response_json.search.matches[]","document_id title text source version","Scout: passage from a permitted connected source, with its location and version.")
 fields("response_json.search.matches[]","file_reference score","Scout: index source reference and relevance score, not proof of correctness.")
 fields("response_json.decision","action missing_choice","Signal's classification or Bridge's clarification/stop; see decision_source.")
 fields("response_json.followup","followup_text initial_analysis reasoning","Guide: clarification generated for the missing choice.")
@@ -107,7 +107,7 @@ for prefix in ("response_json.evidence","response_json.verification.facts"):
     fields(prefix+".rows[]","member scope_name asset_type activity_date value","Checked pandas result; member is present only for grouped output.")
 fields("response_json.answer","status","Operational answers use Shield's decision. Unsupported data requests may be withheld without a ranking.")
 fields("response_json.answer","text mode","Voice displays Shield-reviewed findings, a direct limitation, or checked legacy wording.")
-fields("response_json.answer","sources definition","Voice copies Bridge's operational source and Scout's matched Library definition and reference.")
+fields("response_json.answer","sources definition","Voice copies Bridge's operational source and Scout's matched source passage and reference.")
 
 for service in ("rewrite", "decision"):
     fields("response_json."+service,"initial_analysis reasoning","Service model response: brief factual assessment and decision justification.")

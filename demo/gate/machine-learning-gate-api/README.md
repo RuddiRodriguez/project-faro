@@ -25,7 +25,7 @@ Response:
 
 Company and terminals come from the saved record, never from extra values in the request. Files are read again on each call, so permission changes apply to the next request.
 
-Compass will later pass the company and terminal fields to Library. Compass is not implemented yet. A local test verifies that Gate's output can supply Library's input.
+Compass passes Gate’s verified company and scopes to Connector and the other services. The question cannot supply or expand those permissions.
 
 ## Implementation
 

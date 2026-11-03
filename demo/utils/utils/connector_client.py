@@ -6,9 +6,7 @@ from utils.service_call import call
 
 
 def sources(company, scopes, action="discover", item=None):
-    url=os.getenv("FARO_CONNECTOR_URL")
-    if not url and action=="discover":
-        return ConnectorOutput(items=[])  # Standalone legacy service without connected sources.
+    url=os.environ["FARO_CONNECTOR_URL"]
     request=ConnectorInput(company_id=company,permitted_scope_ids=scopes,action=action,item=item)
     try:
         return call("Connector",url,"/v1/sources",request,ConnectorOutput,timeout=15)

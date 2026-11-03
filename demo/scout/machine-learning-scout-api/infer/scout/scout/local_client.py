@@ -13,22 +13,34 @@ class LocalKnowledgeBaseClient:
 
     def __init__(self, index_dir=INDEXES, model_path=MODEL):
         self.embedder = E5SmallEmbedder(model_path)
-        revision = (model_path / "revision").read_text().strip()
+        self.index_dir = index_dir
+        self.index_dir.mkdir(parents=True, exist_ok=True)
+        self.revision = (model_path / "revision").read_text().strip()
         self.indexes = {}
         self.documents = {}
-        for path in index_dir.iterdir():
-            if path.suffix != ".faiss":
-                continue
-            manifest = json.loads(path.with_suffix(".json").read_text())
-            if (manifest["model"] != revision or
-                    manifest["index_sha256"] != hashlib.sha256(path.read_bytes()).hexdigest()):
-                raise ValueError(f"Rebuild Scout index for {path.stem}")
-            docs = manifest["documents"]
+
+    def prepare(self, company, items, load_text):
+        # Permissions and source versions are part of the key, including when sources disappear.
+        key = hashlib.sha256(json.dumps([company, self.revision,
+            [item.model_dump() for item in items]], sort_keys=True).encode()).hexdigest()
+        if key in self.indexes:
+            return key
+        path = self.index_dir / f"{key}.faiss"
+        if path.exists():
+            docs = json.loads(path.with_suffix(".json").read_text())
             index = faiss.read_index(str(path))
-            if index.ntotal != len(docs) or any(d["company_id"] != path.stem for d in docs):
-                raise ValueError(f"Invalid Scout index for {path.stem}")
-            self.indexes[path.stem] = Retrieval(index, [reference(d) for d in docs], self.embedder), docs
-            self.documents.update({reference(d): d for d in docs})
+        else:
+            docs = load_text()
+            vectors = self.embedder.get_passage_embeddings([d["title"] + "\n" + d["text"] for d in docs])
+            vectors = vectors.detach().cpu().numpy().astype("float32")
+            faiss.normalize_L2(vectors)
+            index = faiss.IndexFlatIP(vectors.shape[1])
+            index.add(vectors)
+            path.with_suffix(".json").write_text(json.dumps(docs, ensure_ascii=False))
+            faiss.write_index(index, str(path))
+        self.indexes[key] = Retrieval(index, [reference(d) for d in docs], self.embedder), docs
+        self.documents.update({reference(d): d for d in docs})
+        return key
 
     def retrieve(self, *, knowledgeBaseId, retrievalQuery, retrievalConfiguration):
         settings = retrievalConfiguration["vectorSearchConfiguration"]

@@ -9,11 +9,9 @@ class DecisionsPrompt:
 
     INPUT_MESSAGE = textwrap.dedent("""
         Question: {question}
-        Supported tasks: {supported_tasks}
         Permitted scopes: {permitted_scopes}
-        Groups and members in those scopes: {groups}
         Available connected sources: {connected_sources}
-        Matching definitions: {matches}
+        Matching source material: {matches}
     """).strip()
 
     NEXT_ACTION_INSTRUCTIONS = textwrap.dedent("""

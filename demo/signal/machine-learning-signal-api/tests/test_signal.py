@@ -16,7 +16,7 @@ class SignalTests(unittest.TestCase):
     def test_missing_company_material_stops_without_model_call(self):
         handler = Mock()
         request = ClassifierInput(question="Which cranes performed badly?", matches=[],
-                                 permitted_scopes=[], supported_tasks=[])
+                                 permitted_scopes=[])
         result = Classifier(handler).classify(request)
         self.assertEqual(result.action, "Unsupported")
         handler.chat_predict.assert_not_called()
@@ -24,7 +24,7 @@ class SignalTests(unittest.TestCase):
     def test_duplicate_model_answers_do_not_become_a_decision(self):
         signal = DecisionClassifier(Mock())
         request = ClassifierInput(question="Which cranes?",
-            permitted_scopes=["North Terminal"], supported_tasks=["Compare cranes"], matches=[])
+            permitted_scopes=["North Terminal"], matches=[])
         conversation = signal._build_conversation(request)
         answer = {"type": "choice", "name": "next_action", "choice": "Continue"}
         response = PredictOutput(input_conversation=conversation, assistant_message=AssistantMessage(

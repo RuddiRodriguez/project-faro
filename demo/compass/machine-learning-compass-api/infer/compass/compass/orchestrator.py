@@ -13,9 +13,9 @@ from compass.orchestrator_output import OrchestratorOutput
 
 
 class Orchestrator:
-    def __init__(self, gate_client, library_client, thread_client, scout_client, signal_client, guide_client, bridge_client, shield_client, voice_client, collection):
+    def __init__(self, gate_client, connector_client, thread_client, scout_client, signal_client, guide_client, bridge_client, shield_client, voice_client, collection):
         self.gate_client = gate_client
-        self.library_client = library_client
+        self.connector_client = connector_client
         self.thread_client = thread_client
         self.scout_client = scout_client
         self.voice_client = voice_client
@@ -44,7 +44,7 @@ class Orchestrator:
                 reply = (result.followup.followup_text if result.followup else
                          result.answer.text if result.answer else None)
                 turn.update(status=result.verification.status if result.verification else result.decision.action,
-                            response=result.model_dump(mode="json", exclude={"company_information", "access"}))
+                            response=result.model_dump(mode="json", exclude={"sources", "access"}))
                 if reply:
                     doc["messages"].append(dict(role="assistant", content=reply))
                 return result
@@ -57,7 +57,7 @@ class Orchestrator:
                 self.collection.save_conversation(doc)
 
     def _answer(self, request, access, history, conversation_id, turn, previous=None):
-        info = self.library_client.read_company_information(access)
+        info = self.connector_client.discover_sources(access)
         cache = TurnCache(self.collection, access, info, turn["cache"], turn["_id"],
                           opening=not history and not request.conversation_id)
         question, language = request.question, request.language
@@ -65,23 +65,23 @@ class Orchestrator:
             rewrite = self.thread_client.rewrite_question(question, history)
         else:
             rewrite = ThreadOutput(question=question, used_ai=False)
-        search = self.scout_client.search_definitions(rewrite.question, info)
+        search = self.scout_client.search_sources(rewrite.question, access)
         def classify():
-            return self.signal_client.classify(search, info, rewrite.unclear_references)
+            return self.signal_client.classify(search, access, rewrite.unclear_references)
         decision = (cache.ai("Signal", [search, rewrite.unclear_references], SignalOutput, classify)
-                    if info.supported_tasks and search.matches and not rewrite.unclear_references else classify())
+                    if not rewrite.unclear_references else classify())
         turn["decision_source"] = "Signal"
         answer = followup = verification = evidence = None
         if decision.action == "Continue":
             key, evidence = cache.lookup("data", "Bridge", [rewrite.question, search], BridgeOutput)
             if evidence is not None:
-                verification = self.shield_client.verify_evidence(access, info, rewrite.question, evidence)
+                verification = self.shield_client.verify_evidence(access, rewrite.question, evidence)
                 if verification.status != "verified":
                     self.collection.discard(access.company_id, "data", key)
                     turn["cache"][-1]["result_source"] = "rejected"
                     evidence = verification = None
             if evidence is None:
-                evidence = self.bridge_client.read_evidence(access, info, rewrite.question)
+                evidence = self.bridge_client.read_evidence(access, rewrite.question)
             turn["decision_source"] = "Bridge"
             turn["plan"] = evidence.read.model_dump(mode="json") if evidence.read else None
             if evidence.status == "ask":
@@ -91,12 +91,12 @@ class Orchestrator:
                 answer = VoiceOutput(status="withheld", text=evidence.reason, sources=[], mode="direct")
             else:
                 if verification is None:
-                    verification = self.shield_client.verify_evidence(access, info, rewrite.question, evidence)
+                    verification = self.shield_client.verify_evidence(access, rewrite.question, evidence)
                     if key and verification.status == "verified":
                         self.collection.save_to_cache(access.company_id, "data", key, "Bridge", verification.facts, turn["_id"])
                         turn["cache"][-1]["produced_by_turn"] = turn["_id"]
                 def write_answer():
-                    return self.voice_client.write_answer(rewrite.question, language, verification, search, info)
+                    return self.voice_client.write_answer(rewrite.question, language, verification, search)
                 answer = (cache.ai("Voice", [rewrite.question, language, verification, search], VoiceOutput,
                                    write_answer, lambda r: r.mode == "ai")
                           if verification.status == "verified" else write_answer())
@@ -106,7 +106,7 @@ class Orchestrator:
             options = search
             user_messages = [m.content for m in history if m.role == "user"][-2:] + [question]
             followup = cache.ai("Guide", [options, user_messages, decision.missing_choice, language, rewrite.unclear_references], GuideOutput,
-                lambda: self.guide_client.generate_followup(options, decision.missing_choice, language, rewrite.unclear_references, user_messages, info.documents))
+                lambda: self.guide_client.generate_followup(options, decision.missing_choice, language, rewrite.unclear_references, user_messages, search.matches))
         return OrchestratorOutput(conversation_id=conversation_id, turn_id=turn["_id"], question=question, access=access,
-            company_information=info, rewrite=rewrite, search=search, decision=decision, followup=followup,
+            sources=info, rewrite=rewrite, search=search, decision=decision, followup=followup,
             evidence=verification.facts if verification else None, verification=verification, answer=answer)

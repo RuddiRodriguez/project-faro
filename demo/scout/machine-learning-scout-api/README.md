@@ -1,11 +1,9 @@
-# Scout — finds relevant company definitions
+# Scout — finds relevant connected source material
 
-Preparation embeds each company document once with the multilingual E5 encoder and the passage: prefix. Each company has its own saved FAISS index and document-reference file. Questions use the query: prefix; only the question is embedded at request time.
+Scout lists sources through Connector using Gate's company and access scope. It indexes field names and text PDF passages with multilingual E5 and stores a FAISS index keyed by company, permissions, source versions and model version. No prepared company definitions are loaded.
 
-The included knowledge_search package validates input, builds the search request and filters hits by score. The local search client preserves the AWS request/result format while searching permitted index rows locally. Scout loads the matching definition text and source references.
+On first search, or after a source changes, Scout builds the index. On repeat searches it embeds only the question. The encoder stays loaded in the service. Production should build indexes when data is connected rather than making the first user wait.
 
-From demo/, prepare the model and indexes:
+The included knowledge_search code keeps the AWS Retrieve request/result shape. The local client supplies matches from the permitted saved index. Scout returns passages with source references and versions, plus the full permitted source list. Matching text guides Bridge; it does not establish an operational answer.
 
-    python scripts/prepare_scout_model.py
-
-To reuse compatible weights, pass --weights /path/to/weights. Rebuild the indexes and restart after changing definitions or weights. The model stays loaded while the service runs. The console starts Scout with the other services.
+From demo/, run `python scripts/prepare_scout_model.py` to prepare the model. Use `--weights /path/to/weights` to copy compatible weights. Source indexing is automatic.

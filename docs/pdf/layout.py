@@ -122,7 +122,7 @@ class ServiceCircle(Flowable):
             c.roundRect(x,y,145,43,5,fill=1,stroke=1)
             c.setFillColor(NAVY);c.setFont('DocArialBold',9);c.drawCentredString(x+72.5,y+27,title)
             c.setFont('DocArial',8);c.drawCentredString(x+72.5,y+12,detail)
-        nodes=[(0,247,'Gate','Checks who may see what'),(338,247,'Library','Holds company meanings'),
+        nodes=[(0,247,'Gate','Checks who may see what'),(338,247,'Connector','Opens permitted sources'),
                (0,187,'Thread','Combines question and replies'),(338,187,'Scout','Finds relevant company text'),
                (0,104,'Signal','Decides: continue, ask, or stop'),(338,104,'Guide','Writes a follow-up question'),
                (0,44,'Bridge / Shield','Gets facts / checks them'),(338,44,'Voice','Explains supported results')]

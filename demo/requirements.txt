@@ -1,6 +1,4 @@
 -e ./api_objects
--e ./library/machine-learning-library-api/infer/library
--e ./library/machine-learning-library-api
 httpx==0.28.1  # Service calls and API tests
 -e ./gate/machine-learning-gate-api/infer/gate
 -e ./gate/machine-learning-gate-api

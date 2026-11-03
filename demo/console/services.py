@@ -11,7 +11,7 @@ import httpx
 
 
 DEMO = Path(__file__).resolve().parents[1]
-SERVICES = ("gate", "connector", "library", "thread", "scout", "signal", "guide", "bridge", "shield", "voice", "compass")
+SERVICES = ("gate", "connector", "thread", "scout", "signal", "guide", "bridge", "shield", "voice", "compass")
 
 
 @contextmanager

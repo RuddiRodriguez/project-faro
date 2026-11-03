@@ -16,7 +16,7 @@ class OrchestratorEndpoint:
         result = self.orchestrator.orchestrate(orchestrator_input)
         return ApiOrchestratorOutput(conversation_id=result.conversation_id, turn_id=result.turn_id, question=result.question,
                                   access=result.access,
-                                  company_information=result.company_information,
+                                  sources=result.sources,
                                   rewrite=result.rewrite,
                                   search=result.search,
                                   decision=result.decision, followup=result.followup, evidence=result.evidence, verification=result.verification, answer=result.answer)

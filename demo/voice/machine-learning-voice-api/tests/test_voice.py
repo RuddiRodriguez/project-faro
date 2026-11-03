@@ -18,13 +18,15 @@ DATA = Path(__file__).resolve().parents[3] / "local_data/demo_dataset"
 
 
 def verified_read(company, scopes, source, group, order):
-    request = RankingRequest(question="Compare the members in October",company_id=company,permitted_scope_ids=scopes,definition_ids=[source])
-    read = Read(source=source,scope_ids=scopes,group=group,member_ids=[],start="2026-10-01",end_exclusive="2026-11-01",
-        expression=("(df.groupby('asset_id')['occupied_room_nights'].sum()/df.groupby('asset_id')['available_room_nights'].sum()*100)" if company=="meridian" else "df.groupby('asset_id')['downtime_hours'].sum()")+f".sort_values(ascending={order=='ASC'})")
-    evidence = execute(DATA,request,read)
-    handler = Mock()
-    handler.predict.return_value.assistant_tools = [Mock(parsed_arguments={"initial_analysis":"Supplied test evidence.", "reasoning":"Supported test decision.", "decision":"supported","reason":"Matches"})]
-    return Shield(DATA,handler).verify(Check(**request.model_dump(), evidence=evidence))
+    # Voice unit tests start at its boundary: findings already checked by Shield.
+    from api_objects.faro.bridge.output.bridge_output import BridgeOutput
+    from api_objects.faro.shield.output.shield_output import ShieldOutput
+    rows=([{"member":"Tokyo Bay","value":70},{"member":"Madrid Central","value":80},{"member":"Mexico City Plaza","value":90}]
+          if company=="meridian" else [{"member":"harbor_north_c01","value":62},{"member":"harbor_north_c02","value":62}])
+    facts=BridgeOutput(status="ready",company_id=company,question="Compare members",source="activity.json",period="October 2026",
+        unit="%" if company=="meridian" else "hours",rows=rows,
+        read=Read(source=source,scope_ids=scopes,group=group,member_ids=[],start=None,end_exclusive=None,expression="df.sort_values(ascending=False)"))
+    return ShieldOutput(status="verified",facts=facts)
 
 
 def hotel_request():

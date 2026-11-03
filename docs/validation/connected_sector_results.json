@@ -1,0 +1,335 @@
+[
+  {
+    "company": "harbor",
+    "question": "Which berths had the most crane idle hours last month?",
+    "status": "verified",
+    "answer": "Berth S1 had the most crane idle time in October 2026: 115 hours (6,900 minutes).",
+    "elapsed_ms": 35895,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "46d1aabc-1580-4cc0-ba38-76b70329d5c2",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "9615e704-e388-426f-87e3-d1601ece0c10",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for berth-level crane idle hours in the previous calendar month (October 2026, based on the supplied reference date). The catalogue includes operational event records and berth assignments, but source notes are needed to establish event meanings, date coverage, and how to treat revisions or withdrawals.",
+            "reasoning": "Read the operational notes first to determine whether these sources define crane idle hours and how records should be selected and aggregated."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "689143ad-d923-4900-a10e-627bc530c268",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October 2026 operations note defines idle time as code I, excludes maintenance code M, and says corrections/withdrawals are handled by the current_events view. It requires exactly one assignment per counted ticket before ranking berths. I need compare October idle minutes by berth using the assignments.",
+            "reasoning": "The note establishes the relevant month, event-code meaning, and completeness rule. The current event records and their berth assignments are needed to calculate and verify the ranking."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "3a2cf664-0d9b-465e-b70a-121c239e9a05",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October 2026 release says to count current event records with code I, exclude maintenance, and assign each counted ticket to exactly one berth. The event totals are available, but the berth ranking requires the ticket-to-berth assignments.",
+            "reasoning": "Need to link the counted tickets to allocation records and confirm each has exactly one assignment before ranking."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "19bbc91d-e68a-416a-8c78-43f15d6d4252",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question concerns October 2026, the month before the 2026-11-03 reference date. The operations note says to use current_events, count code I minutes, exclude maintenance, and match each ticket to exactly one berth assignment. The joined records show assignments for all four October idle tickets.",
+            "reasoning": "The source note defines the applicable event codes, units, and required ticket-to-berth relationship. I need to aggregate the joined idle minutes by berth to identify the highest total."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "96dccfdc-d552-4628-a197-8ac815fc24f0",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "\u201cLast month\u201d is October 2026, based on the reference date. The operations note defines idle time as code I, in minutes, and specifies that current_events reflects corrections and excludes withdrawals.",
+            "reasoning": "The October idle records were linked to berth assignments and summed by berth. S1 had the highest total: 6,900 minutes (115 hours)."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "d8837fd6-75eb-4e52-9369-d4d280589f22",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October 2026 release covers all North and South berths and directs use of current_events, counting code I but excluding M. The joined results assign every counted idle ticket to one berth; S1 totals 6,900 minutes, more than the other listed berths.",
+            "reasoning": "Since the reference date is 2026-11-03, last month is October 2026. The executed berth totals show S1 highest at 6,900 minutes, equivalent to 115 hours."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "retail",
+    "question": "How many units did all our stores sell in October 2026?",
+    "status": "verified",
+    "answer": "All stores recorded 1,050 units sold in October 2026.",
+    "elapsed_ms": 48288,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "f8023d68-96f9-41ee-910c-34ac5236bba4",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "b3f45926-81c5-44b1-9925-086719a0e9e9",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for total units sold by all stores during October 2026. Activity records can provide sold quantities, but corrections/deletions and reporting coverage must be checked before totaling.",
+            "reasoning": "I need the October activity records first, including revision and deletion fields, to identify the valid sales data and assess what coverage checks are needed."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "432ad266-64e1-4ba1-a7e2-769c22c54638",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October activity extract shows daily records for East and West, including sold and returned units. Before giving a total, the records\u2019 correction/deletion status and reporting coverage need to be checked so missing or superseded data are not mistaken for complete sales.",
+            "reasoning": "The displayed activity rows alone do not establish that all stores are represented or that October reporting is complete."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "35762015-1720-4422-bfec-84b8c08f8229",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October activity read lists daily sold units for East and West, and the asset records identify both as stores active from October 1. Before totaling, coverage and activity corrections/deletions should be checked.",
+            "reasoning": "The available activity rows alone do not establish whether October reporting is complete or whether any records are superseded or deleted."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "d0a11b98-38f5-4383-a7e2-2a6817df7209",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "October 2026 activity records are available for the two store assets, East and West. The activity source includes revision and deletion fields, so the total should use the latest non-deleted record per record_id; coverage records indicate both stores have complete October data.",
+            "reasoning": "Read the filtered October activity after selecting each record's latest revision and excluding deletion markers, then sum the documented sold field."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "9db41e6e-024f-4066-8102-18fe216b7397",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "La pregunta pide sumar las unidades vendidas por todas las tiendas en octubre de 2026. Los datos identifican dos tiendas y muestran cobertura completa del mes para ambas; falta obtener el total aplicando revisiones y marcas de eliminaci\u00f3n.",
+            "reasoning": "La lectura existente muestra registros diarios de octubre y cobertura completa (31 de 31 d\u00edas) para East y West. Se necesita una agregaci\u00f3n que conserve solo la revisi\u00f3n m\u00e1s reciente de cada registro y excluya los eliminados antes de sumar sold."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "882dfd83-e892-4c27-8f20-a7e06f33688d",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "October 2026 activity is available for the two listed stores, East and West. Coverage records show both stores have complete data for all 31 days of October.",
+            "reasoning": "Summing the latest, non-deleted activity records\u2019 sold values for October 1\u201331 gives 1,050. This is the recorded sold total; returns are a separate field and are not subtracted."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "34454511-4c5e-4521-8258-3ac5a6c0a267",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The proposed finding reports 1,050 units sold across all stores in October 2026. The checked activity read sums the latest non-deleted October records; the asset and coverage reads identify East and West as the stores and show complete coverage for both.",
+            "reasoning": "The October sold values sum to 1,000 for East and 50 for West. Both stores are included, and each has complete 31-day coverage, so the total is supported."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "cedar",
+    "question": "Compare hospital bed occupancy in October 2026, highest first.",
+    "status": "verified",
+    "answer": "Central Hospital \u2014 95% occupancy (4,712 occupied / 4,960 available bed-days).\nLakeside Hospital \u2014 90% occupancy (6,138 / 6,820 bed-days).\nHillview Hospital \u2014 85% occupancy (2,635 / 3,100 bed-days).\nWesthaven Hospital \u2014 80% occupancy (4,464 / 5,580 bed-days).\nRiverside Hospital \u2014 75% occupancy (3,255 / 4,340 bed-days).\nMeadow Hospital \u2014 65% occupancy (1,612 / 2,480 bed-days).",
+    "elapsed_ms": 56464,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "b9ef1fbe-fe8c-42d1-926c-861c166f20c1",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "4a3c1089-81ed-4d8c-a41b-cbeaaa2569ab",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for a highest-first comparison of hospital bed occupancy in October 2026. The available sources include activity measures for occupied and available bed days, asset types, and reporting coverage; I need to verify hospital assets, revisions/deletions, and coverage before comparing occupancy.",
+            "reasoning": "No October 2026 activity or coverage records have been read yet, so the comparison is not supported by the supplied catalogue alone."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "78bda027-15a5-43b3-b95c-29ee61ce5a90",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October 2026 activity records contain occupied and available bed-days for six hospitals. A valid comparison should use monthly occupancy (occupied bed-days \u00f7 available bed-days), while resolving revised/deleted records and checking reporting coverage.",
+            "reasoning": "The supplied daily rows show revisions and a deletion marker, so I need to select the latest version per record and exclude deleted records before aggregating. I also need October coverage records to confirm whether the comparison is complete."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "ddf869cd-361d-477b-b089-8605f60048cf",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The request is to rank hospitals by October 2026 bed occupancy. The activity data includes occupied and available bed-days, plus revision and deletion fields that must be handled before calculating occupancy. Coverage for the month has not yet been checked.",
+            "reasoning": "A comparison should use each record's latest revision, exclude records whose latest revision is deleted, and calculate occupied bed-days divided by available bed-days per hospital. I am aggregating those data now."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "48b95677-6ba3-4d93-86c9-ec6a8d894439",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October activity read reports occupied and available bed-days for six hospitals, each with 31 distinct activity dates. To confirm reported-period completeness before comparing occupancy, coverage records for October also need checking.",
+            "reasoning": "The activity data can rank occupancy as occupied bed-days divided by available bed-days, but the supplied evidence does not include coverage status or source notes. I\u2019m checking October coverage before reporting the comparison."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "d1abde7c-fce4-469a-8146-fb735f3a5fb5",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Occupancy is calculated as occupied bed-days divided by available bed-days for October 1\u201331, 2026. The summarized activity covers all 31 days for each of six hospitals, with complete coverage reported for each.",
+            "reasoning": "The October activity was deduplicated by record_id using the latest revision, deleted records were excluded, and occupancy percentages were calculated from summed bed-days. Coverage confirms 31 of 31 expected days for every hospital. Evidence: activity and hospital identities [1, 2]; coverage [3]."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "e4d2c8c3-37a5-466d-aa89-1ee257f7fa9b",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Six proposed findings rank hospital occupancy for October 2026, citing the aggregated activity comparison (evidence 2) and coverage records (evidence 3). The comparison includes all six permitted hospitals, and each October coverage record reports 31 of 31 days received and complete.",
+            "reasoning": "The executed comparison aggregates occupied and available bed-days after resolving revisions and deleted records, calculates occupancy percentages, and sorts highest first. Its values match all six findings; the October coverage records confirm complete reporting for each hospital."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "meridian",
+    "question": "How many hotels do we have?",
+    "status": "verified",
+    "answer": "We have 3 active hotels as of 2026-11-03.",
+    "elapsed_ms": 23834,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "72cbc1e7-ca81-4aa9-95df-ce7aef90cc5d",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "4ac7fe19-80b6-4ed5-8c29-c6fc3717f3ef",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The catalogue lists hotel-related asset records across Madrid, Mexico City, and Tokyo, but does not define which asset_type values represent hotels. I need to inspect the asset records and their validity dates before counting.",
+            "reasoning": "A count should reflect assets active on the catalogue reference date (2026-11-03); the asset records can show the types and date ranges needed to determine the count."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "cf9cd4a1-e42a-4a46-870e-429fd915751f",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The asset records list three hotels across Madrid, Tokyo, and Mexico City. All are active from 2026-10-01 with no end date; the reference date is 2026-11-03.",
+            "reasoning": "The supplied rows indicate three hotels active on the reference date. A dataframe count would confirm the total directly."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "b11cbfb2-5366-44b1-9ea1-ddcb3508289d",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The asset records list hotels across Madrid, Tokyo, and Mexico City. A read counted hotels active on the catalogue reference date, 2026-11-03.",
+            "reasoning": "The active-hotel count for that date is 3, covering the permitted scopes. [Evidence 2]"
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "357d4b17-2909-497b-99d2-e01d980649bf",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The proposed finding says there are 3 active hotels as of 2026-11-03. The all-location asset read lists three hotel assets, each active from 2026-10-01 with no end date; the executed count for that date is 3.",
+            "reasoning": "Evidence 2 directly counts hotel assets active on 2026-11-03 across all permitted locations, supporting the finding."
+          }
+        ]
+      }
+    ]
+  }
+]

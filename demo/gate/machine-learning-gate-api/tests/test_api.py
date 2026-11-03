@@ -5,8 +5,6 @@ from pathlib import Path
 
 from fastapi.testclient import TestClient
 from gate_api.infer import create_app
-from library.information_reader import InformationReader as LibraryReader
-from library.information_reader_input import InformationReaderInput as LibraryInput
 
 DATA = Path(__file__).resolve().parents[3] / 'local_data/demo_dataset'
 
@@ -49,11 +47,6 @@ class GateTests(unittest.TestCase):
         access = response.json()
         self.assertEqual(access['company_id'], 'harbor')
         self.assertEqual(access['permitted_scope_ids'], ['harbor_north'])
-        result = LibraryReader(DATA).read(LibraryInput(
-            company_id=access['company_id'],
-            permitted_scope_ids=access['permitted_scope_ids']))
-        self.assertEqual([item.scope_id for item in result.scopes], ['harbor_north'])
-        self.assertEqual([item.scope_id for item in result.agreements], ['harbor_north'])
         self.assertEqual(self.access('maya').json()['company_id'], 'pacific')
 
     def test_permission_changes_are_read_on_next_call(self):

@@ -39,7 +39,7 @@ class SavedAttemptsTests(TestCase):
                                              decisions_response={"answers":answers})
                     with patch.object(OpenAiClient,"_decisions_api_predict",side_effect=decide) as provider:
                         response=TestClient(app).post("/v1/classify",headers={"x-faro-turn":turn_id,"x-faro-company":"harbor"},
-                            json=dict(question=question,matches=[],permitted_scopes=["north"],supported_tasks=["Compare locations"]))
+                            json=dict(question=question,matches=[],permitted_scopes=["north"]))
                         self.assertEqual(response.status_code,502 if exhaust else 200)
                         self.assertEqual(provider.call_count,len(expected))
                     row=store.read_conversation("harbor",doc["_id"])["turns"][0]

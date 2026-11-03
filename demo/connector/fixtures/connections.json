@@ -22,5 +22,63 @@
       "harbor_south"
     ],
     "file": "operations_note.pdf"
+  },
+  {
+    "company": "cedar",
+    "scopes": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "file": "cedar.json",
+    "scope_field": "scope_id"
+  },
+  {
+    "company": "harbor",
+    "scopes": [
+      "harbor_north",
+      "harbor_south"
+    ],
+    "file": "harbor.json",
+    "scope_field": "scope_id"
+  },
+  {
+    "company": "meridian",
+    "scopes": [
+      "madrid",
+      "tokyo",
+      "mexico_city"
+    ],
+    "file": "meridian.json",
+    "scope_field": "scope_id"
+  },
+  {
+    "company": "pacific",
+    "scopes": [
+      "pacific_north",
+      "pacific_south"
+    ],
+    "file": "pacific.json",
+    "scope_field": "scope_id"
+  },
+  {
+    "company": "retail",
+    "scopes": [
+      "retail_region"
+    ],
+    "file": "retail.json",
+    "scope_field": "scope_id"
+  },
+  {
+    "company": "strait",
+    "scopes": [
+      "strait_north",
+      "strait_south"
+    ],
+    "file": "strait.json",
+    "scope_field": "scope_id"
   }
 ]
