@@ -28,7 +28,7 @@ class SavedAttemptsTests(TestCase):
             for exhaust, expected in [(False,["timeout","success"]), (True,["timeout"]*3)]:
                 with store.conversation(OrchestratorInput(user_id="maria", question=question),access) as doc:
                     turn_id=str(uuid4())
-                    doc["turns"].append(dict(_id=turn_id,number=1,message=question,language=None,
+                    doc["turns"].append(dict(_id=turn_id,number=1,message=question,
                         created_at=now().isoformat(),status="started",cache=[],model_attempts_tracked=True))
                     store.save_conversation(doc)
                     def decide(conversation, timeout):

@@ -10,7 +10,7 @@ class OrchestratorEndpoint:
 
     def handle(self, api_input: ApiOrchestratorInput) -> ApiOrchestratorOutput:
         orchestrator_input = LibOrchestratorInput(conversation_id=api_input.conversation_id, previous_answer_id=api_input.previous_answer_id, user_id=api_input.user_id,
-                                            question=api_input.question, language=api_input.language,
+                                            question=api_input.question,
                                             conversation=[LibConversationMessage(role=message.role, content=message.content)
                                                           for message in api_input.conversation])
         result = self.orchestrator.orchestrate(orchestrator_input)

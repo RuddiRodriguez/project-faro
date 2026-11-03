@@ -79,7 +79,7 @@ class DataCollection:
         for path in sorted(folder.glob("*.parquet")):
             frame = pd.read_parquet(path)
             row = frame.astype(object).where(frame.notna(), None).to_dict("records")[0]
-            t = dict(_id=row["turn_id"], number=row["turn_number"],message=row["message"],language=row["language"],
+            t = dict(_id=row["turn_id"], number=row["turn_number"],message=row["message"],
                      status=row["status"],created_at=row["created_at"].isoformat(),cache=json.loads(row["cache_events_json"]),
                      plan=json.loads(row["plan_json"]),response=json.loads(row["response_json"]),
                      elapsed_ms=row["elapsed_ms"],error=row["error"],decision_source=row["decision_source"])
@@ -136,7 +136,7 @@ class DataCollection:
                 initial_history_json=json.dumps(doc["initial_history"],ensure_ascii=False))])
         t = doc["turns"][-1]
         row = dict(turn_id=t["_id"],conversation_id=cid,turn_number=t["number"],message=t["message"],
-            language=t["language"],created_at=t["created_at"],status=t["status"],decision_source=t.get("decision_source"),
+            created_at=t["created_at"],status=t["status"],decision_source=t.get("decision_source"),
             plan_json=json.dumps(t.get("plan")),response_json=json.dumps(t.get("response"),ensure_ascii=False),
             model_attempts_tracked=int(t.get("model_attempts_tracked",False)), cache_events_json=json.dumps(t["cache"]),error=t.get("error"),elapsed_ms=t.get("elapsed_ms"),
             cache_version=t.get("cache_version",self.version))

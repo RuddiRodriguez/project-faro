@@ -16,11 +16,14 @@ class Reader:
         self.llm_handler = llm_handler
 
     def _build_conversation(self, request, sources, observations):
+        passages = [p.model_dump() for p in request.passages
+                    if p.source_id in sources["connected"]
+                    and p.version == sources["connected"][p.source_id]["version"]]
         conversation = Conversation(intelligence_level=IntelligenceLevel.LIGHT,
             system_message=SystemMessage(content=ReadPrompt.SYSTEM_MESSAGE))
         conversation.add_message(UserMessage(content=ReadPrompt.USER_MESSAGE.format(
-            question=request.question, catalogue=json.dumps(sources, ensure_ascii=False),
-            observations=json.dumps(observations, ensure_ascii=False), steps_remaining=6-len(observations))))
+            question=request.question, passages=json.dumps(passages, ensure_ascii=False), catalogue=json.dumps(sources, ensure_ascii=False),
+            observations=json.dumps(observations, ensure_ascii=False))))
         return conversation
 
     def _parse_chat_prediction_output(self, prediction):
@@ -32,7 +35,7 @@ class Reader:
         sources = catalogue(self.data_path, request)
         context = dict(company_id=request.company_id, question=request.question)
         reads, observations = [], []
-        for step in range(7):
+        while True:
             prediction = self.llm_handler.predict(conversation=self._build_conversation(request, sources, observations),
                 structured_output=ReadPrompt.STRUCTURED_OUTPUT, timeout=30, enable_auto_fix_json=False)
             try:
@@ -52,8 +55,6 @@ class Reader:
                                                                data_version=sources["data_version"])
                 return result.model_copy(update={"findings":decision.findings, "supporting":reads[1:],
                                                  "catalogue_version":snapshot_id(sources)})
-            if step == 6:
-                break
             if decision.read is None:
                 observations.append({"error":"No read supplied."})
                 continue
@@ -64,5 +65,4 @@ class Reader:
                 continue
             reads.append(result)
             observations.append({"id":len(reads), **result.model_dump(mode="json",
-                include={"read","rows","period","source","unit"})})
-        return ReaderOutput(**context,status="incomplete",reason="No supported answer within the read budget.")
+                include={"read","rows","period","source","unit","link_check"})})

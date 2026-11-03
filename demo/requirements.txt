@@ -22,3 +22,5 @@ httpx==0.28.1  # Service calls and API tests
 -e ./connector/machine-learning-connector-api/infer/connector
 -e ./connector/machine-learning-connector-api
 reportlab==5.1.0  # Create the demo PDF fixture
+
+streamlit==1.66.1  # Local web demo

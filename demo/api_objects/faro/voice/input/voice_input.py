@@ -5,7 +5,6 @@ from api_objects.faro.shield.output.shield_output import ShieldOutput
 class VoiceInput(BaseModel):
     question: str
     verification: ShieldOutput
-    language: str | None = None
     names: list[str] = Field(default_factory=list)
     measure: str | None = None
     definition: str | None = None

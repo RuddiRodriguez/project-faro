@@ -1,0 +1,86 @@
+{
+  "documents": [
+    {
+      "id": "port",
+      "page": 2,
+      "text": "Crane idle hours measure time waiting for work. Maintenance downtime is excluded. Work reference links operations records to berth assignments."
+    },
+    {
+      "id": "maintenance",
+      "page": 1,
+      "text": "Downtime records repairs when a crane cannot operate. The maintenance job code is MT42."
+    },
+    {
+      "id": "hospital",
+      "page": 4,
+      "text": "Hospital occupancy is occupied bed days divided by available bed days. Patient waiting time is a separate measure."
+    },
+    {
+      "id": "hotel",
+      "page": 3,
+      "text": "Hotel occupancy uses occupied room nights divided by available room nights. Cancellations are excluded from booking totals."
+    },
+    {
+      "id": "retail",
+      "page": 2,
+      "text": "Net store sales subtract refunded transactions from gross sales. Sales are recorded in euros."
+    },
+    {
+      "id": "equipment",
+      "page": 6,
+      "text": "The inspection reference ZXQ917 belongs to compressor B. The equipment register lists installation dates."
+    },
+    {
+      "id": "staff",
+      "page": 1,
+      "text": "Staff attendance lists employee work shifts and leave requests."
+    },
+    {
+      "id": "energy",
+      "page": 5,
+      "text": "Electricity usage is measured in kilowatt hours from daily meter readings."
+    }
+  ],
+  "questions": [
+    {
+      "query": "Which berths had the most crane idle hours last month?",
+      "expected": "port"
+    },
+    {
+      "query": "Which berths had the longest crane idle time?",
+      "expected": "port"
+    },
+    {
+      "query": "How is hospital bed occupancy measured?",
+      "expected": "hospital"
+    },
+    {
+      "query": "How do we measure hospital bed use?",
+      "expected": "hospital"
+    },
+    {
+      "query": "How are cancelled hotel bookings handled?",
+      "expected": "hotel"
+    },
+    {
+      "query": "How are net store sales calculated?",
+      "expected": "retail"
+    },
+    {
+      "query": "ZXQ917",
+      "expected": "equipment"
+    },
+    {
+      "query": "MT42",
+      "expected": "maintenance"
+    },
+    {
+      "query": "Which unit measures electricity consumption?",
+      "expected": "energy"
+    },
+    {
+      "query": "Where are employee leave requests recorded?",
+      "expected": "staff"
+    }
+  ]
+}

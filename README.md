@@ -1,8 +1,8 @@
 # Project Faro
 
-Ask a question about company data, clarify it when necessary, and receive a checked answer with the files used to produce it.
+Ask an English question about connected English-language company data, clarify it when necessary, and receive a checked answer in English with the files used to produce it. Language detection and translation are outside the current demo.
 
-Faro is a working local demo for an AI engineering assessment. The same services run terminal, retail, hospital and hotel examples. A separate connector reads JSON, SQLite, Excel and text PDFs. It is not a production identity system or a universal reader for every source.
+Faro is a working local demo for an AI engineering assessment. The same services run terminal, retail, hospital and hotel examples. A separate connector reads JSON, SQLite, Excel, CSV, Parquet and text PDFs. It is not a production identity system or a universal reader for every source.
 
 ## Start the demo
 
@@ -42,7 +42,7 @@ Use /new for a fresh question, /logout to change account, /quit to stop. “Last
 ## How it works
 
 1. Compass coordinates the request. Gate checks the selected account and access; Connector lists the permitted sources.
-2. Thread combines relevant replies. Scout searches field names and passages from connected sources.
+2. Thread combines relevant replies. Scout combines meaning search with word search over field names and connected PDF passages. Passages retain page and character positions and are passed to Bridge as navigation hints, never as verified answers.
 3. Signal classifies the next action. Guide asks a clarification only when a user choice is needed.
 4. Bridge reads permitted evidence through Connector.
 5. Shield repeats the reads and checks proposed findings. Voice presents the supported answer and document links.
@@ -77,8 +77,8 @@ The client provides data access and asks questions. Connection locations and acc
 That does **not** mean any client can connect any file and obtain a correct answer:
 
 - There is no glossary, supported-task list or prepared business model to supply. JSON sources contain named tables of records; their field names remain unchanged.
-- Native readers support local SQLite, header-row Excel and text PDFs, at most 1,000 rows per item. Larger reads stop; they do not silently sample.
-- SQLite, Excel and PDF connections grant whole-file access. JSON connections can restrict rows by a configured access field. Gate is demo user selection; internal APIs trust the local coordinator. Production authentication and source-specific authorization still need implementation.
+- Native readers support local SQLite, header-row Excel/CSV, Parquet and text PDFs. They read all permitted rows without the former 1,000-row cap.
+- SQLite, Excel and PDF connections grant whole-file access. JSON, CSV and Parquet connections can restrict rows by a configured access field. Gate is demo user selection; internal APIs trust the local coordinator. Production authentication and source-specific authorization still need implementation.
 - Bridge links two tables using exact keys and requires an unambiguous complete match. Time-overlap joins, scanned PDFs, remote data lakes and MongoDB require additional support.
 - A model may choose a poor read or decline an answerable question. Shield replay and evidence review reduce risk; they do not prove source truth.
 - The sandbox has not undergone a production security audit.
@@ -105,3 +105,42 @@ Local tests cover permissions, corrections, withdrawals, incomplete records, unf
 Rebuild PDFs with: demo/venv/bin/python docs/pdf/build_proposal.py
 
 The root PowerPoint files are earlier presentation drafts; the PDFs are the maintained proposal.
+
+## Search evaluation
+
+From the repository root:
+
+    demo/venv/bin/python demo/scripts/evaluate_search.py --output tmp/search-evaluation.json
+
+The labelled test documents cover English questions, exact identifiers and several sectors. This measures source retrieval separately from answer correctness. Add `--rerank` to compare an extra local model (requires sentence-transformers and downloads the public cross-encoder checkpoint). It is an experiment, not part of the running services.
+
+Search indexes change when permissions, source versions, embedding revision or passage format changes. CSV values remain text, preserving leading zeros and empty strings; Bridge can choose conversions during its read. Parquet keeps typed values. Both readers use the same permission, version and evidence checks as the existing formats.
+
+See [search changes and before/after results](docs/search_improvements.md) for the implementation, measured results and remaining limitations.
+
+
+## Local web demo
+
+Run from the project folder:
+
+```bash
+demo/venv/bin/python demo/run_web_demo.py
+```
+
+Open http://localhost:8501. The launcher starts the ten APIs once, then opens the
+Streamlit server. Stop it with Ctrl+C. The console remains available.
+
+Choose a demo account, ask about its data, and reply in the same box when Faro
+asks for clarification. “New question” clears the current question; “Switch account”
+clears the displayed conversation before another account enters. Account selection
+is for the local demo, not production authentication.
+
+The web screen calls Gate and Compass. It displays Faro's answer unchanged and
+provides source-document downloads, checked evidence, and saved timing, cache and
+model-attempt details. Downloads are selected from the saved turn and checked against
+the account's current permissions and the saved file's fingerprint. The browser never
+supplies a file path. The UI adds no model calls or answer cache.
+
+Install the web dependency with `demo/venv/bin/python -m pip install streamlit==1.66.1`
+if the environment was created before this screen was added. Azure settings, cloud
+storage and deployment are deferred until the local demo has been reviewed.

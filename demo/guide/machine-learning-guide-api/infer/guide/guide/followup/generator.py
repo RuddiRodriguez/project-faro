@@ -27,7 +27,6 @@ class Generator:
                                         system_message=SystemMessage(content=FollowUpPrompt.SYSTEM_MESSAGE))
 
             user_msg_text = FollowUpPrompt.USER_MESSAGE.format(
-                language=generator_input.language or "not specified",
                 user_messages=json.dumps(generator_input.user_messages, ensure_ascii=False),
                 question_text=json.dumps(generator_input.question_text, ensure_ascii=False),
                 missing_choice=json.dumps(generator_input.missing_choice, ensure_ascii=False),

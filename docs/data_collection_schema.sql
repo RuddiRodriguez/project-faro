@@ -15,7 +15,6 @@ CREATE TABLE turns (
   conversation_id TEXT NOT NULL REFERENCES conversations(conversation_id),
   turn_number INTEGER,
   message TEXT,
-  language TEXT,
   created_at TIMESTAMP,
   status TEXT,
   decision_source TEXT,

@@ -1,6 +1,6 @@
 # Guide — asks one clarification question
 
-Compass calls Guide only when Signal returns Ask. It sends Thread’s question, the missing choice from Signal, and the titles and text of permitted definitions from Scout. Guide calls the model once through the shared utils handler. Compass can pass an explicit reply language such as `en` or `es`. Otherwise the follow-up prompt asks the model to use the language of the latest user exchange. There is no language detector. It asks about that choice; it does not select an indicator or answer the operational question.
+Compass calls Guide only when Signal returns Ask. It sends Thread’s question, the missing choice from Signal, and the titles and text of permitted definitions from Scout. Guide calls the model once through the shared utils handler. Follow-up questions are in English. It asks about that choice; it does not select an indicator or answer the operational question.
 
 Start from the demo folder:
 

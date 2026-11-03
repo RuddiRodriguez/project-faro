@@ -11,4 +11,4 @@ INDEXES = DEMO / "local_data/scout_source_indexes"
 
 
 def reference(document):
-    return f"s3://faro-demo/{document['company_id']}/{document['document_id']}"
+    return f"s3://faro-demo/{document['company_id']}/{document['version']}/{document['document_id']}"

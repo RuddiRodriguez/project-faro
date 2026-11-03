@@ -62,13 +62,15 @@ class SectorStressTests(TestCase):
             with self.subTest(expression=expression), self.assertRaises(ValueError):
                 run_read(expression,rows,["label","value"])
 
-    def test_large_source_refuses_partial_answer(self):
+    def test_large_source_returns_all_rows(self):
         with TemporaryDirectory() as temp, patch.dict(os.environ,FARO_DOCUMENT_PATH=temp+"/copies"):
             root=Path(temp)
             with sqlite3.connect(root/"data.sqlite") as db:
                 db.execute("CREATE TABLE data (v INTEGER)")
                 db.executemany("INSERT INTO data VALUES (?)",[(i,) for i in range(1001)])
             (root/"connections.json").write_text(json.dumps([dict(company="client",scopes=["scope"],file="data.sqlite")]))
-            with self.assertRaisesRegex(ValueError,"no partial"):
-                SourceReader(root).read(ConnectorInput(company_id="client",permitted_scope_ids=["scope"],action="read",item="data/data"))
-            self.assertFalse((root/"copies").exists())
+            result=SourceReader(root).read(ConnectorInput(company_id="client",permitted_scope_ids=["scope"],action="read",item="data/data"))
+            self.assertEqual(len(result.rows),1001)
+            self.assertEqual(result.rows[-1],{"v":1000})
+            self.assertEqual(len(result.references),1001)
+            self.assertTrue((root/"copies").exists())

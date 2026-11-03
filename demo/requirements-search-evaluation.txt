@@ -1,0 +1,2 @@
+# Optional extra-model experiment; not needed by the Scout service.
+sentence-transformers==6.2.0

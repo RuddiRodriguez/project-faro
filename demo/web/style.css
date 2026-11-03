@@ -1,0 +1,35 @@
+/* Faro's warm palette: deep brown, copper and cream. */
+[data-testid="stChatMessage"] {
+    background-color: #3A2418;
+    border: 1px solid #A88462;
+    border-radius: 16px;
+}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+    background-color: #4A4A46;
+    border-color: #A88462;
+}
+[data-testid="stChatMessageAvatarUser"] {
+    background-color: #D5C4AE;
+    color: #1A120E;
+}
+[data-testid="stChatMessageAvatarAssistant"] {
+    background-color: #6B4A2E;
+    color: #D5C4AE;
+}
+[data-testid="stButton"] button,
+[data-testid="stFormSubmitButton"] button,
+[data-testid="stDownloadButton"] button {
+    background-color: #A88462;
+    border-color: #A88462;
+    color: #1A120E;
+}
+[data-testid="stButton"] button:hover,
+[data-testid="stFormSubmitButton"] button:hover,
+[data-testid="stDownloadButton"] button:hover {
+    background-color: #D5C4AE;
+    border-color: #D5C4AE;
+    color: #1A120E;
+}
+[data-testid="stCaptionContainer"] {
+    color: #D5C4AE;
+}

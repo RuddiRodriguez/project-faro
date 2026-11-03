@@ -60,7 +60,7 @@ class CollectionTests(unittest.TestCase):
     def test_changed_permissions_block_saved_history(self):
         request=OrchestratorInput(user_id="maria",question="First question")
         with self.store.conversation(request,self.access) as doc:
-            doc["turns"].append(dict(_id="one",number=1,message=request.question,language=None,
+            doc["turns"].append(dict(_id="one",number=1,message=request.question,
                 created_at=now().isoformat(),status="failed",cache=[]))
             self.store.save_conversation(doc)
         request.conversation_id=doc["_id"]
@@ -71,7 +71,7 @@ class CollectionTests(unittest.TestCase):
     def test_previous_answer_shares_only_the_verified_question_with_its_owner(self):
         request = OrchestratorInput(user_id="maria", question="Count my cranes")
         with self.store.conversation(request, self.access) as doc:
-            doc["turns"].append(dict(_id="first", number=1, message=request.question, language=None,
+            doc["turns"].append(dict(_id="first", number=1, message=request.question,
                 created_at=now().isoformat(), status="verified", cache=[],
                 response={"rewrite":{"question":request.question}, "answer":{"text":"Private result"}}))
             self.store.save_conversation(doc)

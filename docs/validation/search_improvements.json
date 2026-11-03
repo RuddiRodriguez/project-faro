@@ -1,0 +1,713 @@
+{
+  "reference_date": "2026-11-03",
+  "question": "Which berths had the most crane idle hours last month?",
+  "baseline_commit": "2f177c6d001e7593f10576a3ee9e783b8dd0a9d3",
+  "runs": {
+    "before": [
+      {
+        "run": 1,
+        "status": "verified",
+        "elapsed_ms": 69507,
+        "answer": "In October 2026, S1 had the most recorded idle time among the berths: 6,900 minutes (115 hours). The totals were N1 100 hours, N2 86 hours, and S2 71 hours; maintenance was excluded.\nOnly supported findings are shown.",
+        "documents": [
+          "operations_note.pdf",
+          "operations.sqlite",
+          "allocation.xlsx"
+        ],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 7,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          },
+          "Shield": {
+            "attempts": 2,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 10,
+        "attempts": 10
+      },
+      {
+        "run": 2,
+        "status": "verified",
+        "elapsed_ms": 56269,
+        "answer": "S1 had the most crane idle time last month (October 2026), with 115 hours.\nOnly supported findings are shown.",
+        "documents": [
+          "operations_note.pdf",
+          "operations.sqlite",
+          "allocation.xlsx"
+        ],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 6,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          },
+          "Shield": {
+            "attempts": 2,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 9,
+        "attempts": 9
+      },
+      {
+        "run": 3,
+        "status": "Unsupported",
+        "elapsed_ms": 26167,
+        "answer": "The operations note explicitly says not to rank if any counted ticket lacks an assignment. The linked rows alone do not establish that the join includes every counted ticket or that assignments are unique.",
+        "documents": [],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 4,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 5,
+        "attempts": 5
+      }
+    ],
+    "after": [
+      {
+        "run": 1,
+        "status": "Unsupported",
+        "elapsed_ms": 25249,
+        "answer": "The source note makes complete, one-to-one ticket assignments a prerequisite for ranking. The linked read alone does not verify that prerequisite.",
+        "documents": [],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 3,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 4,
+        "attempts": 4
+      },
+      {
+        "run": 2,
+        "status": "verified",
+        "elapsed_ms": 67878,
+        "answer": "S1 had the most crane idle time last month (October 2026): 115 hours. The berth totals were S1 115 hours, N1 100, N2 86, and S2 71.",
+        "documents": [
+          "operations_note.pdf",
+          "operations.sqlite",
+          "allocation.xlsx"
+        ],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 5,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          },
+          "Shield": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 7,
+        "attempts": 7
+      },
+      {
+        "run": 3,
+        "status": "Unsupported",
+        "elapsed_ms": 39464,
+        "answer": "The allocation join needed to assign the counted tickets to berths did not succeed, so berth totals and assignment completeness cannot be verified.",
+        "documents": [],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 6,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 7,
+        "attempts": 7
+      }
+    ],
+    "final": [
+      {
+        "run": 1,
+        "status": "verified",
+        "elapsed_ms": 62034,
+        "answer": "En octubre de 2026, S1 tuvo el mayor tiempo de inactividad registrado: 6.900 minutos (115 horas). Los totales fueron N1: 6.000 minutos (100 horas), N2: 5.160 minutos (86 horas) y S2: 4.260 minutos (71 horas). Las fuentes no especifican que el equipo asignado sean gr\u00faas.\nOnly supported findings are shown.",
+        "documents": [
+          "operations_note.pdf",
+          "operations.sqlite",
+          "allocation.xlsx"
+        ],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 5,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          },
+          "Shield": {
+            "attempts": 2,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 8,
+        "attempts": 8
+      },
+      {
+        "run": 2,
+        "status": "verified",
+        "elapsed_ms": 36007,
+        "answer": "Berth S1 had the most crane idle time in October 2026, with 115 hours. The other berths had N1: 100 hours, N2: 86 hours, and S2: 71 hours.",
+        "documents": [
+          "operations_note.pdf",
+          "operations.sqlite",
+          "allocation.xlsx"
+        ],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 4,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          },
+          "Shield": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 6,
+        "attempts": 6
+      },
+      {
+        "run": 3,
+        "status": "verified",
+        "elapsed_ms": 45187,
+        "answer": "S1 had the most crane idle time in October 2026: 6,900 minutes, or 115 hours. The other berth totals were N1: 100 hours; N2: 86 hours; S2: 71 hours.",
+        "documents": [
+          "operations_note.pdf",
+          "operations.sqlite",
+          "allocation.xlsx"
+        ],
+        "model_attempts": {
+          "Signal": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          },
+          "Bridge": {
+            "attempts": 5,
+            "calls": [
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ],
+              [
+                "success"
+              ]
+            ]
+          },
+          "Shield": {
+            "attempts": 1,
+            "calls": [
+              [
+                "success"
+              ]
+            ]
+          }
+        },
+        "calls": 7,
+        "attempts": 7
+      }
+    ]
+  },
+  "retrieval": {
+    "note": "Constructed evaluation documents, not client production evidence. Expected source IDs are explicitly labelled.",
+    "cases": [
+      {
+        "query": "Which berths had the most crane idle hours last month?",
+        "expected": "port",
+        "semantic": [
+          "port",
+          "maintenance",
+          "equipment"
+        ],
+        "semantic_without_cutoff": [
+          "port",
+          "maintenance",
+          "equipment"
+        ],
+        "combined": [
+          "port",
+          "maintenance",
+          "equipment"
+        ],
+        "semantic_ms": 34.375916999124456,
+        "combined_ms": 33.277124999585794,
+        "reranked": [
+          "port",
+          "maintenance",
+          "energy"
+        ],
+        "rerank_ms": 2394.2162079983973
+      },
+      {
+        "query": "\u00bfQu\u00e9 muelles tuvieron m\u00e1s horas de inactividad de gr\u00faas?",
+        "expected": "port",
+        "semantic": [],
+        "semantic_without_cutoff": [
+          "port",
+          "maintenance",
+          "hotel"
+        ],
+        "combined": [
+          "port",
+          "maintenance",
+          "hotel"
+        ],
+        "semantic_ms": 52.919708999979775,
+        "combined_ms": 24.560541001847014,
+        "reranked": [
+          "staff",
+          "energy",
+          "hotel"
+        ],
+        "rerank_ms": 33.43749999839929
+      },
+      {
+        "query": "How is hospital bed occupancy measured?",
+        "expected": "hospital",
+        "semantic": [
+          "hospital",
+          "hotel",
+          "port"
+        ],
+        "semantic_without_cutoff": [
+          "hospital",
+          "hotel",
+          "port"
+        ],
+        "combined": [
+          "hospital",
+          "hotel",
+          "energy"
+        ],
+        "semantic_ms": 24.564499999542022,
+        "combined_ms": 23.172500001237495,
+        "reranked": [
+          "hospital",
+          "hotel",
+          "energy"
+        ],
+        "rerank_ms": 34.170874998380896
+      },
+      {
+        "query": "\u00bfC\u00f3mo se mide la ocupaci\u00f3n de camas del hospital?",
+        "expected": "hospital",
+        "semantic": [
+          "hospital",
+          "hotel"
+        ],
+        "semantic_without_cutoff": [
+          "hospital",
+          "hotel",
+          "port"
+        ],
+        "combined": [
+          "hospital",
+          "hotel",
+          "port"
+        ],
+        "semantic_ms": 22.13970800221432,
+        "combined_ms": 19.341917002748232,
+        "reranked": [
+          "hospital",
+          "staff",
+          "energy"
+        ],
+        "rerank_ms": 30.841667001368478
+      },
+      {
+        "query": "How are cancelled hotel bookings handled?",
+        "expected": "hotel",
+        "semantic": [
+          "hotel",
+          "hospital",
+          "staff"
+        ],
+        "semantic_without_cutoff": [
+          "hotel",
+          "hospital",
+          "staff"
+        ],
+        "combined": [
+          "hotel",
+          "retail",
+          "hospital"
+        ],
+        "semantic_ms": 20.51341599872103,
+        "combined_ms": 20.36720899923239,
+        "reranked": [
+          "hotel",
+          "retail",
+          "staff"
+        ],
+        "rerank_ms": 29.91033399666776
+      },
+      {
+        "query": "\u00bfC\u00f3mo se calculan las ventas netas de las tiendas?",
+        "expected": "retail",
+        "semantic": [
+          "retail"
+        ],
+        "semantic_without_cutoff": [
+          "retail",
+          "hotel",
+          "equipment"
+        ],
+        "combined": [
+          "retail",
+          "hotel",
+          "equipment"
+        ],
+        "semantic_ms": 52.271832999394974,
+        "combined_ms": 34.220917001221096,
+        "reranked": [
+          "retail",
+          "energy",
+          "staff"
+        ],
+        "rerank_ms": 39.11891600000672
+      },
+      {
+        "query": "ZXQ917",
+        "expected": "equipment",
+        "semantic": [
+          "equipment",
+          "maintenance",
+          "port"
+        ],
+        "semantic_without_cutoff": [
+          "equipment",
+          "maintenance",
+          "port"
+        ],
+        "combined": [
+          "equipment",
+          "maintenance",
+          "port"
+        ],
+        "semantic_ms": 27.268916001048638,
+        "combined_ms": 27.007707998564,
+        "reranked": [
+          "equipment",
+          "maintenance",
+          "hotel"
+        ],
+        "rerank_ms": 35.199041001760634
+      },
+      {
+        "query": "MT42",
+        "expected": "maintenance",
+        "semantic": [
+          "maintenance",
+          "equipment",
+          "energy"
+        ],
+        "semantic_without_cutoff": [
+          "maintenance",
+          "equipment",
+          "energy"
+        ],
+        "combined": [
+          "maintenance",
+          "equipment",
+          "energy"
+        ],
+        "semantic_ms": 36.16029099794105,
+        "combined_ms": 32.97779200147488,
+        "reranked": [
+          "maintenance",
+          "equipment",
+          "port"
+        ],
+        "rerank_ms": 30.372416997124674
+      },
+      {
+        "query": "Which unit measures electricity consumption?",
+        "expected": "energy",
+        "semantic": [
+          "energy",
+          "equipment",
+          "hotel"
+        ],
+        "semantic_without_cutoff": [
+          "energy",
+          "equipment",
+          "hotel"
+        ],
+        "combined": [
+          "energy",
+          "equipment",
+          "hotel"
+        ],
+        "semantic_ms": 25.04995900017093,
+        "combined_ms": 19.976375002443092,
+        "reranked": [
+          "energy",
+          "port",
+          "hospital"
+        ],
+        "rerank_ms": 25.78995799922268
+      },
+      {
+        "query": "Where are employee leave requests recorded?",
+        "expected": "staff",
+        "semantic": [
+          "staff",
+          "port",
+          "maintenance"
+        ],
+        "semantic_without_cutoff": [
+          "staff",
+          "port",
+          "maintenance"
+        ],
+        "combined": [
+          "staff",
+          "hotel",
+          "retail"
+        ],
+        "semantic_ms": 28.145333999418654,
+        "combined_ms": 32.68341700095334,
+        "reranked": [
+          "staff",
+          "retail",
+          "port"
+        ],
+        "rerank_ms": 23.426332998496946
+      }
+    ]
+  }
+}

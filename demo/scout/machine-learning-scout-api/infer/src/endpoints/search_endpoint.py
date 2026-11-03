@@ -16,4 +16,4 @@ class SearcherEndpoint:
         result = self.searcher.search(searcher_input)
         return ApiSearcherOutput(query=result.query, source_items=sources(api_input.company_id,api_input.permitted_scope_ids).items, matches=[
             SearchMatch(document_id=m.document_id, title=m.title, source=m.source, text=m.text,
-                        version=m.version, file_reference=m.file_reference, score=m.score) for m in result.matches])
+                        version=m.version, file_reference=m.file_reference, score=m.score, source_id=m.source_id, page=m.page, start=m.start, end=m.end) for m in result.matches])

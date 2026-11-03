@@ -55,10 +55,10 @@ class Generator:
     def __init__(self, llm_handler: LLMHandler):
         self.llm_handler = llm_handler
 
-    def _build_conversation(self, question, language, definition, template):
+    def _build_conversation(self, question, definition, template):
         conversation = Conversation(intelligence_level=IntelligenceLevel.YOLO,
             system_message=SystemMessage(content=AnswerPrompt.SYSTEM_MESSAGE))
-        conversation.add_message(UserMessage(content=AnswerPrompt.USER_MESSAGE.format(question=question, language=language,
+        conversation.add_message(UserMessage(content=AnswerPrompt.USER_MESSAGE.format(question=question,
             definition=definition, source_lines=template)))
         return conversation
 
@@ -74,18 +74,10 @@ class Generator:
             sources = list(dict.fromkeys(obs.source for obs in [facts, *facts.supporting] if obs.source))
             return GeneratorOutput(status=status, text="\n".join([*(f.text for f in facts.findings), *([request.verification.reason] if request.verification.reason else [])]),
                                    sources=sources, documents=used_documents(facts), mode="direct")
-        language = request.language
         sources = []
         if status == "withheld":
             template = "I cannot verify this result. " + (request.verification.reason or "The records could not be verified.")
-            if not language or language.lower().split("-")[0] in ("en", "english"):
-                return GeneratorOutput(status=status, text=template, sources=[], mode="direct")
-            slots = {}
-            for name in sorted(set(request.names), key=len, reverse=True):
-                if name and name in template:
-                    key = f"name_{len(slots)}"
-                    template = template.replace(name, f"[[{key}]]")
-                    slots[key] = name
+            return GeneratorOutput(status=status, text=template, sources=[], mode="direct")
         else:
             template, slots = checked_lines(request)
             sources = [request.verification.facts.source]
@@ -93,7 +85,7 @@ class Generator:
                 sources.append(request.definition_source)
         try:
             prediction = self.llm_handler.predict(conversation=self._build_conversation(
-                request.question if status == "verified" else "", language, request.definition if status == "verified" else None, template),
+                request.question if status == "verified" else "", request.definition if status == "verified" else None, template),
                 structured_output=AnswerPrompt.STRUCTURED_OUTPUT, timeout=30, enable_auto_fix_json=False)
             text = self._parse_chat_prediction_output(prediction)
             if SLOT.findall(text) != SLOT.findall(template) or re.findall(r"\d+", SLOT.sub("", text)) != re.findall(r"\d+", SLOT.sub("", template)):

@@ -25,6 +25,7 @@ def execute_connected(request, read, catalogue, run_read):
                               references=result.references,rows=result.rows,document=result.document))
         return pd.DataFrame(result.rows,columns=current.fields)
     frame=fetch(read.source)
+    link_check = None
     if read.link:
         other=fetch(read.link.source)
         left,right=read.link.left_field,read.link.right_field
@@ -32,12 +33,14 @@ def execute_connected(request, read, catalogue, run_read):
             raise ValueError("The proposed link has missing fields or keys.")
         if other[right].duplicated().any() or set(frame[left]) != set(other[right]):
             raise ValueError("The proposed link is ambiguous or leaves source records unmatched.")
+        link_check = dict(left_rows=len(frame), right_rows=len(other), right_keys_unique=True,
+                          no_missing_keys=True, all_keys_matched=True)
         frame=frame.merge(other,left_on=left,right_on=right,validate="many_to_one",suffixes=("","_linked"))
     rows=run_read(read.expression,frame.to_dict("records"),list(frame.columns))
     if not rows:
         raise ValueError("No result for the requested connected read.")
     return ReaderOutput(status="ready",company_id=request.company_id,question=request.question,read=read,
         source="; ".join(s["source"] for s in snapshots),data_version=sha256(json.dumps(
-            [s["version"] for s in snapshots]).encode()).hexdigest(),rows=rows,
+            [s["version"] for s in snapshots]).encode()).hexdigest(),rows=rows, link_check=link_check,
         period="Verify dates against the original source fields or document.",source_evidence=snapshots,
         record_ids=[ref for s in snapshots for ref in s["references"]])

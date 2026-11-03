@@ -5,7 +5,7 @@ import os
 
 from api_objects.faro.connector.output.connector_output import SourceItem
 from connector.source_reader_output import SourceReaderOutput
-from connector.readers import LIMIT, READERS
+from connector.readers import READERS
 
 
 class SourceReader:
@@ -38,8 +38,6 @@ class SourceReader:
                         selected = [(row,ref) for row,ref in zip(rows,refs) if row[grant["scope_field"]] in allowed]
                         rows = [{field:row[field] for field in columns} for row,ref in selected]
                         refs = [ref for row,ref in selected]
-                    if len(rows)>LIMIT:
-                        raise ValueError("Read exceeds the demo limit; no partial result returned.")
                     if sha256(path.read_bytes()).hexdigest()!=version:
                         raise ValueError("Source changed during the read.")
                     content=path.read_bytes()

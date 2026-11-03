@@ -36,15 +36,15 @@ schema=demo('Faro | field origins','compass/machine-learning-compass-api/infer/c
 store=demo('Faro | owned collection','compass/machine-learning-compass-api/infer/compass/compass/data_collection.py','Conversation ownership, saved turns, versioned caches and exported attempts.')
 live=R('Faro | saved retry example',ROOT/'docs/validation/retry_example.json','Historical verified demo report; not a client-performance benchmark.')
 sql=R('Faro | proposed SQL tables',ROOT/'docs/data_collection_schema.sql','Product storage design, separate from client source systems.')
-readers=demo('Connector | three file readers','connector/machine-learning-connector-api/infer/connector/connector/readers.py','A registry selects a reader by file type; the readers preserve native names, values and references.')
-tests=demo('Connector | evidence tests','connector/machine-learning-connector-api/tests/test_sources.py','Access, three formats, an unrelated table, changed records and incomplete links.')
+readers=demo('Connector | source readers','connector/machine-learning-connector-api/infer/connector/connector/readers.py','A registry selects a reader by file type; the readers preserve native names, values and references.')
+tests=demo('Connector | evidence tests','connector/machine-learning-connector-api/tests/test_sources.py','Access, supported formats, an unrelated table, changed records and incomplete links.')
 joined=demo('Bridge | linked records','bridge/machine-learning-bridge-api/infer/bridge/bridge/connected.py','Reads original records and verifies that selected keys can connect the two tables.')
 fixture=demo('Harbor | three source files','scripts/create_connector_sources.py','Recreates the example release. The operations note explains how the records fit together.')
 factory=demo('Connector | reader selection','connector/machine-learning-connector-api/infer/connector/connector/readers.py','Selects the reader for each supported source format.')
 add('Project Faro',[
  p('Ask your terminal data. Understand the answer.','Sub'),
  Image(str(ROOT/'output/imagegen/project_faro.png'),width=483,height=150,kind='proportional'),Spacer(1,8),base.heading('TL;DR'),
- p('The client connects the data their staff may use. Maria selects her account and asks a question in plain English. She does not need to write a glossary, rename columns or tell Faro how to join files.'),
+ p('The client connects the data their staff may use. Maria selects her account and asks a question in plain English. She does not need to write a glossary, rename columns or tell Faro how to join files. The current demo assumes English questions, source data and replies.'),
  p('Faro uses connectors: a connector is the part that knows how to read a particular source, such as a database, a report or a spreadsheet. Faro can connect to a client’s existing data lake, but the client does not need to build one. It explains what it found, where it came from and what the records cannot establish.'),
  p('In the demo, one client provides three files. The database records idle minutes, a spreadsheet names the berth for each posting, and a PDF explains which postings count. Faro uses all three to answer Maria. If a posting has no berth, it explains why it cannot name a winner.'),
  callout('Why Faro?','Faro means lighthouse. Its job is to show the operator what the records support and where the evidence stops.')],[fixture,readers])
@@ -68,12 +68,12 @@ add('1.1 One product, interchangeable connectors',[
  p('For a supported source, configure its location, credentials and access scope. The connector handles its file layout or query method. A previously unseen format may need a reader built once and reused for other clients. Names and evidence can differ even when the format is the same.'),
  callout('What stays in Faro','Gate checks access; Scout finds candidate sources; Bridge decides what to read; Shield checks whether those facts support the answer. None needs a special rule for Client A’s berths. Faro’s own collection of turns, checks and cache entries stays separate from the client’s source material.')],[readers,factory,forwarding])
 add('1.2 What runs today and what comes next',[
- p('The local demo reads JSON, SQLite, Excel and text PDFs through a separate Connector service. Its readers open the files. They do not decide which entries count as idle time or which terminal performed better.'),
+ p('The local demo reads JSON, SQLite, Excel, CSV, Parquet and text PDFs through a separate Connector service. Its readers open the files. They do not decide which entries count as idle time or which terminal performed better.'),
  table(['Service','Working in the demo','Still to build'],[
- ['Scout | find where to look','Indexes connected field names and PDF passages; returns matches and permitted sources.','Expand content extraction and indexing for large sources, with background refresh.'],
+ ['Scout | find where to look','Combines word and meaning search over connected fields and PDF passages. Keeps page references and source versions.','Expand content extraction and indexing for large sources, with background refresh.'],
  ['Bridge | get the facts','Reads source notes and records. Can link two tables by matching fields and compare the resulting values.','Support larger sources, scanned reports and relationships that depend on overlapping time intervals.'],
  ['Shield | check the answer','Repeats the reads and checks the proposed findings against their source versions and rows.','Test against real client revisions, access policies and independently reviewed answers.']],[105,180,198]),
- callout('Current boundary','The local demo selects a saved user account; production sign-in is still needed. SQLite, Excel and PDF access is granted per file. JSON records can also be restricted by an access field configured in Connector. Reads stop above 1,000 rows. The expression worker is isolated on macOS; other operating systems need an equivalent worker.'),
+ callout('Current boundary','The local demo selects a saved user account; production sign-in is still needed. SQLite, Excel and PDF access is granted per file. JSON, CSV and Parquet records can also be restricted by an access field configured in Connector. Reads stop above 1,000 rows. The expression worker is isolated on macOS; other operating systems need an equivalent worker.'),
  sub('What stays reusable across clients'),
  p('Clients keep their own formats and meanings. Faro standardizes what accompanies an answer: the measure, scope, dates, source, version and known gaps. A new format may need a reader; it does not need a new conversation or checking service.'),
  p('For changing records, follow the source’s revisions: count a correction once, exclude a record whose latest version marks it deleted, and recheck coverage when late entries arrive. If two versions cannot reliably be matched, do not present an exact total from them.')],[search,readers,joined,svc('shield')])
@@ -89,12 +89,13 @@ add('2.1 Maria asks about crane idle time',[
  rows('Step','Input → work → output',[
  ['Gate | check access','Maria selects her demo account. Her account permits North and South at Harbor. Her words cannot grant access to another company. Connector lists only the connected sources her account may read.'],
  ['Thread | understand replies','On the first turn, keep her question as asked. On later turns, combine her answer with the original request. Never borrow a choice from someone else’s conversation.'],
- ['Scout | find relevant sources','Search field names and passages from the connected files. The October operations note is relevant: it explains the activity codes and links between the files. Return that passage with its source and version. No ranking has been produced yet.'],
+ ['Scout | find relevant sources','Search by words and meaning in connected fields and passages. The October operations note is relevant: it explains the activity codes and links between the files. Return that passage with its source and version. No ranking has been produced yet.'],
  ['Signal and Guide | clarify','Signal uses the Decision API only to classify the next step. If both total idle hours and idle share are legitimate interpretations, Guide asks which she means. If her wording or the source already settles it, proceed.']]),
  callout('When a follow-up is useful','Maria already said “most crane idle hours,” so skip the follow-up. If she had said only “worst,” Guide could ask “Most total idle hours, or largest idle share?” Thread would keep her reply with the original question.'),
  p('For a question asked in November 2026, “last month” means 1–31 October. Bridge interprets the question using the current reference date. The demo uses UTC; business timezone handling still needs to be connected for production.')],[rewriter,search,followup,svc('signal')])
 add('2.2 Read what Maria is allowed to see',[
- p('Bridge receives the clarified question and the full catalogue of sources Maria may use. Scout’s search results point to relevant source material; they do not restrict Bridge to one document or require every question to be a ranking.'),
+ p('Bridge receives the clarified question, Scout’s matching passages and the full list of permitted sources. Passages point to useful material; Bridge must read the source before using it as evidence. A question need not be a ranking.'),
+ p('Field names, values and source notes can establish an ordinary meaning without a separate glossary. If a label or unit remains unclear, Bridge reads supporting records before using it in the answer.'),
  sub('One client, three sources'),
  rows('Source','What it adds to the answer',[
  ['SQLite database','The current entries give the activity code and minutes for each work reference. The source provides a view that accounts for corrections and withdrawals.'],
@@ -110,14 +111,14 @@ add('2.3 Follow one question across three files',[
  p('Shield opens the sources again and checks the evidence. With the complete October release, the ranking is S1: 115 hours, N1: 100, N2: 86 and S2: 71.'),
  callout('Change just one thing','Remove one assignment from the workbook and ask the same question. The database still has the idle minutes, but Faro cannot tell which berth should receive them. The console withholds the ranking. Maria is told why instead of being shown a different winner.')],[fixture,joined,tests,svc('shield')])
 add('2.4 Check the result before speaking',[
- p('Shield receives the proposed findings and the records Bridge used. It repeats each read independently on the permitted source. It checks the source version, period, completeness, grouping and numbers; then it checks whether the words say more than the evidence.'),
+ p('Shield receives the findings, source records and completed record-link checks. It repeats each read and checks versions, dates, completeness and numbers. It uses the same context as Bridge to check meaning: a missing glossary alone is not a reason to reject an answer, but unsupported labels or units must not be presented as facts.'),
  rows('What might go wrong','What the check does',[
  ['The two terminals tie','Keep both at 186 idle hours. A request for one “worst” terminal is not evidence that one exists.'],
  ['A record arrived late or was withdrawn','Re-read the current revisions. If a missing day could change the order, withhold the ranking. State which site or date is affected rather than calling the whole catalogue empty.'],
  ['Rounding changes a decision','In October, South C01 made 4,678 moves in 234 operating hours: 19.99145 moves/hour. A screen rounded to 20.0 hides that it fell below a target of 20. Compare before rounding.']]),
  sub('Voice | explain only what passed'),
- p('“For 1–31 October, berth S1 recorded the most crane idle time: 115 hours. N1 followed at 100, N2 at 86 and S2 at 71.” The answer should make the indicator, dates, scope, source and limits visible. Compass retains the checked evidence for inspection.'),
- callout('Open the evidence','Below the answer, Faro returns the document name and a link. Connected files are saved as they were read, with the version retained. For shared JSON data, it returns only the permitted records, not another company’s records. Links open local files in the demo.'),
+ p('“For 1–31 October, berth S1 recorded the most idle time: 115 hours. N1 followed at 100, N2 at 86 and S2 at 71.” The answer should make the indicator, dates, scope, source and limits visible. Compass retains the checked evidence for inspection.'),
+ callout('Open the evidence','Below the answer, Faro returns the document name and a link. Connected files are saved as they were read, with the version retained. For JSON, CSV or Parquet with row access restrictions, it returns only the permitted records. Links open local files in the demo.'),
  callout('If part of a claim fails' ,'Release an independently supported narrower finding if possible. If no finding can be verified, withhold the result and say why. A confident model answer is not a substitute for this check.')],[svc('shield'),svc('voice'),records])
 add('2.5 A different question: why did dwell time spike?',[
  p('Maria asks: <b>“Why did dwell time spike for reefer containers in week 12?”</b> A reefer is a refrigerated container. This question asks Faro to establish both a change and its cause. Those require different evidence.'),

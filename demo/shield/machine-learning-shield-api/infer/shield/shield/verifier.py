@@ -1,4 +1,6 @@
 import json
+from concurrent.futures import ThreadPoolExecutor
+from contextvars import copy_context
 from pathlib import Path
 
 from shield.prompts.review_prompt import FindingsReview, Review, ReviewPrompt
@@ -35,16 +37,18 @@ class Verifier:
         if not reads and not (evidence.source=="catalogue" and evidence.findings):
             return VerifierOutput(status="withheld",reason="No supporting evidence.")
         observations = []
-        for index, obs in enumerate(reads,1):
-            try:
-                replay = execute(self.data_path,request,obs.read)
-            except (ValueError,PermissionError) as error:
-                return VerifierOutput(status="withheld",reason=str(error))
-            if replay.model_dump(include=set(Observation.model_fields)) != obs.model_dump(include=set(Observation.model_fields)):
-                return VerifierOutput(status="withheld",reason="The result does not match the permitted source records.")
-            observations.append({"id":index,"selection":obs.read.model_dump(mode="json"),
-                "includes_all_permitted_locations": not obs.read.scope_ids or set(obs.read.scope_ids)==set(cat["scopes"]),
-                "original_source_rows":obs.source_evidence, "actual_dates":obs.period, "result":obs.rows, "unit":obs.unit})
+        with ThreadPoolExecutor() as pool:
+            replays = [pool.submit(copy_context().run, execute, self.data_path, request, obs.read) for obs in reads]
+            for index, (obs, replay_task) in enumerate(zip(reads, replays),1):
+                try:
+                    replay = replay_task.result()
+                except (ValueError,PermissionError) as error:
+                    return VerifierOutput(status="withheld",reason=str(error))
+                if replay.model_dump(include=set(Observation.model_fields)) != obs.model_dump(include=set(Observation.model_fields)):
+                    return VerifierOutput(status="withheld",reason="The result does not match the permitted source records.")
+                observations.append({"id":index,"selection":obs.read.model_dump(mode="json"),
+                    "includes_all_permitted_locations": not obs.read.scope_ids or set(obs.read.scope_ids)==set(cat["scopes"]),
+                    "link_check":replay.link_check, "original_source_rows":obs.source_evidence, "actual_dates":obs.period, "result":obs.rows, "unit":obs.unit})
         if any(not f.evidence_ids or not set(f.evidence_ids).issubset(range(len(reads)+1)) for f in evidence.findings):
             return VerifierOutput(status="withheld",reason="Finding cites unavailable evidence.")
         def check(findings):
@@ -68,13 +72,6 @@ class Verifier:
             if not keep.issubset(range(1,len(evidence.findings)+1)):
                 return VerifierOutput(status="withheld",reason="Review refers to an unknown finding.")
             findings = [f for i,f in enumerate(evidence.findings,1) if i in keep]
-            narrower = [f for f in review.narrower_findings if f.evidence_ids and
-                        set(f.evidence_ids).issubset(range(len(reads)+1))]
-            if narrower:
-                second = check(narrower)
-                if second:
-                    passed = FindingsReview.model_validate(second).supported_finding_numbers
-                    findings.extend(f for i,f in enumerate(narrower,1) if i in passed)
             if not findings:
                 return VerifierOutput(status="withheld",reason=review.reason)
             return VerifierOutput(status="verified",facts=evidence.model_copy(update={"findings":findings}),

@@ -31,13 +31,13 @@ def verified_read(company, scopes, source, group, order):
 
 def hotel_request():
     verified = verified_read("meridian", ["madrid","tokyo","mexico_city"], "meridian_measure", "hotel", "ASC")
-    return GeneratorInput(question="¿Qué hotel tuvo la ocupación más baja en octubre?", language="es",
+    return GeneratorInput(question="Which hotel had the lowest occupancy in October?",
         measure="Occupancy", definition="Occupied room nights divided by available room nights, times 100.",
         definition_source="meridian/measure.md", verification=verified.model_dump())
 
 
-def withheld(language):
-    return GeneratorInput(question="Why is there no ranking?", language=language, names=["Tokyo Bay"], verification=dict(
+def withheld():
+    return GeneratorInput(question="Why is there no ranking?", names=["Tokyo Bay"], verification=dict(
         status="withheld", reason="Daily records are missing for Tokyo Bay."))
 
 
@@ -55,11 +55,11 @@ class VoiceTests(unittest.TestCase):
         self.assertEqual(answer.documents[0].uri,"file:///saved/report.pdf")
         self.assertEqual(answer.documents[0].references,["report.pdf#page 1"])
         request.verification.status="withheld"
-        self.assertEqual(Generator(Mock()).generate(request.model_copy(update={"language":"en"})).documents,[])
+        self.assertEqual(Generator(Mock()).generate(request).documents,[])
 
     def test_withheld_without_ai(self):
         handler = Mock()
-        answer = Generator(handler).generate(withheld("en"))
+        answer = Generator(handler).generate(withheld())
         self.assertEqual(answer.mode,"direct")
         self.assertEqual(answer.status,"withheld")
         self.assertIn("Tokyo Bay",answer.text)
@@ -83,7 +83,7 @@ class VoiceTests(unittest.TestCase):
         handler = Mock()
         handler.predict.side_effect = RuntimeError("unavailable")
         answer = Generator(handler).generate(GeneratorInput(question="Which cranes had the most downtime?",
-            language="en", verification=verification.model_dump(), measure="Downtime"))
+            verification=verification.model_dump(), measure="Downtime"))
         self.assertEqual(answer.text.count("62 hours, tied at rank 1"), 2)
         self.assertIn("harbor_north_c01",answer.text)
         self.assertIn("harbor_north_c02",answer.text)
@@ -96,18 +96,18 @@ class VoiceTests(unittest.TestCase):
         self.assertIn("Tokyo Bay: 70%",answer.text)
 
     @unittest.skipUnless(os.getenv("FARO_RUN_LIVE_TESTS") == "1","Requires live model call")
-    def test_live_spanish_ranking_and_withheld_reason(self):
+    def test_live_english_ranking_and_withheld_reason(self):
         with TestClient(app) as client:
-            for request in (hotel_request(),withheld("es")):
+            for request in (hotel_request(),withheld()):
                 response = client.post("/v1/answer", json=request.model_dump(mode="json"))
                 self.assertEqual(response.status_code,200,response.text)
                 answer = response.json()
-                self.assertEqual(answer["mode"],"ai",answer)
+                self.assertEqual(answer["mode"],"ai" if answer["status"] == "verified" else "direct",answer)
                 self.assertIn("Tokyo Bay",answer["text"])
                 if answer["status"] == "verified":
                     self.assertIn("70%",answer["text"])
-                    self.assertRegex(answer["text"].lower(),r"menor|menores|baja|bajo|ascendente")
+                    self.assertRegex(answer["text"].lower(),r"lowest|lower|occupancy|rank")
                 else:
                     self.assertNotIn("%",answer["text"])
-                    self.assertRegex(answer["text"].lower(),r"faltan|falta|incomplet|no hay")
+                    self.assertRegex(answer["text"].lower(),r"missing|cannot|incomplete")
                 print(answer["text"])

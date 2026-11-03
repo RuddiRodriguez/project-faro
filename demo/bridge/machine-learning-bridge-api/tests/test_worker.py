@@ -16,3 +16,17 @@ class WorkerTests(TestCase):
             file.write_text('[{"value":99}]')
             with self.assertRaises(ValueError):
                 run_read(f"(df,pd.read_json({str(file)!r}))[1]",[{"value":1}],["value"])
+
+    def test_large_result_is_not_cut_off(self):
+        records=[{"n":i,"description":"x"*60} for i in range(6000)]
+        self.assertEqual(run_read("df",records,["n","description"]),records)
+
+    def test_long_expression_can_run(self):
+        expression="df['n'].sum()" + " + 0"*210
+        self.assertEqual(run_read(expression,[{"n":4}],["n"]),[{"value":4}])
+
+    def test_worker_has_no_wall_clock_timeout(self):
+        from unittest.mock import patch, Mock
+        with patch("bridge.source.subprocess.run", return_value=Mock(returncode=0, stdout='[{"value":4}]')) as run:
+            run_read("len(df)",[{"n":4}],["n"])
+        self.assertNotIn("timeout",run.call_args.kwargs)

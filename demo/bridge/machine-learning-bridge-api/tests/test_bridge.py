@@ -57,12 +57,31 @@ class BridgeTests(ConnectedTest):
         self.assertEqual(len(result.supporting),5)
         self.assertEqual(model.predict.call_count,7)
 
-    def test_final_decision_cannot_start_a_seventh_read(self):
-        from unittest.mock import patch
+    def test_more_than_six_reads_can_finish(self):
         read=dict(initial_analysis="Read rows.",reasoning="Read records.",action="read",
                   read=self.read.model_dump(mode="json"),findings=[],reason=None)
-        model=Mock();model.predict.return_value=Mock(is_success=True,assistant_tools=[Mock(parsed_arguments=read)])
-        with patch("bridge.reader.execute",wraps=execute) as calls:
-            result=Reader(self.root,model).read(self.request)
-        self.assertEqual(result.status,"incomplete")
-        self.assertEqual(calls.call_count,6)
+        answer=dict(initial_analysis="The evidence supports two.",reasoning="Use read eight.",
+                    action="answer",read=None,findings=[dict(text="Two cranes.",evidence_ids=[8])],reason=None)
+        model=Mock()
+        model.predict.side_effect=[Mock(is_success=True,assistant_tools=[Mock(parsed_arguments=value)])
+                                   for value in [read]*8+[answer]]
+        result=Reader(self.root,model).read(self.request)
+        self.assertEqual(result.status,"ready")
+        self.assertEqual(len(result.supporting),7)
+        self.assertEqual(model.predict.call_count,9)
+
+    def test_search_hints_must_match_current_permitted_sources(self):
+        from api_objects.faro.scout.output.scout_output import SearchMatch
+        cat=catalogue(self.root,self.request)
+        item=cat["connected"]["harbor/assets"]
+        hint=SearchMatch(document_id="passage",source=item["location"],source_id="harbor/assets",
+            title="Available fields",text="CURRENT_HINT",version=item["version"],score=.03,file_reference="ref")
+        request=self.request.model_copy(update={"passages":[hint,
+            hint.model_copy(update={"text":"STALE_HINT","version":"old"}),
+            hint.model_copy(update={"text":"FORBIDDEN_HINT","source_id":"private/assets"})]})
+        conversation=Reader(self.root,Mock())._build_conversation(request,cat,[])
+        text=conversation.messages[0].content
+        self.assertIn("CURRENT_HINT",text)
+        self.assertNotIn("STALE_HINT",text)
+        self.assertNotIn("FORBIDDEN_HINT",text)
+        self.assertIn("no evidence ID", conversation.system_message.content)

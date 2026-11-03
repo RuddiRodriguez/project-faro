@@ -98,6 +98,7 @@ class SourcesTests(unittest.TestCase):
         e=execute(self.data,self.request,self.read)
         self.assertEqual([(r["Berth"],r["value"]) for r in e.rows],[("S1",115),("N1",100),("N2",86),("S2",71)])
         self.assertEqual(len(e.source_evidence),2)
+        self.assertEqual(e.link_check, dict(left_rows=len(e.source_evidence[0]["rows"]), right_rows=len(e.source_evidence[1]["rows"]), right_keys_unique=True, no_missing_keys=True, all_keys_matched=True))
         e.findings=[Finding(text="S1 leads at 115 hours.",evidence_ids=[1])]
         e.catalogue_version=snapshot_id(catalogue(self.data,self.request))
         with sqlite3.connect(self.root/"operations.sqlite") as db:
@@ -129,3 +130,22 @@ class SourcesTests(unittest.TestCase):
         result=self.api("read",item="operations/bookings",fields=["nights"]).json()
         self.assertEqual(result["rows"],[{"nights":4}])
         self.assertIn("booking_id=B1",result["references"][0])
+
+    def test_csv_and_parquet_through_api_and_bridge(self):
+        import json
+        import pandas as pd
+        grants=json.loads((self.root/'connections.json').read_text())
+        frame=pd.DataFrame(dict(record=['001','002'],amount=[12.5,7.5]))
+        frame.to_csv(self.root/'new_csv.csv',index=False)
+        frame.to_parquet(self.root/'new_parquet.parquet',index=False)
+        for name in ('new_csv.csv','new_parquet.parquet'):
+            grants.append(dict(company='harbor',scopes=SCOPES,file=name))
+        (self.root/'connections.json').write_text(json.dumps(grants))
+        for item in ('new_csv/rows','new_parquet/rows'):
+            with self.subTest(item=item):
+                result=self.api('read',item=item).json()
+                self.assertEqual(result['rows'][0]['record'],'001')
+                read=self.read.model_copy(update=dict(source=item,link=None,expression="df['amount'].astype('float64').sum()"))
+                result=execute(self.data,self.request,read)
+                self.assertEqual(result.rows,[{'value':20.0}])
+                self.assertTrue(result.source_evidence[0]['document']['uri'])

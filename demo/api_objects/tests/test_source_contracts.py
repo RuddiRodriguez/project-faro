@@ -14,3 +14,22 @@ class SourceContracts(TestCase):
         self.assertNotIn("supported_tasks",SignalInput.model_fields)
         self.assertIn("sources",CompassOutput.model_fields)
         self.assertNotIn("company_information",CompassOutput.model_fields)
+
+    def test_reply_language_is_not_part_of_the_demo_contract(self):
+        from api_objects.faro.compass.input.compass_input import CompassInput
+        from api_objects.faro.guide.input.guide_input import GuideInput
+        from api_objects.faro.voice.input.voice_input import VoiceInput
+        from compass.orchestrator_input import OrchestratorInput
+        from guide.generator_input import GeneratorInput as GuideGeneratorInput
+        from voice.generator_input import GeneratorInput as VoiceGeneratorInput
+        for model in (CompassInput, GuideInput, VoiceInput, OrchestratorInput, GuideGeneratorInput, VoiceGeneratorInput):
+            self.assertNotIn('language',model.model_fields)
+
+    def test_user_facing_prompts_request_english(self):
+        from guide.prompts.followup_prompt import FollowUpPrompt
+        from bridge.prompts.read_prompt import ReadPrompt
+        from shield.prompts.review_prompt import ReviewPrompt
+        from voice.prompts.answer_prompt import AnswerPrompt
+        for prompt in (FollowUpPrompt, ReadPrompt, ReviewPrompt, AnswerPrompt):
+            self.assertIn('English',prompt.SYSTEM_MESSAGE)
+            self.assertNotIn('{language}',prompt.USER_MESSAGE)

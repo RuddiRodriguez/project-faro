@@ -29,11 +29,8 @@ def run_read(expression, records, columns):
     if sys.platform != "darwin":
         raise ValueError("No isolated pandas runner configured on this platform.")
     command = [sys.executable, "-I", str(worker)]
-    try:
-        proc = subprocess.run(command, input=json.dumps(dict(expression=expression, records=records, columns=columns)),
-            text=True, capture_output=True, timeout=12, env={"OPENBLAS_NUM_THREADS":"1", "OMP_NUM_THREADS":"1"})
-    except subprocess.TimeoutExpired as error:
-        raise ValueError("The dataframe read timed out.") from error
+    proc = subprocess.run(command, input=json.dumps(dict(expression=expression, records=records, columns=columns)),
+        text=True, capture_output=True, env={"OPENBLAS_NUM_THREADS":"1", "OMP_NUM_THREADS":"1"})
     if proc.returncode:
         raise ValueError(proc.stderr.strip() or "The dataframe read stopped.")
     return json.loads(proc.stdout)

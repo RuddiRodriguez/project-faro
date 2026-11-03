@@ -9,5 +9,4 @@ class CompassInput(BaseModel):
     previous_answer_id: UUID | None = None
     user_id: str
     question: str
-    language: str | None = None
     conversation: list[ConversationMessage] = Field(default_factory=list)

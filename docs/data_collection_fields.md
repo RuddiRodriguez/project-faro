@@ -33,7 +33,6 @@ Product proposal: SQL. Local demo: Parquet, using the same named columns.
 | conversation_id | TEXT | Foreign key to the owned conversation selected by Compass after Gate checks access. |
 | turn_number | INTEGER | Compass: previous saved turn count plus one, under the conversation lock. |
 | message | TEXT | Exact current user message from request.question. |
-| language | TEXT | Optional reply-language preference from the request, not an inferred language. |
 | created_at | TIMESTAMP | Compass UTC clock before processing this turn. |
 | status | TEXT | Compass: started or failed; otherwise Shield's status or the final next-action decision. |
 | decision_source | TEXT | Compass identifies Signal or Bridge as the producer of the final action. |

@@ -40,6 +40,7 @@ class Observation(BaseModel):
     period: str | None = None
     data_version: str | None = None
     rows: list[dict[str, str | float | None]] = Field(default_factory=list)
+    link_check: dict | None = None
     source_evidence: list[dict] = Field(default_factory=list)
     record_ids: list[str] = Field(default_factory=list)
 

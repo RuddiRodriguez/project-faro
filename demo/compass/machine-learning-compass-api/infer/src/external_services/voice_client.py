@@ -7,11 +7,11 @@ class VoiceClient:
     def __init__(self, base_url: str):
         self.base_url = base_url.rstrip("/")
 
-    def write_answer(self, question, language, verification, search) -> VoiceOutput:
+    def write_answer(self, question, verification, search) -> VoiceOutput:
         definition = None
         if verification.status == "verified" and verification.facts.read:
             definition = next((m for m in search.matches if m.document_id == verification.facts.read.source), None)
-        request = VoiceInput(question=question, language=language, verification=verification, names=[],
+        request = VoiceInput(question=question, verification=verification, names=[],
                              measure=definition.title if definition else None,
                              definition=definition.text if definition else None,
                              definition_source=definition.source if definition else None)

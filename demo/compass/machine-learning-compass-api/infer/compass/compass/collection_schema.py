@@ -20,7 +20,6 @@ COLUMNS = {
         ("conversation_id","TEXT","Foreign key to the owned conversation selected by Compass after Gate checks access."),
         ("turn_number","INTEGER","Compass: previous saved turn count plus one, under the conversation lock."),
         ("message","TEXT","Exact current user message from request.question."),
-        ("language","TEXT","Optional reply-language preference from the request, not an inferred language."),
         ("created_at","TIMESTAMP","Compass UTC clock before processing this turn."),
         ("status","TEXT","Compass: started or failed; otherwise Shield's status or the final next-action decision."),
         ("decision_source","TEXT","Compass identifies Signal or Bridge as the producer of the final action."),
@@ -88,6 +87,7 @@ fields("response_json.rewrite.token_usage.prompt_tokens_details","audio_tokens c
 fields("response_json.rewrite.token_usage.completion_tokens_details","accepted_prediction_tokens audio_tokens reasoning_tokens rejected_prediction_tokens","OpenAI completion-token breakdown on the original model call.")
 fields("response_json.search","query matches","Scout: search input from Thread and permitted matches from its company index.")
 fields("response_json.search.matches[]","document_id title text source version","Scout: passage from a permitted connected source, with its location and version.")
+fields("response_json.search.matches[]","source_id page start end","Scout: connected source ID, PDF page and exact character positions in extracted page text; non-PDF passages describe fields.")
 fields("response_json.search.matches[]","file_reference score","Scout: index source reference and relevance score, not proof of correctness.")
 fields("response_json.decision","action missing_choice","Signal's classification or Bridge's clarification/stop; see decision_source.")
 fields("response_json.followup","followup_text initial_analysis reasoning","Guide: clarification generated for the missing choice.")
@@ -100,6 +100,7 @@ for prefix in ("response_json.evidence","response_json.verification.facts"):
     fields(prefix+".read",read_fields,"Bridge model produces the read, checked against permitted sources.")
     fields(prefix,"data_version source unit period","Bridge reads the version, source, unit and dates from company records.")
     fields(prefix,"supporting","Additional replayable reads from the same answer, in evidence ID order.")
+    fields(prefix,"link_check","Bridge: successful native join checks, replayed by Shield; row counts, unique right keys, no missing keys and complete key matches.")
     fields(prefix,"catalogue_version","Fingerprint of the company catalogue visible for this request.")
     fields(prefix,"findings","Bridge proposes findings; Shield returns only the supported ones.")
     fields(prefix+".findings[]","text evidence_ids","Reviewed finding and citations: 0 for catalogue, positive IDs for reads.")

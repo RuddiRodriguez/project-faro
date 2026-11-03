@@ -2,12 +2,12 @@
 from contextlib import closing
 import sqlite3
 import json
+import pandas as pd
+from pydantic_core import to_jsonable_python
 
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from pypdf import PdfReader
-
-LIMIT = 1000
 
 
 def quote(name):
@@ -29,7 +29,7 @@ class SQLite:
     def read(self, name, fields):
         with self.connect() as db:
             db.row_factory = sqlite3.Row
-            rows = list(db.execute(f"SELECT * FROM {quote(name)} LIMIT ?", (LIMIT+1,)))
+            rows = list(db.execute(f"SELECT * FROM {quote(name)}"))
             keys = [r[1] for r in db.execute("SELECT * FROM pragma_table_info(?) ORDER BY pk",(name,)) if r[5]]
         refs = [f"{name}:" + (",".join(f"{k}={r[k]}" for k in keys) if keys else f"result row {i}") for i,r in enumerate(rows,1)]
         return [{k:r[k] for k in fields} for r in rows],refs
@@ -57,8 +57,6 @@ class Excel:
                     continue
                 rows.append({k:values_row[header.index(k)] for k in fields})
                 refs.append(f"{name}!A{i}:{get_column_letter(len(header))}{i}")
-                if len(rows)>LIMIT:
-                    break
         return rows,refs
 
 
@@ -72,7 +70,7 @@ class PDF:
     def read(self, name, fields):
         doc=PdfReader(self.path)
         rows=[];refs=[]
-        for i,page in enumerate(doc.pages[:LIMIT+1],1):
+        for i,page in enumerate(doc.pages,1):
             record={"page":i,"text":page.extract_text() or ""}
             if not record["text"].strip():
                 raise ValueError(f"Page {i} has no readable text; OCR is not configured.")
@@ -94,4 +92,26 @@ class JSON:
         return [{field: row.get(field) for field in fields} for row in rows], [f"{name}:row {i}" for i in range(1,len(rows)+1)]
 
 
-READERS = {".json": JSON, ".sqlite": SQLite, ".xlsx": Excel, ".pdf": PDF}
+class CSV:
+    def __init__(self, path):
+        self.path = path
+
+    def frame(self):
+        # CSV has no types: preserve identifiers, dates and empty text as written.
+        return pd.read_csv(self.path, dtype=str, keep_default_na=False)
+
+    def items(self):
+        return {"rows": list(self.frame().columns)}
+
+    def read(self, name, fields):
+        frame = self.frame()[fields]
+        rows = to_jsonable_python(frame.astype(object).where(frame.notna(), None).to_dict(orient="records"))
+        return rows, [f"rows:record {i}" for i in range(1, len(rows)+1)]
+
+
+class Parquet(CSV):
+    def frame(self):
+        return pd.read_parquet(self.path)
+
+
+READERS = {".csv": CSV, ".parquet": Parquet, ".json": JSON, ".sqlite": SQLite, ".xlsx": Excel, ".pdf": PDF}

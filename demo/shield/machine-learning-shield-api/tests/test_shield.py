@@ -17,7 +17,7 @@ class ShieldTests(ConnectedTest):
         self.evidence.findings=[Finding(text="There are two cranes.",evidence_ids=[1])]
         self.evidence.catalogue_version=snapshot_id(catalogue(self.root,self.request))
         self.model=Mock();self.model.predict.return_value.assistant_tools=[Mock(parsed_arguments=dict(
-            initial_analysis="Two permitted rows.",reasoning="The count matches.",supported_finding_numbers=[1],narrower_findings=[],reason="Supported."))]
+            initial_analysis="Two permitted rows.",reasoning="The count matches.",supported_finding_numbers=[1],reason="Supported."))]
         self.shield=Verifier(self.root,self.model)
 
     def verify(self,request=None,evidence=None):
@@ -50,3 +50,19 @@ class ShieldTests(ConnectedTest):
     def test_model_can_withhold_unsupported_claim(self):
         self.model.predict.return_value.assistant_tools[0].parsed_arguments.update(supported_finding_numbers=[],reason="No cause is recorded.")
         self.assertEqual(self.verify().status,"withheld")
+
+    def test_partial_answer_is_returned_unchanged_after_one_review(self):
+        supported=Finding(text="The recorded count is two; other kinds are not established.",evidence_ids=[1])
+        self.evidence.findings=[supported,Finding(text="This proves overall performance is best.",evidence_ids=[1])]
+        result=self.verify()
+        self.assertEqual(result.status,"verified")
+        self.assertEqual(result.facts.findings,[supported])
+        self.model.predict.assert_called_once()
+
+    def test_rejection_does_not_generate_or_review_replacements(self):
+        self.model.predict.return_value.assistant_tools[0].parsed_arguments.update(
+            supported_finding_numbers=[],reason="The broader category is not established by the records.")
+        result=self.verify()
+        self.assertEqual(result.status,"withheld")
+        self.assertIsNone(result.facts)
+        self.model.predict.assert_called_once()

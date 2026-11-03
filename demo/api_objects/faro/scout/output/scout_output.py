@@ -10,6 +10,10 @@ class SearchMatch(BaseModel):
     text: str
     version: str
     score: float
+    source_id: str = ""
+    page: int | None = None
+    start: int = 0
+    end: int = 0
 
 
 class ScoutOutput(BaseModel):

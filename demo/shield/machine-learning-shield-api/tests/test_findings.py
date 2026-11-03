@@ -22,7 +22,7 @@ class FindingsTests(ConnectedTest):
         evidence.catalogue_version=snapshot_id(catalogue(DATA,request))
         evidence.findings=[Finding(text="366 hours.",evidence_ids=[1]),Finding(text="It caused a delay.",evidence_ids=[1])]
         model=Mock()
-        model.predict.return_value.assistant_tools=[Mock(parsed_arguments={"initial_analysis":"Supplied test evidence.", "reasoning":"Supported test decision.", "supported_finding_numbers":[1],"narrower_findings":[],"reason":"No causal evidence."})]
+        model.predict.return_value.assistant_tools=[Mock(parsed_arguments={"initial_analysis":"Supplied test evidence.", "reasoning":"Supported test decision.", "supported_finding_numbers":[1],"reason":"No causal evidence."})]
         shield=Verifier(DATA,model)
         response=shield.verify(VerifierInput(**request.model_dump(),evidence=evidence))
         self.assertEqual(response.status,"verified")
@@ -53,3 +53,13 @@ class FindingsTests(ConnectedTest):
         self.assertEqual(result.status,"withheld")
         self.assertIsNone(result.facts)
         self.assertIn("three attempts",result.reason)
+
+    def test_forged_link_check_is_rejected_before_model_review(self):
+        request=Request(company_id="harbor",permitted_scope_ids=["harbor_north"],question="How many assets?")
+        read=Read(source="harbor/assets",scope_ids=[],member_ids=[],group="",start=None,end_exclusive=None,expression="len(df)")
+        evidence=execute(DATA,request,read)
+        evidence.link_check={"all_keys_matched":True}
+        model=Mock()
+        result=Verifier(DATA,model).verify(VerifierInput(**request.model_dump(),evidence=evidence))
+        self.assertEqual(result.status,"withheld")
+        model.predict.assert_not_called()

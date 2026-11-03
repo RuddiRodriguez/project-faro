@@ -1,0 +1,64 @@
+{
+  "question": "How many units did each store sell in October 2026?",
+  "status": "verified",
+  "answer": "East store: 1,000 units sold in October 2026, as reported in the sold field.\nWest store: 50 units sold in October 2026, as reported in the sold field.",
+  "elapsed_ms": 47408,
+  "model_attempts": {
+    "Signal": {
+      "attempts": 1,
+      "calls": [
+        [
+          "success"
+        ]
+      ]
+    },
+    "Bridge": {
+      "attempts": 5,
+      "calls": [
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ]
+      ]
+    },
+    "Shield": {
+      "attempts": 1,
+      "calls": [
+        [
+          "success"
+        ]
+      ]
+    }
+  },
+  "review": [
+    {
+      "service": "Shield",
+      "call_id": "67c44065-c780-44c9-b869-faf59a7e4822",
+      "explanations": [
+        {
+          "attempt": 1,
+          "initial_analysis": "The October activity records show sales in the sold field, and the executed aggregation reports totals by store. Coverage records mark all 31 expected days complete for both stores.",
+          "reasoning": "The aggregation for October 1 through October 31 reports East at 1,000 and West at 50. Both stores have complete October coverage, and the linked asset records identify them as stores."
+        }
+      ]
+    }
+  ],
+  "expected": {
+    "East": 1000,
+    "West": 50
+  },
+  "check": "Expected store totals found in executed reads; answer manually checked against them.",
+  "note": "One completed live console test after changing only Bridge and Shield prompts. An earlier launch with an incorrect editing path was interrupted and is excluded. This single case does not establish general consistency.",
+  "console_log": "/tmp/faro-prompt-meaning-final.log"
+}

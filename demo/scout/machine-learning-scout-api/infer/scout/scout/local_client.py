@@ -1,5 +1,7 @@
 import hashlib
 import json
+import re
+from rank_bm25 import BM25Okapi
 
 import faiss
 from scout.retrieval import Retrieval
@@ -17,11 +19,12 @@ class LocalKnowledgeBaseClient:
         self.index_dir.mkdir(parents=True, exist_ok=True)
         self.revision = (model_path / "revision").read_text().strip()
         self.indexes = {}
+        self.lexical = {}
         self.documents = {}
 
     def prepare(self, company, items, load_text):
         # Permissions and source versions are part of the key, including when sources disappear.
-        key = hashlib.sha256(json.dumps([company, self.revision,
+        key = hashlib.sha256(json.dumps(["passages-v2", company, self.revision,
             [item.model_dump() for item in items]], sort_keys=True).encode()).hexdigest()
         if key in self.indexes:
             return key
@@ -39,6 +42,7 @@ class LocalKnowledgeBaseClient:
             path.with_suffix(".json").write_text(json.dumps(docs, ensure_ascii=False))
             faiss.write_index(index, str(path))
         self.indexes[key] = Retrieval(index, [reference(d) for d in docs], self.embedder), docs
+        self.lexical[key] = BM25Okapi([re.findall(r"\w+", (d["title"] + " " + d["text"]).lower()) for d in docs])
         self.documents.update({reference(d): d for d in docs})
         return key
 
@@ -52,7 +56,18 @@ class LocalKnowledgeBaseClient:
         rows = [i for i, doc in enumerate(docs) if doc["document_id"] in allowed]
         if not rows:
             return {"retrievalResults": []}
-        scores, references = retrieval.retrieve(retrievalQuery["text"], settings["numberOfResults"], rows)
+        scores, references = retrieval.retrieve(retrievalQuery["text"], min(20, len(rows)), rows)
+        semantic = references
+        word_scores = self.lexical[knowledgeBaseId].get_scores(re.findall(r"\w+", retrievalQuery["text"].lower()))
+        lexical = [reference(docs[i]) for i in sorted(rows, key=lambda i: word_scores[i], reverse=True)[:10]
+                   if word_scores[i] > 0]
+        # Reciprocal ranks combine meaning and words; scores are not confidence probabilities.
+        combined = {}
+        for ranking in (semantic, lexical):
+            for rank, uri in enumerate(ranking, 1):
+                combined[uri] = combined.get(uri, 0) + 1 / (60 + rank)
+        references = sorted(combined, key=combined.get, reverse=True)[:settings["numberOfResults"]]
+        scores = [combined[uri] for uri in references]
         results = []
         for score, uri in zip(scores, references):
             doc = self.documents[uri]

@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-03",
+  "interface": "Streamlit in real browser",
+  "user": "sam",
+  "question": "How many units did each store sell in October 2026?",
+  "answer": "East sold 1,000 units in October 2026.\nWest sold 50 units in October 2026.",
+  "status": "verified",
+  "elapsed_ms": 60714,
+  "model_attempts": {
+    "Signal": {
+      "attempts": 1,
+      "calls": [
+        [
+          "success"
+        ]
+      ]
+    },
+    "Bridge": {
+      "attempts": 6,
+      "calls": [
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ]
+      ]
+    },
+    "Shield": {
+      "attempts": 1,
+      "calls": [
+        [
+          "success"
+        ]
+      ]
+    }
+  },
+  "turn_id": "32ca6f89-78b3-4a8b-98cd-f339ac96d40b",
+  "conversation_id": "724ef939-793d-4732-8300-d01637650bec",
+  "downloaded_document": "retail-activity-permitted.json",
+  "downloaded_fingerprint_matches": true,
+  "automated_checks": "3 web tests and 7 Compass tests passed; 3 optional live Compass tests skipped",
+  "deployment": "Not started; local demo only"
+}

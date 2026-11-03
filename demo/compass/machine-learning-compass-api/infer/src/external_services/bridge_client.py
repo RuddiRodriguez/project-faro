@@ -8,7 +8,7 @@ class BridgeClient:
         self.base_url = base_url.rstrip("/")
         self.service_name = "Bridge"
 
-    def read_evidence(self, access: GateOutput, question) -> BridgeOutput:
+    def read_evidence(self, access: GateOutput, question, passages=()) -> BridgeOutput:
         request = BridgeInput(question=question, company_id=access.company_id,
-                              permitted_scope_ids=access.permitted_scope_ids)
+                              permitted_scope_ids=access.permitted_scope_ids, passages=list(passages))
         return call(self.service_name, self.base_url, "/v1/evidence", request, BridgeOutput, timeout=150)

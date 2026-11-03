@@ -11,7 +11,7 @@ class GuideTests(TestCase):
         handler.predict.return_value.is_success = True
         handler.predict.return_value.assistant_tools = [Mock(parsed_arguments={"reasoning": "indicator"})]
         result = Generator(handler).generate_followup(GeneratorInput(
-            question_text="Which cranes performed badly?", missing_choice="performance indicator", language="en",
+            question_text="Which cranes performed badly?", missing_choice="performance indicator",
             passages=[]))
         self.assertEqual(result.error_code, ErrorCode.INVALID_LLM_RESPONSE)
         self.assertIsNone(result.followup_text)

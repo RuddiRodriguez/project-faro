@@ -5,7 +5,6 @@ import json
 import math
 from numbers import Real
 from pathlib import Path
-import resource
 import sys
 
 import pandas as pd
@@ -21,15 +20,14 @@ def isolate():
     err = ctypes.c_char_p()
     if library.sandbox_init(profile.encode(), 0, ctypes.byref(err)):
         raise ValueError("Could not isolate the dataframe worker.")
-    resource.setrlimit(resource.RLIMIT_CPU, (5,5))
 
 
 def calculate(payload):
     df = pd.DataFrame.from_records(payload["records"], columns=payload["columns"])
     tree = ast.parse(payload["expression"], mode="eval")
     nodes = list(ast.walk(tree))
-    if len(nodes)>400 or not any(isinstance(n,ast.Name) and n.id=="df" for n in nodes):
-        raise ValueError("Expected a bounded expression using the supplied dataframe.")
+    if not any(isinstance(n,ast.Name) and n.id=="df" for n in nodes):
+        raise ValueError("Expected an expression using the supplied dataframe.")
     if any(isinstance(n, ast.Attribute) and n.attr.startswith("_") or
            isinstance(n, ast.Name) and n.id.startswith("_") for n in nodes):
         raise ValueError("Private interpreter access is not available.")
@@ -46,14 +44,12 @@ def calculate(payload):
         frame = pd.DataFrame([{"value":value}])
     else:
         raise ValueError("Return a scalar, Series, or dataframe.")
-    if frame.empty or frame.size>5000 or not frame.columns.is_unique:
-        raise ValueError("Result empty, too large, or ambiguously labelled.")
+    if frame.empty or not frame.columns.is_unique:
+        raise ValueError("Result empty or ambiguously labelled.")
     for col in frame.select_dtypes("number"):
         if not all(math.isfinite(v) for v in frame[col]):
             raise ValueError("No verified value for the requested read.")
     result=frame.to_json(orient="records",date_format="iso",double_precision=15)
-    if len(result)>250000:
-        raise ValueError("Result too large.")
     return result
 
 

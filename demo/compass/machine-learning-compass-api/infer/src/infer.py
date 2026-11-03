@@ -1,7 +1,11 @@
 import os
+from uuid import UUID
+from urllib.parse import unquote, urlparse
+from hashlib import sha256
 
 import httpx
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import ValidationError
 
 from api_objects.faro.compass.input.compass_input import CompassInput
@@ -51,6 +55,44 @@ def create_app(gate_url: str | None = None, connector_url: str | None = None,
             raise HTTPException(status_code=503, detail="A required service could not be reached") from error
         except (httpx.HTTPStatusError, ValidationError, ValueError) as error:
             raise HTTPException(status_code=502, detail=next(iter(getattr(error, "__notes__", [])), "Compass could not process a service response")) from error
+
+    def read_saved_turn(user_id, conversation_id, turn_id):
+        try:
+            access = orchestrator.gate_client.read_access(user_id)
+        except httpx.HTTPStatusError as error:
+            raise HTTPException(status_code=403, detail="Account access could not be verified") from error
+        except httpx.RequestError as error:
+            raise HTTPException(status_code=503, detail="The access service could not be reached") from error
+        doc = orchestrator.collection.read_conversation(access.company_id, conversation_id)
+        if not doc or doc["access"] != access.model_dump(mode="json"):
+            raise HTTPException(status_code=403, detail="This conversation is not available to this account")
+        turn = next((turn for turn in doc["turns"] if turn["_id"] == str(turn_id)), None)
+        if turn is None:
+            raise HTTPException(status_code=404, detail="Turn not found")
+        return access, turn
+
+    @app.get("/v1/conversations/{conversation_id}/turns/{turn_id}")
+    def get_turn(conversation_id: UUID, turn_id: UUID, user_id: str):
+        _, turn = read_saved_turn(user_id, conversation_id, turn_id)
+        return {key: turn[key] for key in ("elapsed_ms", "model_attempts", "cache")}
+
+    @app.get("/v1/conversations/{conversation_id}/turns/{turn_id}/documents/{index}")
+    def get_document(conversation_id: UUID, turn_id: UUID, index: int, user_id: str):
+        access, turn = read_saved_turn(user_id, conversation_id, turn_id)
+        documents = ((turn["response"] or {}).get("answer") or {}).get("documents", [])
+        if index < 0 or index >= len(documents):
+            raise HTTPException(status_code=404, detail="Document not found")
+        document = documents[index]
+        uri = urlparse(document["uri"])
+        root = Path(os.getenv("FARO_DOCUMENT_PATH", Path(__file__).resolve().parents[4] / "local_data/source_documents"))
+        path = Path(unquote(uri.path)).resolve()
+        if uri.scheme != "file" or uri.netloc or not path.is_relative_to((root / access.company_id).resolve()):
+            raise HTTPException(status_code=403, detail="Document is outside the permitted saved sources")
+        if not path.is_file():
+            raise HTTPException(status_code=404, detail="Saved document is unavailable")
+        if sha256(path.read_bytes()).hexdigest() != document["version"]:
+            raise HTTPException(status_code=409, detail="Saved document has changed")
+        return FileResponse(path, filename=document["name"])
 
     return app
 

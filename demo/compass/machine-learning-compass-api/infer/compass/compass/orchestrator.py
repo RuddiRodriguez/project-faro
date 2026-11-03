@@ -32,7 +32,7 @@ class Orchestrator:
                 raise ConversationInputError("This request is closed. Start a new question without a conversation ID.")
             history = [ConversationMessage.model_validate(m) for m in doc["messages"]]
             turn = dict(_id=str(uuid4()), number=len(doc["turns"])+1, message=orchestrator_input.question,
-                        language=orchestrator_input.language, created_at=now().isoformat(), cache=[], model_attempts_tracked=True, status="started")
+                        created_at=now().isoformat(), cache=[], model_attempts_tracked=True, status="started")
             doc["turns"].append(turn)
             doc["messages"].append(dict(role="user", content=orchestrator_input.question))
             self.collection.save_conversation(doc)
@@ -60,7 +60,7 @@ class Orchestrator:
         info = self.connector_client.discover_sources(access)
         cache = TurnCache(self.collection, access, info, turn["cache"], turn["_id"],
                           opening=not history and not request.conversation_id)
-        question, language = request.question, request.language
+        question = request.question
         if history:
             rewrite = self.thread_client.rewrite_question(question, history)
         else:
@@ -81,7 +81,7 @@ class Orchestrator:
                     turn["cache"][-1]["result_source"] = "rejected"
                     evidence = verification = None
             if evidence is None:
-                evidence = self.bridge_client.read_evidence(access, rewrite.question)
+                evidence = self.bridge_client.read_evidence(access, rewrite.question, search.matches)
             turn["decision_source"] = "Bridge"
             turn["plan"] = evidence.read.model_dump(mode="json") if evidence.read else None
             if evidence.status == "ask":
@@ -96,8 +96,8 @@ class Orchestrator:
                         self.collection.save_to_cache(access.company_id, "data", key, "Bridge", verification.facts, turn["_id"])
                         turn["cache"][-1]["produced_by_turn"] = turn["_id"]
                 def write_answer():
-                    return self.voice_client.write_answer(rewrite.question, language, verification, search)
-                answer = (cache.ai("Voice", [rewrite.question, language, verification, search], VoiceOutput,
+                    return self.voice_client.write_answer(rewrite.question, verification, search)
+                answer = (cache.ai("Voice", [rewrite.question, verification, search], VoiceOutput,
                                    write_answer, lambda r: r.mode == "ai")
                           if verification.status == "verified" else write_answer())
         elif decision.action == "Unsupported":
@@ -105,8 +105,8 @@ class Orchestrator:
         if decision.action == "Ask":
             options = search
             user_messages = [m.content for m in history if m.role == "user"][-2:] + [question]
-            followup = cache.ai("Guide", [options, user_messages, decision.missing_choice, language, rewrite.unclear_references], GuideOutput,
-                lambda: self.guide_client.generate_followup(options, decision.missing_choice, language, rewrite.unclear_references, user_messages, search.matches))
+            followup = cache.ai("Guide", [options, user_messages, decision.missing_choice, rewrite.unclear_references], GuideOutput,
+                lambda: self.guide_client.generate_followup(options, decision.missing_choice, rewrite.unclear_references, user_messages, search.matches))
         return OrchestratorOutput(conversation_id=conversation_id, turn_id=turn["_id"], question=question, access=access,
             sources=info, rewrite=rewrite, search=search, decision=decision, followup=followup,
             evidence=verification.facts if verification else None, verification=verification, answer=answer)

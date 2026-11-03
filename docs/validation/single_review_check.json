@@ -1,0 +1,47 @@
+{
+  "message": "which terminal has more issues last month",
+  "status": "verified",
+  "elapsed_ms": 47823,
+  "model_attempts": {
+    "Signal": {
+      "attempts": 1,
+      "calls": [
+        [
+          "success"
+        ]
+      ]
+    },
+    "Bridge": {
+      "attempts": 5,
+      "calls": [
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ],
+        [
+          "success"
+        ]
+      ]
+    },
+    "Shield": {
+      "attempts": 1,
+      "calls": [
+        [
+          "success"
+        ]
+      ]
+    }
+  },
+  "answer": "For October 2026, North and South tied at 2 code-I (idle-time) tickets each; neither had more. This compares idle-time postings, not all possible operational issues.",
+  "verification": "verified",
+  "test_date": "2026-11-03",
+  "scope": "Live console question through all local APIs; one Shield review, no retries."
+}

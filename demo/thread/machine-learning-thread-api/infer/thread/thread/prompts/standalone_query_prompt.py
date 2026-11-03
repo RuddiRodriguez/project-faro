@@ -42,7 +42,7 @@ Rewrite the latest user message as one standalone question or request.
         competing interpretations of what kind of thing is meant belong in unclear_references. Leave
         unclear_references empty for an unclear measure alone. Never turn an assistant suggestion into the user's choice.
         If the user changes subject, do not carry details from the previous topic.
-        Preserve the user's language, ambiguity and scope. Do not add causes,
+        Preserve ambiguity and scope. Do not add causes,
         categories, activities, products or facts the user did not state.
         Preserve names, identifiers and exact quoted error messages verbatim.
         Preserve vague terms until the user explains what they mean.
