@@ -1,0 +1,105 @@
+{
+  "maria": {
+    "sector": "Port terminals",
+    "description": "Explore Harbor’s North and South terminals. The data includes cranes, completed moves, operating hours, idle time and downtime, plus berth records and an operations report.",
+    "period": "September–October 2026; berth records and report for October 2026.",
+    "examples": [
+      "How many cranes per terminal do we have?",
+      "Compare crane downtime across North and South terminals in October 2026.",
+      "Which berths had the most crane idle time in October 2026?"
+    ]
+  },
+  "luis": {
+    "sector": "Port terminals",
+    "description": "Explore Harbor’s North and South terminals. The data includes cranes, completed moves, operating hours, idle time and downtime, plus berth records and an operations report.",
+    "period": "September–October 2026; berth records and report for October 2026.",
+    "examples": [
+      "How many cranes per terminal do we have?",
+      "Compare crane downtime across North and South terminals in October 2026.",
+      "Which berths had the most crane idle time in October 2026?"
+    ]
+  },
+  "ana": {
+    "sector": "Port terminals — North only",
+    "description": "Explore Harbor’s North Terminal. This account can see its cranes and activity, but cannot access South Terminal.",
+    "period": "September–October 2026.",
+    "examples": [
+      "How many cranes do we have at North Terminal?",
+      "What was the total crane downtime at North Terminal in October 2026?"
+    ]
+  },
+  "noah": {
+    "sector": "Access check — no data access",
+    "description": "This Harbor account has no permission to read terminal data. Use it to see how Faro handles a question when access is not available.",
+    "period": "No permitted records.",
+    "examples": [
+      "How many cranes do we have?"
+    ]
+  },
+  "maya": {
+    "sector": "Port terminals",
+    "description": "Explore Pacific’s North and South terminals. Ask about cranes, completed moves, operating hours, idle time or downtime. These records belong to a different company from Maria’s.",
+    "period": "September–October 2026.",
+    "examples": [
+      "How many cranes per terminal do we have?",
+      "Compare total crane downtime by terminal in October 2026."
+    ]
+  },
+  "chen": {
+    "sector": "Port terminals — North only",
+    "description": "Explore Strait’s North Terminal. Ask about its cranes and activity. This account cannot read Strait’s South Terminal or another company’s records.",
+    "period": "September–October 2026.",
+    "examples": [
+      "How many cranes can I see?",
+      "What was the total crane downtime at North Terminal in October 2026?"
+    ]
+  },
+  "sam": {
+    "sector": "Retail stores",
+    "description": "Explore the East and West stores. The data contains items sold and returned, so you can ask for totals or compare return rates. It does not contain sales revenue or prices.",
+    "period": "October 2026.",
+    "examples": [
+      "How many items did we sell in October 2026?",
+      "Which store had the highest return rate in October 2026?",
+      "Show items sold and returned for each store in October 2026."
+    ]
+  },
+  "hospital_ops": {
+    "sector": "Hospitals",
+    "description": "Explore six Cedar hospitals: Riverside, Hillview, Lakeside, Westhaven, Meadow and Central. Compare visits, waiting times, bed occupancy, emergency visits, admissions, discharges and cancelled appointments. These are hospital totals, not individual patient records.",
+    "period": "July–October 2026. Some records are corrected or incomplete; Faro must check them before answering.",
+    "examples": [
+      "Which hospitals had the longest average outpatient waiting time in October 2026?",
+      "Compare hospital bed occupancy in September 2026.",
+      "How many admissions did each hospital record in August 2026?"
+    ]
+  },
+  "riverside_manager": {
+    "sector": "Hospitals — Riverside only",
+    "description": "Explore Riverside Hospital’s visits, waiting times, bed occupancy, admissions, discharges and appointments. This account cannot see the other Cedar hospitals.",
+    "period": "July–October 2026.",
+    "examples": [
+      "How many admissions did Riverside Hospital record in August 2026?",
+      "What was Riverside Hospital’s bed occupancy in September 2026?"
+    ]
+  },
+  "hotel_hq": {
+    "sector": "Hotels",
+    "description": "Explore Meridian’s Madrid Central, Tokyo Bay and Mexico City Plaza hotels. The data contains occupied and available room nights, so you can compare occupancy. It does not contain room prices or guest details.",
+    "period": "October 2026.",
+    "examples": [
+      "Which hotel had the highest occupancy rate in October 2026?",
+      "How many occupied room nights did each hotel record in October 2026?",
+      "Compare occupied and available room nights across the hotels in October 2026."
+    ]
+  },
+  "madrid_manager": {
+    "sector": "Hotels — Madrid only",
+    "description": "Explore Madrid Central’s occupied and available room nights. This account cannot see Tokyo Bay or Mexico City Plaza.",
+    "period": "October 2026.",
+    "examples": [
+      "What was Madrid Central’s occupancy rate in October 2026?",
+      "How many occupied room nights did Madrid Central record in October 2026?"
+    ]
+  }
+}

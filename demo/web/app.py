@@ -10,6 +10,18 @@ from views import render_messages
 
 
 DEMO = Path(__file__).resolve().parents[1]
+ACCOUNTS = json.loads((Path(__file__).parent / "demo_accounts.json").read_text())
+
+
+def render_account_help(user_id):
+    account = ACCOUNTS[user_id]
+    st.subheader(f"{user_id} — {account['sector']}")
+    st.write(account["description"])
+    st.caption("Data available: " + account["period"])
+    st.markdown("**Questions to try**")
+    for example in account["examples"]:
+        st.markdown(f"- {example}")
+    st.caption("Copy an example or ask your own question. Faro may ask for a missing detail or explain why the data cannot support an answer.")
 
 
 def reset_question():
@@ -30,9 +42,9 @@ def render_sidebar():
         st.caption("Choose a test account. This is not a password sign-in.")
         if st.session_state.access is None:
             users = json.loads((DEMO / "local_data/demo_dataset/users.json").read_text())
-            with st.form("login"):
-                user_id = st.selectbox("User", [u["user_id"] for u in users if u["status"] == "active"])
-                submitted = st.form_submit_button("Enter demo")
+            user_id = st.selectbox("User", [u["user_id"] for u in users if u["status"] == "active"],
+                                   format_func=lambda user: f"{user} — {ACCOUNTS[user]['sector']}")
+            submitted = st.button("Enter demo")
             if submitted:
                 try:
                     st.session_state.access = sign_in(user_id)
@@ -52,6 +64,8 @@ def render_sidebar():
                 reset_question()
                 st.session_state.access = None
                 st.rerun()
+            user_id = access["user_id"]
+    return user_id
 
 
 def main():
@@ -60,7 +74,12 @@ def main():
     st.title("Faro")
     st.caption("Ask about your company data. Read the answer and the documents behind it.")
     initialize_state()
-    render_sidebar()
+    user_id = render_sidebar()
+    if st.session_state.messages:
+        with st.expander("About this demo and example questions"):
+            render_account_help(user_id)
+    else:
+        render_account_help(user_id)
     if st.session_state.access is None:
         st.info("Choose a demo account to begin. Data and replies are in English.")
         return
