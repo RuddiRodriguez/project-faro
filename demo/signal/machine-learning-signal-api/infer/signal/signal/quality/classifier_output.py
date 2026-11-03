@@ -1,12 +1,12 @@
 from pydantic import BaseModel
 
 from faro_signal.common_tools.error_code import ErrorCode
-from faro_signal.predictor_output import PredictorOutput
+from faro_signal.classifier_output import ClassifierOutput
 from utils.openai_client.outputs.token_usage import TokenUsage
 
 
 class ClassifierOutput(BaseModel):
-    result: PredictorOutput | None = None
+    result: ClassifierOutput | None = None
     token_usage: TokenUsage | None = None
     llm_duration: float | None = None
     decisions_response: dict | None = None

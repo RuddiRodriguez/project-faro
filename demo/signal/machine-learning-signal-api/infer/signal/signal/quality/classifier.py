@@ -6,11 +6,11 @@ from faro_signal.common_tools.error_code import ErrorCode
 from faro_signal.common_tools.log_messages import ErrorMessages
 from faro_signal.common_tools.logger_metadata import LoggerMetadata
 from faro_signal.common_tools.predictor_logger import PredictorLogger
-from faro_signal.predictor_files.decisions_prompt import DecisionsPrompt
-from faro_signal.predictor_files.decisions_rules import DecisionsRules
+from faro_signal.prompts.decisions_prompt import DecisionsPrompt
+from faro_signal.prompts.decisions_rules import DecisionsRules
 from faro_signal.quality.classifier_input import ClassifierInput
 from faro_signal.quality.classifier_output import ClassifierOutput
-from faro_signal.predictor_output import PredictorOutput
+from faro_signal.classifier_output import ClassifierOutput as DecisionOutput
 from utils.llms.llm_handler import LLMHandler
 from utils.openai_client.conversation.decisions_conversation import DecisionsConversation
 from utils.openai_client.exceptions import OpenAIGeneralError, OpenAiRecoverableError, OpenAiUnRecoverableError
@@ -41,12 +41,22 @@ class Classifier:
                 choices=[{"value": value, "description": description}
                          for value, description in DecisionsRules.CHOICES.items()],
             )
+            conversation.add_choice_question(name="initial_analysis",
+                instructions=DecisionsPrompt.INITIAL_ANALYSIS_INSTRUCTIONS, choices=[
+                    {"value":"Company-data request", "description":"The question concerns permitted company information."},
+                    {"value":"Unresolved user choice", "description":"A material choice remains for the user to make."},
+                    {"value":"Unrelated request", "description":"The request is not about company data."}])
+            conversation.add_choice_question(name="reasoning",
+                instructions=DecisionsPrompt.REASONING_INSTRUCTIONS, choices=[
+                    {"value":"Investigate the permitted evidence", "description":"Bridge can examine available sources before answering."},
+                    {"value":"Clarify the user's intended meaning", "description":"Proceeding would require choosing on the user's behalf."},
+                    {"value":"Outside the data-question service", "description":"The request asks for unrelated conversation."}])
             return conversation
         except Exception as error:
             raise ConversationError(ErrorMessages.ERROR_BUILDING_CONVERSATION.format(error)) from error
 
     def _parse_prediction_output(self, prediction: PredictOutput,
-                                 classifier_input: ClassifierInput) -> PredictorOutput:
+                                 classifier_input: ClassifierInput) -> DecisionOutput:
         try:
             if not prediction.is_success:
                 raise JsonFormatError("Decisions returned missing or duplicate answers")
@@ -62,10 +72,11 @@ class Classifier:
             for question in questions:
                 if by_name[question["name"]]["type"] != question["type"]:
                     raise JsonFormatError(f"Invalid answer type for {question['name']}")
+            explanation = {key: by_name[key]["choice"] for key in ("initial_analysis","reasoning")}
             choice = by_name["next_action"]["choice"]
             if choice in DecisionsRules.MISSING:
-                return PredictorOutput(action="Ask", missing_choice=DecisionsRules.MISSING[choice])
-            return PredictorOutput(action=choice)
+                return DecisionOutput(action="Ask", missing_choice=DecisionsRules.MISSING[choice], **explanation)
+            return DecisionOutput(action=choice, **explanation)
         except (ValueError, KeyError, TypeError) as error:
             raise JsonFormatError(str(error)) from error
 

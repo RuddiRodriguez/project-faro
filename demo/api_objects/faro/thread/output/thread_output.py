@@ -4,6 +4,8 @@ from utils.openai_client.outputs.token_usage import TokenUsage
 
 
 class ThreadOutput(BaseModel):
+    initial_analysis: str | None = None
+    reasoning: str | None = None
     unclear_references: list[str] = []
     question: str
     used_ai: bool

@@ -1,12 +1,11 @@
 from pydantic import BaseModel
-from api_objects.faro.thread.input.turn_input import Change
 from guide.common_tools.error_code import ErrorCode
 
 
 
 class GeneratorOutput(BaseModel):
+    initial_analysis: str | None = None
 
-    proposed_changes: list[Change] = []
     followup_text: str | None
     followup_reasoning: str | None
     error_code: None | ErrorCode

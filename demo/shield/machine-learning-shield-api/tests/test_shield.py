@@ -7,7 +7,7 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 from bridge.source import execute
 from api_objects.faro.bridge.output.bridge_output import Read
-from bridge.predictor_input import PredictorInput
+from bridge.reader_input import ReaderInput as VerifierInput
 from shield_api.infer import create_app
 
 
@@ -16,7 +16,7 @@ DATA = Path(__file__).resolve().parents[3] / "local_data/demo_dataset"
 
 class ShieldTests(unittest.TestCase):
     def setUp(self):
-        request = PredictorInput(question="Rank crane downtime highest first in North Terminal in October 2026",
+        request = VerifierInput(question="Rank crane downtime highest first in North Terminal in October 2026",
             company_id="harbor", permitted_scope_ids=["harbor_north"],definition_ids=["harbor_downtime_v1"])
         read = Read(source="harbor_downtime_v1",scope_ids=["harbor_north"],group="crane",member_ids=[],
             start="2026-10-01",end_exclusive="2026-11-01",
@@ -61,9 +61,9 @@ class ShieldTests(unittest.TestCase):
                 self.assertEqual(client.post("/v1/verify", json=self.request).json()["status"], "withheld")
                 # Updating a total alone does not refresh the attached source records.
                 from bridge.source import execute
-                from bridge.predictor_input import PredictorInput
+                from bridge.reader_input import ReaderInput as VerifierInput
                 from api_objects.faro.bridge.output.bridge_output import Read
-                self.request["evidence"] = execute(root, PredictorInput(
+                self.request["evidence"] = execute(root, VerifierInput(
                     company_id=self.request["company_id"],question=self.request["question"],
                     permitted_scope_ids=self.request["permitted_scope_ids"],
                     definition_ids=self.request["definition_ids"]),

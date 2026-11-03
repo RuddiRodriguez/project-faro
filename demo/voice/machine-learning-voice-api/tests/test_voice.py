@@ -6,11 +6,11 @@ from unittest.mock import Mock
 from fastapi.testclient import TestClient
 from bridge.source import execute
 from api_objects.faro.bridge.output.bridge_output import Read
-from bridge.predictor_input import PredictorInput as RankingRequest
-from shield.predictor import Predictor as Shield
-from shield.predictor_input import PredictorInput as Check
-from voice.predictor import Predictor, checked_lines
-from voice.predictor_input import PredictorInput
+from bridge.reader_input import ReaderInput as RankingRequest
+from shield.verifier import Verifier as Shield
+from shield.verifier_input import VerifierInput as Check
+from voice.generator import Generator, checked_lines
+from voice.generator_input import GeneratorInput
 from voice_api.infer import app
 
 
@@ -23,19 +23,19 @@ def verified_read(company, scopes, source, group, order):
         expression=("(df.groupby('asset_id')['occupied_room_nights'].sum()/df.groupby('asset_id')['available_room_nights'].sum()*100)" if company=="meridian" else "df.groupby('asset_id')['downtime_hours'].sum()")+f".sort_values(ascending={order=='ASC'})")
     evidence = execute(DATA,request,read)
     handler = Mock()
-    handler.predict.return_value.assistant_tools = [Mock(parsed_arguments={"decision":"supported","reason":"Matches"})]
-    return Shield(DATA,handler).predict(Check(**request.model_dump(), evidence=evidence))
+    handler.predict.return_value.assistant_tools = [Mock(parsed_arguments={"initial_analysis":"Supplied test evidence.", "reasoning":"Supported test decision.", "decision":"supported","reason":"Matches"})]
+    return Shield(DATA,handler).verify(Check(**request.model_dump(), evidence=evidence))
 
 
 def hotel_request():
     verified = verified_read("meridian", ["madrid","tokyo","mexico_city"], "meridian_measure", "hotel", "ASC")
-    return PredictorInput(question="¿Qué hotel tuvo la ocupación más baja en octubre?", language="es",
+    return GeneratorInput(question="¿Qué hotel tuvo la ocupación más baja en octubre?", language="es",
         measure="Occupancy", definition="Occupied room nights divided by available room nights, times 100.",
         definition_source="meridian/measure.md", verification=verified.model_dump())
 
 
 def withheld(language):
-    return PredictorInput(question="Why is there no ranking?", language=language, names=["Tokyo Bay"], verification=dict(
+    return GeneratorInput(question="Why is there no ranking?", language=language, names=["Tokyo Bay"], verification=dict(
         status="withheld", reason="Daily records are missing for Tokyo Bay."))
 
 
@@ -48,16 +48,16 @@ class VoiceTests(unittest.TestCase):
         evidence=dict(document=dict(name="report.pdf",uri="file:///saved/report.pdf",version="v1"),
                       references=["report.pdf#page 1"])
         facts.source_evidence=[evidence, evidence]
-        answer=Predictor(Mock()).predict(request)
+        answer=Generator(Mock()).generate(request)
         self.assertEqual(len(answer.documents),1)
         self.assertEqual(answer.documents[0].uri,"file:///saved/report.pdf")
         self.assertEqual(answer.documents[0].references,["report.pdf#page 1"])
         request.verification.status="withheld"
-        self.assertEqual(Predictor(Mock()).predict(request.model_copy(update={"language":"en"})).documents,[])
+        self.assertEqual(Generator(Mock()).generate(request.model_copy(update={"language":"en"})).documents,[])
 
     def test_withheld_without_ai(self):
         handler = Mock()
-        answer = Predictor(handler).predict(withheld("en"))
+        answer = Generator(handler).generate(withheld("en"))
         self.assertEqual(answer.mode,"direct")
         self.assertEqual(answer.status,"withheld")
         self.assertIn("Tokyo Bay",answer.text)
@@ -68,8 +68,8 @@ class VoiceTests(unittest.TestCase):
         template, _ = checked_lines(request)
         for bad in [template.replace("[[value_0]]","75%"), template.replace("[[name_2]]",""),template+" 18%"]:
             handler = Mock()
-            handler.predict.return_value.assistant_tools = [Mock(parsed_arguments={"text":bad})]
-            answer = Predictor(handler).predict(request)
+            handler.predict.return_value.assistant_tools = [Mock(parsed_arguments={"initial_analysis":"Supplied test evidence.", "reasoning":"Supported test decision.", "text":bad})]
+            answer = Generator(handler).generate(request)
             self.assertEqual(answer.mode,"fallback")
             self.assertIn("70%",answer.text)
             self.assertNotIn("75%",answer.text)
@@ -80,7 +80,7 @@ class VoiceTests(unittest.TestCase):
         verification = verified_read("harbor",["harbor_north"],"harbor_downtime_v1","crane","DESC")
         handler = Mock()
         handler.predict.side_effect = RuntimeError("unavailable")
-        answer = Predictor(handler).predict(PredictorInput(question="Which cranes had the most downtime?",
+        answer = Generator(handler).generate(GeneratorInput(question="Which cranes had the most downtime?",
             language="en", verification=verification.model_dump(), measure="Downtime"))
         self.assertEqual(answer.text.count("62 hours, tied at rank 1"), 2)
         self.assertIn("harbor_north_c01",answer.text)
@@ -89,7 +89,7 @@ class VoiceTests(unittest.TestCase):
     def test_model_outage_returns_checked_ranking(self):
         handler = Mock()
         handler.predict.side_effect = RuntimeError("unavailable")
-        answer = Predictor(handler).predict(hotel_request())
+        answer = Generator(handler).generate(hotel_request())
         self.assertEqual(answer.mode,"fallback")
         self.assertIn("Tokyo Bay: 70%",answer.text)
 

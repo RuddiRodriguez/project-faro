@@ -5,10 +5,10 @@ from utils.llms.llm_handler import LLMHandler
 from utils.openai_client.exceptions import OpenAiRecoverableError
 
 from api_objects.faro.bridge.output.bridge_output import Finding, Read
-from bridge.predictor_input import PredictorInput as Request
+from bridge.reader_input import ReaderInput as Request
 from bridge.source import catalogue, execute, snapshot_id
-from shield.predictor import Predictor
-from shield.predictor_input import PredictorInput
+from shield.verifier import Verifier
+from shield.verifier_input import VerifierInput
 
 DATA = Path(__file__).resolve().parents[3] / "local_data/demo_dataset"
 
@@ -23,14 +23,14 @@ class FindingsTests(TestCase):
         evidence.catalogue_version=snapshot_id(catalogue(DATA,request))
         evidence.findings=[Finding(text="366 hours.",evidence_ids=[1]),Finding(text="It caused a delay.",evidence_ids=[1])]
         model=Mock()
-        model.predict.return_value.assistant_tools=[Mock(parsed_arguments={"supported_finding_numbers":[1],"narrower_findings":[],"reason":"No causal evidence."})]
-        shield=Predictor(DATA,model)
-        response=shield.predict(PredictorInput(**request.model_dump(),evidence=evidence))
+        model.predict.return_value.assistant_tools=[Mock(parsed_arguments={"initial_analysis":"Supplied test evidence.", "reasoning":"Supported test decision.", "supported_finding_numbers":[1],"narrower_findings":[],"reason":"No causal evidence."})]
+        shield=Verifier(DATA,model)
+        response=shield.verify(VerifierInput(**request.model_dump(),evidence=evidence))
         self.assertEqual(response.status,"verified")
         self.assertEqual(response.facts.findings,evidence.findings[:1])
         self.assertTrue(response.reason)
         evidence.rows[0]["value"]=999.0
-        self.assertEqual(shield.predict(PredictorInput(**request.model_dump(),evidence=evidence)).status,"withheld")
+        self.assertEqual(shield.verify(VerifierInput(**request.model_dump(),evidence=evidence)).status,"withheld")
         self.assertEqual(model.predict.call_count,1)
 
     def test_search_is_not_the_access_boundary(self):
@@ -51,7 +51,7 @@ class FindingsTests(TestCase):
         client=Mock()
         client.chat_predict.side_effect=OpenAiRecoverableError()
         with patch("time.sleep"):
-            result=Predictor(DATA,LLMHandler(client)).predict(PredictorInput(**request.model_dump(),evidence=evidence))
+            result=Verifier(DATA,LLMHandler(client)).verify(VerifierInput(**request.model_dump(),evidence=evidence))
         self.assertEqual(client.chat_predict.call_count,3)
         self.assertEqual(result.status,"withheld")
         self.assertIsNone(result.facts)

@@ -1,0 +1,180 @@
+[
+  {
+    "question": "I want to compare cranes. Please ask me which indicator to use before reading their performance data.",
+    "status": "Ask",
+    "rewritten_question": "I want to compare cranes. Please ask me which indicator to use before reading their performance data.",
+    "followup": {
+      "initial_analysis": "The user wants to compare cranes and asked to choose an indicator before reviewing performance data. The performance indicator is missing; no language preference was specified.",
+      "reasoning": "The approved definitions include Moves Per Hour, Idle Time, and Downtime, but do not establish which one the user wants.",
+      "followup_text": "Which performance indicator would you like to use: Moves Per Hour, Idle Time, or Downtime?"
+    },
+    "answer": null,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "e9cff6ee-3a81-4e8e-a2b0-e1372c589800",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Unresolved user choice",
+            "reasoning": "Clarify the user's intended meaning"
+          }
+        ]
+      },
+      {
+        "service": "Guide",
+        "call_id": "d1658e10-2621-46a3-8ea7-cdc3a6c13720",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The user wants to compare cranes and asked to choose an indicator before reviewing performance data. The performance indicator is missing; no language preference was specified.",
+            "reasoning": "The approved definitions include Moves Per Hour, Idle Time, and Downtime, but do not establish which one the user wants."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "question": "Total downtime, North Terminal, October 2026, highest first.",
+    "status": "verified",
+    "rewritten_question": "Compare the cranes at North Terminal by total downtime in October 2026, highest first.",
+    "followup": null,
+    "answer": {
+      "status": "verified",
+      "text": "1 (tie): harbor_north_c01 \u2014 62.0 hours\n1 (tie): harbor_north_c02 \u2014 62.0 hours",
+      "definition": null,
+      "documents": [
+        {
+          "name": "activity-permitted-records.json",
+          "uri": "file:///Users/ruddigarcia/Projects/assesment/demo/local_data/source_documents/harbor/800aa598810c0a1a206d9c2c323afab5c8da385980db089b520d8d3ec35ecd4d/activity-permitted-records.json",
+          "version": "800aa598810c0a1a206d9c2c323afab5c8da385980db089b520d8d3ec35ecd4d",
+          "references": [
+            "activity.json#harbor_north_c01_2026-10-01",
+            "activity.json#harbor_north_c01_2026-10-02",
+            "activity.json#harbor_north_c01_2026-10-03",
+            "activity.json#harbor_north_c01_2026-10-04",
+            "activity.json#harbor_north_c01_2026-10-05",
+            "activity.json#harbor_north_c01_2026-10-06",
+            "activity.json#harbor_north_c01_2026-10-07",
+            "activity.json#harbor_north_c01_2026-10-08",
+            "activity.json#harbor_north_c01_2026-10-09",
+            "activity.json#harbor_north_c01_2026-10-10",
+            "activity.json#harbor_north_c01_2026-10-11",
+            "activity.json#harbor_north_c01_2026-10-12",
+            "activity.json#harbor_north_c01_2026-10-13",
+            "activity.json#harbor_north_c01_2026-10-14",
+            "activity.json#harbor_north_c01_2026-10-15",
+            "activity.json#harbor_north_c01_2026-10-16",
+            "activity.json#harbor_north_c01_2026-10-17",
+            "activity.json#harbor_north_c01_2026-10-18",
+            "activity.json#harbor_north_c01_2026-10-19",
+            "activity.json#harbor_north_c01_2026-10-20",
+            "activity.json#harbor_north_c01_2026-10-21",
+            "activity.json#harbor_north_c01_2026-10-22",
+            "activity.json#harbor_north_c01_2026-10-23",
+            "activity.json#harbor_north_c01_2026-10-24",
+            "activity.json#harbor_north_c01_2026-10-25",
+            "activity.json#harbor_north_c01_2026-10-26",
+            "activity.json#harbor_north_c01_2026-10-27",
+            "activity.json#harbor_north_c01_2026-10-28",
+            "activity.json#harbor_north_c01_2026-10-29",
+            "activity.json#harbor_north_c01_2026-10-30",
+            "activity.json#harbor_north_c01_2026-10-31",
+            "activity.json#harbor_north_c02_2026-10-01",
+            "activity.json#harbor_north_c02_2026-10-02",
+            "activity.json#harbor_north_c02_2026-10-03",
+            "activity.json#harbor_north_c02_2026-10-04",
+            "activity.json#harbor_north_c02_2026-10-05",
+            "activity.json#harbor_north_c02_2026-10-06",
+            "activity.json#harbor_north_c02_2026-10-07",
+            "activity.json#harbor_north_c02_2026-10-08",
+            "activity.json#harbor_north_c02_2026-10-09",
+            "activity.json#harbor_north_c02_2026-10-10",
+            "activity.json#harbor_north_c02_2026-10-11",
+            "activity.json#harbor_north_c02_2026-10-12",
+            "activity.json#harbor_north_c02_2026-10-13",
+            "activity.json#harbor_north_c02_2026-10-14",
+            "activity.json#harbor_north_c02_2026-10-15",
+            "activity.json#harbor_north_c02_2026-10-16",
+            "activity.json#harbor_north_c02_2026-10-17",
+            "activity.json#harbor_north_c02_2026-10-18",
+            "activity.json#harbor_north_c02_2026-10-19",
+            "activity.json#harbor_north_c02_2026-10-20",
+            "activity.json#harbor_north_c02_2026-10-21",
+            "activity.json#harbor_north_c02_2026-10-22",
+            "activity.json#harbor_north_c02_2026-10-23",
+            "activity.json#harbor_north_c02_2026-10-24",
+            "activity.json#harbor_north_c02_2026-10-25",
+            "activity.json#harbor_north_c02_2026-10-26",
+            "activity.json#harbor_north_c02_2026-10-27",
+            "activity.json#harbor_north_c02_2026-10-28",
+            "activity.json#harbor_north_c02_2026-10-29",
+            "activity.json#harbor_north_c02_2026-10-30",
+            "activity.json#harbor_north_c02_2026-10-31"
+          ]
+        }
+      ],
+      "sources": [
+        "activity.json"
+      ],
+      "mode": "direct"
+    },
+    "model_explanations": [
+      {
+        "service": "Thread",
+        "call_id": "cf038bd2-9bbd-415b-9d95-cd46ecd1145e",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The user selected total downtime and specified North Terminal, October 2026, with results ordered highest first. The cranes are the comparison subject from the prior conversation.",
+            "reasoning": "These details form a standalone request to compare cranes using the chosen indicator, location, period, and sort order."
+          }
+        ]
+      },
+      {
+        "service": "Signal",
+        "call_id": "662e35e0-5583-41f6-bb2a-70a0b084922b",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "b2afafdd-7904-4205-970c-f5d6fe47efe1",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for North Terminal cranes ranked by total downtime during October 2026. The permitted activity source records daily downtime_hours, whose documented definition is a sum over the period; North Terminal history marks October complete.",
+            "reasoning": "A period-level sum of downtime_hours for North Terminal crane assets is the relevant comparison. The activity rows are needed to calculate the totals."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "446e92d1-5e4e-4aeb-a512-e8056d53f432",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The request is to rank North Terminal cranes by total downtime in October 2026. The October activity read reports downtime totals for both cranes.",
+            "reasoning": "Downtime is measured in hours and the October totals are equal, so the cranes share the highest position."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "8ce92e30-ccef-47bf-82d8-a8e9316a1b84",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The findings report both North Terminal cranes tied at 62.0 downtime hours. The checked activity read aggregates the full October 2026 period for both cranes; the catalogue defines downtime in hours and identifies the North crane members.",
+            "reasoning": "The executed comparison returns harbor_north_c01 and harbor_north_c02 at 62.0 hours each, with no other North crane member shown in the catalogue\u2019s crane group. Both findings accurately report the tie and the unit."
+          }
+        ]
+      }
+    ]
+  }
+]

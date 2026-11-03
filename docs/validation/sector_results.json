@@ -1,0 +1,247 @@
+[
+  {
+    "company": "harbor",
+    "question": "Which berths had the most crane idle hours last month?",
+    "status": "verified",
+    "answer": "South berth S1 had the most crane idle time in October 2026: 115 hours. The berth totals were S1 115, N1 100, N2 86, and S2 71 hours.",
+    "elapsed_ms": 29318,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "389a95df-02a1-41fb-927a-262ab851c3f1",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "fbee8693-01ef-4445-a1bc-b904aeb11485",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "\u201cLast month\u201d is October 2026, based on the reference date of 2026-11-01. To rank berths, I need the documented meaning of operational events and a reliable way to associate crane idle time with each berth.",
+            "reasoning": "The catalogue lists operational event and assignment data, but their fields alone do not establish which event codes represent idle time or how to aggregate them. I\u2019ll check the operations notes for those definitions and relationships first."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "c8196624-ee6c-4546-816e-19fd2740d6f6",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for the berth(s) with the greatest crane idle hours last month. The reference date is 2026-11-01, so the period is October 2026. The operations release says to use current_events, count code I minutes, exclude code M, and assign each counted ticket to exactly one berth.",
+            "reasoning": "The release identifies the relevant source fields and requires a complete ticket-to-berth assignment before ranking. I need to aggregate October idle minutes by berth after linking current event tickets to assignments."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "5b577dd6-63e5-4e5e-b973-ee4249dfef87",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October 2026 release says to count current-event code I as idle time, exclude code M, and match each counted ticket to exactly one berth assignment. The joined October records show an assignment for each idle ticket.",
+            "reasoning": "Summing the minutes for code I by assigned berth and converting to hours gives the October idle-time ranking. Maintenance code M is excluded."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "27ec3fe5-a2e9-4ec7-8b92-24430a713324",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The October 2026 release covers all berths at North and South. It defines code I as idle time, excludes maintenance, and requires each counted ticket to have exactly one berth assignment. The linked records provide a berth ranking in hours.",
+            "reasoning": "The October records were joined to assignments by ticket/Work reference, and idle-code minutes were summed by berth and converted to hours. S1 is highest; the next berths are N1, N2, and S2."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "cea94a2c-9c7d-41a0-b822-7ef68ade9d5d",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question concerns October 2026, the month before the 2026-11-01 reference date. The operations note identifies code I as idle time, excludes code M, and requires assignments for all counted tickets; the linked records show assignments for the counted tickets.",
+            "reasoning": "The executed comparison totals idle minutes by berth and converts to hours. S1 leads with 115 hours; the reported totals and ranking match the result."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "retail",
+    "question": "How many units did all our stores sell in October 2026?",
+    "status": "verified",
+    "answer": "All stores sold 1,050 units in October 2026.",
+    "elapsed_ms": 19525,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "5801bbc1-eea7-4e32-977f-e4f479a4d941",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "1e3f755a-1737-4612-a091-931fe9137a47",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for total units sold across all stores during October 2026. The permitted definition says store sales are total units sold, and the history marks October 1\u2013November 1, 2026 as complete.",
+            "reasoning": "I need the activity records for October and must sum the sold field across all stores."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "754697d4-aa30-4918-a431-a72371eaa3d6",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for total units sold across all stores in October 2026. The approved definition says store sales are total units sold, and the period is covered by complete history. A prior read was rejected because no group was specified.",
+            "reasoning": "Read the activity data for the requested dates using the approved store group and sum the sold field across all stores."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "706b7aaa-a787-442b-a87b-01488831de20",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for total units sold across stores during October 2026. The activity read for the store group covers October 1\u201331 and reports a summed sold value of 1,050.",
+            "reasoning": "The approved definition says store sales means total units sold, and the October activity total is 1,050."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "854ad5ae-218e-498e-a862-fb520182deed",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The proposed finding reports total units sold across all stores in October 2026. The catalogue defines store sales as total units sold, and the executed read covers all permitted locations for October and sums the sold field.",
+            "reasoning": "The executed result is 1,050.0, and the catalogue identifies the measure as units sold. The finding is supported."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "cedar",
+    "question": "Compare hospital bed occupancy in October 2026, highest first.",
+    "status": "verified",
+    "answer": "1. Central Hospital \u2014 95.0%\n2. Lakeside Hospital \u2014 90.0%\n3. Hillview Hospital \u2014 85.0%\n4. Westhaven Hospital \u2014 80.0%\n5. Riverside Hospital \u2014 75.0%\n6. Meadow Hospital \u2014 65.0%",
+    "elapsed_ms": 17077,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "9debaa53-34eb-4fe9-962c-342dc0428e92",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "6e390021-eca7-4501-b80b-98584ceb59dd",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for October 2026 bed occupancy by hospital, ranked highest first. The approved definition is occupied bed-days divided by available staffed bed-days, multiplied by 100. October coverage is complete for all six hospitals.",
+            "reasoning": "A grouped calculation of the October totals is needed for each hospital; comparing the resulting occupancy percentages will answer the question."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "439dc545-440f-455f-b188-5035261aece6",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The request is to rank the six hospitals by October 2026 bed occupancy. The available October records cover all six hospitals; occupancy is occupied bed-days divided by available staffed bed-days, multiplied by 100.",
+            "reasoning": "Read 1 calculates the ratio from October totals and sorts the hospitals highest first. The occupancy definition is documented in catalogue evidence 0."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "da559301-b934-4025-b324-4369a58743ec",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The proposed findings rank all six permitted hospitals by October 2026 bed occupancy. The executed read covers October 1\u201331, includes all permitted locations, and reports the six occupancy percentages in descending order.",
+            "reasoning": "The reported values and ordering match the executed comparison. The occupancy definition specifies occupied bed-days divided by available staffed bed-days, multiplied by 100; October is complete for all six hospitals."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "company": "meridian",
+    "question": "How many hotels do we have?",
+    "status": "verified",
+    "answer": "There are 3 hotels as of 2026-11-01.",
+    "elapsed_ms": 12010,
+    "model_explanations": [
+      {
+        "service": "Signal",
+        "call_id": "6256b7bc-2635-472a-837c-0aad07b71736",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "Company-data request",
+            "reasoning": "Investigate the permitted evidence"
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "7eddd213-a1b9-4ac7-85ff-dd75a7cc278e",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for the number of hotels. The catalogue identifies three permitted hotel properties, but the active inventory register is the source for counting current members.",
+            "reasoning": "Read the active hotel inventory and count its asset IDs; the catalogue\u2019s three scopes alone do not establish the inventory count."
+          }
+        ]
+      },
+      {
+        "service": "Bridge",
+        "call_id": "3aff1fe6-b163-438f-9a62-a5762c0441c3",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The question asks for the number of hotels. The permitted inventory read counts distinct hotel asset IDs as of 2026-11-01.",
+            "reasoning": "The register reports 3 distinct hotel members at the snapshot date."
+          }
+        ]
+      },
+      {
+        "service": "Shield",
+        "call_id": "c678a5ae-9bf0-402b-976d-acae0cee2129",
+        "explanations": [
+          {
+            "attempt": 1,
+            "initial_analysis": "The proposed finding reports the number of hotels as of 2026-11-01. Checked read 1 counts distinct asset IDs in the register for all permitted hotel locations and returns 3.",
+            "reasoning": "The register count directly supports the reported total and date."
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -4,8 +4,8 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from api_objects.faro.gate.input.gate_input import GateInput
 from api_objects.faro.gate.output.gate_output import GateOutput
-from gate.predictor import Predictor
-from gate_api.endpoints.predict_endpoint import PredictEndpoint
+from gate.access_checker import AccessChecker
+from gate_api.endpoints.check_endpoint import AccessCheckerEndpoint
 
 
 DEFAULT_DATA_PATH = Path(__file__).resolve().parents[4] / "local_data/demo_dataset"
@@ -13,7 +13,7 @@ DEFAULT_DATA_PATH = Path(__file__).resolve().parents[4] / "local_data/demo_datas
 
 def create_app(data_path: Path | None = None) -> FastAPI:
     app = FastAPI(title="Gate — reads demo user permissions")
-    endpoint = PredictEndpoint(Predictor(data_path or Path(os.getenv("FARO_DATA_PATH", DEFAULT_DATA_PATH))))
+    endpoint = AccessCheckerEndpoint(AccessChecker(data_path or Path(os.getenv("FARO_DATA_PATH", DEFAULT_DATA_PATH))))
 
     @app.post("/v1/access", response_model=GateOutput)
     def read_access(request: GateInput) -> GateOutput:

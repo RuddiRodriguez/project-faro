@@ -10,8 +10,8 @@ from utils.llms.llm_handler import LLMHandler
 
 from api_objects.faro.guide.input.guide_input import GuideInput
 from api_objects.faro.guide.output.guide_output import GuideOutput
-from guide.predictor import Predictor
-from guide_api.endpoints.predict_endpoint import PredictEndpoint
+from guide.generator import Generator
+from guide_api.endpoints.generate_endpoint import GeneratorEndpoint
 
 
 def create_app() -> FastAPI:
@@ -19,7 +19,7 @@ def create_app() -> FastAPI:
     llm_client = OpenAiClient(api_key_secret_name=None,
                              explicit_api_key=os.environ["OPENAI_API_KEY"])
     handler = LLMHandler(llm_client=llm_client)
-    endpoint = PredictEndpoint(Predictor(handler))
+    endpoint = GeneratorEndpoint(Generator(handler))
     app = FastAPI(title="Guide — asks for a missing detail")
 
     @app.post("/v1/followup", response_model=GuideOutput)

@@ -1,4 +1,3 @@
-import json
 import sqlite3
 import unittest
 from datetime import timedelta
@@ -11,7 +10,7 @@ from api_objects.faro.gate.output.gate_output import GateOutput
 from api_objects.faro.signal.output.signal_output import SignalOutput
 from compass.collection_schema import COLUMNS, field_origins
 from compass.data_collection import DataCollection, TurnCache, now
-from compass.predictor_input import PredictorInput
+from compass.orchestrator_input import OrchestratorInput
 
 
 class CollectionTests(unittest.TestCase):
@@ -59,7 +58,7 @@ class CollectionTests(unittest.TestCase):
             for column,_,_ in fields:self.assertTrue(guide[table,column])
 
     def test_changed_permissions_block_saved_history(self):
-        request=PredictorInput(user_id="maria",question="First question")
+        request=OrchestratorInput(user_id="maria",question="First question")
         with self.store.conversation(request,self.access) as doc:
             doc["turns"].append(dict(_id="one",number=1,message=request.question,language=None,
                 created_at=now().isoformat(),status="failed",cache=[]))
@@ -70,13 +69,13 @@ class CollectionTests(unittest.TestCase):
                 self.fail("Conversation opened with changed access")
 
     def test_previous_answer_shares_only_the_verified_question_with_its_owner(self):
-        request = PredictorInput(user_id="maria", question="Count my cranes")
+        request = OrchestratorInput(user_id="maria", question="Count my cranes")
         with self.store.conversation(request, self.access) as doc:
             doc["turns"].append(dict(_id="first", number=1, message=request.question, language=None,
                 created_at=now().isoformat(), status="verified", cache=[],
                 response={"rewrite":{"question":request.question}, "answer":{"text":"Private result"}}))
             self.store.save_conversation(doc)
-        next_request = PredictorInput(user_id="maria", question="And per terminal?", previous_answer_id=doc["_id"])
+        next_request = OrchestratorInput(user_id="maria", question="And per terminal?", previous_answer_id=doc["_id"])
         with self.store.conversation(next_request, self.access) as followup:
             self.assertEqual(followup["messages"], [{"role":"user","content":request.question}])
             self.assertEqual(followup["original_question"], next_request.question)

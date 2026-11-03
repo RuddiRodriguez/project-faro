@@ -3,7 +3,7 @@ import json
 import unittest
 from pathlib import Path
 from api_objects.faro.bridge.output.bridge_output import Read
-from bridge.predictor_input import PredictorInput
+from bridge.reader_input import ReaderInput
 from bridge.source import execute
 
 DATA = Path(__file__).resolve().parents[1]/"local_data/demo_dataset"
@@ -13,7 +13,7 @@ class HospitalDataTests(unittest.TestCase):
     def setUp(self):
         self.scopes = next(u["scope_ids"] for u in json.loads((DATA/"users.json").read_text())
                            if u["user_id"]=="hospital_ops")
-        self.request = PredictorInput(company_id="cedar",question="Compare hospitals",
+        self.request = ReaderInput(company_id="cedar",question="Compare hospitals",
             permitted_scope_ids=self.scopes,definition_ids=["cedar_measure","cedar_occupancy"])
 
     def read(self, source, expression, scopes=None, start="2026-10-01", end="2026-11-01"):

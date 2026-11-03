@@ -1,0 +1,6 @@
+*.pdf binary
+*.png binary
+*.pptx binary
+*.xlsx binary
+*.sqlite binary
+*.parquet binary

@@ -13,6 +13,7 @@ COLUMNS = {
         ("call_id","TEXT","Shared utils generates one ID per logical model call; retries keep it."),
         ("service","TEXT","Name of the service making the model call."),
         ("started_ns","INTEGER","Service clock at the start of the logical call, Unix nanoseconds."),
+        ("explanations_json","JSON","Model response: brief initial_analysis and reasoning per attempt, with its attempt number. Not private chain of thought."),
         ("outcomes_json","JSON","One outcome per provider attempt, in order; in_progress until the provider returns.")],
     "turns": [
         ("turn_id","TEXT","Compass UUID for this individual message."),
@@ -89,8 +90,7 @@ fields("response_json.search","query matches","Scout: search input from Thread a
 fields("response_json.search.matches[]","document_id title text source version","Scout: approved company document; Compass checks the returned match against Library.")
 fields("response_json.search.matches[]","file_reference score","Scout: index source reference and relevance score, not proof of correctness.")
 fields("response_json.decision","action missing_choice","Signal's classification or Bridge's clarification/stop; see decision_source.")
-fields("response_json.followup.proposed_changes[]","field value","Guide records exactly what the user would accept.")
-fields("response_json.followup","followup_text proposed_changes","Guide: clarification generated for the missing choice.")
+fields("response_json.followup","followup_text initial_analysis reasoning","Guide: clarification generated for the missing choice.")
 read_fields="source scope_ids member_ids group start end_exclusive expression"
 fields("plan_json",read_fields,"Bridge model proposes the permitted source and bounded read through utils.")
 fields("response_json.verification","status reason facts","Shield checks source records and whether the read answers the question.")
@@ -108,3 +108,6 @@ for prefix in ("response_json.evidence","response_json.verification.facts"):
 fields("response_json.answer","status","Operational answers use Shield's decision. Unsupported data requests may be withheld without a ranking.")
 fields("response_json.answer","text mode","Voice displays Shield-reviewed findings, a direct limitation, or checked legacy wording.")
 fields("response_json.answer","sources definition","Voice copies Bridge's operational source and Scout's matched Library definition and reference.")
+
+for service in ("rewrite", "decision"):
+    fields("response_json."+service,"initial_analysis reasoning","Service model response: brief factual assessment and decision justification.")

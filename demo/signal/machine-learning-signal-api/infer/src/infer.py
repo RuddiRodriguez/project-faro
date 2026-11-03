@@ -10,15 +10,15 @@ from utils.openai_client.openai_client import OpenAiClient
 
 from api_objects.faro.signal.input.signal_input import SignalInput
 from api_objects.faro.signal.output.signal_output import SignalOutput
-from faro_signal.predictor import Predictor
-from signal_api.endpoints.predict_endpoint import PredictEndpoint
+from faro_signal.classifier import Classifier
+from signal_api.endpoints.classify_endpoint import ClassifierEndpoint
 
 
 def create_app() -> FastAPI:
     load_dotenv(Path(__file__).resolve().parents[4] / ".env", override=False)
     llm_client = OpenAiClient(api_key_secret_name=None,
                              explicit_api_key=os.environ["OPENAI_API_KEY"])
-    endpoint = PredictEndpoint(Predictor(llm_client))
+    endpoint = ClassifierEndpoint(Classifier(llm_client))
     app = FastAPI(title="Signal — decides whether the question is clear and supported")
 
     @app.post("/v1/classify", response_model=SignalOutput)

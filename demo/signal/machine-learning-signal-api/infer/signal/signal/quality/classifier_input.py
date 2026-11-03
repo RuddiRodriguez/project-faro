@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 
-from faro_signal.predictor_input import Definition
+from faro_signal.classifier_input import Definition
 
 
 class ClassifierInput(BaseModel):

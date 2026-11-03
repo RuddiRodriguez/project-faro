@@ -1,4 +1,3 @@
-import json
 import os
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -17,6 +16,7 @@ def free_port():
         return connection.getsockname()[1]
 
 
+@unittest.skipUnless(os.getenv("FARO_RUN_LIVE_TESTS") == "1", "Starts all APIs and calls the configured models")
 class CompassHttpTests(unittest.TestCase):
     @classmethod
     def start_server(cls, module, **settings):

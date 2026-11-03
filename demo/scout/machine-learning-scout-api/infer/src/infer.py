@@ -3,13 +3,13 @@ from fastapi import FastAPI, HTTPException
 from api_objects.faro.scout.input.scout_input import ScoutInput
 from api_objects.faro.scout.output.scout_output import ScoutOutput
 from scout.local_client import LocalKnowledgeBaseClient
-from scout.predictor import Predictor
-from scout_api.endpoints.predict_endpoint import PredictEndpoint
+from scout.searcher import Searcher
+from scout_api.endpoints.search_endpoint import SearcherEndpoint
 
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Scout — finds relevant company definitions")
-    endpoint = PredictEndpoint(Predictor(LocalKnowledgeBaseClient()))
+    endpoint = SearcherEndpoint(Searcher(LocalKnowledgeBaseClient()))
 
     @app.post("/v1/search", response_model=ScoutOutput)
     def search(request: ScoutInput) -> ScoutOutput:

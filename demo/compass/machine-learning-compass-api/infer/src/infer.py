@@ -8,8 +8,8 @@ from api_objects.faro.compass.input.compass_input import CompassInput
 from api_objects.faro.compass.output.compass_output import CompassOutput
 from pathlib import Path
 from compass.data_collection import ConversationInputError, DataCollection
-from compass.predictor import Predictor
-from compass_api.endpoints.predict_endpoint import PredictEndpoint
+from compass.orchestrator import Orchestrator
+from compass_api.endpoints.orchestrate_endpoint import OrchestratorEndpoint
 from compass_api.external_services.gate_client import GateClient
 from compass_api.external_services.library_client import LibraryClient
 from compass_api.external_services.thread_client import ThreadClient
@@ -25,7 +25,7 @@ def create_app(gate_url: str | None = None, library_url: str | None = None,
                thread_url: str | None = None, scout_url: str | None = None, signal_url: str | None = None,
                guide_url: str | None = None, bridge_url: str | None = None, shield_url: str | None = None, voice_url: str | None = None) -> FastAPI:
     app = FastAPI(title="Compass — coordinates Gate, Library, Thread, Scout, Signal, Guide, Bridge, Shield and Voice")
-    predictor = Predictor(
+    orchestrator = Orchestrator(
         collection=DataCollection(os.getenv("FARO_COLLECTION_PATH", Path(__file__).resolve().parents[4] / "local_data/data_collection")),
         gate_client=GateClient(gate_url or os.getenv("FARO_GATE_URL", "http://127.0.0.1:8002")),
         library_client=LibraryClient(library_url or os.getenv("FARO_LIBRARY_URL", "http://127.0.0.1:8001")),
@@ -37,7 +37,7 @@ def create_app(gate_url: str | None = None, library_url: str | None = None,
         guide_client=GuideClient(guide_url or os.getenv("FARO_GUIDE_URL", "http://127.0.0.1:8006")),
         signal_client=SignalClient(signal_url or os.getenv("FARO_SIGNAL_URL", "http://127.0.0.1:8005")),
     )
-    endpoint = PredictEndpoint(predictor)
+    endpoint = OrchestratorEndpoint(orchestrator)
 
     @app.post("/v1/questions", response_model=CompassOutput)
     def prepare_question(request: CompassInput) -> CompassOutput:

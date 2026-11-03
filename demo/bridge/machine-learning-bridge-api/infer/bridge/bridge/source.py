@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 from utils.connector_client import sources as connected_sources
 from bridge.connected import execute_connected
-from bridge.predictor_output import PredictorOutput
+from bridge.reader_output import ReaderOutput
 from bridge.records import read_records
 
 
@@ -146,7 +146,7 @@ def execute(path, request, read):
     saved.parent.mkdir(parents=True,exist_ok=True)
     saved.write_bytes(content)
     document=dict(name=saved.name,uri=saved.resolve().as_uri(),version=version)
-    return PredictorOutput(status="ready", company_id=request.company_id, question=request.question,
+    return ReaderOutput(status="ready", company_id=request.company_id, question=request.question,
         read=read, source=source, unit=unit, period=period, data_version=cat["data_version"],
         rows=rows, record_ids=ids, source_evidence=[dict(source=source,version=cat["data_version"],
             references=[f"{source}#{key}" for key in ids],document=document)])

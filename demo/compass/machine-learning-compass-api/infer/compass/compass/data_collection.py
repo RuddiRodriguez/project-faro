@@ -7,7 +7,7 @@ import json
 import os
 import pandas as pd
 import pyarrow as pa
-from utils.llms.model_attempts import read_attempts
+from utils.llms.model_attempts import read_attempts, read_explanations
 from compass.collection_schema import COLUMNS, field_origins
 from pathlib import Path
 from uuid import uuid4
@@ -84,6 +84,7 @@ class DataCollection:
                      plan=json.loads(row["plan_json"]),response=json.loads(row["response_json"]),
                      elapsed_ms=row["elapsed_ms"],error=row["error"],decision_source=row["decision_source"])
             t["model_attempts"] = read_attempts(self.root, company, t["_id"]) if row.get("model_attempts_tracked") else None
+            t["model_explanations"] = read_explanations(self.root, company, t["_id"]) if row.get("model_attempts_tracked") else None
             doc["turns"].append(t)
             doc["messages"].append(dict(role="user",content=t["message"]))
             response = t["response"] or {}

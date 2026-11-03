@@ -3,7 +3,7 @@ import json
 from hashlib import sha256
 import pandas as pd
 from utils.connector_client import sources
-from bridge.predictor_output import PredictorOutput
+from bridge.reader_output import ReaderOutput
 
 
 def execute_connected(request, read, catalogue, run_read):
@@ -36,7 +36,7 @@ def execute_connected(request, read, catalogue, run_read):
     rows=run_read(read.expression,frame.to_dict("records"),list(frame.columns))
     if not rows:
         raise ValueError("No result for the requested connected read.")
-    return PredictorOutput(status="ready",company_id=request.company_id,question=request.question,read=read,
+    return ReaderOutput(status="ready",company_id=request.company_id,question=request.question,read=read,
         source="; ".join(s["source"] for s in snapshots),data_version=sha256(json.dumps(
             [s["version"] for s in snapshots]).encode()).hexdigest(),rows=rows,
         period="Verify dates against the original source fields or document.",source_evidence=snapshots,

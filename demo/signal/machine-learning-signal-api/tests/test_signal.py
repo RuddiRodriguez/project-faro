@@ -2,28 +2,27 @@ import json
 import unittest
 from unittest.mock import Mock
 
-from faro_signal.predictor import Predictor
-from faro_signal.predictor_input import PredictorInput
+from faro_signal.classifier import Classifier
+from faro_signal.classifier_input import ClassifierInput
 from utils.openai_client.conversation.assistant_message import AssistantMessage
 from utils.openai_client.outputs.predict_output import PredictOutput
 
 
 from faro_signal.common_tools.custom_exceptions import JsonFormatError
-from faro_signal.quality.classifier import Classifier
-from faro_signal.quality.classifier_input import ClassifierInput
+from faro_signal.quality.classifier import Classifier as DecisionClassifier
 
 
 class SignalTests(unittest.TestCase):
     def test_missing_company_material_stops_without_model_call(self):
         handler = Mock()
-        request = PredictorInput(question="Which cranes performed badly?", matches=[],
+        request = ClassifierInput(question="Which cranes performed badly?", matches=[],
                                  permitted_scopes=[], supported_tasks=[])
-        result = Predictor(handler).predict(request)
+        result = Classifier(handler).classify(request)
         self.assertEqual(result.action, "Unsupported")
         handler.chat_predict.assert_not_called()
 
     def test_duplicate_model_answers_do_not_become_a_decision(self):
-        signal = Classifier(Mock())
+        signal = DecisionClassifier(Mock())
         request = ClassifierInput(question="Which cranes?",
             permitted_scopes=["North Terminal"], supported_tasks=["Compare cranes"], matches=[])
         conversation = signal._build_conversation(request)

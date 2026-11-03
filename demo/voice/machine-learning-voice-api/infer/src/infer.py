@@ -10,8 +10,8 @@ from utils.llms.llm_handler import LLMHandler
 
 from api_objects.faro.voice.input.voice_input import VoiceInput
 from api_objects.faro.voice.output.voice_output import VoiceOutput
-from voice.predictor import Predictor
-from voice_api.endpoints.predict_endpoint import PredictEndpoint
+from voice.generator import Generator
+from voice_api.endpoints.generate_endpoint import GeneratorEndpoint
 
 
 def create_app() -> FastAPI:
@@ -19,7 +19,7 @@ def create_app() -> FastAPI:
     llm_client = OpenAiClient(api_key_secret_name=None,
                              explicit_api_key=os.environ["OPENAI_API_KEY"])
     handler = LLMHandler(llm_client=llm_client)
-    endpoint = PredictEndpoint(Predictor(handler))
+    endpoint = GeneratorEndpoint(Generator(handler))
     app = FastAPI(title="Voice — explains the checked result")
 
     @app.post("/v1/answer", response_model=VoiceOutput)

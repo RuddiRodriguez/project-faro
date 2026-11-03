@@ -34,6 +34,7 @@ CREATE TABLE model_calls (
   call_id TEXT PRIMARY KEY,
   service TEXT,
   started_ns INTEGER,
+  explanations_json JSON,
   outcomes_json JSON
 );
 

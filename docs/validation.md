@@ -1,0 +1,39 @@
+# Validation — 3 November 2026
+
+This review distinguishes local code tests from conversations using the configured models. All business records are fictional fixtures.
+
+## Local checks
+
+The default run discovered 131 tests: 95 passed and 36 opt-in tests were skipped. No suite failed.
+
+The complete default test runner covers every service test directory, shared API objects, utilities and cross-service tests. Paid-model tests and the private-repository comparison require an explicit opt-in; they are not counted as local passes.
+
+New stress tests run the same connector and worker against six different field vocabularies: terminal operations, retail, hospitals, hotels, recycling and arbitrary names. They also test company isolation, unknown fields, oversized sources, unsafe expressions and invalid numeric results. This supports reuse across these tested structures, not a claim that every database or sector is supported.
+
+The utility comparison with the original private repositories passed separately. The retained Luna retrieval, Nemo search and Semantica classifier sources matched their recorded originals. Ruff's unused-import, duplicate-name and undefined-name checks passed for application code; copied dependency code was excluded from that cleanup.
+
+## Real model and console checks
+
+Both selected live console tests passed (136.3 seconds together), covering six submitted messages across four sectors. The earlier startup failure caused by an import cleanup was corrected and the complete selected console checks were rerun. A local import check now covers that regression. A later run exposed mixed-language wording in Shield's narrower findings; its prompt was clarified and both live tests passed again with English answers to these English questions. Shield's 13 local tests also passed after that change.
+
+The selected console tests start all eleven APIs, log in, ask questions and inspect the saved company data collection. They cover:
+
+- Maria's berth question, using SQLite, Excel and PDF together.
+- A retail units total.
+- A six-hospital occupancy comparison.
+- A hotel count.
+- A clarification followed by Maria's choice of downtime, North Terminal and October 2026.
+
+Saved responses check company identity, expected values, document references and short model explanations. The saved evidence files beside this document contain the observed answers. They are specific test results, not a guarantee that a model will always choose the same analysis.
+
+## Documentation and publishing checks
+
+Both maintained proposals were rebuilt from the committed PDF source. All 19 pages in each copy were visually inspected. The delivery copy has no private project links; the reference copy keeps supporting project links beside the relevant sections. Repository link targets exist locally.
+
+Credentials, environments, model weights, indexes and runtime collections are excluded from version control. Credential-pattern scans of staged files and the initial commit found no matches. No empty source directories remained after cleanup.
+
+## What was not established
+
+The wider opt-in live conversation suite was not run in this release review. A fresh-machine installation and the public model-download path were not exercised; the live runs used the existing local environment and weights. Production authentication, remote sources, scanned PDFs, row-level permissions, non-macOS execution and universal client compatibility remain outside the tested demo.
+
+The model runtime can print a macOS semaphore-cleanup warning during shutdown. This did not prevent the observed console runs from completing.

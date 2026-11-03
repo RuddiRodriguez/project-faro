@@ -55,7 +55,6 @@ class LibraryOutput(BaseModel):
     company: CompanyInfo
     scopes: List[ScopeInfo]
     documents: List[CompanyDocument]
-    ranking_definition_ids: list[str]
     supported_tasks: list[str]
     groups: dict[str, list[str]]
     reference_date: date

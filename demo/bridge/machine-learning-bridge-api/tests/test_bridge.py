@@ -6,7 +6,7 @@ from tempfile import TemporaryDirectory
 
 from bridge.source import execute
 from api_objects.faro.bridge.output.bridge_output import Read
-from bridge.predictor_input import PredictorInput
+from bridge.reader_input import ReaderInput
 
 DATA = Path(__file__).resolve().parents[3] / "local_data/demo_dataset"
 
@@ -18,7 +18,7 @@ class BridgeTests(unittest.TestCase):
         self.root = Path(temp.name)
         for name in ("activity", "manifest", "companies", "documents", "scopes", "coverage", "assets"):
             shutil.copy(DATA / f"{name}.json", self.root)
-        self.request = PredictorInput(question="Compare crane downtime",company_id="harbor",
+        self.request = ReaderInput(question="Compare crane downtime",company_id="harbor",
             permitted_scope_ids=["harbor_north"], definition_ids=["harbor_downtime_v1"])
         self.read = Read(source="harbor_downtime_v1", scope_ids=["harbor_north"], group="crane", member_ids=[],
             start="2026-10-01", end_exclusive="2026-11-01",
@@ -26,10 +26,10 @@ class BridgeTests(unittest.TestCase):
 
     def test_missing_structured_response_releases_no_numbers(self):
         from unittest.mock import Mock
-        from bridge.predictor import Predictor
+        from bridge.reader import Reader
         model = Mock()
         model.predict.return_value.assistant_tools = [Mock(parsed_arguments=None)]
-        result = Predictor(self.root, model).predict(self.request)
+        result = Reader(self.root, model).read(self.request)
         self.assertEqual(result.status, "incomplete")
         self.assertFalse(result.findings)
         model.predict.assert_called_once()
@@ -99,7 +99,7 @@ class BridgeTests(unittest.TestCase):
             if row["company_id"] == "retail" and row["asset_id"] == "East":
                 row["sold"] = 0
         path.write_text(json.dumps(rows))
-        self.request = PredictorInput(question="Compare returns", company_id="retail",
+        self.request = ReaderInput(question="Compare returns", company_id="retail",
             permitted_scope_ids=["retail_region"], definition_ids=["retail_rate"])
         self.read = self.read.model_copy(update=dict(source="retail_rate",scope_ids=["retail_region"],group="store", expression="(df.groupby('asset_id')['returned'].sum()/df.groupby('asset_id')['sold'].sum()*100).sort_values(ascending=False)"))
         with self.assertRaisesRegex(ValueError,"No verified value"):

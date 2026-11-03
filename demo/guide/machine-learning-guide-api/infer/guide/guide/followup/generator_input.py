@@ -1,5 +1,5 @@
-from guide.predictor_input import PredictorInput
+from guide.generator_input import GeneratorInput
 
 
-class GeneratorInput(PredictorInput):
+class GeneratorInput(GeneratorInput):
     pass

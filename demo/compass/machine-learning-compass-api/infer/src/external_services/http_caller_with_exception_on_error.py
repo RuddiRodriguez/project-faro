@@ -1,1 +1,1 @@
-from utils.service_call import call
+from utils.service_call import call as call

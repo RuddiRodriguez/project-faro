@@ -1,32 +1,34 @@
-# Faro demo: API and library reuse review
+# What Faro reuses
 
-Scope: the ten implemented services, their shared API objects, model utilities, and the scripts used to prepare and test the demo. Console has no implemented flow to compare.
+Faro adapts existing code shapes, not an existing complete analytics product.
 
-| Component | Compared with | What comes from the original; what changes for Faro |
+| Area | Existing project | Kept / adapted |
 |---|---|---|
-| API objects and service boundaries | [Japan API endpoint](/Users/ruddigarcia/Projects/machine-learning-japan-api/infer/src/endpoints/predict_endpoint.py), [Japan API input](/Users/ruddigarcia/Projects/api_objects/kali/kali_api/japan/input/sample_input.py) | Shared API package; separate library input/output; endpoint converts the API input, calls the predictor, and maps the result back. The six Faro request schemas, HTTP paths and local app wiring are specific to this demo. Signal now maps Scout API matches to its own library definition type. |
-| Gate | [AI2Analytics proxy](/Users/ruddigarcia/machine-learning-ai2analytics/service/ai2analytics/proxy_handler.py) and Japan’s API/library split | The proxy handles forwarding and headers, not local account lookup. Gate follows Japan’s endpoint structure. Its lookup of an active user in JSON is demo code, not reused authentication. |
-| Library | Japan endpoint and predictor structure | Explicit API/library mappings. Loading company documents and limiting them to approved material in the user’s permitted terminals is Faro logic. |
-| Compass | [Japan’s Parrot client](/Users/ruddigarcia/Projects/machine-learning-japan-api/infer/src/external_services/parrot_client.py) and [shared caller](/Users/ruddigarcia/Projects/machine-learning-japan-api/infer/src/external_services/http_caller_with_exception_on_error.py) | Each downstream service now has its own client under `infer/src/external_services`. Clients pass the request, endpoint and response type to one caller. The transport is local HTTP with Faro’s existing timeouts and Gate denial handling. The order of services and the check against Library are Faro logic. |
-| Thread | [Luna standalone-question flow](/Users/ruddigarcia/machine-learning-luna/luna/predictor/predictor.py:327) and [Japan’s sufficiency classifier](/Users/ruddigarcia/machine-learning-japan/japan/sufficiency/classifier.py) | Luna supplies the rewrite task; Japan supplies the build / predict through utils / parse pattern. The Faro prompt and Pydantic rewrite schema are adapted. With no history Thread returns the original question. |
-| Scout | [Nemo search handler](/Users/ruddigarcia/machine-learning-nemo-api/service/infer/endpoints/search/handler.py), [Nemo retriever](/Users/ruddigarcia/machine-learning-nemo/nemo/retrieval/knowledge_base_retriever.py), [Luna retrieval](/Users/ruddigarcia/machine-learning-luna/utils/retrieval_utils/retrieval.py), [Luna embedder](/Users/ruddigarcia/machine-learning-luna/luna/embedder/embedder.py) | Nemo’s search and validation remain unchanged. The preparation step now uses Luna’s actual Retrieval, Embedding and FAISS factory. Query retrieval uses Luna’s embedder interface and normalization. Faro must load an index from disk instead of building one on startup, restrict FAISS to permitted rows before selecting top results, preserve a one-result list, and present results in the Bedrock format. Scout embeds the original text in both languages; it does not import Luna’s survey-specific text cleanup, which defaults to English. |
-| Signal | [Semantica predictor](/Users/ruddigarcia/Projects/Semantica/confluence/confluence/predictor.py), [classifier](/Users/ruddigarcia/Projects/Semantica/confluence/confluence/quality/classifier.py), [prompt](/Users/ruddigarcia/Projects/Semantica/confluence/confluence/predictor_files/decisions_prompt.py) | Predictor delegates to Classifier. The classifier owns the utils handler, conversation, parse and errors. The classify method is copied unchanged; the common error/logging modules use only import-path substitutions. Prompt, rules, classifier input and output live in their own files. The supported tasks, next-action choices, missing-choice mapping and no-evidence stop are Faro-specific. |
-| Guide | [Japan generator](/Users/ruddigarcia/machine-learning-japan/japan/followup/generator.py) and [follow-up prompt](/Users/ruddigarcia/machine-learning-japan/japan/predictor_files/prompts/followup_prompt.py) | Generator builds the conversation, calls utils and checks required fields. The input and prompt are for Faro, and Compass invokes Guide only on Ask. |
-| Bridge | [Library reader](library/machine-learning-library-api/infer/library/library/predictor.py), [Faro ranking fixture](scripts/create_demo_data.py), Japan API/library pattern | Reuses JSON reading and the existing grouping pattern. Data-selected sums and ratios, coverage and revision checks, and source-linked totals are new. AI2Analytics proxies service calls; it does not implement this ranking. |
-| Shield | [Prepared record reader](bridge/machine-learning-bridge-api/infer/bridge/bridge/records.py), Bridge field definitions and public input/output, Japan endpoint structure | Reuses the agreed request and company measure definition. Checking the proposed totals, ranks and cited records against a fresh read of the permitted data is new Python code. No model call. |
-| Voice | [Guide generator](guide/machine-learning-guide-api/infer/guide/guide/followup/generator.py), [Luna answer builder](/Users/ruddigarcia/machine-learning-luna/luna/predictor/predictor.py:647), shared LLMHandler | Uses Guide’s conversation, model call and parsing pattern. Adapts Luna’s context-based writing approach to Shield facts. The fact placeholders, withheld path and fallback are new. |
-| Shared utils | [Semantica’s utils checkout](/Users/ruddigarcia/Projects/Semantica/openend_quality/utils), original Thread source listed in [source manifest](utils/SOURCE_MANIFEST.json) | Semantica’s DecisionsConversation, prediction result, SDK request, options check and dispatch; original chat handling retained for Thread. The two original revisions are combined so Decisions bypasses the chat-only resolver and uses the shared error handling. Source checks compare both branches of the implementation. |
-| Data and environment | [Faro scripts](scripts), [demo requirements](requirements.txt) | Company JSON, prepared FAISS files, shared Conda environment and macOS runtime preparation are demo infrastructure, not original project code. Replacing the JSON demo with production data, traffic routing, persistence, and production sign-in were not part of the implemented services. |
+| API and library separation | Japan API | Separate Pydantic inputs and outputs; thin endpoint conversion; service-specific method names. |
+| Compass | AI2Analytics forwarding | Calls the next service over HTTP. The orchestration and owned conversation collection are Faro code. |
+| Thread | Luna rewriting, Japan build/call/parse | Rewrites relevant user replies through shared utils. No separate ranking planner remains. |
+| Scout | Nemo retrieval, Luna E5 and FAISS | Nemo request/result method and retrieval classes retained. Local company indexes replace AWS. |
+| Signal | Semantica Decision API, Japan classification | Original classifier call/error structure. Three choices in one call record action, assessment and reason. |
+| Guide | Japan follow-up generator | Separate generator input/output, build conversation, call shared utils, parse structured response. |
+| Prompts | Japan sufficiency and Gambit AI attributes | Role, objective, initial analysis, final reasoning, response; named USER_MESSAGE placeholders and Pydantic schemas. |
+| Shared utilities | Original utils | StructuredOutput, conversation and prediction wrappers remain. Three-attempt retry and turn-level call recording are explicit demo adaptations. |
+| Bridge / Shield | Existing Faro pandas path | General permitted reads and independent replay. Native connectors, source copies, key checks and evidence review are Faro additions. |
+| Voice | Japan generation, Luna grounded answer | Presents checked findings directly; structured wording is used only when needed. |
+| Connector | Existing factory/dispatch and forwarding patterns | A reader registry chooses SQLite, Excel or text PDF. No business field mapping in the readers. |
 
-**Reproduce the checks.** From this folder run `venv/bin/python scripts/check_reused_sources.py` for the source comparisons and `venv/bin/python -m unittest discover -s utils/tests` for shared utils. These use the original local checkouts. For behavior across all ten services, run `HF_HUB_OFFLINE=1 FARO_RUN_LIVE_TESTS=1 venv/bin/python -m unittest discover -s compass/machine-learning-compass-api/tests -v`. Scout reads local weights and indexes; Thread and Signal use the configured OpenAI account when their task calls for it.
+The original private projects are not required to run this repository. Their source checks are an opt-in developer audit. The portable unit suite verifies copied utility-file hashes. The private proposal retains original project references beside the relevant sections.
 
-Faro’s company data collection follows Japan’s [fetch, save and collect](</Users/ruddigarcia/Projects/machine-learning-japan-api/infer/src/endpoints/predict_endpoint.py:111>) and [versioned DAL key](</Users/ruddigarcia/Projects/machine-learning-japan-api/infer/src/dal.py:29>). [Faro’s table and field guide](compass/machine-learning-compass-api/DATA_COLLECTION.md) explains the new company isolation, both caches, origin links and local storage.
+## Where the generality stops
 
-## Review of implicit demo behavior
+The shared JSON reader requires prepared inventory and daily activity records. This is one data contract, not a universal company model. Native connector readers preserve each source's own names and need no hospital/crane/store keywords. Supported relationships are exact-key joins; incomplete or ambiguous links stop. OCR, remote-source readers and arbitrary time-based relationships are not implemented.
 
-Reviewed the ten service implementations, their model prompts, and the local console for language guessing and other user-visible defaults. This is a review of current behavior, not a claim that every historical implementation choice had explicit approval.
+Source access is configured per file. A whole file must be permitted before a snapshot is returned. Legacy multi-company JSON data is exported only as the selected permitted records.
 
-- **Language:** Guide and Voice both contained local language detection. Removed both detectors and their dependency. Guide now gives recent user wording and an optional explicit language preference to its existing LLM call. Voice returns a withheld reason directly when no preference is supplied; an explicitly requested non-English translation still uses the existing model.
-- **Search:** Scout’s adapter requests at most three passages and a minimum relevance score of 0.74. Nemo supports a caller-supplied threshold; 0.74 is a demo choice, not a fixed requirement of the original retriever.
-- **Data:** Bridge’s ranking path requires confirmation for the exact date range, even when every daily row exists. A confirmed month does not by itself authorize ranking a week.
-- **Console:** Each submitted line is one message. A two-line paste can produce two separate turns. The console has no multiline editor.
+## Verify reuse
+
+From demo/:
+
+    python scripts/check_reused_sources.py
+    FARO_CHECK_ORIGINAL_REPOS=1 python -m unittest discover -s utils/tests -v
+
+Those commands require the original local repositories. Normal tests and console use do not.

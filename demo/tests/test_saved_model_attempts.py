@@ -12,7 +12,7 @@ from fastapi.testclient import TestClient
 
 from api_objects.faro.gate.output.gate_output import GateOutput
 from compass.data_collection import DataCollection, now
-from compass.predictor_input import PredictorInput
+from compass.orchestrator_input import OrchestratorInput
 from signal_api.infer import app
 from utils.openai_client.conversation.assistant_message import AssistantMessage
 from utils.openai_client.openai_client import OpenAiClient
@@ -26,7 +26,7 @@ class SavedAttemptsTests(TestCase):
             access=GateOutput(user_id="maria",company_id="harbor",permitted_scope_ids=["north"],permission_version="v1")
             question="Which location had the largest total?"
             for exhaust, expected in [(False,["timeout","success"]), (True,["timeout"]*3)]:
-                with store.conversation(PredictorInput(user_id="maria", question=question),access) as doc:
+                with store.conversation(OrchestratorInput(user_id="maria", question=question),access) as doc:
                     turn_id=str(uuid4())
                     doc["turns"].append(dict(_id=turn_id,number=1,message=question,language=None,
                         created_at=now().isoformat(),status="started",cache=[],model_attempts_tracked=True))
@@ -34,7 +34,7 @@ class SavedAttemptsTests(TestCase):
                     def decide(conversation, timeout):
                         if exhaust or provider.call_count==1:
                             raise openai.APITimeoutError(request=httpx2.Request("POST","https://example.invalid"))
-                        answers=[dict(name="next_action",type="choice",choice="Continue")]
+                        answers=[dict(name=q["name"],type="choice",choice=("Continue" if q["name"]=="next_action" else q["choices"][0]["value"])) for q in conversation.questions]
                         return PredictOutput(conversation,AssistantMessage(content=json.dumps(answers)),None,None,None,
                                              decisions_response={"answers":answers})
                     with patch.object(OpenAiClient,"_decisions_api_predict",side_effect=decide) as provider:

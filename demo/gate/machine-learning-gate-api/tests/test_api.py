@@ -5,8 +5,8 @@ from pathlib import Path
 
 from fastapi.testclient import TestClient
 from gate_api.infer import create_app
-from library.predictor import Predictor as LibraryPredictor
-from library.predictor_input import PredictorInput as LibraryInput
+from library.information_reader import InformationReader as LibraryReader
+from library.information_reader_input import InformationReaderInput as LibraryInput
 
 DATA = Path(__file__).resolve().parents[3] / 'local_data/demo_dataset'
 
@@ -49,7 +49,7 @@ class GateTests(unittest.TestCase):
         access = response.json()
         self.assertEqual(access['company_id'], 'harbor')
         self.assertEqual(access['permitted_scope_ids'], ['harbor_north'])
-        result = LibraryPredictor(DATA).predict(LibraryInput(
+        result = LibraryReader(DATA).read(LibraryInput(
             company_id=access['company_id'],
             permitted_scope_ids=access['permitted_scope_ids']))
         self.assertEqual([item.scope_id for item in result.scopes], ['harbor_north'])

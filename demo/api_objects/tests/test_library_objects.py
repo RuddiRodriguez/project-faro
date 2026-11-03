@@ -7,6 +7,8 @@ from pydantic import ValidationError
 
 from api_objects.faro.library.input.library_input import LibraryInput
 from api_objects.faro.library.output.library_output import LibraryOutput
+from library.information_reader import InformationReader
+from library.information_reader_input import InformationReaderInput
 
 
 DATA = Path(__file__).resolve().parents[2] / 'local_data' / 'demo_dataset'
@@ -35,10 +37,13 @@ class LibraryObjectsTest(unittest.TestCase):
                         item for item in load_collection(collection)
                         if item['company_id'] == company_id
                     ]
-                response = LibraryOutput.model_validate(payload)
-                self.assertIsInstance(response.agreements[0].valid_from, date)
+                allowed = [row["scope_id"] for row in payload["scopes"]]
+                result = InformationReader(DATA).read(InformationReaderInput(company_id=company_id, permitted_scope_ids=allowed))
+                response = LibraryOutput.model_validate(result, from_attributes=True)
+                for agreement in response.agreements:
+                    self.assertIsInstance(agreement.valid_from, date)
                 self.assertEqual(response.company.company_id, company_id)
-                self.assertEqual(len(response.scopes), 2)
+                self.assertEqual({scope.scope_id for scope in response.scopes}, set(allowed))
                 self.assertNotIn('_id', response.model_dump()['company'])
                 self.assertEqual(
                     LibraryOutput.model_validate_json(response.model_dump_json()), response

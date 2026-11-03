@@ -1,13 +1,12 @@
 import json
 import logging
-from typing import Tuple
 
 from guide.common_tools.custom_exceptions import ConversationError, JsonFormatError
 from guide.common_tools.error_code import ErrorCode
 from utils.llms.llm_handler import LLMHandler
 from utils.llms.common.intelligence_level import IntelligenceLevel
 from guide.common_tools.log_messages import ErrorMessages
-from guide.predictor_files.prompts.followup_prompt import FollowUp, FollowUpPrompt
+from guide.prompts.followup_prompt import FollowUp, FollowUpPrompt
 from guide.followup.generator_input import GeneratorInput
 from guide.followup.generator_output import GeneratorOutput
 
@@ -74,7 +73,7 @@ class Generator:
                 timeout=30, enable_auto_fix_json=False)
             proposal = self._parse_chat_prediction_output(chat_prediction)
 
-            return GeneratorOutput(followup_text=proposal.follow_up, proposed_changes=proposal.proposed_changes,
+            return GeneratorOutput(initial_analysis=proposal.initial_analysis, followup_text=proposal.follow_up,
                                     followup_reasoning=proposal.reasoning,
                                     error_code=None
                                     )

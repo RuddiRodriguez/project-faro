@@ -14,8 +14,8 @@ import httpx
 from openpyxl import load_workbook
 from api_objects.faro.bridge.input.bridge_input import BridgeInput
 from api_objects.faro.bridge.output.bridge_output import Read, Finding, Link
-from shield.predictor import Predictor as Shield
-from shield.predictor_input import PredictorInput as ShieldRequest
+from shield.verifier import Verifier as Shield
+from shield.verifier_input import VerifierInput as ShieldRequest
 from bridge.source import execute, catalogue, snapshot_id
 
 DEMO=Path(__file__).resolve().parents[3]
@@ -104,7 +104,7 @@ class SourcesTests(unittest.TestCase):
         updated=execute(self.data,self.request,self.read)
         self.assertEqual(updated.rows[0],{"Berth":"N1","value":126})
         model=Mock()
-        result=Shield(self.data,model).predict(ShieldRequest(**self.request.model_dump(),evidence=e))
+        result=Shield(self.data,model).verify(ShieldRequest(**self.request.model_dump(),evidence=e))
         self.assertEqual(result.status,"withheld");model.predict.assert_not_called()
 
     def test_missing_or_ambiguous_assignment_blocks_join(self):

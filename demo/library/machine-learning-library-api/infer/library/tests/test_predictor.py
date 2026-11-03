@@ -3,8 +3,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from library.predictor import Predictor
-from library.predictor_input import PredictorInput
+from library.information_reader import InformationReader
+from library.information_reader_input import InformationReaderInput
 
 DATA = Path(__file__).resolve().parents[5] / 'local_data/demo_dataset'
 
@@ -14,12 +14,12 @@ class LibraryTests(unittest.TestCase):
         self.folder = tempfile.TemporaryDirectory()
         self.addCleanup(self.folder.cleanup)
         self.path = Path(self.folder.name)
-        for name in ['companies', 'scopes', 'documents', 'agreements']:
+        for name in ['companies', 'scopes', 'documents', 'agreements', 'assets', 'manifest']:
             (self.path / f'{name}.json').write_text((DATA / f'{name}.json').read_text())
-        self.predictor = Predictor(self.path)
+        self.information_reader = InformationReader(self.path)
 
     def read(self, company='harbor', scopes=None):
-        return self.predictor.predict(PredictorInput(
+        return self.information_reader.read(InformationReaderInput(
             company_id=company,
             permitted_scope_ids=scopes if scopes is not None else [f'{company}_north']))
 

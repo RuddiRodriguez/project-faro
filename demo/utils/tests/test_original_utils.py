@@ -1,3 +1,4 @@
+import os
 import ast
 import hashlib
 import json
@@ -18,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class OriginalSourceTests(unittest.TestCase):
+    @unittest.skipUnless(os.getenv("FARO_CHECK_ORIGINAL_REPOS") == "1", "Requires original private repositories")
     def test_selected_original_files_and_definitions_match_pinned_source(self):
         manifest = json.loads((ROOT / 'SOURCE_MANIFEST.json').read_text())
         for entry in manifest['files']:
@@ -88,6 +90,12 @@ class OriginalSourceTests(unittest.TestCase):
                             self.assertEqual(ast.unparse(handler.type), "(BedRockUnRecoverableError, OpenAiRecoverableError)")
                             handler.type = handler.type.elts[0]
                         self.assertEqual(ast.dump(node), ast.dump(source_class))
+
+    def test_vendored_files_match_recorded_checksums(self):
+        manifest = json.loads((ROOT / "SOURCE_MANIFEST.json").read_text())
+        for entry in manifest["files"]:
+            self.assertEqual(hashlib.sha256((ROOT/"utils"/entry["path"]).read_bytes()).hexdigest(),
+                             entry["sha256"], entry["path"])
 
     def test_original_structured_output_fields_and_description(self):
         self.assertEqual(set(StructuredOutput.model_fields), {'name', 'json_schema', 'strict', 'description'})

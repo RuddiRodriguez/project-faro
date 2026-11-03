@@ -6,9 +6,9 @@ from unittest.mock import Mock, patch
 import httpx2
 import openai
 
-from bridge.predictor_files.read_prompt import ReadPrompt
-from faro_signal.predictor import Predictor as Signal
-from faro_signal.predictor_input import PredictorInput
+from bridge.prompts.read_prompt import ReadPrompt
+from faro_signal.classifier import Classifier as Signal
+from faro_signal.classifier_input import ClassifierInput
 from utils.llms.common.intelligence_level import IntelligenceLevel
 from utils.llms.llm_handler import LLMHandler
 from utils.openai_client.conversation.conversation import Conversation
@@ -60,11 +60,11 @@ class RetryTests(unittest.TestCase):
         def send(conversation, timeout):
             if decision.call_count==1:
                 raise self.status(429)
-            answers = [{"name":"next_action","type":"choice","choice":"Continue"}]
+            answers = [{"name":q["name"],"type":"choice","choice":("Continue" if q["name"]=="next_action" else q["choices"][0]["value"])} for q in conversation.questions]
             return PredictOutput(conversation,AssistantMessage(content=json.dumps(answers)),None,None,None,
                                  decisions_response={"answers":answers})
         with patch.object(self.client, "_decisions_api_predict",side_effect=send) as decision:
-            result=Signal(self.client).predict(PredictorInput(question="Compare the locations",matches=[],
+            result=Signal(self.client).classify(ClassifierInput(question="Compare the locations",matches=[],
                     permitted_scopes=["North"],supported_tasks=["Compare locations"]))
             self.assertEqual(result.action,"Continue")
             self.assertEqual(decision.call_count,2)

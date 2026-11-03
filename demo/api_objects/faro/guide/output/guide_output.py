@@ -1,7 +1,7 @@
 from pydantic import BaseModel
-from api_objects.faro.thread.input.turn_input import Change
 
 
 class GuideOutput(BaseModel):
-    proposed_changes: list[Change] = []
+    initial_analysis: str | None = None
+    reasoning: str | None = None
     followup_text: str

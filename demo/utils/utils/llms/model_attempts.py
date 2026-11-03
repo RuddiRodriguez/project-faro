@@ -54,8 +54,9 @@ def track_attempt(fn):
         call_id, started, outcomes = current_call.get()
         folder = Path(os.getenv("FARO_COLLECTION_PATH", DEFAULT_ROOT)) / company / "model_calls" / turn
         folder.mkdir(parents=True, exist_ok=True)
+        explanations = []
         def save():
-            row = dict(turn_id=turn, call_id=call_id, service=service, started_ns=started, outcomes_json=json.dumps(outcomes))
+            row = dict(turn_id=turn, call_id=call_id, service=service, started_ns=started, outcomes_json=json.dumps(outcomes), explanations_json=json.dumps(explanations))
             temp = folder / (call_id + ".tmp")
             pq.write_table(pa.Table.from_pylist([row]), temp)
             temp.replace(folder / (call_id + ".parquet"))
@@ -72,6 +73,17 @@ def track_attempt(fn):
             raise
         else:
             outcomes[-1] = "success" if result.is_success else "invalid_response"
+            values = {}
+            for tool in result.assistant_tools or []:
+                parsed = getattr(tool, "parsed_arguments", None)
+                if isinstance(parsed, dict):
+                    values.update({k:parsed[k] for k in ("initial_analysis","reasoning") if k in parsed})
+            if result.decisions_response:
+                for answer in result.decisions_response.get("answers", []):
+                    if answer.get("name") in ("initial_analysis","reasoning"):
+                        values[answer["name"]] = answer.get("choice")
+            if values:
+                explanations.append(dict(attempt=len(outcomes), **values))
             return result
         finally:
             save()
@@ -88,3 +100,11 @@ def read_attempts(root, company, turn):
         service["attempts"] += len(outcomes)
         service["calls"].append(outcomes)
     return services
+
+
+def read_explanations(root, company, turn):
+    folder = Path(root) / company / "model_calls" / str(turn)
+    rows = [pq.read_table(path).to_pylist()[0] for path in folder.glob("*.parquet")]
+    return [dict(service=row["service"], call_id=row["call_id"],
+                 explanations=json.loads(row.get("explanations_json") or "[]"))
+            for row in sorted(rows, key=lambda item:item["started_ns"])]
