@@ -1,0 +1,2198 @@
+[
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-01",
+    "moves": 126,
+    "working_hours": 7,
+    "_id": "harbor_0001"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-02",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0002"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-03",
+    "moves": 153,
+    "working_hours": 9,
+    "_id": "harbor_0003"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-04",
+    "moves": 108,
+    "working_hours": 6,
+    "_id": "harbor_0004"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-05",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0005"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-06",
+    "moves": 136,
+    "working_hours": 8,
+    "_id": "harbor_0006"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-07",
+    "moves": 162,
+    "working_hours": 9,
+    "_id": "harbor_0007"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-08",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0008"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-09",
+    "moves": 119,
+    "working_hours": 7,
+    "_id": "harbor_0009"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-10",
+    "moves": 144,
+    "working_hours": 8,
+    "_id": "harbor_0010"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-11",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0011"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-12",
+    "moves": 102,
+    "working_hours": 6,
+    "_id": "harbor_0012"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-13",
+    "moves": 126,
+    "working_hours": 7,
+    "_id": "harbor_0013"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-14",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0014"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-15",
+    "moves": 153,
+    "working_hours": 9,
+    "_id": "harbor_0015"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-16",
+    "moves": 108,
+    "working_hours": 6,
+    "_id": "harbor_0016"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-17",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0017"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-18",
+    "moves": 136,
+    "working_hours": 8,
+    "_id": "harbor_0018"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-19",
+    "moves": 162,
+    "working_hours": 9,
+    "_id": "harbor_0019"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-20",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0020"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-21",
+    "moves": 119,
+    "working_hours": 7,
+    "_id": "harbor_0021"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-22",
+    "moves": 144,
+    "working_hours": 8,
+    "_id": "harbor_0022"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-23",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0023"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-24",
+    "moves": 102,
+    "working_hours": 6,
+    "_id": "harbor_0024"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-25",
+    "moves": 126,
+    "working_hours": 7,
+    "_id": "harbor_0025"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-26",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0026"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-27",
+    "moves": 153,
+    "working_hours": 9,
+    "_id": "harbor_0027"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-28",
+    "moves": 108,
+    "working_hours": 6,
+    "_id": "harbor_0028"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-29",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0029"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-09-30",
+    "moves": 136,
+    "working_hours": 8,
+    "_id": "harbor_0030"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-01",
+    "moves": 126,
+    "working_hours": 7,
+    "_id": "harbor_0031"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-02",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0032"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-03",
+    "moves": 153,
+    "working_hours": 9,
+    "_id": "harbor_0033"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-04",
+    "moves": 108,
+    "working_hours": 6,
+    "_id": "harbor_0034"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-05",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0035"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-06",
+    "moves": 136,
+    "working_hours": 8,
+    "_id": "harbor_0036"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-07",
+    "moves": 162,
+    "working_hours": 9,
+    "_id": "harbor_0037"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-08",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0038"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-09",
+    "moves": 119,
+    "working_hours": 7,
+    "_id": "harbor_0039"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-10",
+    "moves": 144,
+    "working_hours": 8,
+    "_id": "harbor_0040"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-11",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0041"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-12",
+    "moves": 102,
+    "working_hours": 6,
+    "_id": "harbor_0042"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-13",
+    "moves": 126,
+    "working_hours": 7,
+    "_id": "harbor_0043"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-14",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0044"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-15",
+    "moves": 153,
+    "working_hours": 9,
+    "_id": "harbor_0045"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-16",
+    "moves": 108,
+    "working_hours": 6,
+    "_id": "harbor_0046"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-17",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0047"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-18",
+    "moves": 136,
+    "working_hours": 8,
+    "_id": "harbor_0048"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-19",
+    "moves": 162,
+    "working_hours": 9,
+    "_id": "harbor_0049"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-20",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0050"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-21",
+    "moves": 119,
+    "working_hours": 7,
+    "_id": "harbor_0051"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-22",
+    "moves": 144,
+    "working_hours": 8,
+    "_id": "harbor_0052"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-23",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0053"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-24",
+    "moves": 102,
+    "working_hours": 6,
+    "_id": "harbor_0054"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-25",
+    "moves": 126,
+    "working_hours": 7,
+    "_id": "harbor_0055"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-26",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0056"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-27",
+    "moves": 153,
+    "working_hours": 9,
+    "_id": "harbor_0057"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-28",
+    "moves": 108,
+    "working_hours": 6,
+    "_id": "harbor_0058"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-29",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0059"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-30",
+    "moves": 136,
+    "working_hours": 8,
+    "_id": "harbor_0060"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c01",
+    "date": "2026-10-31",
+    "moves": 162,
+    "working_hours": 9,
+    "_id": "harbor_0061"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-01",
+    "moves": 175,
+    "working_hours": 7,
+    "_id": "harbor_0062"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-02",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0063"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-03",
+    "moves": 216,
+    "working_hours": 9,
+    "_id": "harbor_0064"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-04",
+    "moves": 150,
+    "working_hours": 6,
+    "_id": "harbor_0065"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-05",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0066"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-06",
+    "moves": 192,
+    "working_hours": 8,
+    "_id": "harbor_0067"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-07",
+    "moves": 225,
+    "working_hours": 9,
+    "_id": "harbor_0068"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-08",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0069"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-09",
+    "moves": 168,
+    "working_hours": 7,
+    "_id": "harbor_0070"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-10",
+    "moves": 200,
+    "working_hours": 8,
+    "_id": "harbor_0071"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-11",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0072"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-12",
+    "moves": 144,
+    "working_hours": 6,
+    "_id": "harbor_0073"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-13",
+    "moves": 175,
+    "working_hours": 7,
+    "_id": "harbor_0074"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-14",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0075"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-15",
+    "moves": 216,
+    "working_hours": 9,
+    "_id": "harbor_0076"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-16",
+    "moves": 150,
+    "working_hours": 6,
+    "_id": "harbor_0077"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-17",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0078"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-18",
+    "moves": 192,
+    "working_hours": 8,
+    "_id": "harbor_0079"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-19",
+    "moves": 225,
+    "working_hours": 9,
+    "_id": "harbor_0080"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-20",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0081"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-21",
+    "moves": 168,
+    "working_hours": 7,
+    "_id": "harbor_0082"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-22",
+    "moves": 200,
+    "working_hours": 8,
+    "_id": "harbor_0083"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-23",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0084"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-24",
+    "moves": 144,
+    "working_hours": 6,
+    "_id": "harbor_0085"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-25",
+    "moves": 175,
+    "working_hours": 7,
+    "_id": "harbor_0086"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-26",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0087"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-27",
+    "moves": 216,
+    "working_hours": 9,
+    "_id": "harbor_0088"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-28",
+    "moves": 150,
+    "working_hours": 6,
+    "_id": "harbor_0089"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-29",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0090"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-09-30",
+    "moves": 192,
+    "working_hours": 8,
+    "_id": "harbor_0091"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-01",
+    "moves": 175,
+    "working_hours": 7,
+    "_id": "harbor_0092"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-02",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0093"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-03",
+    "moves": 216,
+    "working_hours": 9,
+    "_id": "harbor_0094"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-04",
+    "moves": 150,
+    "working_hours": 6,
+    "_id": "harbor_0095"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-05",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0096"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-06",
+    "moves": 192,
+    "working_hours": 8,
+    "_id": "harbor_0097"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-07",
+    "moves": 225,
+    "working_hours": 9,
+    "_id": "harbor_0098"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-08",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0099"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-09",
+    "moves": 168,
+    "working_hours": 7,
+    "_id": "harbor_0100"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-10",
+    "moves": 200,
+    "working_hours": 8,
+    "_id": "harbor_0101"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-11",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0102"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-12",
+    "moves": 144,
+    "working_hours": 6,
+    "_id": "harbor_0103"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-13",
+    "moves": 175,
+    "working_hours": 7,
+    "_id": "harbor_0104"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-14",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0105"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-15",
+    "moves": 216,
+    "working_hours": 9,
+    "_id": "harbor_0106"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-16",
+    "moves": 150,
+    "working_hours": 6,
+    "_id": "harbor_0107"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-17",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0108"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-18",
+    "moves": 192,
+    "working_hours": 8,
+    "_id": "harbor_0109"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-19",
+    "moves": 225,
+    "working_hours": 9,
+    "_id": "harbor_0110"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-20",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0111"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-21",
+    "moves": 168,
+    "working_hours": 7,
+    "_id": "harbor_0112"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-22",
+    "moves": 200,
+    "working_hours": 8,
+    "_id": "harbor_0113"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-23",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0114"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-24",
+    "moves": 144,
+    "working_hours": 6,
+    "_id": "harbor_0115"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-25",
+    "moves": 175,
+    "working_hours": 7,
+    "_id": "harbor_0116"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-26",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0117"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-27",
+    "moves": 216,
+    "working_hours": 9,
+    "_id": "harbor_0118"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-28",
+    "moves": 150,
+    "working_hours": 6,
+    "_id": "harbor_0119"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-29",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0120"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-30",
+    "moves": 192,
+    "working_hours": 8,
+    "_id": "harbor_0121"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_north",
+    "crane": "harbor_north_c02",
+    "date": "2026-10-31",
+    "moves": 225,
+    "working_hours": 9,
+    "_id": "harbor_0122"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-01",
+    "moves": 140,
+    "working_hours": 7,
+    "_id": "harbor_0123"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-02",
+    "moves": 168,
+    "working_hours": 8,
+    "_id": "harbor_0124"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-03",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0125"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-04",
+    "moves": 120,
+    "working_hours": 6,
+    "_id": "harbor_0126"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-05",
+    "moves": 147,
+    "working_hours": 7,
+    "_id": "harbor_0127"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-06",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0128"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-07",
+    "moves": 180,
+    "working_hours": 9,
+    "_id": "harbor_0129"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-08",
+    "moves": 126,
+    "working_hours": 6,
+    "_id": "harbor_0130"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-09",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0131"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-10",
+    "moves": 160,
+    "working_hours": 8,
+    "_id": "harbor_0132"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-11",
+    "moves": 189,
+    "working_hours": 9,
+    "_id": "harbor_0133"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-12",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0134"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-13",
+    "moves": 140,
+    "working_hours": 7,
+    "_id": "harbor_0135"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-14",
+    "moves": 168,
+    "working_hours": 8,
+    "_id": "harbor_0136"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-15",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0137"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-16",
+    "moves": 120,
+    "working_hours": 6,
+    "_id": "harbor_0138"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-17",
+    "moves": 147,
+    "working_hours": 7,
+    "_id": "harbor_0139"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-18",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0140"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-19",
+    "moves": 180,
+    "working_hours": 9,
+    "_id": "harbor_0141"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-20",
+    "moves": 126,
+    "working_hours": 6,
+    "_id": "harbor_0142"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-21",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0143"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-22",
+    "moves": 160,
+    "working_hours": 8,
+    "_id": "harbor_0144"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-23",
+    "moves": 189,
+    "working_hours": 9,
+    "_id": "harbor_0145"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-24",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0146"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-25",
+    "moves": 140,
+    "working_hours": 7,
+    "_id": "harbor_0147"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-26",
+    "moves": 168,
+    "working_hours": 8,
+    "_id": "harbor_0148"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-27",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0149"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-28",
+    "moves": 120,
+    "working_hours": 6,
+    "_id": "harbor_0150"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-29",
+    "moves": 147,
+    "working_hours": 7,
+    "_id": "harbor_0151"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-09-30",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0152"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-01",
+    "moves": 140,
+    "working_hours": 7,
+    "_id": "harbor_0153"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-02",
+    "moves": 168,
+    "working_hours": 8,
+    "_id": "harbor_0154"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-03",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0155"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-04",
+    "moves": 120,
+    "working_hours": 6,
+    "_id": "harbor_0156"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-05",
+    "moves": 147,
+    "working_hours": 7,
+    "_id": "harbor_0157"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-06",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0158"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-07",
+    "moves": 180,
+    "working_hours": 9,
+    "_id": "harbor_0159"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-08",
+    "moves": 126,
+    "working_hours": 6,
+    "_id": "harbor_0160"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-09",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0161"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-10",
+    "moves": 160,
+    "working_hours": 8,
+    "_id": "harbor_0162"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-11",
+    "moves": 189,
+    "working_hours": 9,
+    "_id": "harbor_0163"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-12",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0164"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-13",
+    "moves": 140,
+    "working_hours": 7,
+    "_id": "harbor_0165"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-14",
+    "moves": 168,
+    "working_hours": 8,
+    "_id": "harbor_0166"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-15",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0167"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-16",
+    "moves": 120,
+    "working_hours": 6,
+    "_id": "harbor_0168"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-17",
+    "moves": 147,
+    "working_hours": 7,
+    "_id": "harbor_0169"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-18",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0170"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-19",
+    "moves": 180,
+    "working_hours": 9,
+    "_id": "harbor_0171"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-20",
+    "moves": 126,
+    "working_hours": 6,
+    "_id": "harbor_0172"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-21",
+    "moves": 133,
+    "working_hours": 7,
+    "_id": "harbor_0173"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-22",
+    "moves": 160,
+    "working_hours": 8,
+    "_id": "harbor_0174"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-23",
+    "moves": 189,
+    "working_hours": 9,
+    "_id": "harbor_0175"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-24",
+    "moves": 114,
+    "working_hours": 6,
+    "_id": "harbor_0176"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-25",
+    "moves": 140,
+    "working_hours": 7,
+    "_id": "harbor_0177"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-26",
+    "moves": 168,
+    "working_hours": 8,
+    "_id": "harbor_0178"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-27",
+    "moves": 171,
+    "working_hours": 9,
+    "_id": "harbor_0179"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-28",
+    "moves": 120,
+    "working_hours": 6,
+    "_id": "harbor_0180"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-29",
+    "moves": 147,
+    "working_hours": 7,
+    "_id": "harbor_0181"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-30",
+    "moves": 152,
+    "working_hours": 8,
+    "_id": "harbor_0182"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c01",
+    "date": "2026-10-31",
+    "moves": 180,
+    "working_hours": 9,
+    "_id": "harbor_0183"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-01",
+    "moves": 189,
+    "working_hours": 7,
+    "_id": "harbor_0184"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-02",
+    "moves": 224,
+    "working_hours": 8,
+    "_id": "harbor_0185"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-03",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0186"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-04",
+    "moves": 162,
+    "working_hours": 6,
+    "_id": "harbor_0187"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-05",
+    "moves": 196,
+    "working_hours": 7,
+    "_id": "harbor_0188"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-06",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0189"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-07",
+    "moves": 243,
+    "working_hours": 9,
+    "_id": "harbor_0190"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-08",
+    "moves": 168,
+    "working_hours": 6,
+    "_id": "harbor_0191"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-09",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0192"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-10",
+    "moves": 216,
+    "working_hours": 8,
+    "_id": "harbor_0193"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-11",
+    "moves": 252,
+    "working_hours": 9,
+    "_id": "harbor_0194"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-12",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0195"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-13",
+    "moves": 189,
+    "working_hours": 7,
+    "_id": "harbor_0196"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-14",
+    "moves": 224,
+    "working_hours": 8,
+    "_id": "harbor_0197"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-15",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0198"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-16",
+    "moves": 162,
+    "working_hours": 6,
+    "_id": "harbor_0199"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-17",
+    "moves": 196,
+    "working_hours": 7,
+    "_id": "harbor_0200"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-18",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0201"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-19",
+    "moves": 243,
+    "working_hours": 9,
+    "_id": "harbor_0202"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-20",
+    "moves": 168,
+    "working_hours": 6,
+    "_id": "harbor_0203"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-21",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0204"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-22",
+    "moves": 216,
+    "working_hours": 8,
+    "_id": "harbor_0205"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-23",
+    "moves": 252,
+    "working_hours": 9,
+    "_id": "harbor_0206"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-24",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0207"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-25",
+    "moves": 189,
+    "working_hours": 7,
+    "_id": "harbor_0208"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-26",
+    "moves": 224,
+    "working_hours": 8,
+    "_id": "harbor_0209"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-27",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0210"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-28",
+    "moves": 162,
+    "working_hours": 6,
+    "_id": "harbor_0211"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-29",
+    "moves": 196,
+    "working_hours": 7,
+    "_id": "harbor_0212"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-09-30",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0213"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-01",
+    "moves": 189,
+    "working_hours": 7,
+    "_id": "harbor_0214"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-02",
+    "moves": 224,
+    "working_hours": 8,
+    "_id": "harbor_0215"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-03",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0216"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-04",
+    "moves": 162,
+    "working_hours": 6,
+    "_id": "harbor_0217"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-05",
+    "moves": 196,
+    "working_hours": 7,
+    "_id": "harbor_0218"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-06",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0219"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-07",
+    "moves": 243,
+    "working_hours": 9,
+    "_id": "harbor_0220"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-08",
+    "moves": 168,
+    "working_hours": 6,
+    "_id": "harbor_0221"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-09",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0222"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-10",
+    "moves": 216,
+    "working_hours": 8,
+    "_id": "harbor_0223"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-11",
+    "moves": 252,
+    "working_hours": 9,
+    "_id": "harbor_0224"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-12",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0225"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-13",
+    "moves": 189,
+    "working_hours": 7,
+    "_id": "harbor_0226"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-14",
+    "moves": 224,
+    "working_hours": 8,
+    "_id": "harbor_0227"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-15",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0228"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-16",
+    "moves": 162,
+    "working_hours": 6,
+    "_id": "harbor_0229"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-17",
+    "moves": 196,
+    "working_hours": 7,
+    "_id": "harbor_0230"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-18",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0231"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-19",
+    "moves": 243,
+    "working_hours": 9,
+    "_id": "harbor_0232"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-20",
+    "moves": 168,
+    "working_hours": 6,
+    "_id": "harbor_0233"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-21",
+    "moves": 182,
+    "working_hours": 7,
+    "_id": "harbor_0234"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-22",
+    "moves": 216,
+    "working_hours": 8,
+    "_id": "harbor_0235"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-23",
+    "moves": 252,
+    "working_hours": 9,
+    "_id": "harbor_0236"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-24",
+    "moves": 156,
+    "working_hours": 6,
+    "_id": "harbor_0237"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-25",
+    "moves": 189,
+    "working_hours": 7,
+    "_id": "harbor_0238"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-26",
+    "moves": 224,
+    "working_hours": 8,
+    "_id": "harbor_0239"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-27",
+    "moves": 234,
+    "working_hours": 9,
+    "_id": "harbor_0240"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-28",
+    "moves": 162,
+    "working_hours": 6,
+    "_id": "harbor_0241"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-29",
+    "moves": 196,
+    "working_hours": 7,
+    "_id": "harbor_0242"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-30",
+    "moves": 208,
+    "working_hours": 8,
+    "_id": "harbor_0243"
+  },
+  {
+    "company": "harbor",
+    "terminal": "harbor_south",
+    "crane": "harbor_south_c02",
+    "date": "2026-10-31",
+    "moves": 243,
+    "working_hours": 9,
+    "_id": "harbor_0244"
+  }
+]

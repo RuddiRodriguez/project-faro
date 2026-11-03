@@ -1,0 +1,130 @@
+[
+  {
+    "user_id": "maria",
+    "company_id": "harbor",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "maria",
+    "scope_ids": [
+      "harbor_north",
+      "harbor_south"
+    ]
+  },
+  {
+    "user_id": "luis",
+    "company_id": "harbor",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "luis",
+    "scope_ids": [
+      "harbor_north",
+      "harbor_south"
+    ]
+  },
+  {
+    "user_id": "ana",
+    "company_id": "harbor",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "ana",
+    "scope_ids": [
+      "harbor_north"
+    ]
+  },
+  {
+    "user_id": "noah",
+    "company_id": "harbor",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "noah",
+    "scope_ids": []
+  },
+  {
+    "user_id": "former_user",
+    "company_id": "harbor",
+    "permission_version": "v1",
+    "status": "disabled",
+    "_id": "former_user",
+    "scope_ids": [
+      "harbor_north"
+    ]
+  },
+  {
+    "user_id": "maya",
+    "company_id": "pacific",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "maya",
+    "scope_ids": [
+      "pacific_north",
+      "pacific_south"
+    ]
+  },
+  {
+    "user_id": "chen",
+    "company_id": "strait",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "chen",
+    "scope_ids": [
+      "strait_north"
+    ]
+  },
+  {
+    "user_id": "sam",
+    "company_id": "retail",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "sam",
+    "scope_ids": [
+      "retail_region"
+    ]
+  },
+  {
+    "user_id": "hospital_ops",
+    "company_id": "cedar",
+    "permission_version": "v2",
+    "status": "active",
+    "_id": "hospital_ops",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ]
+  },
+  {
+    "user_id": "riverside_manager",
+    "company_id": "cedar",
+    "permission_version": "v2",
+    "status": "active",
+    "_id": "riverside_manager",
+    "scope_ids": [
+      "riverside"
+    ]
+  },
+  {
+    "user_id": "hotel_hq",
+    "company_id": "meridian",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "hotel_hq",
+    "scope_ids": [
+      "madrid",
+      "tokyo",
+      "mexico_city"
+    ]
+  },
+  {
+    "user_id": "madrid_manager",
+    "company_id": "meridian",
+    "permission_version": "v1",
+    "status": "active",
+    "_id": "madrid_manager",
+    "scope_ids": [
+      "madrid"
+    ]
+  }
+]

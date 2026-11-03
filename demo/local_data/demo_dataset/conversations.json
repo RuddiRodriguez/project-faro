@@ -1,0 +1,30 @@
+[
+  {
+    "conversation_id": "maria_1",
+    "owner": "maria",
+    "company_id": "harbor",
+    "messages": [
+      {
+        "role": "user",
+        "text": "Which cranes performed badly last month?"
+      },
+      {
+        "role": "assistant",
+        "text": "Which terminal do you mean?"
+      },
+      {
+        "role": "user",
+        "text": "North Terminal"
+      },
+      {
+        "role": "assistant",
+        "text": "Which performance indicator and comparison should I use?"
+      },
+      {
+        "role": "user",
+        "text": "Moves per hour, lowest first, for the previous calendar month."
+      }
+    ],
+    "_id": "maria_1"
+  }
+]

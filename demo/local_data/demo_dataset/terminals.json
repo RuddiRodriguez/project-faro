@@ -1,0 +1,56 @@
+[
+  {
+    "company_id": "harbor",
+    "terminal_id": "harbor_north",
+    "name": "North Terminal",
+    "aliases": [
+      "North"
+    ],
+    "_id": "harbor_north"
+  },
+  {
+    "company_id": "harbor",
+    "terminal_id": "harbor_south",
+    "name": "South Terminal",
+    "aliases": [
+      "South"
+    ],
+    "_id": "harbor_south"
+  },
+  {
+    "company_id": "pacific",
+    "terminal_id": "pacific_north",
+    "name": "North Terminal",
+    "aliases": [
+      "North"
+    ],
+    "_id": "pacific_north"
+  },
+  {
+    "company_id": "pacific",
+    "terminal_id": "pacific_south",
+    "name": "South Terminal",
+    "aliases": [
+      "South"
+    ],
+    "_id": "pacific_south"
+  },
+  {
+    "company_id": "strait",
+    "terminal_id": "strait_north",
+    "name": "North Terminal",
+    "aliases": [
+      "North"
+    ],
+    "_id": "strait_north"
+  },
+  {
+    "company_id": "strait",
+    "terminal_id": "strait_south",
+    "name": "South Terminal",
+    "aliases": [
+      "South"
+    ],
+    "_id": "strait_south"
+  }
+]

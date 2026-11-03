@@ -1,0 +1,35 @@
+[
+  {
+    "cache_id": "harbor_north_oct_v1",
+    "company_id": "harbor",
+    "terminal_ids": [
+      "harbor_north"
+    ],
+    "period_start": "2026-10-01",
+    "period_end_exclusive": "2026-11-01",
+    "indicator_id": "harbor_moves_per_hour_v1",
+    "data_version": "harbor-v1",
+    "definition_version": "v1",
+    "result": {
+      "period_start": "2026-10-01",
+      "period_end_exclusive": "2026-11-01",
+      "definition_id": "harbor_moves_per_hour_v1",
+      "ranking": [
+        {
+          "asset_id": "harbor_north_c01",
+          "total_moves": 4210,
+          "denominator_hours": 234,
+          "moves_per_hour": 17.9915
+        },
+        {
+          "asset_id": "harbor_north_c02",
+          "total_moves": 5848,
+          "denominator_hours": 234,
+          "moves_per_hour": 24.9915
+        }
+      ]
+    },
+    "created_by": "maria",
+    "_id": "harbor_north_oct_v1"
+  }
+]

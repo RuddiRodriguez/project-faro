@@ -1,0 +1,2198 @@
+[
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-01",
+    "moves": 168,
+    "operating_minutes": 420,
+    "_id": "strait_0001"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-02",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0002"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-03",
+    "moves": 207,
+    "operating_minutes": 540,
+    "_id": "strait_0003"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-04",
+    "moves": 144,
+    "operating_minutes": 360,
+    "_id": "strait_0004"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-05",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0005"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-06",
+    "moves": 184,
+    "operating_minutes": 480,
+    "_id": "strait_0006"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-07",
+    "moves": 216,
+    "operating_minutes": 540,
+    "_id": "strait_0007"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-08",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0008"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-09",
+    "moves": 161,
+    "operating_minutes": 420,
+    "_id": "strait_0009"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-10",
+    "moves": 192,
+    "operating_minutes": 480,
+    "_id": "strait_0010"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-11",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0011"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-12",
+    "moves": 138,
+    "operating_minutes": 360,
+    "_id": "strait_0012"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-13",
+    "moves": 168,
+    "operating_minutes": 420,
+    "_id": "strait_0013"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-14",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0014"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-15",
+    "moves": 207,
+    "operating_minutes": 540,
+    "_id": "strait_0015"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-16",
+    "moves": 144,
+    "operating_minutes": 360,
+    "_id": "strait_0016"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-17",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0017"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-18",
+    "moves": 184,
+    "operating_minutes": 480,
+    "_id": "strait_0018"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-19",
+    "moves": 216,
+    "operating_minutes": 540,
+    "_id": "strait_0019"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-20",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0020"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-21",
+    "moves": 161,
+    "operating_minutes": 420,
+    "_id": "strait_0021"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-22",
+    "moves": 192,
+    "operating_minutes": 480,
+    "_id": "strait_0022"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-23",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0023"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-24",
+    "moves": 138,
+    "operating_minutes": 360,
+    "_id": "strait_0024"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-25",
+    "moves": 168,
+    "operating_minutes": 420,
+    "_id": "strait_0025"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-26",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0026"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-27",
+    "moves": 207,
+    "operating_minutes": 540,
+    "_id": "strait_0027"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-28",
+    "moves": 144,
+    "operating_minutes": 360,
+    "_id": "strait_0028"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-29",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0029"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-09-30",
+    "moves": 184,
+    "operating_minutes": 480,
+    "_id": "strait_0030"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-01",
+    "moves": 168,
+    "operating_minutes": 420,
+    "_id": "strait_0031"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-02",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0032"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-03",
+    "moves": 207,
+    "operating_minutes": 540,
+    "_id": "strait_0033"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-04",
+    "moves": 144,
+    "operating_minutes": 360,
+    "_id": "strait_0034"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-05",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0035"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-06",
+    "moves": 184,
+    "operating_minutes": 480,
+    "_id": "strait_0036"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-07",
+    "moves": 216,
+    "operating_minutes": 540,
+    "_id": "strait_0037"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-08",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0038"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-09",
+    "moves": 161,
+    "operating_minutes": 420,
+    "_id": "strait_0039"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-10",
+    "moves": 192,
+    "operating_minutes": 480,
+    "_id": "strait_0040"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-11",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0041"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-12",
+    "moves": 138,
+    "operating_minutes": 360,
+    "_id": "strait_0042"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-13",
+    "moves": 168,
+    "operating_minutes": 420,
+    "_id": "strait_0043"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-14",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0044"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-15",
+    "moves": 207,
+    "operating_minutes": 540,
+    "_id": "strait_0045"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-16",
+    "moves": 144,
+    "operating_minutes": 360,
+    "_id": "strait_0046"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-17",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0047"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-18",
+    "moves": 184,
+    "operating_minutes": 480,
+    "_id": "strait_0048"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-19",
+    "moves": 216,
+    "operating_minutes": 540,
+    "_id": "strait_0049"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-20",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0050"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-21",
+    "moves": 161,
+    "operating_minutes": 420,
+    "_id": "strait_0051"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-22",
+    "moves": 192,
+    "operating_minutes": 480,
+    "_id": "strait_0052"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-23",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0053"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-24",
+    "moves": 138,
+    "operating_minutes": 360,
+    "_id": "strait_0054"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-25",
+    "moves": 168,
+    "operating_minutes": 420,
+    "_id": "strait_0055"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-26",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0056"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-27",
+    "moves": 207,
+    "operating_minutes": 540,
+    "_id": "strait_0057"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-28",
+    "moves": 144,
+    "operating_minutes": 360,
+    "_id": "strait_0058"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-29",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0059"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-30",
+    "moves": 184,
+    "operating_minutes": 480,
+    "_id": "strait_0060"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c01",
+    "date": "2026-10-31",
+    "moves": 216,
+    "operating_minutes": 540,
+    "_id": "strait_0061"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-01",
+    "moves": 217,
+    "operating_minutes": 420,
+    "_id": "strait_0062"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-02",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0063"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-03",
+    "moves": 270,
+    "operating_minutes": 540,
+    "_id": "strait_0064"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-04",
+    "moves": 186,
+    "operating_minutes": 360,
+    "_id": "strait_0065"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-05",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0066"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-06",
+    "moves": 240,
+    "operating_minutes": 480,
+    "_id": "strait_0067"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-07",
+    "moves": 279,
+    "operating_minutes": 540,
+    "_id": "strait_0068"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-08",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0069"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-09",
+    "moves": 210,
+    "operating_minutes": 420,
+    "_id": "strait_0070"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-10",
+    "moves": 248,
+    "operating_minutes": 480,
+    "_id": "strait_0071"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-11",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0072"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-12",
+    "moves": 180,
+    "operating_minutes": 360,
+    "_id": "strait_0073"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-13",
+    "moves": 217,
+    "operating_minutes": 420,
+    "_id": "strait_0074"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-14",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0075"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-15",
+    "moves": 270,
+    "operating_minutes": 540,
+    "_id": "strait_0076"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-16",
+    "moves": 186,
+    "operating_minutes": 360,
+    "_id": "strait_0077"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-17",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0078"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-18",
+    "moves": 240,
+    "operating_minutes": 480,
+    "_id": "strait_0079"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-19",
+    "moves": 279,
+    "operating_minutes": 540,
+    "_id": "strait_0080"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-20",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0081"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-21",
+    "moves": 210,
+    "operating_minutes": 420,
+    "_id": "strait_0082"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-22",
+    "moves": 248,
+    "operating_minutes": 480,
+    "_id": "strait_0083"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-23",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0084"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-24",
+    "moves": 180,
+    "operating_minutes": 360,
+    "_id": "strait_0085"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-25",
+    "moves": 217,
+    "operating_minutes": 420,
+    "_id": "strait_0086"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-26",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0087"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-27",
+    "moves": 270,
+    "operating_minutes": 540,
+    "_id": "strait_0088"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-28",
+    "moves": 186,
+    "operating_minutes": 360,
+    "_id": "strait_0089"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-29",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0090"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-09-30",
+    "moves": 240,
+    "operating_minutes": 480,
+    "_id": "strait_0091"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-01",
+    "moves": 217,
+    "operating_minutes": 420,
+    "_id": "strait_0092"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-02",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0093"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-03",
+    "moves": 270,
+    "operating_minutes": 540,
+    "_id": "strait_0094"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-04",
+    "moves": 186,
+    "operating_minutes": 360,
+    "_id": "strait_0095"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-05",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0096"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-06",
+    "moves": 240,
+    "operating_minutes": 480,
+    "_id": "strait_0097"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-07",
+    "moves": 279,
+    "operating_minutes": 540,
+    "_id": "strait_0098"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-08",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0099"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-09",
+    "moves": 210,
+    "operating_minutes": 420,
+    "_id": "strait_0100"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-10",
+    "moves": 248,
+    "operating_minutes": 480,
+    "_id": "strait_0101"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-11",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0102"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-12",
+    "moves": 180,
+    "operating_minutes": 360,
+    "_id": "strait_0103"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-13",
+    "moves": 217,
+    "operating_minutes": 420,
+    "_id": "strait_0104"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-14",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0105"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-15",
+    "moves": 270,
+    "operating_minutes": 540,
+    "_id": "strait_0106"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-16",
+    "moves": 186,
+    "operating_minutes": 360,
+    "_id": "strait_0107"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-17",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0108"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-18",
+    "moves": 240,
+    "operating_minutes": 480,
+    "_id": "strait_0109"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-19",
+    "moves": 279,
+    "operating_minutes": 540,
+    "_id": "strait_0110"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-20",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0111"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-21",
+    "moves": 210,
+    "operating_minutes": 420,
+    "_id": "strait_0112"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-22",
+    "moves": 248,
+    "operating_minutes": 480,
+    "_id": "strait_0113"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-23",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0114"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-24",
+    "moves": 180,
+    "operating_minutes": 360,
+    "_id": "strait_0115"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-25",
+    "moves": 217,
+    "operating_minutes": 420,
+    "_id": "strait_0116"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-26",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0117"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-27",
+    "moves": 270,
+    "operating_minutes": 540,
+    "_id": "strait_0118"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-28",
+    "moves": 186,
+    "operating_minutes": 360,
+    "_id": "strait_0119"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-29",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0120"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-30",
+    "moves": 240,
+    "operating_minutes": 480,
+    "_id": "strait_0121"
+  },
+  {
+    "client": "strait",
+    "location": "strait_north",
+    "machine": "strait_north_c02",
+    "date": "2026-10-31",
+    "moves": 279,
+    "operating_minutes": 540,
+    "_id": "strait_0122"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-01",
+    "moves": 182,
+    "operating_minutes": 420,
+    "_id": "strait_0123"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-02",
+    "moves": 216,
+    "operating_minutes": 480,
+    "_id": "strait_0124"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-03",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0125"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-04",
+    "moves": 156,
+    "operating_minutes": 360,
+    "_id": "strait_0126"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-05",
+    "moves": 189,
+    "operating_minutes": 420,
+    "_id": "strait_0127"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-06",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0128"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-07",
+    "moves": 234,
+    "operating_minutes": 540,
+    "_id": "strait_0129"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-08",
+    "moves": 162,
+    "operating_minutes": 360,
+    "_id": "strait_0130"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-09",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0131"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-10",
+    "moves": 208,
+    "operating_minutes": 480,
+    "_id": "strait_0132"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-11",
+    "moves": 243,
+    "operating_minutes": 540,
+    "_id": "strait_0133"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-12",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0134"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-13",
+    "moves": 182,
+    "operating_minutes": 420,
+    "_id": "strait_0135"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-14",
+    "moves": 216,
+    "operating_minutes": 480,
+    "_id": "strait_0136"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-15",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0137"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-16",
+    "moves": 156,
+    "operating_minutes": 360,
+    "_id": "strait_0138"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-17",
+    "moves": 189,
+    "operating_minutes": 420,
+    "_id": "strait_0139"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-18",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0140"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-19",
+    "moves": 234,
+    "operating_minutes": 540,
+    "_id": "strait_0141"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-20",
+    "moves": 162,
+    "operating_minutes": 360,
+    "_id": "strait_0142"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-21",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0143"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-22",
+    "moves": 208,
+    "operating_minutes": 480,
+    "_id": "strait_0144"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-23",
+    "moves": 243,
+    "operating_minutes": 540,
+    "_id": "strait_0145"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-24",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0146"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-25",
+    "moves": 182,
+    "operating_minutes": 420,
+    "_id": "strait_0147"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-26",
+    "moves": 216,
+    "operating_minutes": 480,
+    "_id": "strait_0148"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-27",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0149"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-28",
+    "moves": 156,
+    "operating_minutes": 360,
+    "_id": "strait_0150"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-29",
+    "moves": 189,
+    "operating_minutes": 420,
+    "_id": "strait_0151"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-09-30",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0152"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-01",
+    "moves": 182,
+    "operating_minutes": 420,
+    "_id": "strait_0153"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-02",
+    "moves": 216,
+    "operating_minutes": 480,
+    "_id": "strait_0154"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-03",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0155"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-04",
+    "moves": 156,
+    "operating_minutes": 360,
+    "_id": "strait_0156"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-05",
+    "moves": 189,
+    "operating_minutes": 420,
+    "_id": "strait_0157"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-06",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0158"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-07",
+    "moves": 234,
+    "operating_minutes": 540,
+    "_id": "strait_0159"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-08",
+    "moves": 162,
+    "operating_minutes": 360,
+    "_id": "strait_0160"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-09",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0161"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-10",
+    "moves": 208,
+    "operating_minutes": 480,
+    "_id": "strait_0162"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-11",
+    "moves": 243,
+    "operating_minutes": 540,
+    "_id": "strait_0163"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-12",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0164"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-13",
+    "moves": 182,
+    "operating_minutes": 420,
+    "_id": "strait_0165"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-14",
+    "moves": 216,
+    "operating_minutes": 480,
+    "_id": "strait_0166"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-15",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0167"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-16",
+    "moves": 156,
+    "operating_minutes": 360,
+    "_id": "strait_0168"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-17",
+    "moves": 189,
+    "operating_minutes": 420,
+    "_id": "strait_0169"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-18",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0170"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-19",
+    "moves": 234,
+    "operating_minutes": 540,
+    "_id": "strait_0171"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-20",
+    "moves": 162,
+    "operating_minutes": 360,
+    "_id": "strait_0172"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-21",
+    "moves": 175,
+    "operating_minutes": 420,
+    "_id": "strait_0173"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-22",
+    "moves": 208,
+    "operating_minutes": 480,
+    "_id": "strait_0174"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-23",
+    "moves": 243,
+    "operating_minutes": 540,
+    "_id": "strait_0175"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-24",
+    "moves": 150,
+    "operating_minutes": 360,
+    "_id": "strait_0176"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-25",
+    "moves": 182,
+    "operating_minutes": 420,
+    "_id": "strait_0177"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-26",
+    "moves": 216,
+    "operating_minutes": 480,
+    "_id": "strait_0178"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-27",
+    "moves": 225,
+    "operating_minutes": 540,
+    "_id": "strait_0179"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-28",
+    "moves": 156,
+    "operating_minutes": 360,
+    "_id": "strait_0180"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-29",
+    "moves": 189,
+    "operating_minutes": 420,
+    "_id": "strait_0181"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-30",
+    "moves": 200,
+    "operating_minutes": 480,
+    "_id": "strait_0182"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c01",
+    "date": "2026-10-31",
+    "moves": 234,
+    "operating_minutes": 540,
+    "_id": "strait_0183"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-01",
+    "moves": 231,
+    "operating_minutes": 420,
+    "_id": "strait_0184"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-02",
+    "moves": 272,
+    "operating_minutes": 480,
+    "_id": "strait_0185"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-03",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0186"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-04",
+    "moves": 198,
+    "operating_minutes": 360,
+    "_id": "strait_0187"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-05",
+    "moves": 238,
+    "operating_minutes": 420,
+    "_id": "strait_0188"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-06",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0189"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-07",
+    "moves": 297,
+    "operating_minutes": 540,
+    "_id": "strait_0190"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-08",
+    "moves": 204,
+    "operating_minutes": 360,
+    "_id": "strait_0191"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-09",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0192"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-10",
+    "moves": 264,
+    "operating_minutes": 480,
+    "_id": "strait_0193"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-11",
+    "moves": 306,
+    "operating_minutes": 540,
+    "_id": "strait_0194"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-12",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0195"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-13",
+    "moves": 231,
+    "operating_minutes": 420,
+    "_id": "strait_0196"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-14",
+    "moves": 272,
+    "operating_minutes": 480,
+    "_id": "strait_0197"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-15",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0198"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-16",
+    "moves": 198,
+    "operating_minutes": 360,
+    "_id": "strait_0199"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-17",
+    "moves": 238,
+    "operating_minutes": 420,
+    "_id": "strait_0200"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-18",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0201"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-19",
+    "moves": 297,
+    "operating_minutes": 540,
+    "_id": "strait_0202"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-20",
+    "moves": 204,
+    "operating_minutes": 360,
+    "_id": "strait_0203"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-21",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0204"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-22",
+    "moves": 264,
+    "operating_minutes": 480,
+    "_id": "strait_0205"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-23",
+    "moves": 306,
+    "operating_minutes": 540,
+    "_id": "strait_0206"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-24",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0207"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-25",
+    "moves": 231,
+    "operating_minutes": 420,
+    "_id": "strait_0208"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-26",
+    "moves": 272,
+    "operating_minutes": 480,
+    "_id": "strait_0209"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-27",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0210"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-28",
+    "moves": 198,
+    "operating_minutes": 360,
+    "_id": "strait_0211"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-29",
+    "moves": 238,
+    "operating_minutes": 420,
+    "_id": "strait_0212"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-09-30",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0213"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-01",
+    "moves": 231,
+    "operating_minutes": 420,
+    "_id": "strait_0214"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-02",
+    "moves": 272,
+    "operating_minutes": 480,
+    "_id": "strait_0215"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-03",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0216"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-04",
+    "moves": 198,
+    "operating_minutes": 360,
+    "_id": "strait_0217"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-05",
+    "moves": 238,
+    "operating_minutes": 420,
+    "_id": "strait_0218"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-06",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0219"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-07",
+    "moves": 297,
+    "operating_minutes": 540,
+    "_id": "strait_0220"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-08",
+    "moves": 204,
+    "operating_minutes": 360,
+    "_id": "strait_0221"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-09",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0222"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-10",
+    "moves": 264,
+    "operating_minutes": 480,
+    "_id": "strait_0223"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-11",
+    "moves": 306,
+    "operating_minutes": 540,
+    "_id": "strait_0224"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-12",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0225"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-13",
+    "moves": 231,
+    "operating_minutes": 420,
+    "_id": "strait_0226"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-14",
+    "moves": 272,
+    "operating_minutes": 480,
+    "_id": "strait_0227"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-15",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0228"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-16",
+    "moves": 198,
+    "operating_minutes": 360,
+    "_id": "strait_0229"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-17",
+    "moves": 238,
+    "operating_minutes": 420,
+    "_id": "strait_0230"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-18",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0231"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-19",
+    "moves": 297,
+    "operating_minutes": 540,
+    "_id": "strait_0232"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-20",
+    "moves": 204,
+    "operating_minutes": 360,
+    "_id": "strait_0233"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-21",
+    "moves": 224,
+    "operating_minutes": 420,
+    "_id": "strait_0234"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-22",
+    "moves": 264,
+    "operating_minutes": 480,
+    "_id": "strait_0235"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-23",
+    "moves": 306,
+    "operating_minutes": 540,
+    "_id": "strait_0236"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-24",
+    "moves": 192,
+    "operating_minutes": 360,
+    "_id": "strait_0237"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-25",
+    "moves": 231,
+    "operating_minutes": 420,
+    "_id": "strait_0238"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-26",
+    "moves": 272,
+    "operating_minutes": 480,
+    "_id": "strait_0239"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-27",
+    "moves": 288,
+    "operating_minutes": 540,
+    "_id": "strait_0240"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-28",
+    "moves": 198,
+    "operating_minutes": 360,
+    "_id": "strait_0241"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-29",
+    "moves": 238,
+    "operating_minutes": 420,
+    "_id": "strait_0242"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-30",
+    "moves": 256,
+    "operating_minutes": 480,
+    "_id": "strait_0243"
+  },
+  {
+    "client": "strait",
+    "location": "strait_south",
+    "machine": "strait_south_c02",
+    "date": "2026-10-31",
+    "moves": 297,
+    "operating_minutes": 540,
+    "_id": "strait_0244"
+  }
+]

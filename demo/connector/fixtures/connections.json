@@ -1,0 +1,26 @@
+[
+  {
+    "company": "harbor",
+    "scopes": [
+      "harbor_north",
+      "harbor_south"
+    ],
+    "file": "operations.sqlite"
+  },
+  {
+    "company": "harbor",
+    "scopes": [
+      "harbor_north",
+      "harbor_south"
+    ],
+    "file": "allocation.xlsx"
+  },
+  {
+    "company": "harbor",
+    "scopes": [
+      "harbor_north",
+      "harbor_south"
+    ],
+    "file": "operations_note.pdf"
+  }
+]

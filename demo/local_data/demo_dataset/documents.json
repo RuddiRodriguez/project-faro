@@ -1,0 +1,573 @@
+[
+  {
+    "document_id": "harbor_moves_per_hour_v1",
+    "company_id": "harbor",
+    "title": "Moves Per Hour",
+    "text": "For a period, total completed moves divided by total operating hours. Do not average daily ratios. Unit: moves/hour.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/harbor/moves_per_hour.md",
+    "_id": "harbor_moves_per_hour_v1",
+    "scope_ids": [
+      "harbor_north",
+      "harbor_south"
+    ]
+  },
+  {
+    "document_id": "harbor_idle_time_v1",
+    "company_id": "harbor",
+    "title": "Idle Time",
+    "text": "Time a crane is available but not working. For a period, add idle_hours. Unit: hours.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/harbor/idle_time.md",
+    "_id": "harbor_idle_time_v1",
+    "scope_ids": [
+      "harbor_north",
+      "harbor_south"
+    ]
+  },
+  {
+    "document_id": "harbor_downtime_v1",
+    "company_id": "harbor",
+    "title": "Downtime",
+    "text": "Time a crane is unavailable for operation. For a period, add downtime_hours. Unit: hours.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/harbor/downtime.md",
+    "_id": "harbor_downtime_v1",
+    "measure": {
+      "group": "crane",
+      "numerator": "downtime_hours",
+      "denominator": null,
+      "scale": 1,
+      "unit": "hours",
+      "version": "v1",
+      "minimum_input": 0
+    },
+    "scope_ids": [
+      "harbor_north",
+      "harbor_south"
+    ]
+  },
+  {
+    "document_id": "harbor_supported_tasks_v1",
+    "company_id": "harbor",
+    "title": "Supported questions",
+    "status": "approved",
+    "version": "v1",
+    "text": "Explain approved crane indicators; compare cranes by an indicator over a period; compare with the applicable agreement target. Payroll, individual employee performance, and diagnosing fault causes are unsupported.",
+    "source": "company-guides/harbor/supported-tasks.md",
+    "_id": "harbor_supported_tasks_v1",
+    "scope_ids": [
+      "harbor_north",
+      "harbor_south"
+    ]
+  },
+  {
+    "document_id": "pacific_moves_per_hour_v1",
+    "company_id": "pacific",
+    "title": "Moves Per Hour",
+    "text": "For a period, total completed moves divided by total scheduled hours. Do not average daily ratios. Unit: moves/hour.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/pacific/moves_per_hour.md",
+    "_id": "pacific_moves_per_hour_v1",
+    "scope_ids": [
+      "pacific_north",
+      "pacific_south"
+    ]
+  },
+  {
+    "document_id": "pacific_idle_time_v1",
+    "company_id": "pacific",
+    "title": "Idle Time",
+    "text": "Time a crane is available but not working. For a period, add idle_hours. Unit: hours.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/pacific/idle_time.md",
+    "_id": "pacific_idle_time_v1",
+    "scope_ids": [
+      "pacific_north",
+      "pacific_south"
+    ]
+  },
+  {
+    "document_id": "pacific_downtime_v1",
+    "company_id": "pacific",
+    "title": "Downtime",
+    "text": "Time a crane is unavailable for operation. For a period, add downtime_hours. Unit: hours.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/pacific/downtime.md",
+    "_id": "pacific_downtime_v1",
+    "measure": {
+      "group": "crane",
+      "numerator": "downtime_hours",
+      "denominator": null,
+      "scale": 1,
+      "unit": "hours",
+      "version": "v1",
+      "minimum_input": 0
+    },
+    "scope_ids": [
+      "pacific_north",
+      "pacific_south"
+    ]
+  },
+  {
+    "document_id": "pacific_supported_tasks_v1",
+    "company_id": "pacific",
+    "title": "Supported questions",
+    "status": "approved",
+    "version": "v1",
+    "text": "Explain approved crane indicators; compare cranes by an indicator over a period; compare with the applicable agreement target. Payroll, individual employee performance, and diagnosing fault causes are unsupported.",
+    "source": "company-guides/pacific/supported-tasks.md",
+    "_id": "pacific_supported_tasks_v1",
+    "scope_ids": [
+      "pacific_north",
+      "pacific_south"
+    ]
+  },
+  {
+    "document_id": "strait_moves_per_hour_v1",
+    "company_id": "strait",
+    "title": "Moves Per Hour",
+    "text": "For a period, total completed moves divided by total operating hours. Do not average daily ratios. Unit: moves/hour.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/strait/moves_per_hour.md",
+    "_id": "strait_moves_per_hour_v1",
+    "scope_ids": [
+      "strait_north",
+      "strait_south"
+    ]
+  },
+  {
+    "document_id": "strait_idle_time_v1",
+    "company_id": "strait",
+    "title": "Idle Time",
+    "text": "Time a crane is available but not working. For a period, add idle_hours. Unit: hours.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/strait/idle_time.md",
+    "_id": "strait_idle_time_v1",
+    "scope_ids": [
+      "strait_north",
+      "strait_south"
+    ]
+  },
+  {
+    "document_id": "strait_downtime_v1",
+    "company_id": "strait",
+    "title": "Downtime",
+    "text": "Time a crane is unavailable for operation. For a period, add downtime_hours. Unit: hours.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-09-01",
+    "source": "company-guides/strait/downtime.md",
+    "_id": "strait_downtime_v1",
+    "measure": {
+      "group": "crane",
+      "numerator": "downtime_hours",
+      "denominator": null,
+      "scale": 1,
+      "unit": "hours",
+      "version": "v1",
+      "minimum_input": 0
+    },
+    "scope_ids": [
+      "strait_north",
+      "strait_south"
+    ]
+  },
+  {
+    "document_id": "strait_supported_tasks_v1",
+    "company_id": "strait",
+    "title": "Supported questions",
+    "status": "approved",
+    "version": "v1",
+    "text": "Explain approved crane indicators; compare cranes by an indicator over a period; compare with the applicable agreement target. Payroll, individual employee performance, and diagnosing fault causes are unsupported.",
+    "source": "company-guides/strait/supported-tasks.md",
+    "_id": "strait_supported_tasks_v1",
+    "scope_ids": [
+      "strait_north",
+      "strait_south"
+    ]
+  },
+  {
+    "company_id": "retail",
+    "document_id": "retail_tasks",
+    "title": "Supported questions",
+    "text": "Compare stores by sales or return rate. Product rankings and causes are not supported.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-10-01",
+    "source": "retail/retail_tasks.md",
+    "measure": null,
+    "_id": "retail_tasks",
+    "scope_ids": [
+      "retail_region"
+    ]
+  },
+  {
+    "company_id": "retail",
+    "document_id": "retail_rate",
+    "title": "Store return rate",
+    "text": "Store return rate is 100 times total returned units divided by total units sold in the period. A zero denominator gives no rate.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-10-01",
+    "source": "retail/retail_rate.md",
+    "measure": {
+      "group": "store",
+      "numerator": "returned",
+      "denominator": "sold",
+      "scale": 100,
+      "unit": "%",
+      "version": "v1",
+      "minimum_input": 0
+    },
+    "_id": "retail_rate",
+    "scope_ids": [
+      "retail_region"
+    ]
+  },
+  {
+    "company_id": "retail",
+    "document_id": "retail_sales",
+    "title": "Store sales",
+    "text": "Store sales means total units sold.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-10-01",
+    "source": "retail/retail_sales.md",
+    "measure": {
+      "group": "store",
+      "numerator": "sold",
+      "denominator": null,
+      "scale": 1,
+      "unit": "units",
+      "version": "v1",
+      "minimum_input": 0
+    },
+    "_id": "retail_sales",
+    "scope_ids": [
+      "retail_region"
+    ]
+  },
+  {
+    "company_id": "meridian",
+    "document_id": "meridian_tasks",
+    "title": "Supported questions",
+    "text": "Rank the permitted hotels by occupancy rate for a period. Headquarters may compare all permitted properties together. Causes of vacancy and guest identities are not supported.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-10-01",
+    "source": "meridian/tasks.md",
+    "measure": null,
+    "_id": "meridian_tasks",
+    "scope_ids": [
+      "madrid",
+      "tokyo",
+      "mexico_city"
+    ]
+  },
+  {
+    "company_id": "meridian",
+    "document_id": "meridian_measure",
+    "title": "Hotel occupancy rate",
+    "text": "Occupancy rate is 100 times occupied room nights divided by available room nights over the period. Each property reports daily counts by its local business date. A zero denominator gives no rate.",
+    "status": "approved",
+    "version": "v1",
+    "valid_from": "2026-10-01",
+    "source": "meridian/measure.md",
+    "measure": {
+      "group": "hotel",
+      "numerator": "occupied_room_nights",
+      "denominator": "available_room_nights",
+      "scale": 100,
+      "unit": "%",
+      "version": "v1",
+      "minimum_input": 0
+    },
+    "_id": "meridian_measure",
+    "scope_ids": [
+      "madrid",
+      "tokyo",
+      "mexico_city"
+    ]
+  },
+  {
+    "_id": "cedar_measure",
+    "document_id": "cedar_measure",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Average outpatient waiting time",
+    "text": "Total outpatient waiting minutes divided by outpatient visits. Combine totals before dividing. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/measure.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "wait_minutes",
+      "denominator": "visits",
+      "scale": 1,
+      "unit": "minutes per visit",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_occupancy",
+    "document_id": "cedar_occupancy",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Hospital bed occupancy",
+    "text": "Occupied bed-days divided by available staffed bed-days, times 100. This is occupancy, not outpatient attendance. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/occupancy.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "occupied_bed_days",
+      "denominator": "available_bed_days",
+      "scale": 100,
+      "unit": "%",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_visits",
+    "document_id": "cedar_visits",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Outpatient visits",
+    "text": "Total recorded outpatient visits. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/visits.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "visits",
+      "denominator": null,
+      "scale": 1,
+      "unit": "visits",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_emergency_wait",
+    "document_id": "cedar_emergency_wait",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Average emergency waiting time",
+    "text": "Total emergency waiting minutes divided by emergency visits. This differs from outpatient waiting time. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/emergency_wait.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "emergency_wait_minutes",
+      "denominator": "emergency_visits",
+      "scale": 1,
+      "unit": "minutes per visit",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_emergency_visits",
+    "document_id": "cedar_emergency_visits",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Emergency visits",
+    "text": "Total recorded emergency visits. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/emergency_visits.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "emergency_visits",
+      "denominator": null,
+      "scale": 1,
+      "unit": "visits",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_admissions",
+    "document_id": "cedar_admissions",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Hospital admissions",
+    "text": "Total admissions during the period. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/admissions.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "admissions",
+      "denominator": null,
+      "scale": 1,
+      "unit": "admissions",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_discharges",
+    "document_id": "cedar_discharges",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Hospital discharges",
+    "text": "Total discharges during the period. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/discharges.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "discharges",
+      "denominator": null,
+      "scale": 1,
+      "unit": "discharges",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_cancellations",
+    "document_id": "cedar_cancellations",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Appointment cancellation rate",
+    "text": "Cancelled appointments divided by scheduled appointments, times 100. Remaining appointments may include no-shows; do not equate them with visits. A zero denominator has no defined rate. No patient details or causal evidence are supplied.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/cancellations.md",
+    "measure": {
+      "group": "hospital",
+      "numerator": "cancelled_appointments",
+      "denominator": "scheduled_appointments",
+      "scale": 100,
+      "unit": "%",
+      "version": "v2",
+      "minimum_input": 0
+    }
+  },
+  {
+    "_id": "cedar_tasks",
+    "document_id": "cedar_tasks",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Hospital operations questions",
+    "text": "Count hospitals; compare hospital occupancy, outpatient or emergency waiting time and visits, admissions, discharges and appointment cancellations. Summarize trends and totals over the available July–October 2026 records. No diagnoses, treatments, patient information or proven causes are available.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/tasks.md",
+    "measure": null
+  },
+  {
+    "_id": "cedar_coverage",
+    "document_id": "cedar_coverage",
+    "company_id": "cedar",
+    "scope_ids": [
+      "riverside",
+      "hillview",
+      "lakeside",
+      "westhaven",
+      "meadow",
+      "central"
+    ],
+    "title": "Hospital reporting coverage and revisions",
+    "text": "Fictional operational data for July–October 2026. October is complete for six hospitals. Westhaven lacks 18 September; do not treat a missing day as zero. Meadow recorded zero outpatient visits on 16 August. Use the latest revision of each record and exclude withdrawn entries. Riverside has a corrected October posting; Hillview has a withdrawn duplicate. These counts concern activity, not unique patients.",
+    "status": "approved",
+    "version": "v2",
+    "valid_from": "2026-07-01",
+    "source": "cedar/coverage.md",
+    "measure": null
+  }
+]

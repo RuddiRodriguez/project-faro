@@ -1,0 +1,128 @@
+[
+  {
+    "_id": "harbor_north",
+    "terminal_id": "harbor_north",
+    "period_start": "2026-10-01",
+    "period_end_exclusive": "2026-11-01",
+    "definition_id": "harbor_moves_per_hour_v1",
+    "ranking": [
+      {
+        "asset_id": "harbor_north_c01",
+        "total_moves": 4210,
+        "denominator_hours": 234,
+        "moves_per_hour": 17.9915
+      },
+      {
+        "asset_id": "harbor_north_c02",
+        "total_moves": 5848,
+        "denominator_hours": 234,
+        "moves_per_hour": 24.9915
+      }
+    ]
+  },
+  {
+    "_id": "harbor_south",
+    "terminal_id": "harbor_south",
+    "period_start": "2026-10-01",
+    "period_end_exclusive": "2026-11-01",
+    "definition_id": "harbor_moves_per_hour_v1",
+    "ranking": [
+      {
+        "asset_id": "harbor_south_c01",
+        "total_moves": 4678,
+        "denominator_hours": 234,
+        "moves_per_hour": 19.9915
+      },
+      {
+        "asset_id": "harbor_south_c02",
+        "total_moves": 6316,
+        "denominator_hours": 234,
+        "moves_per_hour": 26.9915
+      }
+    ]
+  },
+  {
+    "_id": "pacific_north",
+    "terminal_id": "pacific_north",
+    "period_start": "2026-10-01",
+    "period_end_exclusive": "2026-11-01",
+    "definition_id": "pacific_moves_per_hour_v1",
+    "ranking": [
+      {
+        "asset_id": "pacific_north_c01",
+        "total_moves": 4912,
+        "denominator_hours": 389,
+        "moves_per_hour": 12.6272
+      },
+      {
+        "asset_id": "pacific_north_c02",
+        "total_moves": 6550,
+        "denominator_hours": 389,
+        "moves_per_hour": 16.838
+      }
+    ]
+  },
+  {
+    "_id": "pacific_south",
+    "terminal_id": "pacific_south",
+    "period_start": "2026-10-01",
+    "period_end_exclusive": "2026-11-01",
+    "definition_id": "pacific_moves_per_hour_v1",
+    "ranking": [
+      {
+        "asset_id": "pacific_south_c01",
+        "total_moves": 5380,
+        "denominator_hours": 389,
+        "moves_per_hour": 13.8303
+      },
+      {
+        "asset_id": "pacific_south_c02",
+        "total_moves": 7018,
+        "denominator_hours": 389,
+        "moves_per_hour": 18.0411
+      }
+    ]
+  },
+  {
+    "_id": "strait_north",
+    "terminal_id": "strait_north",
+    "period_start": "2026-10-01",
+    "period_end_exclusive": "2026-11-01",
+    "definition_id": "strait_moves_per_hour_v1",
+    "ranking": [
+      {
+        "asset_id": "strait_north_c01",
+        "total_moves": 5614,
+        "denominator_hours": 234,
+        "moves_per_hour": 23.9915
+      },
+      {
+        "asset_id": "strait_north_c02",
+        "total_moves": 7252,
+        "denominator_hours": 234,
+        "moves_per_hour": 30.9915
+      }
+    ]
+  },
+  {
+    "_id": "strait_south",
+    "terminal_id": "strait_south",
+    "period_start": "2026-10-01",
+    "period_end_exclusive": "2026-11-01",
+    "definition_id": "strait_moves_per_hour_v1",
+    "ranking": [
+      {
+        "asset_id": "strait_south_c01",
+        "total_moves": 6082,
+        "denominator_hours": 234,
+        "moves_per_hour": 25.9915
+      },
+      {
+        "asset_id": "strait_south_c02",
+        "total_moves": 7720,
+        "denominator_hours": 234,
+        "moves_per_hour": 32.9915
+      }
+    ]
+  }
+]

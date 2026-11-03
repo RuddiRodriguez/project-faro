@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "faro-thread-api"
+version = "0.1.0"
+requires-python = ">=3.15"
+dependencies = ["faro-thread", "faro-api-objects", "fastapi==0.162.0", "uvicorn==0.54.0", "python-dotenv==1.2.4"]
+
+[tool.setuptools]
+packages = ["thread_api", "thread_api.endpoints"]
+package-dir = {thread_api = "infer/src"}

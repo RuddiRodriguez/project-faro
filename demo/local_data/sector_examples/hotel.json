@@ -1,0 +1,16 @@
+{
+  "company_id": "meridian",
+  "name": "Meridian Hotels (fictional chain)",
+  "timezone": "Europe/Madrid",
+  "group": "hotel",
+  "members": [
+    {"id": "Madrid Central", "scope": "madrid", "country": "Spain", "daily": {"occupied_room_nights": 80, "available_room_nights": 100}},
+    {"id": "Tokyo Bay", "scope": "tokyo", "country": "Japan", "daily": {"occupied_room_nights": 140, "available_room_nights": 200}},
+    {"id": "Mexico City Plaza", "scope": "mexico_city", "country": "Mexico", "daily": {"occupied_room_nights": 135, "available_room_nights": 150}}
+  ],
+  "users": {"hotel_hq": ["madrid", "tokyo", "mexico_city"], "madrid_manager": ["madrid"]},
+  "tasks": "Rank the permitted hotels by occupancy rate for a period. Headquarters may compare all permitted properties together. Causes of vacancy and guest identities are not supported.",
+  "title": "Hotel occupancy rate",
+  "definition": "Occupancy rate is 100 times occupied room nights divided by available room nights over the period. Each property reports daily counts by its local business date. A zero denominator gives no rate.",
+  "numerator": "occupied_room_nights", "denominator": "available_room_nights", "scale": 100, "unit": "%"
+}

@@ -1,0 +1,458 @@
+{
+  "_id": "c144d252-9864-4257-9e18-340626a4b60e",
+  "company_id": "harbor",
+  "user_id": "maria",
+  "original_question": "Which cranes performed badly at North Terminal last month?",
+  "created_at": "2026-11-02T13:59:05.543484+00:00",
+  "access": {
+    "user_id": "maria",
+    "company_id": "harbor",
+    "permitted_scope_ids": [
+      "harbor_north",
+      "harbor_south"
+    ],
+    "permission_version": "v1"
+  },
+  "initial_history": [],
+  "supplied_history": false,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Which cranes performed badly at North Terminal last month?"
+    },
+    {
+      "role": "assistant",
+      "content": "Which performance indicator should I use—downtime or idle time?"
+    },
+    {
+      "role": "user",
+      "content": "Downtime, highest first."
+    },
+    {
+      "role": "assistant",
+      "content": "Downtime, 2026-10-01 – 2026-10-31 (highest first):\nharbor_north_c01: 62 hours, tied at rank 1.\nharbor_north_c02: 62 hours, tied at rank 1."
+    }
+  ],
+  "turns": [
+    {
+      "_id": "8fbc829b-0dda-49a6-8642-6b22903acf23",
+      "number": 1,
+      "message": "Which cranes performed badly at North Terminal last month?",
+      "language": null,
+      "status": "Ask",
+      "created_at": "2026-11-02T13:59:05.543543+00:00",
+      "cache": [
+        {
+          "collection": "ai_cache",
+          "service": "Signal",
+          "key": "4e1477d47a5e93fecfb1c0e9e21193fe733b3dc1fbc79c4cc02712a7fc20f0e4",
+          "produced_by_turn": "8fbc829b-0dda-49a6-8642-6b22903acf23",
+          "result_source": "fresh"
+        },
+        {
+          "collection": "ai_cache",
+          "service": "Guide",
+          "key": "7b76304a8a689ea90e1d3119965965bf5985695db503141645e84cf1dcd632a6",
+          "produced_by_turn": "8fbc829b-0dda-49a6-8642-6b22903acf23",
+          "result_source": "fresh"
+        }
+      ],
+      "plan": null,
+      "response": {
+        "conversation_id": "c144d252-9864-4257-9e18-340626a4b60e",
+        "turn_id": "8fbc829b-0dda-49a6-8642-6b22903acf23",
+        "question": "Which cranes performed badly at North Terminal last month?",
+        "rewrite": {
+          "unclear_references": [],
+          "question": "Which cranes performed badly at North Terminal last month?",
+          "used_ai": false,
+          "model_name": null,
+          "token_usage": null
+        },
+        "search": {
+          "query": "Which cranes performed badly at North Terminal last month?",
+          "matches": [
+            {
+              "document_id": "harbor_supported_tasks_v1",
+              "source": "company-guides/harbor/supported-tasks.md",
+              "file_reference": "s3://faro-demo/harbor/harbor_supported_tasks_v1.txt",
+              "title": "Supported questions",
+              "text": "Explain approved crane indicators; compare cranes by an indicator over a period; compare with the applicable agreement target. Payroll, individual employee performance, and diagnosing fault causes are unsupported.",
+              "version": "v1",
+              "score": 0.7801086902618408
+            },
+            {
+              "document_id": "harbor_downtime_v1",
+              "source": "company-guides/harbor/downtime.md",
+              "file_reference": "s3://faro-demo/harbor/harbor_downtime_v1.txt",
+              "title": "Downtime",
+              "text": "Time a crane is unavailable for operation. For a period, add downtime_hours. Unit: hours.",
+              "version": "v1",
+              "score": 0.776050329208374
+            },
+            {
+              "document_id": "harbor_idle_time_v1",
+              "source": "company-guides/harbor/idle_time.md",
+              "file_reference": "s3://faro-demo/harbor/harbor_idle_time_v1.txt",
+              "title": "Idle Time",
+              "text": "Time a crane is available but not working. For a period, add idle_hours. Unit: hours.",
+              "version": "v1",
+              "score": 0.7663222551345825
+            }
+          ]
+        },
+        "decision": {
+          "action": "Ask",
+          "missing_choice": "performance indicator"
+        },
+        "followup": {
+          "followup_text": "Which performance indicator should I use—downtime or idle time?"
+        },
+        "evidence": null,
+        "verification": null,
+        "answer": null
+      },
+      "elapsed_ms": 5719,
+      "error": null,
+      "decision_source": "Signal"
+    },
+    {
+      "_id": "f9ba397e-488a-433d-85e8-59c4a3c6aeb1",
+      "number": 2,
+      "message": "Downtime, highest first.",
+      "language": null,
+      "status": "verified",
+      "created_at": "2026-11-02T13:59:11.948832+00:00",
+      "cache": [
+        {
+          "collection": "ai_cache",
+          "service": "Thread.rewrite",
+          "key": "9cffa7bb7f7e33495e2a7cd322eacc8a4b4de9f87c970eb99a5e6d31da5b6178",
+          "produced_by_turn": "f9ba397e-488a-433d-85e8-59c4a3c6aeb1",
+          "result_source": "fresh"
+        },
+        {
+          "collection": "ai_cache",
+          "service": "Signal",
+          "key": "f3bd984f082bd62a29881140dbddd971ae1092e0ec624305fe1a0c81352af5fc",
+          "produced_by_turn": "f9ba397e-488a-433d-85e8-59c4a3c6aeb1",
+          "result_source": "fresh"
+        },
+        {
+          "collection": "ai_cache",
+          "service": "Thread.ranking",
+          "key": "1440db8525c29a4b6eb8f3afebed95746f04c32b70f89b2a6d1385190e0e87da",
+          "produced_by_turn": "f9ba397e-488a-433d-85e8-59c4a3c6aeb1",
+          "result_source": "fresh"
+        },
+        {
+          "collection": "data_cache",
+          "service": "Bridge",
+          "key": "d7d30af584bcd7ff613ec85f56295dbe4ae229c477502526255910852cc68cb6",
+          "produced_by_turn": "f9ba397e-488a-433d-85e8-59c4a3c6aeb1",
+          "result_source": "fresh"
+        },
+        {
+          "collection": "ai_cache",
+          "service": "Voice",
+          "key": "09c414507f1bc91f37e53916f86c7f8deb207732767122b8c00112649af19c3d",
+          "produced_by_turn": "f9ba397e-488a-433d-85e8-59c4a3c6aeb1",
+          "result_source": "fresh"
+        }
+      ],
+      "plan": {
+        "status": "ready",
+        "ranking": {
+          "definition_id": "harbor_downtime_v1",
+          "scope_ids": [
+            "harbor_north"
+          ],
+          "group": "crane",
+          "member_ids": [],
+          "start": "2026-10-01",
+          "end_exclusive": "2026-11-01",
+          "order": "highest"
+        },
+        "reason": null
+      },
+      "response": {
+        "conversation_id": "c144d252-9864-4257-9e18-340626a4b60e",
+        "turn_id": "f9ba397e-488a-433d-85e8-59c4a3c6aeb1",
+        "question": "Downtime, highest first.",
+        "rewrite": {
+          "unclear_references": [],
+          "question": "Which cranes performed badly at North Terminal last month, ranked by downtime from highest to lowest?",
+          "used_ai": true,
+          "model_name": "gpt-6-luna",
+          "token_usage": {
+            "completion_tokens": 37,
+            "prompt_tokens": 528,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": null
+            }
+          }
+        },
+        "search": {
+          "query": "Which cranes performed badly at North Terminal last month, ranked by downtime from highest to lowest?",
+          "matches": [
+            {
+              "document_id": "harbor_downtime_v1",
+              "source": "company-guides/harbor/downtime.md",
+              "file_reference": "s3://faro-demo/harbor/harbor_downtime_v1.txt",
+              "title": "Downtime",
+              "text": "Time a crane is unavailable for operation. For a period, add downtime_hours. Unit: hours.",
+              "version": "v1",
+              "score": 0.8149440884590149
+            },
+            {
+              "document_id": "harbor_idle_time_v1",
+              "source": "company-guides/harbor/idle_time.md",
+              "file_reference": "s3://faro-demo/harbor/harbor_idle_time_v1.txt",
+              "title": "Idle Time",
+              "text": "Time a crane is available but not working. For a period, add idle_hours. Unit: hours.",
+              "version": "v1",
+              "score": 0.7854639291763306
+            },
+            {
+              "document_id": "harbor_supported_tasks_v1",
+              "source": "company-guides/harbor/supported-tasks.md",
+              "file_reference": "s3://faro-demo/harbor/harbor_supported_tasks_v1.txt",
+              "title": "Supported questions",
+              "text": "Explain approved crane indicators; compare cranes by an indicator over a period; compare with the applicable agreement target. Payroll, individual employee performance, and diagnosing fault causes are unsupported.",
+              "version": "v1",
+              "score": 0.7820128202438354
+            }
+          ]
+        },
+        "decision": {
+          "action": "Continue",
+          "missing_choice": null
+        },
+        "followup": null,
+        "evidence": {
+          "status": "ready",
+          "reason": null,
+          "company_id": "harbor",
+          "ranking": {
+            "definition_id": "harbor_downtime_v1",
+            "scope_ids": [
+              "harbor_north"
+            ],
+            "group": "crane",
+            "member_ids": [],
+            "start": "2026-10-01",
+            "end_exclusive": "2026-11-01",
+            "order": "highest"
+          },
+          "unit": "hours",
+          "data_version": "harbor-v1",
+          "source": "activity.json",
+          "totals": [
+            {
+              "asset_id": "harbor_north_c01",
+              "value": 62.0,
+              "rank": 1,
+              "record_ids": [
+                "harbor_north_c01_2026-10-01",
+                "harbor_north_c01_2026-10-02",
+                "harbor_north_c01_2026-10-03",
+                "harbor_north_c01_2026-10-04",
+                "harbor_north_c01_2026-10-05",
+                "harbor_north_c01_2026-10-06",
+                "harbor_north_c01_2026-10-07",
+                "harbor_north_c01_2026-10-08",
+                "harbor_north_c01_2026-10-09",
+                "harbor_north_c01_2026-10-10",
+                "harbor_north_c01_2026-10-11",
+                "harbor_north_c01_2026-10-12",
+                "harbor_north_c01_2026-10-13",
+                "harbor_north_c01_2026-10-14",
+                "harbor_north_c01_2026-10-15",
+                "harbor_north_c01_2026-10-16",
+                "harbor_north_c01_2026-10-17",
+                "harbor_north_c01_2026-10-18",
+                "harbor_north_c01_2026-10-19",
+                "harbor_north_c01_2026-10-20",
+                "harbor_north_c01_2026-10-21",
+                "harbor_north_c01_2026-10-22",
+                "harbor_north_c01_2026-10-23",
+                "harbor_north_c01_2026-10-24",
+                "harbor_north_c01_2026-10-25",
+                "harbor_north_c01_2026-10-26",
+                "harbor_north_c01_2026-10-27",
+                "harbor_north_c01_2026-10-28",
+                "harbor_north_c01_2026-10-29",
+                "harbor_north_c01_2026-10-30",
+                "harbor_north_c01_2026-10-31"
+              ],
+              "reason": null
+            },
+            {
+              "asset_id": "harbor_north_c02",
+              "value": 62.0,
+              "rank": 1,
+              "record_ids": [
+                "harbor_north_c02_2026-10-01",
+                "harbor_north_c02_2026-10-02",
+                "harbor_north_c02_2026-10-03",
+                "harbor_north_c02_2026-10-04",
+                "harbor_north_c02_2026-10-05",
+                "harbor_north_c02_2026-10-06",
+                "harbor_north_c02_2026-10-07",
+                "harbor_north_c02_2026-10-08",
+                "harbor_north_c02_2026-10-09",
+                "harbor_north_c02_2026-10-10",
+                "harbor_north_c02_2026-10-11",
+                "harbor_north_c02_2026-10-12",
+                "harbor_north_c02_2026-10-13",
+                "harbor_north_c02_2026-10-14",
+                "harbor_north_c02_2026-10-15",
+                "harbor_north_c02_2026-10-16",
+                "harbor_north_c02_2026-10-17",
+                "harbor_north_c02_2026-10-18",
+                "harbor_north_c02_2026-10-19",
+                "harbor_north_c02_2026-10-20",
+                "harbor_north_c02_2026-10-21",
+                "harbor_north_c02_2026-10-22",
+                "harbor_north_c02_2026-10-23",
+                "harbor_north_c02_2026-10-24",
+                "harbor_north_c02_2026-10-25",
+                "harbor_north_c02_2026-10-26",
+                "harbor_north_c02_2026-10-27",
+                "harbor_north_c02_2026-10-28",
+                "harbor_north_c02_2026-10-29",
+                "harbor_north_c02_2026-10-30",
+                "harbor_north_c02_2026-10-31"
+              ],
+              "reason": null
+            }
+          ]
+        },
+        "verification": {
+          "status": "verified",
+          "reason": null,
+          "facts": {
+            "status": "ready",
+            "reason": null,
+            "company_id": "harbor",
+            "ranking": {
+              "definition_id": "harbor_downtime_v1",
+              "scope_ids": [
+                "harbor_north"
+              ],
+              "group": "crane",
+              "member_ids": [],
+              "start": "2026-10-01",
+              "end_exclusive": "2026-11-01",
+              "order": "highest"
+            },
+            "unit": "hours",
+            "data_version": "harbor-v1",
+            "source": "activity.json",
+            "totals": [
+              {
+                "asset_id": "harbor_north_c01",
+                "value": 62.0,
+                "rank": 1,
+                "record_ids": [
+                  "harbor_north_c01_2026-10-01",
+                  "harbor_north_c01_2026-10-02",
+                  "harbor_north_c01_2026-10-03",
+                  "harbor_north_c01_2026-10-04",
+                  "harbor_north_c01_2026-10-05",
+                  "harbor_north_c01_2026-10-06",
+                  "harbor_north_c01_2026-10-07",
+                  "harbor_north_c01_2026-10-08",
+                  "harbor_north_c01_2026-10-09",
+                  "harbor_north_c01_2026-10-10",
+                  "harbor_north_c01_2026-10-11",
+                  "harbor_north_c01_2026-10-12",
+                  "harbor_north_c01_2026-10-13",
+                  "harbor_north_c01_2026-10-14",
+                  "harbor_north_c01_2026-10-15",
+                  "harbor_north_c01_2026-10-16",
+                  "harbor_north_c01_2026-10-17",
+                  "harbor_north_c01_2026-10-18",
+                  "harbor_north_c01_2026-10-19",
+                  "harbor_north_c01_2026-10-20",
+                  "harbor_north_c01_2026-10-21",
+                  "harbor_north_c01_2026-10-22",
+                  "harbor_north_c01_2026-10-23",
+                  "harbor_north_c01_2026-10-24",
+                  "harbor_north_c01_2026-10-25",
+                  "harbor_north_c01_2026-10-26",
+                  "harbor_north_c01_2026-10-27",
+                  "harbor_north_c01_2026-10-28",
+                  "harbor_north_c01_2026-10-29",
+                  "harbor_north_c01_2026-10-30",
+                  "harbor_north_c01_2026-10-31"
+                ],
+                "reason": null
+              },
+              {
+                "asset_id": "harbor_north_c02",
+                "value": 62.0,
+                "rank": 1,
+                "record_ids": [
+                  "harbor_north_c02_2026-10-01",
+                  "harbor_north_c02_2026-10-02",
+                  "harbor_north_c02_2026-10-03",
+                  "harbor_north_c02_2026-10-04",
+                  "harbor_north_c02_2026-10-05",
+                  "harbor_north_c02_2026-10-06",
+                  "harbor_north_c02_2026-10-07",
+                  "harbor_north_c02_2026-10-08",
+                  "harbor_north_c02_2026-10-09",
+                  "harbor_north_c02_2026-10-10",
+                  "harbor_north_c02_2026-10-11",
+                  "harbor_north_c02_2026-10-12",
+                  "harbor_north_c02_2026-10-13",
+                  "harbor_north_c02_2026-10-14",
+                  "harbor_north_c02_2026-10-15",
+                  "harbor_north_c02_2026-10-16",
+                  "harbor_north_c02_2026-10-17",
+                  "harbor_north_c02_2026-10-18",
+                  "harbor_north_c02_2026-10-19",
+                  "harbor_north_c02_2026-10-20",
+                  "harbor_north_c02_2026-10-21",
+                  "harbor_north_c02_2026-10-22",
+                  "harbor_north_c02_2026-10-23",
+                  "harbor_north_c02_2026-10-24",
+                  "harbor_north_c02_2026-10-25",
+                  "harbor_north_c02_2026-10-26",
+                  "harbor_north_c02_2026-10-27",
+                  "harbor_north_c02_2026-10-28",
+                  "harbor_north_c02_2026-10-29",
+                  "harbor_north_c02_2026-10-30",
+                  "harbor_north_c02_2026-10-31"
+                ],
+                "reason": null
+              }
+            ]
+          }
+        },
+        "answer": {
+          "status": "verified",
+          "text": "Downtime, 2026-10-01 – 2026-10-31 (highest first):\nharbor_north_c01: 62 hours, tied at rank 1.\nharbor_north_c02: 62 hours, tied at rank 1.",
+          "definition": "Time a crane is unavailable for operation. For a period, add downtime_hours. Unit: hours.",
+          "sources": [
+            "activity.json",
+            "company-guides/harbor/downtime.md"
+          ],
+          "mode": "ai"
+        }
+      },
+      "elapsed_ms": 14193,
+      "error": null,
+      "decision_source": "Signal"
+    }
+  ]
+}

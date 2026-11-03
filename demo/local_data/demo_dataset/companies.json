@@ -1,0 +1,68 @@
+[
+  {
+    "company_id": "harbor",
+    "name": "Harbor Operations",
+    "timezone": "Europe/Amsterdam",
+    "data_version": "harbor-v1",
+    "definition_version": "v1",
+    "_id": "harbor",
+    "task_document_ids": [
+      "harbor_supported_tasks_v1"
+    ]
+  },
+  {
+    "company_id": "pacific",
+    "name": "Pacific Cargo",
+    "timezone": "America/Los_Angeles",
+    "data_version": "pacific-v1",
+    "definition_version": "v1",
+    "_id": "pacific",
+    "task_document_ids": [
+      "pacific_supported_tasks_v1"
+    ]
+  },
+  {
+    "company_id": "strait",
+    "name": "Strait Logistics",
+    "timezone": "Asia/Singapore",
+    "data_version": "strait-v1",
+    "definition_version": "v1",
+    "_id": "strait",
+    "task_document_ids": [
+      "strait_supported_tasks_v1"
+    ]
+  },
+  {
+    "company_id": "retail",
+    "name": "Sample Retail",
+    "timezone": "Europe/Amsterdam",
+    "data_version": "retail-v1",
+    "definition_version": "v1",
+    "task_document_ids": [
+      "retail_tasks"
+    ],
+    "_id": "retail"
+  },
+  {
+    "company_id": "cedar",
+    "name": "Cedar Hospital Network (fictional)",
+    "timezone": "Europe/Amsterdam",
+    "data_version": "cedar-v2",
+    "definition_version": "v2",
+    "task_document_ids": [
+      "cedar_tasks"
+    ],
+    "_id": "cedar"
+  },
+  {
+    "company_id": "meridian",
+    "name": "Meridian Hotels (fictional chain)",
+    "timezone": "Europe/Madrid",
+    "data_version": "meridian-v1",
+    "definition_version": "v1",
+    "task_document_ids": [
+      "meridian_tasks"
+    ],
+    "_id": "meridian"
+  }
+]

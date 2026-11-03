@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "faro-shield-api"
+version = "0.1.0"
+requires-python = ">=3.15"
+dependencies = ["faro-shield", "faro-api-objects", "fastapi==0.162.0", "uvicorn==0.54.0", "python-dotenv==1.2.4"]
+
+[tool.setuptools]
+packages = ["shield_api", "shield_api.endpoints"]
+package-dir = {shield_api = "infer/src"}

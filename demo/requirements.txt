@@ -1,0 +1,26 @@
+-e ./api_objects
+-e ./library/machine-learning-library-api/infer/library
+-e ./library/machine-learning-library-api
+httpx==0.28.1  # Service calls and API tests
+-e ./gate/machine-learning-gate-api/infer/gate
+-e ./gate/machine-learning-gate-api
+-e ./compass/machine-learning-compass-api/infer/compass
+-e ./compass/machine-learning-compass-api
+-e ./utils
+-e ./thread/machine-learning-thread-api/infer/thread
+-e ./thread/machine-learning-thread-api
+-e ./scout/machine-learning-scout-api/infer/scout
+-e ./scout/machine-learning-scout-api
+-e ./signal/machine-learning-signal-api/infer/signal
+-e ./signal/machine-learning-signal-api
+-e ./guide/machine-learning-guide-api/infer/guide
+-e ./guide/machine-learning-guide-api
+-e ./bridge/machine-learning-bridge-api/infer/bridge
+-e ./bridge/machine-learning-bridge-api
+-e ./shield/machine-learning-shield-api/infer/shield
+-e ./shield/machine-learning-shield-api
+-e ./voice/machine-learning-voice-api/infer/voice
+-e ./voice/machine-learning-voice-api
+-e ./connector/machine-learning-connector-api/infer/connector
+-e ./connector/machine-learning-connector-api
+reportlab==5.1.0  # Create the demo PDF fixture

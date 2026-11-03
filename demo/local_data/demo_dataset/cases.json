@@ -1,0 +1,550 @@
+[
+  {
+    "case_id": "clear_ranking",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Use harbor_north expected ranking and operating hours.",
+    "expected_result_key": "harbor_north",
+    "_id": "clear_ranking"
+  },
+  {
+    "case_id": "clarification_loop",
+    "user_id": "maria",
+    "question": "Which cranes performed badly last month?",
+    "scenario": null,
+    "expected_outcome": "ASK",
+    "expected_behavior": "Ask terminal and indicator/comparison; rebuild after each reply.",
+    "replies": [
+      "North Terminal",
+      "Moves per hour, lowest first. Previous calendar month."
+    ],
+    "final_expected_outcome": "ANSWER",
+    "expected_result_key": "harbor_north",
+    "_id": "clarification_loop"
+  },
+  {
+    "case_id": "missing_terminal",
+    "user_id": "maria",
+    "question": "Rank cranes by moves per hour, lowest first, in October 2026.",
+    "scenario": null,
+    "expected_outcome": "ASK",
+    "expected_behavior": "Maria may see two terminals; ask which one.",
+    "_id": "missing_terminal"
+  },
+  {
+    "case_id": "missing_indicator",
+    "user_id": "maria",
+    "question": "Show bad crane performance at North Terminal in October 2026.",
+    "scenario": null,
+    "expected_outcome": "ASK",
+    "expected_behavior": "Offer only supported indicators; do not choose a meaning for badly.",
+    "_id": "missing_indicator"
+  },
+  {
+    "case_id": "missing_period",
+    "user_id": "maria",
+    "question": "Rank North Terminal cranes by moves per hour, lowest first.",
+    "scenario": null,
+    "expected_outcome": "ASK",
+    "expected_behavior": "Ask the period.",
+    "_id": "missing_period"
+  },
+  {
+    "case_id": "meaning_only",
+    "user_id": "maria",
+    "question": "What does moves per hour mean?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Use Harbor definition and source; operational results are unnecessary.",
+    "_id": "meaning_only"
+  },
+  {
+    "case_id": "target_comparison",
+    "user_id": "maria",
+    "question": "Which North Terminal cranes were below the agreed moves-per-hour target in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Use the effective approved agreement and a strict less-than comparison.",
+    "agreement_id": "harbor_north_agreement_v1",
+    "expected_assets": [
+      "harbor_north_c01"
+    ],
+    "_id": "harbor_north_agreement_v1"
+  },
+  {
+    "case_id": "same_names_other_company",
+    "user_id": "maya",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Resolve North Terminal within Pacific Cargo; use scheduled hours, not Harbor meaning.",
+    "expected_result_key": "pacific_north",
+    "_id": "same_names_other_company"
+  },
+  {
+    "case_id": "third_company",
+    "user_id": "chen",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Resolve North Terminal within Strait Logistics.",
+    "expected_result_key": "strait_north",
+    "_id": "third_company"
+  },
+  {
+    "case_id": "denied_terminal",
+    "user_id": "ana",
+    "question": "Which cranes had the lowest moves per hour at South Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "DENY",
+    "expected_behavior": "Ana cannot see South Terminal.",
+    "_id": "denied_terminal"
+  },
+  {
+    "case_id": "denied_company",
+    "user_id": "maria",
+    "question": "Show Pacific Cargo crane results for October.",
+    "scenario": null,
+    "expected_outcome": "DENY",
+    "expected_behavior": "Question wording cannot change Maria’s verified company.",
+    "_id": "denied_company"
+  },
+  {
+    "case_id": "no_permissions",
+    "user_id": "noah",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "DENY",
+    "expected_behavior": "User has no permitted terminals.",
+    "_id": "no_permissions"
+  },
+  {
+    "case_id": "disabled_user",
+    "user_id": "former_user",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "DENY",
+    "expected_behavior": "Disabled account cannot access saved or fresh information.",
+    "_id": "disabled_user"
+  },
+  {
+    "case_id": "unsupported_payroll",
+    "user_id": "maria",
+    "question": "Show employee salaries for October.",
+    "scenario": null,
+    "expected_outcome": "UNSUPPORTED",
+    "expected_behavior": "Do not force payroll into crane fields.",
+    "_id": "unsupported_payroll"
+  },
+  {
+    "case_id": "unsupported_cause",
+    "user_id": "maria",
+    "question": "What mechanical fault caused C01 to perform badly?",
+    "scenario": null,
+    "expected_outcome": "UNSUPPORTED",
+    "expected_behavior": "Performance comparison does not diagnose a mechanical cause.",
+    "_id": "unsupported_cause"
+  },
+  {
+    "case_id": "ambiguous_asset",
+    "user_id": "maria",
+    "question": "Show C01 moves per hour in October.",
+    "scenario": null,
+    "expected_outcome": "ASK",
+    "expected_behavior": "C01 exists at both permitted terminals; ask which terminal.",
+    "_id": "ambiguous_asset"
+  },
+  {
+    "case_id": "other_conversation",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "DENY",
+    "expected_behavior": "Do not load another user’s conversation.",
+    "conversation_owner": "luis",
+    "supplied_conversation_id": "luis_private_1",
+    "_id": "other_conversation"
+  },
+  {
+    "case_id": "last_month_timezone",
+    "user_id": "maya",
+    "question": "Rank North Terminal cranes by moves per hour last month, lowest first.",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Use Pacific local calendar: at the supplied UTC instant it is still October, so last month is September.",
+    "now_utc": "2026-11-01T00:30:00Z",
+    "expected_period": {
+      "start": "2026-09-01",
+      "end_exclusive": "2026-10-01"
+    },
+    "_id": "last_month_timezone"
+  },
+  {
+    "case_id": "missing_day",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "missing_day",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "WITHHOLD full-month ranking",
+    "_id": "missing_day"
+  },
+  {
+    "case_id": "missing_crane",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "missing_crane",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "WITHHOLD ranking; expected crane is missing",
+    "_id": "missing_crane"
+  },
+  {
+    "case_id": "null_hours",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "null_hours",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "WITHHOLD; missing operating hours",
+    "_id": "null_hours"
+  },
+  {
+    "case_id": "zero_hours",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "zero_hours",
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Use agreed period totals, not daily division; if period denominator is positive a valid ratio can still exist",
+    "_id": "zero_hours"
+  },
+  {
+    "case_id": "invalid_hours",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "invalid_hours",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "WITHHOLD; invalid negative hours",
+    "_id": "invalid_hours"
+  },
+  {
+    "case_id": "zero_period_hours",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "zero_period_hours",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "No ratio for C01; do not rank it as zero",
+    "_id": "zero_period_hours"
+  },
+  {
+    "case_id": "correction",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "correction",
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Use latest revision once; invalidate v1 saved data and dependent AI results",
+    "_id": "correction"
+  },
+  {
+    "case_id": "deleted_record",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "deleted_record",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "Exclude deleted record; re-evaluate full-period coverage, not silently count it",
+    "_id": "deleted_record"
+  },
+  {
+    "case_id": "duplicate_record",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "duplicate_record",
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Count the identical record/revision once; reject conflicting duplicates",
+    "_id": "duplicate_record"
+  },
+  {
+    "case_id": "tie",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "tie",
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Equal ratios share rank; asset ID is display order only",
+    "_id": "tie"
+  },
+  {
+    "case_id": "missing_definition",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "missing_definition",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "Cannot support this indicator; do not substitute another company definition",
+    "_id": "missing_definition"
+  },
+  {
+    "case_id": "conflicting_definition",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "conflicting_definition",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "WITHHOLD until authoritative meaning is resolved",
+    "_id": "conflicting_definition"
+  },
+  {
+    "case_id": "expired_agreement",
+    "user_id": "maria",
+    "question": "Which North Terminal cranes met the October agreement target?",
+    "scenario": "expired_agreement",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "Cannot state October target compliance without an applicable agreement",
+    "_id": "expired_agreement"
+  },
+  {
+    "case_id": "changed_target",
+    "user_id": "maria",
+    "question": "Which North Terminal cranes met the October agreement target?",
+    "scenario": "changed_target",
+    "expected_outcome": "ASK",
+    "expected_behavior": "Use effective dates; ask how to report the split period if no agreed rule exists",
+    "_id": "changed_target"
+  },
+  {
+    "case_id": "draft_agreement",
+    "user_id": "maria",
+    "question": "Which North Terminal cranes met the October agreement target?",
+    "scenario": "draft_agreement",
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Ignore draft for operational target comparison",
+    "_id": "draft_agreement"
+  },
+  {
+    "case_id": "access_revoked",
+    "user_id": "luis",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "access_revoked",
+    "expected_outcome": "DENY",
+    "expected_behavior": "DENY even when a cache entry exists",
+    "_id": "access_revoked"
+  },
+  {
+    "case_id": "search_unavailable",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "search_unavailable",
+    "expected_outcome": "ERROR",
+    "expected_behavior": "ERROR, not UNSUPPORTED",
+    "_id": "search_unavailable"
+  },
+  {
+    "case_id": "data_timeout",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "data_timeout",
+    "expected_outcome": "ERROR",
+    "expected_behavior": "ERROR; no invented ranking",
+    "_id": "data_timeout"
+  },
+  {
+    "case_id": "untrusted_document",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "untrusted_document",
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Treat as untrusted content, never an instruction; do not expand access",
+    "_id": "untrusted_document"
+  },
+  {
+    "case_id": "empty_period",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": "empty_period",
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "No recorded data is not proof of no activity; explain unavailable period",
+    "_id": "empty_period"
+  },
+  {
+    "case_id": "same_data_luis",
+    "user_id": "luis",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Luis may reuse valid Harbor data while Maria is away; still check his access.",
+    "expected_data_cache": "HIT",
+    "_id": "same_data_luis"
+  },
+  {
+    "case_id": "cache_wrong_company",
+    "user_id": "maya",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Do not reuse Harbor entry for Pacific Cargo.",
+    "expected_data_cache": "MISS",
+    "_id": "cache_wrong_company"
+  },
+  {
+    "case_id": "cache_new_month",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in September 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "October cache cannot answer September.",
+    "expected_data_cache": "MISS",
+    "_id": "cache_new_month"
+  },
+  {
+    "case_id": "cache_ai_unchanged",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Reuse a successful classification only when its exact relevant inputs and versions match.",
+    "expected_ai_cache": "HIT",
+    "_id": "cache_ai_unchanged"
+  },
+  {
+    "case_id": "cache_new_reply",
+    "user_id": "maria",
+    "question": "North Terminal",
+    "scenario": null,
+    "expected_outcome": "ASK",
+    "expected_behavior": "New reply changes the complete question; do not reuse earlier missing-terminal decision.",
+    "conversation_messages": [
+      "Which cranes performed badly last month?",
+      "Which terminal do you mean?",
+      "North Terminal"
+    ],
+    "expected_ai_cache": "MISS",
+    "_id": "cache_new_reply"
+  },
+  {
+    "case_id": "cache_new_prompt",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "ANSWER",
+    "expected_behavior": "Changed model instructions require a fresh AI result.",
+    "prompt_version": "v2",
+    "expected_ai_cache": "MISS",
+    "_id": "cache_new_prompt"
+  },
+  {
+    "case_id": "wrong_draft_number",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "Reject/correct a draft containing a number different from checked results.",
+    "bad_draft": {
+      "asset_id": "harbor_north_c01",
+      "moves_per_hour": 999
+    },
+    "_id": "wrong_draft_number"
+  },
+  {
+    "case_id": "wrong_draft_cause",
+    "user_id": "maria",
+    "question": "Which cranes had the lowest moves per hour at North Terminal in October 2026?",
+    "scenario": null,
+    "expected_outcome": "WITHHOLD",
+    "expected_behavior": "Reject unsupported causal statement.",
+    "bad_draft": "C01 is slow because its motor is broken.",
+    "_id": "wrong_draft_cause"
+  },
+  {
+    "_id": "retail_rate",
+    "case_id": "retail_rate",
+    "user_id": "sam",
+    "question": "Which stores had the highest return rate in October 2026?",
+    "expected_outcome": "ANSWER",
+    "expected_values": [
+      [
+        "West",
+        10
+      ],
+      [
+        "East",
+        2
+      ]
+    ],
+    "scenario": null
+  },
+  {
+    "_id": "hospital_wait",
+    "case_id": "hospital_wait",
+    "user_id": "hospital_ops",
+    "question": "Rank all my hospitals by highest average outpatient waiting time in October 2026.",
+    "expected_outcome": "ANSWER",
+    "expected_values": [
+      [
+        "Central Hospital",
+        50
+      ],
+      [
+        "Hillview Hospital",
+        45
+      ],
+      [
+        "Westhaven Hospital",
+        38
+      ],
+      [
+        "Riverside Hospital",
+        30
+      ],
+      [
+        "Lakeside Hospital",
+        25
+      ],
+      [
+        "Meadow Hospital",
+        20
+      ]
+    ],
+    "scenario": null
+  },
+  {
+    "_id": "hotel_worldwide",
+    "case_id": "hotel_worldwide",
+    "user_id": "hotel_hq",
+    "question": "Rank all my hotels worldwide by lowest occupancy rate in October 2026.",
+    "expected_outcome": "ANSWER",
+    "expected_values": [
+      [
+        "Tokyo Bay",
+        70
+      ],
+      [
+        "Madrid Central",
+        80
+      ],
+      [
+        "Mexico City Plaza",
+        90
+      ]
+    ],
+    "scenario": null
+  },
+  {
+    "_id": "hotel_local",
+    "case_id": "hotel_local",
+    "user_id": "madrid_manager",
+    "question": "Show the October 2026 occupancy rate for Madrid Central, highest first.",
+    "expected_outcome": "ANSWER",
+    "expected_values": [
+      [
+        "Madrid Central",
+        80
+      ]
+    ],
+    "scenario": null
+  },
+  {
+    "_id": "hotel_denied",
+    "case_id": "hotel_denied",
+    "user_id": "madrid_manager",
+    "question": "Show the October 2026 occupancy rate for Tokyo Bay, highest first.",
+    "expected_outcome": "NO_FIGURES",
+    "expected_values": [],
+    "scenario": null
+  }
+]

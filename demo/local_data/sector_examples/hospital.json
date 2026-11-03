@@ -1,0 +1,15 @@
+{
+  "company_id": "cedar",
+  "name": "Cedar Hospital Network (fictional)",
+  "timezone": "Europe/Amsterdam",
+  "group": "hospital",
+  "members": [
+    {"id": "Riverside Hospital", "scope": "riverside", "country": "Netherlands", "daily": {"wait_minutes": 1200, "visits": 40}},
+    {"id": "Hillview Hospital", "scope": "hillview", "country": "Netherlands", "daily": {"wait_minutes": 900, "visits": 20}}
+  ],
+  "users": {"hospital_ops": ["riverside", "hillview"], "riverside_manager": ["riverside"]},
+  "tasks": "Compare permitted hospitals by average outpatient waiting time. Only aggregated operational information is provided. Patient records, diagnoses and treatment recommendations are not supported.",
+  "title": "Average outpatient waiting time",
+  "definition": "Average outpatient waiting time is total minutes spent waiting by recorded outpatient visitors divided by the number of those visits. Combine the period totals before dividing. No visits means no average.",
+  "numerator": "wait_minutes", "denominator": "visits", "scale": 1, "unit": "minutes per visit"
+}

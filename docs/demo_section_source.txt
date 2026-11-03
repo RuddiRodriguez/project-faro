@@ -1,0 +1,12 @@
+add('7.1 Demonstrate the architecture, then expand',
+    p('The first working demonstration follows Maria’s complete journey using the same service boundaries described here. It is a first delivery of the architecture, not a separate design.'),
+    table(['Demonstrate','What it establishes'],[
+        ['An incomplete question and a clear first question','The follow-up loop works when needed and stays out of the way when the question is already clear.'],
+        ['A supported comparison with sources and dates','Facts remain connected to the question and the final explanation.'],
+        ['Missing information, forbidden access, and a failed service','The system responds honestly instead of producing a plausible but unsupported answer.'],
+        ['The same request repeated within a company','Both caches avoid eligible repeated work while retaining checks and permissions.'],
+        ['A second compatible client connection','The shared format lets the main services stay unchanged while client-specific information remains separate.'],
+        ['A client task reviewed for correctness, time, and cost','The design can be assessed for practical value, not only conversational quality.']
+    ],[222,261]),
+    p('Expand the supported questions and client connections from the evidence gathered. Preserve the service boundaries, add checks for new tasks, and measure the effect of each change on reliability, speed, cost, and usefulness.'),
+    callout('The intended client experience','Maria asks in her own words, makes only the choices that matter, and receives an answer she can understand and inspect. The system does the connecting work while keeping its limits visible.'))

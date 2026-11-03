@@ -1,0 +1,20 @@
+{
+  "data_kind": "fictional demo fixtures",
+  "version": "v1",
+  "default_now_utc": "2026-11-01T12:00:00Z",
+  "companies": 6,
+  "terminals": 6,
+  "assets": 23,
+  "users": 12,
+  "records": 1627,
+  "cases": 51,
+  "scenario_rule": "Apply one scenario to a fresh copy of the base dataset; do not combine scenarios implicitly.",
+  "scope": "Port operations, retail stores, hospital operations and an international hotel chain.",
+  "scopes": 16,
+  "hospital_release": {
+    "version": "cedar-v2",
+    "hospitals": 6,
+    "period": "2026-07-01 through 2026-10-31",
+    "kind": "fictional deterministic demo data"
+  }
+}
