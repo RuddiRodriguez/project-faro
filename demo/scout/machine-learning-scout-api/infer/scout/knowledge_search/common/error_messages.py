@@ -1,4 +1,4 @@
-class NemoErrorMessages:
+class SearchErrorMessages:
     class Retrieval:
         KNOWLEDGE_BASE_ID_REQUIRED = "knowledge_base_id is required."
         QUERY_EMPTY = "Search query must be a non-empty string."
@@ -25,7 +25,7 @@ class NemoErrorMessages:
         DOCUMENT_TOO_LARGE = "Document '{}' exceeds the Bedrock document size limit. Size: {} bytes, Max: {} bytes."
         IMAGE_TOO_LARGE = "Image '{}' exceeds the Bedrock multimodal size limit. Size: {} bytes, Max: {} bytes (3.75 MB)."
         S3_NOT_READABLE = (
-            "Source object '{}' is not readable by Nemo. "
+            "Source object '{}' is not readable by knowledge search. "
             "For S3 sources, use a bucket and prefix the asset workflow role can read."
         )
         UNSUPPORTED_SCHEME = "Unsupported asset URL scheme: {}"
@@ -42,11 +42,11 @@ class NemoErrorMessages:
 
     class Media:
         TYPE_REQUIRED = "MediaType is required."
-        UNSUPPORTED_SUPPORTED = "Unsupported MediaType '{}'. Nemo v1 supports only: {}."
+        UNSUPPORTED_SUPPORTED = "Unsupported MediaType '{}'. knowledge search v1 supports only: {}."
         AUDIO_VIDEO_UNSUPPORTED = (
-            "Unsupported MediaType '{}'. Nemo v1 supports text and image assets only; audio and video are not supported yet."
+            "Unsupported MediaType '{}'. knowledge search v1 supports text and image assets only; audio and video are not supported yet."
         )
-        UNSUPPORTED_TEXT_IMAGE = "Unsupported MediaType '{}'. Nemo currently supports text and image assets only."
+        UNSUPPORTED_TEXT_IMAGE = "Unsupported MediaType '{}'. knowledge search currently supports text and image assets only."
         IMAGE_SOURCE_EXTENSION_REQUIRED = "Image source URL must end with .png, .jpg, or .jpeg."
 
     class Indexing:

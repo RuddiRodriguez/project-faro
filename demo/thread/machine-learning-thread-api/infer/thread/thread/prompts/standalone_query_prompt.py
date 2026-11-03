@@ -21,7 +21,6 @@ class RewrittenQuestion(BaseModel):
 
 
 class StandaloneQueryPrompt:
-    # Adapted from Luna v2's CONVERSATION.json knowledge_query_instructions.
     SYSTEM_MESSAGE = textwrap.dedent("""
 # Role: Question rewriting
 

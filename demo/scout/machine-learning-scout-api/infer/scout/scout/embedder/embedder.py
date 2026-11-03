@@ -1,8 +1,8 @@
 import torch
 
 from retrieval_utils.embedder import Embedder
-from scout.catalyst.catalyst.text_embedders.e5.embedder import E5Embedder
-from scout.catalyst.catalyst.text_embedders.e5.tokenizer import E5Tokenizer
+from scout.embedding_backend.embedding_backend.text_embedders.e5.embedder import E5Embedder
+from scout.embedding_backend.embedding_backend.text_embedders.e5.tokenizer import E5Tokenizer
 
 
 class E5SmallEmbedder(Embedder):

@@ -15,7 +15,7 @@ Input to `POST /v1/company-information`:
 
 Library reads companies, terminals, documents and agreements. It returns Harbor's company information, North Terminal, four approved definition documents and North's approved agreement. South's terminal and agreement are excluded, as is all material from other companies.
 
-Both the API and the library have their own Pydantic input and output classes. The endpoint converts between them, following Japan's `PredictEndpoint.handle` → `Predictor.predict` structure. The JSON selection code is new; Japan's AI and cloud dependencies are not needed here.
+The API and library each have Pydantic input and output classes. The endpoint converts the fields explicitly and calls InformationReader.read.
 
 ## Selection rules
 

@@ -41,7 +41,7 @@ CACHE = [
     ("service","TEXT","Compass identifies the producing service call."),
     ("version","TEXT","Compass cache policy fingerprint when the entry was written."),
     ("cached_value_json","JSON","Typed output of the named AI service, or Bridge facts independently verified by Shield."),
-    ("expires_at","TIMESTAMP","Compass UTC save time plus 120 days, adapted from Japan's API DAL."),
+    ("expires_at","TIMESTAMP","Compass UTC save time plus 120 days."),
     ("produced_by_turn","TEXT","Foreign key to the turn that actually produced this value; absent if an older record did not save it.")]
 COLUMNS["ai_cache"] = CACHE
 COLUMNS["data_cache"] = CACHE

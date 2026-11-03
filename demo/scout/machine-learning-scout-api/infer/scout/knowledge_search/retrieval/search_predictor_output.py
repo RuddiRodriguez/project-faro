@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict
 
-from nemo.retrieval.index_hit import IndexHit
+from knowledge_search.retrieval.index_hit import IndexHit
 
 
 class SearchPredictorOutput(BaseModel):

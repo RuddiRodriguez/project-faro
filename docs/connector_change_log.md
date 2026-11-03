@@ -13,9 +13,9 @@ The client grants access and asks a question. In this example one Harbor release
 
 ## What was reused
 
-- AI2Analytics’s proxy handler supplied the existing service-forwarding pattern. Faro’s existing HTTP caller was moved to shared utilities and its previous import path retained. The new Connector client uses that shared caller.
-- The trading project’s profile factory provided a relevant selection pattern. This demo only needs a dictionary of file types and readers. The three native readers are new.
-- Scout keeps its Nemo-style definition search. Bridge keeps its current model, shared utilities and isolated dataframe worker. Shield keeps its replay and verification path. No additional model call is required to open a file. Nevada’s topic extraction was reviewed; it cannot prove that two records refer to the same posting and was not needed.
+- Services use the shared HTTP caller to communicate.
+- A dictionary selects the reader for each supported file type.
+- Scout keeps its definition search. Bridge keeps its current model, shared utilities and isolated dataframe worker. Shield keeps its replay and verification path. No additional model call is required to open a file.
 - Other integration changes: Connector endpoint and package metadata, console service list and URL, Scout and Bridge API objects, Signal inventory input via Compass, shared service calls, Shield evidence prompt and replay, demo dependencies and README. An empty or invalid structured response from Bridge now returns an incomplete result without figures; it no longer raises HTTP 500 in that case.
 
 ## What the tests showed

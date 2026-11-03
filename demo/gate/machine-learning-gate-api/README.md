@@ -27,9 +27,9 @@ Company and terminals come from the saved record, never from extra values in the
 
 Compass will later pass the company and terminal fields to Library. Compass is not implemented yet. A local test verifies that Gate's output can supply Library's input.
 
-## Reused structure
+## Implementation
 
-Uses the same API → `PredictEndpoint.handle` → `Predictor.predict` structure as Japan and Library. API and library each have separate Pydantic input and output classes. JSON reading follows Library's existing approach; user selection and active-account checks are the new logic. AI2Analytics forwarding code is unnecessary for this small service.
+The API calls AccessChecker.check. API and library inputs and outputs are separate Pydantic classes. Gate reads the selected demo account and its permitted company information.
 
 ## Run
 

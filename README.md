@@ -21,7 +21,7 @@ From a checkout:
 
 The tested environment uses Python 3.15.2. Dependencies are pinned in the service packages. The model account must support the configured OpenAI models and Decision API; an arbitrary account is not assumed to have access.
 
-The preparation command downloads the pinned public [multilingual E5 small checkpoint](https://huggingface.co/intfloat/multilingual-e5-small) and builds one company search index. To reuse your existing Luna weights instead:
+The preparation command downloads the pinned public [multilingual E5 small checkpoint](https://huggingface.co/intfloat/multilingual-e5-small) and builds one company search index. To use existing compatible weights instead:
 
     python scripts/prepare_scout_model.py --weights /path/to/e5/weights
 
@@ -49,7 +49,7 @@ Use /new for a fresh question, /logout to change account, /quit to stop. “Last
 
 Compass saves every turn in a company-specific data collection. The demo uses Parquet; the proposal describes SQL tables. Successful work is reused only for matching inputs and access. Shield rechecks cached evidence.
 
-Model calls go through shared utils. Prompts follow Japan/Gambit: role, objective, initial analysis, final reasoning and response. Pydantic defines the structured result beside its prompt. Short initial_analysis and reasoning summaries are saved per model call and attempt. These are decision explanations, not private chain-of-thought logs. Signal uses three choices in one Decision API call: action, assessment and justification.
+Model calls go through shared utils. Prompts use a consistent structure: role, objective, initial analysis, final reasoning and response. Pydantic defines the structured result beside its prompt. Short initial_analysis and reasoning summaries are saved per model call and attempt. These are decision explanations, not private chain-of-thought logs. Signal uses three choices in one Decision API call: action, assessment and justification.
 
 ## Code names follow responsibilities
 
@@ -69,7 +69,7 @@ Each service retains separate API and library folders, with shared Pydantic API 
 | Voice | generator.py / Generator | generate |
 | Connector | source_reader.py / SourceReader | read |
 
-Copied Nemo search and original model utilities retain their source names. Old ranking-only and fixed-field conversation endpoints were removed from Faro.
+The search library and shared model utilities are included in the repository. Old ranking-only and fixed-field conversation endpoints were removed from Faro.
 
 ## Reuse and limits
 
@@ -94,14 +94,10 @@ Paid, real console run across four sectors:
 
     FARO_RUN_LIVE_TESTS=1 python -m unittest discover -s tests -p test_sector_console.py -v
 
-Optional comparison with original private repositories:
-
-    FARO_CHECK_ORIGINAL_REPOS=1 python -m unittest discover -s utils/tests -v
-
 Local tests cover permissions, corrections, withdrawals, incomplete records, unfamiliar fields, source formats, document snapshots, execution boundaries, caches, retries and saved summaries. Live tests are explicit opt-ins. See [validation results](docs/validation.md) for exact coverage and limits.
 
 - [Delivery proposal](output/pdf/terminal_data_proposal.pdf)
-- [Personal proposal with references](output/pdf/terminal_data_proposal_with_project_references.pdf)
+- [Proposal with Faro code references](output/pdf/terminal_data_proposal_with_project_references.pdf)
 - [Hospital data](demo/local_data/demo_dataset/HOSPITAL_DATA.md)
 - [Connector interface](demo/connector/machine-learning-connector-api/README.md)
 - [Code reuse](demo/REUSE_REVIEW.md)

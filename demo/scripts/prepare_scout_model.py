@@ -12,7 +12,7 @@ if __name__ == "__main__":
     from scout.knowledge_index import MODEL, build_indexes
 
     parser = ArgumentParser()
-    parser.add_argument("--weights", type=Path, help="Existing Luna-compatible multilingual E5 small weights")
+    parser.add_argument("--weights", type=Path, help="Existing retrieval-compatible multilingual E5 small weights")
     args = parser.parse_args()
     if args.weights is None:
         from huggingface_hub import snapshot_download

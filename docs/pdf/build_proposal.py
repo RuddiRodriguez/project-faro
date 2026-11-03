@@ -24,12 +24,11 @@ def svc(name):
     module={'compass':'orchestrator','signal':'classifier','bridge':'reader','shield':'verifier','voice':'generator'}[name]
     file=next((ROOT/'demo'/name).glob(f'*/infer/{name}/{name}/{module}.py'))
     return R(name.title()+' | current demo',file,detail)
-H=Path.home()
-luna=R('Luna | question rewriting',H/'machine-learning-luna/luna/predictor/predictor.py','Original pattern: combine the user’s messages into one standalone question.')
-nemo=R('Nemo | knowledge search',H/'machine-learning-nemo/nemo/predictor.py','Existing search method. Faro changes the search backend, not the role of retrieval.')
-japan=R('Japan | follow-up',H/'machine-learning-japan/japan/predictor.py','Original pattern for asking only when the information supplied is insufficient.')
-analytics=R('AI2Analytics | forwarding',H/'machine-learning-ai2analytics/service/ai2analytics/proxy_handler.py','Source pattern for service forwarding. Not a production sign-in system.')
-forecast=R('Forecasting | input normalization',H/'Projects/automated-forecasting-engine-commodities/src/market_forecasting_engine/data.py','Related pattern for standardizing incoming names and dates; not a ready-made terminal connector.')
+rewriter=demo('Thread | question rewriting','thread/machine-learning-thread-api/infer/thread/thread/rewriter.py','Combines relevant replies into one question.')
+search=demo('Scout | knowledge search','scout/machine-learning-scout-api/infer/scout/scout/searcher.py','Searches permitted definitions and returns matching evidence.')
+followup=demo('Guide | follow-up','guide/machine-learning-guide-api/infer/guide/guide/generator.py','Asks for the missing choice needed to continue.')
+forwarding=demo('Compass | forwarding','utils/utils/service_call.py','Calls the next service over HTTP.')
+normalization=demo('Connector | source readers','connector/machine-learning-connector-api/infer/connector/connector/readers.py','Reads permitted source formats.')
 records=demo('Faro | record checks','bridge/machine-learning-bridge-api/infer/bridge/bridge/records.py','Checks revisions, deletion markers, dates, coverage and approved measures.')
 source=demo('Faro | permitted sources','bridge/machine-learning-bridge-api/infer/bridge/bridge/source.py','Builds the catalogue and reads only the permitted operational records.')
 retry=demo('Faro | attempt recording','utils/utils/llms/model_attempts.py','Records each model attempt under the service and turn that made it.')
@@ -41,7 +40,7 @@ readers=demo('Connector | three file readers','connector/machine-learning-connec
 tests=demo('Connector | evidence tests','connector/machine-learning-connector-api/tests/test_sources.py','Access, three formats, an unrelated table, changed records and incomplete links.')
 joined=demo('Bridge | linked records','bridge/machine-learning-bridge-api/infer/bridge/bridge/connected.py','Reads original records and verifies that selected keys can connect the two tables.')
 fixture=demo('Harbor | three source files','scripts/create_connector_sources.py','Recreates the example release. The operations note explains how the records fit together.')
-factory=R('Trading projects | reader selection pattern',H/'Projects/invest-alpaca-bear-put-eth-test/ai_trading_system/trader/profile_factory.py','Related pattern for choosing an implementation. The native readers are new.')
+factory=demo('Connector | reader selection','connector/machine-learning-connector-api/infer/connector/connector/readers.py','Selects the reader for each supported source format.')
 add('Project Faro',[
  p('Ask your terminal data. Understand the answer.','Sub'),
  Image(str(ROOT/'output/imagegen/project_faro.png'),width=483,height=150,kind='proportional'),Spacer(1,8),base.heading('TL;DR'),
@@ -57,7 +56,7 @@ add('1. The client connects data. Maria asks.',[
  ['An October operations report','Index its headings and table locations. A table labelled “idle hours by berth” is a promising place to look; its month, units, coverage and version still need checking.'],
  ['Two equipment names','A spreadsheet says C07; a database says QC-7. Look for a shared equipment ID or an existing register that links them. Similar spelling alone is not enough to combine their hours.'],
  ['Only a current berth assignment','That can locate the crane today. It cannot put last month’s hours on a berth. Keep the terminal records usable and leave the historical berth unknown.']]),
- callout('When to ask Maria','Ask only when her preference could change the answer. “Most idle hours” is already clear. If she says “worst” and total hours and idle percentage give different winners, show the distinction or ask which she wants. Do not ask her to map the database.')],[source,forecast])
+ callout('When to ask Maria','Ask only when her preference could change the answer. “Most idle hours” is already clear. If she says “worst” and total hours and idle percentage give different winners, show the distinction or ask which she wants. Do not ask her to map the database.')],[source,normalization])
 add('1.1 One product, interchangeable connectors',[
  p('Each connector answers the same three requests. The client keeps its infrastructure; the connector translates Faro’s request into a read that its source supports. The rest of Faro does not need to know whether that means querying a database or opening a workbook.'),
  rows('What Faro asks','What the connector returns',[
@@ -66,7 +65,7 @@ add('1.1 One product, interchangeable connectors',[
  ['Read the needed part','Requested values with a precise reference: record IDs, PDF page, or workbook sheet and row. Include the source version or snapshot when available; say when freshness or coverage cannot be checked.']]),
  sub('What changes when the next client connects'),
  p('For a supported source, configure its location, credentials and access scope. The connector handles its file layout or query method. A previously unseen format may need a reader built once and reused for other clients. Names and evidence can differ even when the format is the same.'),
- callout('What stays in Faro','Gate checks access; Scout finds candidate sources; Bridge decides what to read; Shield checks whether those facts support the answer. None needs a special rule for Client A’s berths. Faro’s own collection of turns, checks and cache entries stays separate from the client’s source material.')],[readers,factory,analytics])
+ callout('What stays in Faro','Gate checks access; Scout finds candidate sources; Bridge decides what to read; Shield checks whether those facts support the answer. None needs a special rule for Client A’s berths. Faro’s own collection of turns, checks and cache entries stays separate from the client’s source material.')],[readers,factory,forwarding])
 add('1.2 What runs today and what comes next',[
  p('The local demo reads SQLite, Excel and text PDFs through a separate Connector service. Its readers open the files. They do not decide which entries count as idle time or which terminal performed better.'),
  table(['Service','Working in the demo','Still to build'],[
@@ -76,14 +75,14 @@ add('1.2 What runs today and what comes next',[
  callout('Current boundary','The local demo selects a saved user account; production sign-in is still needed. Connected files are granted as a whole. Reads stop above 500 rows. The expression worker is isolated on macOS; other operating systems need an equivalent worker.'),
  sub('What stays reusable across clients'),
  p('Clients keep their own formats and meanings. Faro standardizes what accompanies an answer: the measure, scope, dates, source, version and known gaps. A new format may need a reader; it does not need a new conversation or checking service.'),
- p('For changing records, follow the source’s revisions: count a correction once, exclude a record whose latest version marks it deleted, and recheck coverage when late entries arrive. If two versions cannot reliably be matched, do not present an exact total from them.')],[nemo,readers,joined,svc('shield')])
+ p('For changing records, follow the source’s revisions: count a correction once, exclude a record whose latest version marks it deleted, and recheck coverage when late entries arrive. If two versions cannot reliably be matched, do not present an exact total from them.')],[search,readers,joined,svc('shield')])
 add('2. From a question to an answer',[
  p('Maria is an example terminal operator. She sees one screen. Compass coordinates the services below; it keeps her question, replies and evidence together.'),
  ServiceCircle(),
  rows('What comes in','What moves forward',[
  ['Question and signed-in account','Gate checks the person and permitted sites. Library supplies company terms and available sources within that access.'],
  ['Question and approved terms','Thread uses relevant replies; Scout searches definitions. Signal decides whether to continue. Guide asks one question if a choice that matters is missing.'],
- ['Clear request and permitted sources','Connector opens the files for Scout, Bridge and Shield. Bridge reads the data. Shield independently checks the evidence. Voice explains only supported findings. Compass saves the turn.']])],[analytics,svc('compass')])
+ ['Clear request and permitted sources','Connector opens the files for Scout, Bridge and Shield. Bridge reads the data. Shield independently checks the evidence. Voice explains only supported findings. Compass saves the turn.']])],[forwarding,svc('compass')])
 add('2.1 Maria asks about crane idle time',[
  p('Maria asks: <b>“Which berths had the most crane idle hours last month?”</b> The measure is clear. The open question is whether her records actually identify the berth. Being allowed to see two terminals does not establish either answer.'),
  rows('Step','Input → work → output',[
@@ -92,7 +91,7 @@ add('2.1 Maria asks about crane idle time',[
  ['Scout | find the meaning','Search Harbor’s approved documents for idle time. Return the text and source: idle time is when a crane is available but not working. This is a definition, not a ranking.'],
  ['Signal and Guide | clarify','Signal uses the Decision API only to classify the next step. If both total idle hours and idle share are legitimate interpretations, Guide asks which she means. If her wording or the source already settles it, proceed.']]),
  callout('When a follow-up is useful','Maria already said “most crane idle hours,” so skip the follow-up. If she had said only “worst,” Guide could ask “Most total idle hours, or largest idle share?” Thread would keep her reply with the original question.'),
- p('For a question asked on 1 November 2026 in the client’s local time, “last month” means 1–31 October. The date range travels with the request.')],[luna,nemo,japan,svc('signal')])
+ p('For a question asked on 1 November 2026 in the client’s local time, “last month” means 1–31 October. The date range travels with the request.')],[rewriter,search,followup,svc('signal')])
 add('2.2 Read what Maria is allowed to see',[
  p('Bridge receives the clarified question and the full catalogue of sources Maria may use. Scout’s search results help explain terms; they do not restrict Bridge to one document or require every question to be a ranking.'),
  sub('One client, three sources'),
@@ -134,7 +133,7 @@ add('3. Keep repeated questions affordable',[
  ['Reuse checked data','While Maria is away, Luis asks the same question. Compass may use a saved read if the company, permitted scope, question, period and versions still match. Shield checks it again. A correction or changed access invalidates reuse.'],
  ['Reuse model work','Keep successful model results in a separate company cache. Match the actual inputs, settings and permissions, including user scope. A clarification changes the inputs. A cache hit avoids the call; a failed result is not saved as a success.'],
  ['Use only the model work needed','Signal uses a classification call. The shared model settings give different work different reasoning effort. Counts, sums and permission checks do not require a model to guess a number.']]),
- callout('How to judge the trade-off','Track elapsed time, calls, retries, cache hits and cost per verified answer, by company. Review slow requests too, not just averages. Compare faster or cheaper settings against the same reviewed questions before adopting them.')],[nemo,store,demo('Shared utils | model levels','utils/utils/llms/common/intelligence_level.py','YOLO and LIGHT currently select the same model with different effort. Signal’s Decision API selects its model explicitly.')])
+ callout('How to judge the trade-off','Track elapsed time, calls, retries, cache hits and cost per verified answer, by company. Review slow requests too, not just averages. Compare faster or cheaper settings against the same reviewed questions before adopting them.')],[search,store,demo('Shared utils | model levels','utils/utils/llms/common/intelligence_level.py','YOLO and LIGHT currently select the same model with different effort. Signal’s Decision API selects its model explicitly.')])
 add('3.1 When a service times out',[
  p('A slow model call does not justify restarting Maria’s question. Retry only the failed call, up to three attempts total, for a temporary provider failure. Do not repeat an access denial or a failed evidence check. If Shield cannot verify after retries, it returns no figures.'),
  sub('One saved demo turn'),
@@ -142,7 +141,7 @@ add('3.1 When a service times out',[
  rows('Service | job','Attempts in that turn',[
  ['Signal | classify','1: success.'],['Bridge | read the facts','2: success; success.'],['Shield | verify findings','3: timeout → success on the same call; success on a separate call.']]),
  callout('What the record tells us','The report was verified in about 95 seconds. The retry worked, but the operator still waited. This single demo run shows where time was spent; it does not establish typical speed, client savings or an acceptable wait.'),
- p('Compass saves the question and turns. Each model service records its own attempts so a timeout remains visible even if its response never reaches Compass. Existing successful work stays attached to the original turn.')],[live,retry,R('Japan | retry pattern',H/'machine-learning-japan/japan/common_tools/llm_handler.py','Backoff around the model call, not around the conversation.')])
+ p('Compass saves the question and turns. Each model service records its own attempts so a timeout remains visible even if its response never reaches Compass. Existing successful work stays attached to the original turn.')],[live,retry,demo('Shared utils | retries','utils/utils/llms/llm_handler.py','Retries temporary model failures within the same call.')])
 add('4. Find out whether operators would use Faro',[
  p('Choose recurring tasks with the terminal supervisor: preparing the morning report, comparing idle time or checking a target. Start with tasks people already complete by searching files and emailing colleagues. Success is reaching a sound operational decision with less effort.'),
  rows('Pilot step','Evidence to collect',[
@@ -151,7 +150,7 @@ add('4. Find out whether operators would use Faro',[
  ['Watch the decision','Can the operator explain what the figures mean and what they do not prove? Would they act, ask for more data, or investigate? Record when an answer changes a decision and whether the reviewer agrees.'],
  ['Decide whether to expand','Compare task completion, time saved, corrections, cost per completed task and repeat use without prompting. Agree thresholds with the client before the pilot. Stop rollout for unauthorized disclosure or materially misleading claims.']]),
  callout('One concrete acceptance case','Use the same question twice. With complete assignments the correct winner is S1. With an assignment missing, the correct outcome is to explain the gap without naming a winner. Always test both halves: refusing everything is not useful either.'),
- p('A repeatable demo proves the services can work together. Only a client pilot can show whether operators trust the answer enough to use it and whether it improves their work.')],[live,demo('Faro | live conversation regression','tests/test_maria_analysis_console.py','Exercises the console journey; not evidence of adoption.'),R('Semantica | evaluation pattern',H/'Projects/Semantica/openend_quality/evaluation/compare_five.py','Related example of repeatable comparisons; client utility still needs observation.')])
+ p('A repeatable demo proves the services can work together. Only a client pilot can show whether operators trust the answer enough to use it and whether it improves their work.')],[live,demo('Faro | live conversation regression','tests/test_maria_analysis_console.py','Exercises the console journey; not evidence of adoption.'),demo('Faro | console evaluation','tests/test_sector_console.py','Checks observed answers across the demo sectors.')])
 add('4.1 Check the same design in other sectors',[
  p('A reusable design must work when the client’s vocabulary changes. The same services answered questions about terminal idle time, retail sales, hospital occupancy and hotel counts in the current console test. This is evidence of those examples, not proof of every possible source or sector.'),
  rows('Example','What the test established',[
@@ -168,7 +167,7 @@ add('4.2 Keep each decision understandable',[
  sub('What is saved'),
  p('Each model-call record stores the service, turn, call ID, attempt outcomes and the assessment and reasoning returned for that attempt. Separate Bridge reads remain separate calls. A reused answer points back to its producing turn; the cache does not invent a new explanation.'),
  callout('Classification stays classification','Signal asks for the action, assessment and justification as three choices in the same Decision API call. It does not replace classification with a full free-text generation call. Other model responses use the Pydantic schema beside their prompt.')
-],[japan,R('Gambit | analysis and response pattern',H/'machine-learning-gambit/gambit/predictor_files/prompts/maker/ai_attributes/ai_attributes_prompt.py','Role, objective, analysis, reasoning and response sections adapted to Faro.'),retry])
+],[followup,demo('Bridge | prompt and schema','bridge/machine-learning-bridge-api/infer/bridge/bridge/prompts/read_prompt.py','Role, objective, analysis, reasoning and response sections.'),retry])
 columns = run_path(str(ROOT/"demo/compass/machine-learning-compass-api/infer/compass/compass/collection_schema.py"))["COLUMNS"]
 def schema_rows(name):
     return table(["SQL column","Type","Where the value comes from"],

@@ -3,8 +3,8 @@ from unittest.mock import patch
 
 from scout.embedder.embedder import E5SmallEmbedder
 
-from nemo.retrieval.inputs.search_input import SearchInput, SearchFilter
-from nemo.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
+from knowledge_search.retrieval.inputs.search_input import SearchInput, SearchFilter
+from knowledge_search.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
 from scout.local_client import LocalKnowledgeBaseClient
 
 
@@ -36,7 +36,7 @@ class LocalSearchTests(unittest.TestCase):
         self.assertEqual(calls.call_count, 1)
         calls.assert_called_once_with("Movimientos por hora")
 
-    def test_nemo_threshold_discards_real_low_score(self):
+    def test_knowledge_search_threshold_discards_real_low_score(self):
         search = SearchInput(knowledge_base_id="harbor", query="moves per working hour",
                              minimum_relevance_score=1.0, scope_filterable_keys=["AssetId"],
                              filters=[SearchFilter(operator="In", key="AssetId",

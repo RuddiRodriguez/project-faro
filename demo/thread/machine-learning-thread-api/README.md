@@ -26,23 +26,9 @@ Thread preserves "performed badly" because Maria has not chosen its meaning. It 
 
 With no previous messages, Thread returns the question unchanged with `used_ai: false` and `model_name: null` and `token_usage: null`. No model call is made.
 
-## Reuse
+## Implementation
 
-Same API → endpoint → predictor layout as the existing demo services and Japan. API and library input/output classes remain separate Pydantic classes.
-
-Thread follows Japan’s `followup/generator.py` pattern: `_build_conversation()` creates the original utils `Conversation`, formats `USER_MESSAGE`, and adds an original `UserMessage`. The prompt holds the original `StructuredOutput` wrapper with `json_schema=RewrittenQuestion.model_json_schema()`. No `response_model` field is added.
-
-`LLMHandler(llm_client=...)` calls the original client’s `chat_predict()`. Thread’s `_parse_chat_prediction_output()` checks `is_success`, reads `assistant_tools[0].parsed_arguments`, and validates those arguments with the Pydantic `RewrittenQuestion` class. Pydantic therefore both defines the request schema and checks required fields/types/non-empty text. No model dump or invented prediction object is used in this flow.
-
-The API loads the saved key, chooses the configured client and maps request/response fields explicitly, following Japan. The original utils snapshot and exact import-only/subset changes are documented in `demo/utils/README.md`.
-
-Rewriting instructions are adapted from Luna API branch `luna-v2`, commit `98e81cd9344a214448df0af7e6904445fd499b7b`, file:
-
-`service/infer/luna/luna/workspace/predictor_files/automata/CONVERSATION.json`, `knowledge_query_instructions`.
-
-Reused rules: combine relevant same-subject conversation, preserve ambiguity and scope, preserve exact identifiers and error messages, and do not invent facts. Faro retains the user's language and omits Luna's search, support-form and answering instructions because those belong outside Thread.
-
-The separate rewriting step follows the earlier Luna standalone-question pattern. The original chat utilities come from pinned utils master; see `demo/utils/README.md`. This is a new combination of existing patterns, not the whole Luna v2 runtime.
+Thread builds a Conversation through shared utils, formats USER_MESSAGE and parses the structured result with RewrittenQuestion.model_validate. Its prompt preserves user choices, ambiguity, scope and exact identifiers without inventing missing facts. API and library inputs and outputs remain separate.
 
 ## Run
 

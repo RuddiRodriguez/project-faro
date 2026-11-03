@@ -1,6 +1,6 @@
-from nemo.predictor import Predictor as NemoPredictor
-from nemo.retrieval.inputs.search_input import SearchFilter, SearchInput
-from nemo.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
+from knowledge_search.predictor import Predictor as SearchPredictor
+from knowledge_search.retrieval.inputs.search_input import SearchFilter, SearchInput
+from knowledge_search.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
 from scout.searcher_input import SearcherInput
 from scout.searcher_output import SearcherOutput, SearchMatch
 
@@ -8,7 +8,7 @@ from scout.searcher_output import SearcherOutput, SearchMatch
 class Searcher:
     def __init__(self, client):
         self.client = client
-        self.retriever = NemoPredictor(KnowledgeBaseRetriever(client), None, None)
+        self.retriever = SearchPredictor(KnowledgeBaseRetriever(client), None, None)
 
     def search(self, searcher_input: SearcherInput) -> SearcherOutput:
         if not searcher_input.document_ids:

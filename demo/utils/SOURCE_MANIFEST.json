@@ -1,200 +1,111 @@
 {
-  "source_repository": "/Users/ruddigarcia/Projects/utils",
-  "source_commit": "a05874ec15ee8debfbc9fbe2f69b766bad9b93ec",
   "files": [
     {
       "path": "llms/common/structured_output.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "6a8b991568783d2d04fd8577f56051ca65518cce078237c810b18064ad3d0380"
     },
     {
       "path": "llms/common/intelligence_level.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "67e95e31de31d19befa417419ef3a465f1f799cbe8850224909bc0083b04121a"
     },
     {
       "path": "llms/common/intelligence_level_resolver.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "5f6aa5ef45c1af499bcc4f7b5fc6cf174ee59464002258f11c09debbc6d0ee9e"
     },
     {
       "path": "llms/common/prompt_cache.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "3db8662d2d2e91c247353a1e45baa7c1f2789c7fb47caffcd88c1248cd0ece30"
     },
     {
       "path": "llms/bedrock_client/bedrock_constants.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "e92e23bd475bb72e9aacec379aac90e90adb5c16af13dde7a31fdaa2144fe59b"
     },
     {
       "path": "llms/bedrock_client/bedrock_exceptions.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "e2a9a89096bb457bcd12b0592fb8b5a7c45c74efa74e9bf75053ae555096f4ae"
     },
     {
       "path": "openai_client/conversation/conversation.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "6fc6550a1054c9ec1ed52415c7381e84c3ceef9bcacb59178ba4368428414108"
     },
     {
       "path": "openai_client/conversation/message.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "0935e63bccb21d1792636e2bcfb47c686b07d33855400a1e2cd246ca2fc92f32"
     },
     {
       "path": "openai_client/conversation/system_message.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "a464b85236bc9dc10fbbb69c5d56e1c9126bf2697ceb7acf80634684afed38dc"
     },
     {
       "path": "openai_client/conversation/user_message.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "99240e84245cb3fde77380c146c6467ec92606addbe3c5f4bbf4533b7f19dc54"
     },
     {
       "path": "openai_client/conversation/assistant_message.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "857118e144c9fb5b930b451b469f9336dcd7da8af03f9b4a7a439d4342911020"
     },
     {
       "path": "openai_client/conversation/image_content.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "3b689ff6fdfc1226a7a65f18b476f97bef39decb198775a252cd6b05531327ee"
     },
     {
       "path": "openai_client/conversation/file_content.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "a78f72251dd928390c7540a19b13614adc488a2f15913c82b4943e8fd9cb5b1b"
     },
     {
       "path": "openai_client/openai_utils.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "209c57c9805bf56156701e603e17a9602c173b96da8f395befab5b320583ddc9"
     },
     {
       "path": "openai_client/outputs/predict_output.py",
-      "mode": "exact",
-      "definitions": null,
-      "sha256": "0aee610d54c31c8d4ecae87bf69794f3fd16f5bcdaf734ce2b3a3800359e9996",
-      "source_repository": "/Users/ruddigarcia/Projects/Semantica/openend_quality/utils",
-      "source_commit": "47f250a58e0f123c477f35b570abfe15731b1ae0"
+      "sha256": "0aee610d54c31c8d4ecae87bf69794f3fd16f5bcdaf734ce2b3a3800359e9996"
     },
     {
       "path": "openai_client/outputs/token_usage.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "c6a8e3d0b6a6e010ab551ef438f82019ddd4a5499bdfbb1045ee1f6af8830bc9"
     },
     {
       "path": "openai_client/exceptions.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "b2ea7ce2e09f95c567a354b3520f7ed976d28d9a5dc0acac9acd14cb24b69ffc"
     },
     {
       "path": "openai_client/tools/assistant_tool.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "79965526150b7bf65c7afa8e67a0112f6080141fac11e5efc211738453826037"
     },
     {
       "path": "openai_client/tools/user_tool.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "6bca082933aac7d41a003691fa40e66bbfa43b418af595571cc7431668b55d58"
     },
     {
       "path": "openai_client/tools/functions/assistant_function.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "373407afdc247cc8b4c43c1c8a68cbac51c2d85e60dabcbe16c861eed715e6c6"
     },
     {
       "path": "openai_client/tools/functions/function.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "8332cb66c8c57d4ea851afd02f075457898085a6ec8a62e0dd7320f34245579a"
     },
     {
       "path": "openai_client/tools/functions/user_function.py",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "67d1adb5d20a6a25ed91c796a4118a1cbf8c4ddc64df6d8c21325e2184be737b"
     },
     {
       "path": "openai_client/openai_consts.py",
-      "mode": "definitions",
-      "definitions": [
-        "Message",
-        "Role",
-        "Temperature",
-        "ModelName",
-        "ImageDetailLevel",
-        "ResponsesApiStatus"
-      ],
       "sha256": "a14ca502dd0dd2352323cafc27c87b81fef92ae642a9f9b050abb6100cb3abad"
     },
     {
       "path": "llms/llm_handler.py",
-      "mode": "type_only_bedrock_import",
-      "definitions": [
-        "LLMHandler"
-      ],
-      "sha256": "f87157141269ab4b92e0014a2babd2b01e5f148f76c7c86b454fe18f0968fd37",
-      "adaptation": "Japan retry around one prediction, temporary errors only; SDK and policy retries disabled. Faro records each attempt grouped by logical call."
+      "sha256": "f87157141269ab4b92e0014a2babd2b01e5f148f76c7c86b454fe18f0968fd37"
     },
     {
       "path": "openai_client/openai_client.py",
-      "mode": "chat_class_subset",
-      "definitions": [
-        "flash_model",
-        "__init__",
-        "_try_fix_json",
-        "_should_use_responses_api",
-        "_validate_structured_output_tool_compatibility",
-        "_build_token_usage",
-        "_build_assistant_function",
-        "_execute_chat_predict",
-        "_responses_api_chat_predict",
-        "_completions_api_chat_predict",
-        "chat_predict"
-      ],
-      "sha256": "50766462ad47c64ea4d8e132cd73fe0728445a809c61bc84a467ebee49df7066",
-      "decision_source": {
-        "source_repository": "/Users/ruddigarcia/Projects/Semantica/openend_quality/utils",
-        "source_commit": "47f250a58e0f123c477f35b570abfe15731b1ae0"
-      },
-      "adaptation": "Japan retry around one prediction, temporary errors only; SDK and policy retries disabled."
+      "sha256": "50766462ad47c64ea4d8e132cd73fe0728445a809c61bc84a467ebee49df7066"
     },
     {
       "path": "openai_client/conversation/decisions_conversation.py",
-      "source_repository": "/Users/ruddigarcia/Projects/Semantica/openend_quality/utils",
-      "source_commit": "47f250a58e0f123c477f35b570abfe15731b1ae0",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "2be16d493107365a7e2db9704a1094e76f2f54c34b8db23cfb13ef708531bcbd"
     },
     {
       "path": "logger.py",
-      "source_repository": "/Users/ruddigarcia/Projects/Semantica/openend_quality/utils",
-      "source_commit": "47f250a58e0f123c477f35b570abfe15731b1ae0",
-      "mode": "exact",
-      "definitions": null,
       "sha256": "d71e81cc7dcce6a0988e4037108c5fff289b3ac1400fb373d4335a0deb1644f9"
     }
   ]

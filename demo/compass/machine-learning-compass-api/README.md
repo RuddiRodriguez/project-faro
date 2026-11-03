@@ -9,7 +9,7 @@ Compass receives the user ID, latest message and previous conversation. It calls
 5. Compass checks each match against Library, then calls Signal with the permitted evidence.
 6. Signal returns Continue, Ask or Unsupported. Compass includes that decision in its response.
 
-Compass does not call AI itself, read the JSON dataset or recreate any existing service logic. It uses the same endpoint/library structure and explicit field mappings as Japan and the existing demo.
+Compass does not call AI itself, read the JSON dataset or recreate any existing service logic. It uses the same endpoint/library structure and explicit field mappings across Faro services.
 
 ## Example
 

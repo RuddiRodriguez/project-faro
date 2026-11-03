@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from nemo.retrieval.index_hit import IndexHit
-from nemo.retrieval.inputs.search_input import SearchFilter, SearchFilterOperator, SearchInput
+from knowledge_search.retrieval.index_hit import IndexHit
+from knowledge_search.retrieval.inputs.search_input import SearchFilter, SearchFilterOperator, SearchInput
 
 
 class KnowledgeBaseRetriever:

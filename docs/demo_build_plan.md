@@ -13,4 +13,4 @@ Demonstrate the same modular architecture as the proposal:
 
 Expand supported tasks and connections from observed results. Keep service boundaries and add checks appropriate to each task.
 
-Implementation foundations: Luna, Nemo, Japan follow-up/cache patterns, AI2Analytics. Decision API classification experiment supports faster decisions and fewer output tokens, not identical classifications or lower total tokens.
+Implementation uses the shared service libraries and model utilities in this repository.

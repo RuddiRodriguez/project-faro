@@ -10,9 +10,9 @@ venv/bin/python -m uvicorn guide_api.infer:app --port 8006
 
 Compass uses `FARO_GUIDE_URL` to override the address. The route is `POST /v1/followup`. On Ask, Compass returns `followup.followup_text`. Continue and Unsupported return `followup: null`; failure to generate a requested question returns an error.
 
-## Following Japan
+## Implementation
 
-See [Japan’s generator](/Users/ruddigarcia/machine-learning-japan/japan/followup/generator.py) and [prompt](/Users/ruddigarcia/machine-learning-japan/japan/predictor_files/prompts/followup_prompt.py). Guide keeps their file layout, named prompt fields, conversation builder, required-key checks, typed generator result and error handling. The text-only prompt replaces the survey inputs with Signal’s missing choice and Scout’s definitions. Like Thread, Guide uses LLMHandler.predict with Pydantic-defined structured output. The API exposes only the question.
+Guide builds the conversation from Signal’s missing choice and Scout’s evidence, calls shared utils and parses the Pydantic-defined response. It returns the follow-up question and short explanation summaries.
 
 ## Maria’s two turns
 

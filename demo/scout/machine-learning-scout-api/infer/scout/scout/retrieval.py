@@ -5,7 +5,7 @@ from retrieval_utils.index_name import IndexName
 
 
 class Retrieval(BaseRetrieval):
-    """Luna query retrieval over a saved index, restricted to the permitted rows."""
+    """Query retrieval over a saved index, restricted to the permitted rows."""
 
     def __init__(self, index, ordered_embedding_ids, embedder):
         self.index = index

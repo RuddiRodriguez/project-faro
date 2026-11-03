@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from nemo.retrieval.search_predictor_output import SearchPredictorOutput
-from nemo.retrieval.inputs.search_input import SearchInput
-from nemo.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
-from nemo.retrieval.search_validator import Validator
+from knowledge_search.retrieval.search_predictor_output import SearchPredictorOutput
+from knowledge_search.retrieval.inputs.search_input import SearchInput
+from knowledge_search.retrieval.knowledge_base_retriever import KnowledgeBaseRetriever
+from knowledge_search.retrieval.search_validator import Validator
 
 
 class Predictor:
