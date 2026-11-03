@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
-cd /home/site/wwwroot
+cd "$(dirname "$0")"
 
 # Keep local service imports tied to the deployed files, not Oryx's build folder.
-export PYTHONPATH="$PWD/api_objects:$PWD/utils"
+export PYTHONPATH="$PWD/api_objects:$PWD/utils${PYTHONPATH:+:$PYTHONPATH}"
 for service in */machine-learning-*-api; do
     export PYTHONPATH="$PYTHONPATH:$PWD/$service"
     for library in "$service"/infer/*; do
