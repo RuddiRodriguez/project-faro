@@ -1,0 +1,25 @@
+name: Read Faro Azure logs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  logs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: acc16dca-79a7-4a14-b500-9e8c9d70d090
+          tenant-id: 9791fee6-dfb4-4fbc-ba9e-01a36042aae2
+          subscription-id: d4c8199a-634d-492a-8b97-6b61d7c83ec4
+      - name: Download startup logs
+        run: az webapp log download -g faro-demo-rg -n faro-ruddigarcia-demo --log-file azure-logs.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: azure-logs
+          path: azure-logs.zip
+          retention-days: 1

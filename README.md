@@ -142,5 +142,25 @@ the account's current permissions and the saved file's fingerprint. The browser 
 supplies a file path. The UI adds no model calls or answer cache.
 
 Install the web dependency with `demo/venv/bin/python -m pip install streamlit==1.66.1`
-if the environment was created before this screen was added. Azure settings, cloud
-storage and deployment are deferred until the local demo has been reviewed.
+if the environment was created before this screen was added.
+
+### Azure demo
+
+`.github/workflows/azure-deploy.yml` deploys the tracked `demo/` files to the
+`faro-ruddigarcia-demo` Linux Web App. It runs on changes to the demo on `main`,
+or manually from GitHub Actions. The Linux requirements use CPU-only PyTorch.
+Local `.env` files, environments and saved conversations are not packaged.
+
+GitHub signs in through an Azure identity restricted to this Web App. The trust
+matches this repository's permanent IDs and its `main` branch. No Azure password
+or publish profile is stored in the repository.
+
+`demo/start_azure.sh` starts the same ten APIs privately and exposes only the
+Streamlit screen on port 8000. The first start downloads the pinned search model.
+The model, search indexes, saved turns and source copies are kept under
+`/home/faro`, so they survive application deployments. The demo source files are
+included with the application. Account selection remains a demo sign-in.
+
+The OpenAI key is an Azure application setting. The optional encrypted GitHub
+secret `FARO_OPENAI_API_KEY` transfers it to Azure during deployment; removing
+that secret afterward leaves the Azure setting in place. Never commit the key.
