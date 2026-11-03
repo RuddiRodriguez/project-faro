@@ -1,0 +1,60 @@
+name: Deploy Faro to Azure
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'demo/**'
+      - '.github/workflows/azure-deploy.yml'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: faro-azure
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.15'
+      - name: Install and check Linux dependencies
+        working-directory: demo
+        run: |
+          python -m pip install -r requirements-linux.txt
+          python -m pip check
+          python -m unittest discover -s tests -p test_sector_stress.py -v
+      - name: Package tracked demo files
+        run: |
+          mkdir "$RUNNER_TEMP/faro"
+          git archive HEAD:demo | tar -x -C "$RUNNER_TEMP/faro"
+          cd "$RUNNER_TEMP/faro"
+          mv requirements.txt requirements-base.txt
+          sed 's/-r requirements.txt/-r requirements-base.txt/' requirements-linux.txt > requirements.txt
+          zip -qr "$RUNNER_TEMP/faro.zip" .
+      - uses: azure/login@v2
+        with:
+          client-id: acc16dca-79a7-4a14-b500-9e8c9d70d090
+          tenant-id: 9791fee6-dfb4-4fbc-ba9e-01a36042aae2
+          subscription-id: d4c8199a-634d-492a-8b97-6b61d7c83ec4
+      - name: Configure Faro startup
+        run: |
+          az webapp config set -g faro-demo-rg -n faro-ruddigarcia-demo --startup-file 'bash start_azure.sh' --output none
+          az webapp config appsettings set -g faro-demo-rg -n faro-ruddigarcia-demo --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true WEBSITES_CONTAINER_START_TIME_LIMIT=1800 --output none
+      - name: Save OpenAI key in Azure
+        env:
+          OPENAI_API_KEY: ${{ secrets.FARO_OPENAI_API_KEY }}
+        run: |
+          if [ -n "$OPENAI_API_KEY" ]; then
+            az webapp config appsettings set -g faro-demo-rg -n faro-ruddigarcia-demo --settings "OPENAI_API_KEY=$OPENAI_API_KEY" --output none
+          fi
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: faro-ruddigarcia-demo
+          package: ${{ runner.temp }}/faro.zip

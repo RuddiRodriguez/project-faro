@@ -2,6 +2,15 @@
 set -e
 cd /home/site/wwwroot
 
+# Keep local service imports tied to the deployed files, not Oryx's build folder.
+export PYTHONPATH="$PWD/api_objects:$PWD/utils"
+for service in */machine-learning-*-api; do
+    export PYTHONPATH="$PYTHONPATH:$PWD/$service"
+    for library in "$service"/infer/*; do
+        export PYTHONPATH="$PYTHONPATH:$PWD/$library"
+    done
+done
+
 export FARO_WEB_HOST=0.0.0.0
 export FARO_WEB_PORT=8000
 export FARO_MODEL_PATH=/home/faro/scout_e5
