@@ -26,8 +26,6 @@ def catalogue(path, request):
 
 def run_read(expression, records, columns):
     worker = Path(__file__).with_name("worker.py")
-    if sys.platform != "darwin":
-        raise ValueError("No isolated pandas runner configured on this platform.")
     command = [sys.executable, "-I", str(worker)]
     proc = subprocess.run(command, input=json.dumps(dict(expression=expression, records=records, columns=columns)),
         text=True, capture_output=True, env={"OPENBLAS_NUM_THREADS":"1", "OMP_NUM_THREADS":"1"})

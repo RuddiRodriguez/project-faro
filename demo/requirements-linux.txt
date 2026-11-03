@@ -1,0 +1,3 @@
+# Run from demo/: python -m pip install -r requirements-linux.txt
+# Reuse the service dependencies; do not copy packages from the macOS environment.
+-r requirements.txt

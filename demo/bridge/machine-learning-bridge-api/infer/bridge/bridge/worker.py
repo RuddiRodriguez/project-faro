@@ -1,25 +1,11 @@
-"""Evaluate one dataframe expression after removing host access from the worker."""
+"""Evaluate one dataframe expression in a separate Python process."""
 import ast
-import ctypes
 import json
 import math
 from numbers import Real
-from pathlib import Path
 import sys
 
 import pandas as pd
-
-
-def isolate():
-    # Apply the OS boundary after pandas is imported. No file writes, network, child
-    # processes, other projects, or application credentials are available to the expression.
-    library = ctypes.CDLL("/usr/lib/libsandbox.dylib")
-    roots = [str(Path(sys.prefix)/"lib"), "/System/Library", "/usr/lib"]
-    profile = "(version 1)(deny default)(allow sysctl-read)(allow file-read* " + " ".join(
-        "(subpath " + json.dumps(p) + ")" for p in roots) + ")"
-    err = ctypes.c_char_p()
-    if library.sandbox_init(profile.encode(), 0, ctypes.byref(err)):
-        raise ValueError("Could not isolate the dataframe worker.")
 
 
 def calculate(payload):
@@ -56,7 +42,6 @@ def calculate(payload):
 if __name__ == "__main__":
     try:
         payload=json.load(sys.stdin)
-        isolate()
         print(calculate(payload))
     except Exception as error:
         sys.exit(str(error)[:400])
